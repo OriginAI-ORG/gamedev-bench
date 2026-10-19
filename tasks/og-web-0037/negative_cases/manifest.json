@@ -1,0 +1,5 @@
+[
+ {"fault":"instant-acceleration","must_fail_check":"physics-contract","mutation":{"file":"component.js","find":"p.acceleration=.25","replace":"p.acceleration=1"}},
+ {"fault":"no-friction","must_fail_check":"physics-contract","mutation":{"file":"component.js","find":"p.friction=.1","replace":"p.friction=0"}},
+ {"fault":"delta-weight","must_fail_check":"physics-contract","mutation":{"file":"component.js","find":"*p.acceleration:","replace":"*p.acceleration*dt:"}}
+]

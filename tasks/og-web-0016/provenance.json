@@ -1,0 +1,11 @@
+{
+  "version": "1.0.0",
+  "source_kind": "OriginGameDevBench",
+  "source_resolution": "The individual archive is recorded in task.json source.",
+  "review": "docs/task-reviews/data-components.md",
+  "scope": "Individual requirement comparisons and repair decisions are recorded by task ID in the review.",
+  "equivalence_limits": "Browser objects, events and supplied fixtures replace native resource integration. Exact API and deterministic shuffle requirements are disclosed additions; no equal-difficulty claim.",
+  "prior_results_valid_for_this_version": false,
+  "id": "og-web-0016",
+  "source_record": "configs/source-index.json#og-web-0016"
+}

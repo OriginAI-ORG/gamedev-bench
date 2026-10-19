@@ -1,0 +1,25 @@
+{
+  "id": "og-web-0064",
+  "version": "1.0.0",
+  "prompt": "prompt.md",
+  "prompt_zh": "prompt_zh.md",
+  "title": "精灵方向与动画 / AnimatedSprite2D Sprite Sheet Slicing",
+  "entry": "index.html",
+  "contract": "webgame-dino-animation-v2",
+  "source": "configs/source-index.json#og-web-0064",
+  "public_verifier": "public-check.mjs",
+  "rights": "Unchanged supplied source image; attribution and evidence in assets.json. Browser fixture authored locally.",
+  "generation_budget": {
+    "wall_seconds": 1200,
+    "max_observable_tool_calls": 30
+  },
+  "acceptance_budget": {
+    "wall_seconds": 180
+  },
+  "family": "sprite",
+  "migration_grade": "B",
+  "v1": true,
+  "source_kind": "OriginGameDevBench",
+  "benchmark": "OriginGameDevBench",
+  "taskkit": "OriginGameDevBench"
+}

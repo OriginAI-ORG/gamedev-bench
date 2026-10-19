@@ -1,0 +1,1 @@
+import assert from 'node:assert/strict';export async function runPublicCheck(page,url,record=()=>{}){await page.goto(url);await page.locator('#up').click();await page.locator('#probe').click();assert.equal(await page.locator('#hit').innerText(),'Area detected');assert.match(await page.locator('#status').innerText(),/^up/);record({direction:'up',area:true});}

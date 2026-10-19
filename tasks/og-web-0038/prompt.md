@@ -1,0 +1,10 @@
+# Assemble an eight-direction animated character
+
+Complete `component.js` in the supplied browser scene in `game/`; retain `index.html`. The package includes separate Crusader idle, run and walk images, typed sprite/clip helpers, playback and collision inspection.
+
+- **R1 — Player setup.** Export `configurePlayer(player, services)`, configure and return the same player. Set `motionMode = 'floating'`. Assign a supplied Sprite with default animation `idle0`, initial frame 0 and `speedScale = 2`.
+- **R2 — Complete sequences.** Create `idle0` through `idle7` and `run0` through `run7` as supplied Clip objects. Use all 16 idle images or all 17 run images for each direction, in increasing frame-number order, from `assets/idle/` and `assets/run/`. Each entry is a supplied Frame referencing a complete individual image, with no crop. Cover all 8 source directions exactly once per action, and pair the same source direction between idle and run at each index. This task permits any consistent direction-index ordering. Clips loop at a base rate of 5 FPS; the sprite's scale makes playback 10 FPS. Do not use the walk images for run.
+- **R3 — Feet collision.** Assign a supplied RectangleCollider with `size = [66, 24]` and `position = [7, 44]`, measured from the center of the untrimmed image. Keep its hit testing active.
+- **R4 — Inspection.** Preserve the Direction controls, Idle/Run, Pause / Play, Advance 0.1 s, Probe pointer and Reset. The initial preview is paused on frame 0; selecting an action/direction starts real-time playback. Show the actual untrimmed image at its original 299×240 size, with the collider over the feet. Reset restores idle0/frame 0 and fresh configuration. Keep the supplied art attribution and license.
+
+Acceptance checks complete and distinct directional sequences, idle/run agreement, source image use, frame order, loop/rate/scale, typed components, collider position and boundary behavior, actual pixels, elapsed-time playback and reset. The public example selects Run. Do not modify checks or fabricate results.

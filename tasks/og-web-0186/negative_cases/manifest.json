@@ -1,0 +1,1 @@
+[{"fault":"append-instead-of-original-index","must_fail_check":"placement","mutation":{"file":"hand.js","find":"others[index]??null","replace":"null"}},{"fault":"wrong-drag-parent","must_fail_check":"placement","mutation":{"file":"placement.js","find":"card.scene.getByGroup(card.config.dragGroup)","replace":"card.homeParent"}}]

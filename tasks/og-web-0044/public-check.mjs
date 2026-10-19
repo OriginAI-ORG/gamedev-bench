@@ -1,0 +1,1 @@
+import assert from 'node:assert/strict';export async function runPublicCheck(page,url,record=()=>{}){await page.goto(url);await page.locator('#length').fill('3');await page.locator('#length').dispatchEvent('change');assert.match(await page.locator('#status').innerText(),/sprites 3 · shapes 3 · detectors 3/);record({length:3});}

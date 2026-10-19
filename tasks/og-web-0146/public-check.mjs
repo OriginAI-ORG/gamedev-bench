@@ -1,0 +1,2 @@
+import assert from 'node:assert/strict';
+export async function runPublicCheck(page,url,record=()=>{}){await page.goto(url);await page.waitForFunction(()=>document.querySelector('#status').textContent.includes('px'));const before=await page.locator('#scene').screenshot();await page.locator('#advance').click();assert.ok(!before.equals(await page.locator('#scene').screenshot()),'Pursuer moves visibly');record({action:'visible-pursuit'});return[{id:'visible-pursuit',passed:true}];}

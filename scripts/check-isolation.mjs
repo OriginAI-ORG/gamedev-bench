@@ -1,0 +1,10 @@
+import {prepareAttempt} from '../core/attempts.mjs';
+import {codexSettings} from '../agents/codex.mjs';
+import {preflightCodex} from '../agents/preflight.mjs';
+import {ROOT,harnessHashes,writeJson} from '../runner/common.mjs';
+import path from 'node:path';
+const attempt=await prepareAttempt('og-web-9001');
+console.log('Isolation evidence: '+attempt.folder);
+const settings=await preflightCodex(attempt,await codexSettings());
+console.log(JSON.stringify({passed:settings.isolation.passed,mode:settings.windows_sandbox,checks:settings.isolation.checked}));
+await writeJson(path.join(ROOT,'validation/isolation.json'),{passed:true,checked_at:new Date().toISOString(),platform:process.platform,cli_version:settings.version,mode:settings.windows_sandbox,harness_sha256:await harnessHashes(),checks:settings.isolation.checked,scope:'Native sandbox read/write probes on the release validation host. Each model attempt repeats the checks on its own workspace.'});

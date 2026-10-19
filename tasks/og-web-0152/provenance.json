@@ -1,0 +1,27 @@
+{
+  "id": "og-web-0152",
+  "version": "1.0.0",
+  "review": "docs/task-reviews/tank-hud.md",
+  "removed": [
+    "Direct clickable pickups",
+    "Invented1000ms reload",
+    "Solid rectangle ammo replacement"
+  ],
+  "restored": [
+    "Game composition and tank_node/status_ui identity",
+    "125 points,0.2 step,500ms reload",
+    "Original ammo image and world layout",
+    "Weapon/pickup/tank/HUD event chain"
+  ],
+  "replaced": [
+    "Native events with browser events",
+    "Scene entry with browser module composition"
+  ],
+  "added": [
+    "Provided atlas crop configuration",
+    "Event isolation,cleanup and texture checks"
+  ],
+  "prior_results_valid_for_this_version": false,
+  "source_kind": "OriginGameDevBench",
+  "source_record": "configs/source-index.json#og-web-0152"
+}

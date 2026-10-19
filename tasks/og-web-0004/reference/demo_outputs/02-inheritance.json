@@ -1,0 +1,1 @@
+{"scenario":"inheritance","duration_frames":240,"events":[{"frame":30,"type":"key_press","keycode":"RIGHT"},{"frame":75,"type":"key_press","keycode":"RIGHT"},{"frame":120,"type":"key_press","keycode":"Z"},{"frame":150,"type":"key_press","keycode":"RIGHT"},{"frame":180,"type":"key_press","keycode":"RIGHT"},{"frame":210,"type":"key_press","keycode":"RIGHT"}]}

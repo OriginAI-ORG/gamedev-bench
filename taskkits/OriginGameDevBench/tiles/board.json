@@ -1,0 +1,6 @@
+{"name":"Arena","children":[
+ {"type":"layer","name":"GameArea","position":[160,32],"tileset":"tileset.json","cells":[[0,0,0,0],[1,0,1,0],[2,0,0,0],[3,0,1,0],[4,0,0,0],[5,0,1,0],[0,1,1,0],[1,1,0,0],[2,1,1,0],[3,1,0,0],[4,1,1,0],[5,1,0,0],[0,2,0,0],[1,2,1,0],[2,2,0,0],[3,2,1,0],[4,2,0,0],[5,2,1,0],[0,3,1,0],[1,3,0,0],[2,3,1,0],[3,3,0,0],[4,3,1,0],[5,3,0,0]],"children":[
+  {"type":"layer","name":"Decor","tileset":"tileset.json","cells":[[2,1,2,17]]},
+  {"type":"layer","name":"Highlight","tileset":"tileset.json","cells":[]}]},
+ {"type":"layer","name":"Bench","position":[160,320],"tileset":"tileset.json","cells":[[0,0,0,2],[1,0,0,2],[2,0,0,2],[3,0,0,2],[4,0,0,2],[5,0,0,2]],"children":[{"type":"layer","name":"Highlight","position":[160,32],"tileset":"tileset.json","cells":[]}]}
+]}

@@ -1,0 +1,27 @@
+{
+  "id": "og-web-0155",
+  "version": "1.0.0",
+  "review": "docs/task-reviews/tank-hud.md",
+  "source_baseline_defect": "Source already includes complete game/HUD/events and correct main scene; restoration instruction has no verified missing implementation",
+  "removed": [
+    "Direct clickable pickups",
+    "Invented1000ms reload",
+    "Blank full implementation task"
+  ],
+  "restored": [
+    "Provided completed components",
+    "hero_tank/scoreboard identity,60 points,0.2 step,500ms reload",
+    "Original whole-image texture layers and world layout"
+  ],
+  "replaced": [
+    "Already-complete source exercise with explicit game-binding repair exercise"
+  ],
+  "added": [
+    "Intentionally disconnected starter subscriptions",
+    "Event isolation,cleanup and visible texture progression"
+  ],
+  "difficulty_equivalence": "Not claimed: source task baseline is already complete",
+  "prior_results_valid_for_this_version": false,
+  "source_kind": "OriginGameDevBench",
+  "source_record": "configs/source-index.json#og-web-0155"
+}

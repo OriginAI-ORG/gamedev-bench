@@ -1,0 +1,2 @@
+export function createPlayer({Body,Sprite,RectangleCollider}){const p=new Body();p.name='Player';p.sprite=new Sprite('tileYellow_02.png');p.collider=new RectangleCollider([32,68]);p.speed=1200;p.jumpSpeed=-1800;p.gravity=4000;return p;}
+export function physicsStep(p,input,dt){p.velocity[1]+=p.gravity*dt;p.velocity[0]=input.getAxis()*p.speed;p.moveAndSlide(dt);if(input.justPressed('jump')&&p.isOnFloor())p.velocity[1]=p.jumpSpeed;}

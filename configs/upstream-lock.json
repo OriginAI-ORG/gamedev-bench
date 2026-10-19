@@ -1,0 +1,48 @@
+[
+  {
+    "name": "analog-design-bench",
+    "repository": "https://github.com/Arcadia-1/analog-design-bench",
+    "commit": "972f7cd7c95381134387b250edf18f3bd23bdd25",
+    "source_path": "tasks/sky130-switched-capacitor-2to1-converter-pvt/tests/utils.py",
+    "license": "Apache-2.0",
+    "retained_symbols": [
+      "write_results"
+    ],
+    "vendored_path": "vendor/analog_results.py",
+    "source_sha256": "8f9909aa283429e11d3d5b55b33d5e55d5c54f4bad33aaa599f1c8a35a99e299",
+    "vendored_sha256": "90d2802e08fdd007fa3b2d21e30f8466e8727d1f2bf082df586d43bbe0493c06",
+    "modification": "Function/class bodies unchanged; module narrowed to selected helpers."
+  },
+  {
+    "name": "gamecraft-bench",
+    "repository": "https://github.com/FreedomIntelligence/gamecraft-bench",
+    "commit": "a43347534374df9a0c1a6c001aa9380862783f6d",
+    "source_path": "gamecraft_bench/verifier/score.py",
+    "license": "Apache-2.0",
+    "retained_symbols": [
+      "FormulaError",
+      "_BINOPS",
+      "_UNARYOPS",
+      "_eval_node",
+      "_safe_eval_formula"
+    ],
+    "vendored_path": "vendor/score_formula.py",
+    "source_sha256": "e41dd63d203e468e54d2fd97a97115b7fcf24b14bfde1bdf5871ae7ffbc4b0ec",
+    "vendored_sha256": "15d407cdee18dccca9be7258307d9f77530a0c8869b4e25e320664899025841d",
+    "modification": "Function/class bodies unchanged; module narrowed to selected helpers."
+  },
+  {
+    "name": "gamedevbench",
+    "repository": "https://github.com/waynchi/gamedevbench",
+    "commit": "48488b8ed70a3a1b1108f9062ba1774deb75b07a",
+    "source_path": "gamedevbench/src/utils/data_types.py",
+    "license": "Apache-2.0",
+    "retained_symbols": [
+      "ValidationResult"
+    ],
+    "vendored_path": "vendor/validation_results.py",
+    "source_sha256": "55537c627acf811f9f9544152a09ea11a55a025faea91858bb3fd956b7498c8a",
+    "vendored_sha256": "4e61c0fa0973728da6afd4d1dc366563c35b5fd7fe6a8719f7ec8c95366aca34",
+    "modification": "Function/class bodies unchanged; module narrowed to selected helpers."
+  }
+]

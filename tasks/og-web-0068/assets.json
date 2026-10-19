@@ -1,0 +1,13 @@
+{
+  "task": "og-web-0068",
+  "source_archive": "configs/source-index.json#og-web-0068",
+  "source_art_redistributed": true,
+  "embedded_assets": [
+    {
+      "file": "tiles.png",
+      "sha256": "d0c7132645fb61d1bf33037103a55681382ebf979da1f525371b8a24f93a5ccb",
+      "modified": false
+    }
+  ],
+  "license_evidence": "vendor/gamedevbench.LICENSE"
+}

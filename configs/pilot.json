@@ -1,0 +1,57 @@
+{
+  "project": "webgame-benchmark",
+  "current_track": "webgame",
+  "pilot": "2026-10-09-local-webgame",
+  "timezone": "Asia/Taipei",
+  "tasks": [
+    "og-web-9001",
+    "og-web-9002"
+  ],
+  "configurations": [
+    {
+      "id": "model-a",
+      "model": null,
+      "agent": null,
+      "status": "unconfigured"
+    },
+    {
+      "id": "model-b",
+      "model": null,
+      "agent": null,
+      "status": "unconfigured"
+    }
+  ],
+  "repeats_per_pair": 2,
+  "planned_formal_attempts": 8,
+  "formal_attempts_started": 0,
+  "concurrency": 1,
+  "generation_budget": {
+    "wall_seconds": 1200,
+    "max_response_tool_rounds": 30,
+    "status": "wall-time-and-observable-tool-cap-implemented; exact-response-round-cap-pending",
+    "enforced_observable_tool_calls": 30
+  },
+  "acceptance_budget": {
+    "wall_seconds": 180
+  },
+  "api_spending_authorized": false,
+  "remote_deployment_authorized": false,
+  "remote_deployment_scope": "Local development only; obsolete AutoDL plan is excluded from v1.",
+  "agent_filesystem_isolation": "not-validated",
+  "current_session_sample": {
+    "configuration": "current-codex-conversation",
+    "classification": "development-workflow-sample",
+    "counts_toward_formal_eight": false,
+    "model_exact_id": null,
+    "token_usage": null,
+    "reason": "Same conversation authors task and evaluator; not an independent blinded generation attempt."
+  },
+  "local_model_workflow": {
+    "adapter": "codex-cli",
+    "authentication": "existing-local-login",
+    "command": "npm run attempt -- run TASK",
+    "classification": "agent-development-attempt",
+    "formal_eligible": false,
+    "training_export_allowed": false
+  }
+}

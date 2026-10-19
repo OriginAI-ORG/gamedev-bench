@@ -1,0 +1,49 @@
+{
+  "source_kind": "OriginGameDevBench",
+  "source_integrity": {
+    "instruction_sha256": "21c7fb307630d56b535d6e60364fb7e8373116465ca77aa2a52ce1b5431e4798",
+    "rubric_sha256": "318cb02620a0957a3e930f67f33b86abc0a4caa2a3fa8f1d93ddc0200fd33023",
+    "source_criteria": [
+      "M1",
+      "M2",
+      "M3",
+      "M4",
+      "M5",
+      "D1",
+      "D2",
+      "D3",
+      "D4",
+      "D5",
+      "V1",
+      "V2",
+      "V3",
+      "V4",
+      "A1",
+      "A2",
+      "A3",
+      "A4"
+    ]
+  },
+  "version": "1.0.0",
+  "scope": "Restore complete dice-building roguelike:seeded face sampling,locks/two rerolls,all four basic face effects,visible enemy dice,eight real modifications,six ordinary enemy configurations,branching combat/elite/shop/rest map,new dice,loot,custom-face boss and full results/presentation.",
+  "removed_previous_requirements": [
+    "One repeatable enemy as the whole game",
+    "Canned dice sequence",
+    "Sword/shield/heart-only simplified resolution"
+  ],
+  "replacements": [
+    "Native launch/input recordings become browser launch and real browser input traces",
+    "Unavailable mounted asset libraries become optional generated fantasy/dice artwork"
+  ],
+  "added_requirements": [
+    "Concrete face/item/enemy values and13-node map",
+    "Exact seeded random algorithm and effect ordering",
+    "Exported simulation,stable selectors and deterministic scenario fixtures"
+  ],
+  "equivalence_limits": "All core systems and18 weighted criteria are restored,but fixed balancing/content/interfaces constrain original design freedom. Browser engineering differs from native editor work. No identical-difficulty,original benchmark score or automatic full-art claim is made.",
+  "review": "docs/task-reviews/dice-throne.md",
+  "implementation": "Directly authored local code,bilingual prompts and tests. Independent legal play through the full route succeeds for three seeds without replacing combat results.",
+  "scoring": "Full15/35/15/35 category weights; unreviewed manual scores remain null.",
+  "id": "og-web-0005",
+  "source_record": "configs/source-index.json#og-web-0005"
+}

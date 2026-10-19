@@ -1,0 +1,29 @@
+{
+  "id": "og-web-0143",
+  "name": "Enemy障碍追踪Target",
+  "title": "Enemy障碍追踪Target",
+  "version": "1.0.0",
+  "prompt_zh": "prompt_zh.md",
+  "contract": "webgame-continuous-pursuit-v2",
+  "benchmark": "OriginGameDevBench",
+  "kind": "existing-game-feature",
+  "entry": "index.html",
+  "entrypoint": "index.html",
+  "prompt": "prompt.md",
+  "starter": "starter",
+  "public_verifier": "public-check.mjs",
+  "private_verifier": "verifier/scenarios.mjs",
+  "reference": "reference",
+  "family": "obstacle-chase",
+  "estimated_minutes": 25,
+  "source": "configs/source-index.json#og-web-0143",
+  "generation_budget": {
+    "wall_seconds": 1200,
+    "max_observable_tool_calls": 30
+  },
+  "acceptance_budget": {
+    "wall_seconds": 180
+  },
+  "source_kind": "OriginGameDevBench",
+  "taskkit": "OriginGameDevBench"
+}

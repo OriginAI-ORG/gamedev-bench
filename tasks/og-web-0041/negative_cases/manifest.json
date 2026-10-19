@@ -1,0 +1,6 @@
+[
+ {"fault":"missing-heading-offset","must_fail_check":"deferred-projection","mutation":{"file":"component.js","find":"this.player.rotation+Math.PI/2","replace":"this.player.rotation"}},
+ {"fault":"wrong-offscreen-scale","must_fail_check":"deferred-projection","mutation":{"file":"component.js","find":"inside?1:.75","replace":"inside?1:.5"}},
+ {"fault":"wrong-zoom-clamp","must_fail_check":"zoom-removal","mutation":{"file":"component.js","find":"Math.max(.5,Math.min(5,value))","replace":"Math.max(1,Math.min(4,value))"}},
+ {"fault":"disconnected-removal","must_fail_check":"zoom-removal","mutation":{"file":"world.js","find":"const listener=event=>minimap.removeObject(event.detail);","replace":"const listener=event=>{};"}}
+]

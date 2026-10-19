@@ -1,0 +1,1 @@
+export function createPanel(root,{TexturePanel,material,texture}){const panel=new TexturePanel();panel.anchors=[0,0,1,1];panel.offsets=[0,0,0,0];panel.growX='both';panel.growY='both';panel.material=material;panel.texture=texture;root.append(panel.element);return panel;}

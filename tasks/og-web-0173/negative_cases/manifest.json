@@ -1,0 +1,5 @@
+[
+ {"fault":"missing-enter-forwarding","must_fail_check":"forwarding","mutation":{"file":"forwarding.js","find":"detector.addEventListener('area-entered',entered)","replace":"detector.addEventListener('unused',entered)"}},
+ {"fault":"missing-exit-forwarding","must_fail_check":"forwarding","mutation":{"file":"forwarding.js","find":"detector.addEventListener('area-exited',exited)","replace":"detector.addEventListener('unused',exited)"}},
+ {"fault":"leaked-forwarding-listener","must_fail_check":"forwarding","mutation":{"file":"forwarding.js","find":"detector.removeEventListener('area-entered',entered)","replace":"detector.removeEventListener('unused',entered)"}}
+]

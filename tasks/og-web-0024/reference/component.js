@@ -1,0 +1,1 @@
+export function configureTrap(trap,Node){const holder=trap.add(new Node('SpawningPoints'));holder.add(new Node('SpawnTop',{position:[0,15]}));holder.add(new Node('SpawnBot',{position:[0,-15],z:1}));return holder;}

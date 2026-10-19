@@ -1,0 +1,1 @@
+import assert from 'node:assert/strict';export async function runPublicCheck(page,url,record=()=>{}){await page.goto(url);await page.keyboard.press('f');assert.equal(await page.locator('#bag').innerText(),'Test Cube');record({picked:'Test Cube'});}

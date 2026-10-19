@@ -1,0 +1,5 @@
+[
+ {"fault":"wrong-actor-binding","must_fail_check":"wiring","mutation":{"file":"component.js","find":"{actor,debugLabel:label}","replace":"{actor:document.body,debugLabel:label}"}},
+ {"fault":"detached-label-binding","must_fail_check":"updates","mutation":{"file":"component.js","find":"debugLabel:label","replace":"debugLabel:label.cloneNode(true)"}},
+ {"fault":"wrong-label-offset","must_fail_check":"layout","mutation":{"file":"component.js","find":"left:-65px","replace":"left:-35px"}}
+]

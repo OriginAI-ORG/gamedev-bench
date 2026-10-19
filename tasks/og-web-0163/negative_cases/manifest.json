@@ -1,0 +1,7 @@
+[
+ {"fault":"wrong-detector-mask","must_fail_check":"dynamic-stats","mutation":{"file":"component.js","find":"this.collisionMask=2-stats.team","replace":"this.collisionMask=1"}},
+ {"fault":"reuse-circle","must_fail_check":"dynamic-stats","mutation":{"file":"component.js","find":"this.colShape.shape={type:'circle',radius:this.baseRangeSize*stats.attackRange}","replace":"this.colShape.shape??={type:'circle',radius:this.baseRangeSize*stats.attackRange}"}},
+ {"fault":"range-only-target-search","must_fail_check":"global-targets","mutation":{"file":"component.js","find":"this.scene.getNodesInGroup(UnitStats.TARGET[this.actor.stats.team])","replace":"this.targetsInRange"}},
+ {"fault":"duplicate-range-member","must_fail_check":"range-events","mutation":{"file":"component.js","find":"||this.targetsInRange.includes(unit)","replace":""}},
+ {"fault":"missing-stats-forwarding","must_fail_check":"assembly","mutation":{"file":"bindings.js","find":"else unit.detectRange.stats=unit.stats","replace":"else void unit"}}
+]

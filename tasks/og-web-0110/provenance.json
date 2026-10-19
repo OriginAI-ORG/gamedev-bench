@@ -1,0 +1,25 @@
+{
+  "id": "og-web-0110",
+  "version": "1.0.0",
+  "review": "docs/task-reviews/collectible-overlays.md",
+  "removed": [
+    "Simplified generated image",
+    "Visual-complexity exemption"
+  ],
+  "restored": [
+    "Original image and six circular overlays",
+    "90% geometric IoU",
+    "Parent position55.5,5 and original unit scale"
+  ],
+  "replaced": [
+    "Native scene shapes with declarative SVG polygons"
+  ],
+  "added": [
+    "Group transforms included in coverage",
+    "One-to-one matching independent of numbering",
+    "Original file hashes and actual overlay pixel checks"
+  ],
+  "prior_results_valid_for_this_version": false,
+  "source_kind": "OriginGameDevBench",
+  "source_record": "configs/source-index.json#og-web-0110"
+}

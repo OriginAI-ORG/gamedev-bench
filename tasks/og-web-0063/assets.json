@@ -1,0 +1,13 @@
+{
+  "task": "og-web-0063",
+  "source_archive": "configs/source-index.json#og-web-0063",
+  "source_art_redistributed": true,
+  "embedded_assets": [
+    {
+      "file": "tilemap.png",
+      "sha256": "75c4eb86e8ceba008cd73bfd839609e91de1ab32686ccd34dff904cfd39883ed",
+      "modified": false
+    }
+  ],
+  "license_evidence": "vendor/gamedevbench.LICENSE"
+}

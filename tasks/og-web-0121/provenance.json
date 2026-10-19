@@ -1,0 +1,25 @@
+{
+  "id": "og-web-0121",
+  "version": "1.0.0",
+  "review": "docs/task-reviews/collectible-overlays.md",
+  "removed": [
+    "Generated raster replacement",
+    "Forced cyan fill and0.45 alpha"
+  ],
+  "restored": [
+    "Original illustrated level and star contour",
+    "Image local offset0,-0.76923084",
+    "At least10 vertices,semi-transparency,85% IoU",
+    "Parent53,5.5 scale0.65 rotation0"
+  ],
+  "replaced": [
+    "Native scene polygons with declarative SVG geometry"
+  ],
+  "added": [
+    "Containing-group transform in coverage",
+    "Original-image hash and actual pixel probes"
+  ],
+  "prior_results_valid_for_this_version": false,
+  "source_kind": "OriginGameDevBench",
+  "source_record": "configs/source-index.json#og-web-0121"
+}

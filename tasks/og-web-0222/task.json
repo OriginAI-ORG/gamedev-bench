@@ -1,0 +1,29 @@
+{
+  "id": "og-web-0222",
+  "name": "营火烟带：Steam Vent",
+  "title": "营火烟带：Steam Vent",
+  "version": "1.0.0",
+  "prompt_zh": "prompt_zh.md",
+  "contract": "webgame-smoke-material-assembly-v2",
+  "benchmark": "OriginGameDevBench",
+  "kind": "existing-game-feature",
+  "entry": "index.html",
+  "entrypoint": "index.html",
+  "prompt": "prompt.md",
+  "starter": "starter",
+  "public_verifier": "public-check.mjs",
+  "private_verifier": "verifier/scenarios.mjs",
+  "reference": "reference",
+  "family": "smoke-trails",
+  "estimated_minutes": 35,
+  "source": "configs/source-index.json#og-web-0222",
+  "generation_budget": {
+    "wall_seconds": 1200,
+    "max_observable_tool_calls": 30
+  },
+  "acceptance_budget": {
+    "wall_seconds": 180
+  },
+  "source_kind": "OriginGameDevBench",
+  "taskkit": "OriginGameDevBench"
+}

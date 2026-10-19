@@ -1,0 +1,32 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>方格搬运 · 会话样例</title>
+<style>
+body{font:16px system-ui;margin:0;background:#edf2f8;color:#192e49;min-height:100vh;display:grid;place-items:center}main{padding:30px;background:white;border-radius:14px;box-shadow:0 12px 40px #20345018}h1{margin:0 0 8px}p{color:#526983}#board{display:grid;gap:3px;margin:22px 0;background:#bccbdd;padding:8px;border-radius:8px}#board>span{display:grid;place-items:center;width:45px;height:45px;background:#f5f8fc;font:700 28px monospace}.wall{background:#536d8b!important;color:white}.target{color:#17724d}.crate{background:#f5cd8c!important}.person{background:#bfdefa!important}button{border:0;padding:12px 20px;background:#235f9c;color:white;border-radius:7px;font:600 16px system-ui}#status{font-weight:bold;color:#17724d}
+</style></head><body><main><h1>方格搬运</h1><p>方向键移动，把箱子推到圆圈上。</p><div>步数 <span id="steps">0</span> · <span id="status">进行中</span></div><div id="board"></div><button>重新开始</button></main>
+<script>
+const input=JSON.parse(new URLSearchParams(location.search).get('map')||'["#######","#     #","# .$@ #","#     #","#######"]');
+const width=input[0].length,initial=input.join('');
+const ground=[...initial].map(ch=>ch==='#'?'#':'.+*'.includes(ch)?'.':' ');
+let state,count;
+function isFinished(){return state.every((ch,i)=>ch!=='$'||ground[i]==='.');}
+function paint(){
+  const board=document.getElementById('board');board.style.gridTemplateColumns='repeat('+width+',45px)';board.innerHTML='';
+  state.forEach((ch,i)=>{
+    const cell=document.createElement('span');cell.dataset.row=Math.floor(i/width);cell.dataset.col=i%width;
+    cell.textContent=ch==='#'?'#':ch==='$'?(ground[i]==='.'?'■':'□'):ch==='@'?(ground[i]==='.'?'⊕':'@'):ground[i]==='.'?'○':'·';
+    cell.className=ch==='#'?'wall':ch==='$'?'crate':ch==='@'?'person':ground[i]==='.'?'target':'';
+    board.append(cell);
+  });
+  document.getElementById('steps').textContent=count;document.getElementById('status').textContent=isFinished()?'胜利':'进行中';
+}
+function restart(){state=[...initial].map(ch=>ch==='*'?'$':ch==='+'?'@':ch==='.'?' ':ch);count=0;paint();}
+function neighbor(i,dr,dc){const r=Math.floor(i/width)+dr,c=i%width+dc;return r>=0&&r<input.length&&c>=0&&c<width?r*width+c:-1;}
+window.addEventListener('keydown',e=>{
+  const dirs={ArrowUp:[-1,0],ArrowDown:[1,0],ArrowLeft:[0,-1],ArrowRight:[0,1]},v=dirs[e.key];
+  if(!v)return;e.preventDefault();if(isFinished())return;
+  const p=state.indexOf('@'),n=neighbor(p,...v);
+  if(n<0||state[n]==='#')return;
+  if(state[n]==='$'){const b=neighbor(n,...v);if(b<0||state[b]==='#'||state[b]==='$')return;state[b]='$';}
+  state[p]=' ';state[n]='@';count++;paint();
+});
+document.querySelector('button').onclick=restart;restart();
+</script></body></html>

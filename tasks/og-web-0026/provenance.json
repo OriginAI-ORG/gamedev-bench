@@ -1,0 +1,11 @@
+{
+  "version": "1.0.0",
+  "source_kind": "OriginGameDevBench",
+  "source_resolution": "The individual archive is recorded in task.json source.",
+  "review": "docs/task-reviews/focus-and-spatial-components.md",
+  "scope": "Individual source scene, supplied-code boundary, reusable component, spatial projection and rendered material comparisons are recorded by task ID.",
+  "equivalence_limits": "Supplied browser projection/WebGL infrastructure replaces native renderer setup. Core component and scene-data obligations remain. No empirical equal-difficulty claim.",
+  "prior_results_valid_for_this_version": false,
+  "id": "og-web-0026",
+  "source_record": "configs/source-index.json#og-web-0026"
+}

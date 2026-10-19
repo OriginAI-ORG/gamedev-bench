@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WebGame · 人工复审</title><link rel="stylesheet" href="/review-assets/review.css"></head>
+<body>
+<header class="masthead"><div><a class="eyebrow" href="/">WEBGAME BENCHMARK</a><h1>人工复审 <span>看结果，也亲手玩</span></h1></div><div class="mast-actions"><span id="review-count" class="muted">读取中…</span><a class="button secondary" href="/">测评进度 ↗</a></div></header>
+<div class="layout">
+<aside class="queue"><div class="queue-head"><h2>复审队列 <span id="available">0</span></h2><input id="search" type="search" placeholder="搜索题号或名称" aria-label="搜索题目"><select id="queue-filter" aria-label="筛选复审队列"><option value="unreviewed">待人工复审</option><option value="all">全部可试玩</option><option value="auto-fail">自动验收未通过</option><option value="reviewed">已人工复审</option></select><p class="muted small">完成的提交会自动加入，未通过优先。</p></div><div id="task-list" class="task-list" aria-label="题目列表"></div><div id="queue-message" class="muted small queue-foot" role="status"></div></aside>
+<main>
+<div id="empty" class="empty"><div class="empty-symbol">▷</div><h2>选一道题，开始试玩</h2><p>左侧会列出已经完成的模型提交。<br>试玩后可以核对要求、查看证据并保存复审。</p></div>
+<article id="workspace" hidden>
+<div class="task-heading"><div><div id="task-id" class="eyebrow"></div><h2 id="task-title"></h2><div class="badges"><span id="auto-result" class="badge"></span><span id="human-result" class="badge"></span><span id="draft-warning" class="badge warning" hidden>未正式提交的最终草稿</span></div></div><button id="next-task" class="secondary">下一道待复审 →</button></div>
+<p class="review-notice">此面板显示当前批次采用的成绩与证据。此前题目的原始成绩及修正后成绩可查看 <a href="/reaccept">原提交重验对比</a>；人工意见单独保存。</p>
+<p id="diagnostic-notice" class="review-notice" hidden>此批次在修复运行器后继续，包含不同运行器版本，仅用于诊断和人工试玩，不作为正式 v1 基线。</p>
+<section class="play-panel" aria-label="游戏试玩">
+<div class="play-toolbar"><div class="toolbar-group"><span class="live-dot"></span><strong>实际试玩</strong><select id="game-case" aria-label="试玩场景"><option value="default">默认场景</option></select></div><div class="toolbar-group"><select id="viewport" aria-label="试玩视口"><option value="desktop">桌面 1280 × 720</option><option value="mobile">窄屏 390 × 844</option></select><button id="reload-game" class="secondary">重新载入</button><button id="fullscreen" class="secondary">放大试玩 ⛶</button></div></div>
+<div id="stage" class="stage"><div id="game-loading" role="status">正在载入游戏…</div><iframe id="game-frame" title="模型提交游戏，可点击和使用键盘试玩" sandbox="allow-scripts" allow="camera 'none'; microphone 'none'; geolocation 'none'; clipboard-read 'none'; clipboard-write 'none'"></iframe></div>
+<div class="play-foot"><span>点击游戏后使用键盘；切换场景或重新载入会重置试玩。</span><span id="game-size"></span></div>
+</section>
+<div class="review-grid">
+<section class="inspection panel"><div class="tabs" role="tablist" aria-label="复审材料"><button id="evidence-tab" role="tab" aria-selected="true" aria-controls="evidence-pane">自动验收与证据</button><button id="requirements-tab" role="tab" aria-selected="false" aria-controls="requirements-pane">题目要求</button></div>
+<div id="evidence-pane" role="tabpanel" aria-labelledby="evidence-tab"><div class="evidence-controls"><label for="evidence-case">验收场景</label><select id="evidence-case"></select><button id="play-case" class="secondary">试玩此场景</button></div><div id="check-summary"></div><pre id="check-message" class="check-message"></pre><div id="evidence-media"></div><details><summary>复现操作</summary><pre id="check-steps"></pre><a id="action-log" target="_blank" rel="noopener" hidden>查看原始操作记录 ↗</a></details></div>
+<div id="requirements-pane" role="tabpanel" aria-labelledby="requirements-tab" hidden><pre id="prompt"></pre></div>
+</section>
+<section class="panel assessment"><div class="panel-heading"><div class="eyebrow">YOUR REVIEW</div><h3>你的复审意见</h3><p class="muted small">判断针对当前这份提交，保存后可继续修改。</p></div><form id="review-form">
+<div class="rating"><label for="playable">能正常操作和游玩</label><select id="playable"><option value="not_checked">未检查</option><option value="pass">是</option><option value="fail">否</option></select></div>
+<div class="rating"><label for="rules">行为符合题目规则</label><select id="rules"><option value="not_checked">未检查</option><option value="pass">是</option><option value="fail">否</option></select></div>
+<div class="rating"><label for="visuals">画面与必要信息可见</label><select id="visuals"><option value="not_checked">未检查</option><option value="pass">是</option><option value="fail">否</option></select></div>
+<label for="verdict">复审结论 <span class="required">*</span></label><select id="verdict" required><option value="">请选择结论</option><option value="looks_good">试玩未发现问题</option><option value="model_issue">确认存在模型实现问题</option><option value="verifier_issue">疑似自动验收误判</option><option value="both">模型与验收均有问题</option><option value="uncertain">暂时无法判断</option></select>
+<label for="notes">具体问题与复现方法</label><textarea id="notes" rows="6" maxlength="6000" placeholder="例如：点击农场后卡牌被移除，下回合重新出现，符合题意；自动验收要求保留 disabled 按钮，疑似误判。"></textarea>
+<label for="reviewer">复审者 <span class="muted">（可选）</span></label><input id="reviewer" maxlength="80" placeholder="本机复审者">
+<div class="save-actions"><button type="submit" id="save-review" class="primary">保存复审</button><button type="button" id="save-next" class="secondary">保存并下一题 →</button></div><p id="save-status" class="small muted" role="status">尚未保存</p>
+</form></section>
+</div><p id="submission-id" class="muted small submission-id"></p>
+</article></main></div>
+<script src="/review-assets/review.js" defer></script>
+</body></html>

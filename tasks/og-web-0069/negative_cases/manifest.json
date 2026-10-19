@@ -1,0 +1,5 @@
+[
+ {"fault":"center-instead-of-tip","must_fail_check":"initial","mutation":{"file":"component.js","find":"position:[4,-15]","replace":"position:[0,0]"}},
+ {"fault":"layer-lost","must_fail_check":"layers","mutation":{"file":"component.js","find":"z:1","replace":"z:0"}},
+ {"fault":"detached-holder","must_fail_check":"component","mutation":{"file":"component.js","find":"return holder;","replace":"holder.parent=null;return holder;"}}
+]

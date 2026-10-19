@@ -1,0 +1,2 @@
+# Preserve the exact bytes used by task/harness SHA-256 validation on every host.
+* -text

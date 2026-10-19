@@ -1,0 +1,1 @@
+export function configureMusic(voice,{mixer,registry}){voice.src='music.ogg';voice.autoplay=true;voice.bus='Music';mixer.setMuted('Master',true);mixer.setMuted('Music',true);registry.set('MusicPlayer',voice);return voice;}

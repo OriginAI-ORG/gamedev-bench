@@ -1,0 +1,1 @@
+{"mode":"forward","groups":["heroes","monsters"],"names":["HeroUnit","MonsterNear","MonsterFar"],"baseRange":30,"attackRange":3,"near":70,"far":145,"closer":20,"outside":340}

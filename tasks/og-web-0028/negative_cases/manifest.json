@@ -1,0 +1,5 @@
+[
+ {"fault":"depth-flattened","must_fail_check":"projection","mutation":{"file":"component.js","find":"23.0185,2.63927,-86.6948","replace":"23.0185,2.63927,-36.6948"}},
+ {"fault":"priority-order-reversed","must_fail_check":"target-reset","mutation":{"file":"component.js","find":"low:0,medium:1,high:2","replace":"low:2,medium:1,high:0"}},
+ {"fault":"target-reset-missing","must_fail_check":"target-reset","mutation":{"file":"component.js","find":"resetTargetState(){this.hasBeenTargeted=false;}","replace":"resetTargetState(){}"}}
+]

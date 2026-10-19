@@ -1,0 +1,1 @@
+{"duration_frames":300,"events":[{"frame":15,"type":"mouse_click","button":"left","x":192,"y":486},{"frame":60,"type":"mouse_click","button":"left","x":168,"y":196},{"frame":105,"type":"key_press","keycode":"UP"},{"frame":150,"type":"key_press","keycode":"RIGHT"},{"frame":180,"type":"key_press","keycode":"RIGHT"},{"frame":225,"type":"key_press","keycode":"DOWN"}]}

@@ -1,0 +1,5 @@
+[
+ {"fault":"wrong-playfield-offset","must_fail_check":"configuration","mutation":{"file":"scene.json","find":"\"position\":[160,32],\"tileset\":\"tileset.json\",\"cells\":[[0,0,0,0]","replace":"\"position\":[128,32],\"tileset\":\"tileset.json\",\"cells\":[[0,0,0,0]"}},
+ {"fault":"broken-alternation","must_fail_check":"configuration","mutation":{"file":"scene.json","find":"[0,0,0,0]","replace":"[0,0,1,0]"}},
+ {"fault":"painted-highlight","must_fail_check":"configuration","mutation":{"file":"scene.json","find":"\"name\":\"Highlight\",\"tileset\":\"tileset.json\",\"cells\":[]","replace":"\"name\":\"Highlight\",\"tileset\":\"tileset.json\",\"cells\":[[0,0,3,0]]"}}
+]

@@ -1,0 +1,31 @@
+{
+  "version": "1.0.0",
+  "source_kind": "OriginGameDevBench",
+  "review": "docs/task-reviews/courtroom.md",
+  "removed": [
+    "Three-exhibit ceiling",
+    "Functional-only subset framing",
+    "Native launch/trace commands"
+  ],
+  "restored": [
+    "Complete title/brief/testimony/verdict loop",
+    "At least four relevant exhibits and multiple staged reacting roles",
+    "All18 mechanics,depth,visual and art rubric criteria with original weights",
+    "Deterministic real input demos"
+  ],
+  "replaced": [
+    "Native entry and command-line scenarios with local index.html and URL scenarios",
+    "Absent source asset libraries with an optional illustrated atlas"
+  ],
+  "added": [
+    "A specified warehouse case and DOM selectors for independent automated testing",
+    "Explicit narrow-screen support and final-state/retry checks"
+  ],
+  "limits": [
+    "The provided case restricts original narrative authorship freedom; wording and presentation remain open",
+    "Functional QA is not a full aesthetic or narrative score"
+  ],
+  "prior_results_valid_for_this_version": false,
+  "id": "og-web-0010",
+  "source_record": "configs/source-index.json#og-web-0010"
+}

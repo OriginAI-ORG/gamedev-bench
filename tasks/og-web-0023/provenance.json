@@ -1,0 +1,28 @@
+{
+  "id": "og-web-0023",
+  "version": "1.0.0",
+  "review": "docs/task-reviews/menus-and-cameras.md",
+  "requirements": "prompt.md",
+  "translation": "prompt_zh.md",
+  "acceptance": "verifier/scenarios.mjs",
+  "removed": [
+    "Menu-state-only substitute for camera assembly"
+  ],
+  "restored": [
+    "Camera position, basis, tolerances and inactive construction",
+    "Exact supplied player/menu instances and sibling placement",
+    "Player/camera/material bindings",
+    "Active-camera rendering and pause-independent menus"
+  ],
+  "replaced": [
+    "Supplied shader with supplied browser radial transition",
+    "Optional death camera arguments with static inspection shot",
+    "Native exit with session end"
+  ],
+  "added": [
+    "Independent projection and injected-factory checks"
+  ],
+  "prior_results_valid_for_this_version": false,
+  "source_kind": "OriginGameDevBench",
+  "source_record": "configs/source-index.json#og-web-0023"
+}

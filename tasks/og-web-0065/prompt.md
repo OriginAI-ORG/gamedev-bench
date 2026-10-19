@@ -1,0 +1,11 @@
+# Register separate music and sound-effect players
+
+Implement `SoundPlayer` in `sound-player.js` and `installAudio(registry,{mixer,AudioVoice})` in `component.js`. The supplied application owns a persistent service registry and a Web Audio mixer with the Master bus already at index 0. Build the shared player implementation and register both pools at application startup.
+
+- **R1 — Bus layout.** Add `Music` at bus index 1 and `SFX` at index 2. Both feed Master through their own gain controls. Use the supplied `mixer.addBus(name)` service; bus order is insertion order.
+- **R2 — Shared playback component.** Use the same `SoundPlayer(children,VoiceType)` class for both pools. Its `play(audio)` ignores null or undefined input and otherwise assigns the exact audio object to the first idle audio child's `stream`, then calls that child's `play()`. Ignore non-audio children. When full, leave existing playback unchanged without a queue or voice stealing. `stop()` stops every audio child.
+- **R3 — Pool assembly.** Register `MusicPlayer` as a SoundPlayer with exactly 4 new `AudioVoice` children routed to Music. Register `SFXPlayer` as another SoundPlayer with exactly 16 new AudioVoice children routed to SFX. Construct every voice using the supplied mixer. Set each player's name to its registry key and return the same registry.
+- **R4 — Application lifetime.** Store the players using `registry.set(name,player)`. They remain the same instances across scene changes; changing the scene must not stop, replace or duplicate the global players. Both pools must be accessible from the new scene.
+- **R5 — Independent audio behavior.** Music and sound effects can play concurrently. Muting Music must not mute SFX, and muting both must silence output. Stopping one pool must not alter the other. Use actual audio nodes and natural completion, preserving the supplied buttons, waveform and voice indicators. Reset stops old voices and rebuilds the initial services.
+
+The engine supplies voice creation, gain routing and diagnostic buffers; the task is player implementation and service assembly. Acceptance checks pool sizes, shared class identity, first-idle selection, exact buffers, stop behavior, real bus isolation, natural completion and persistent service identity. Keep the page runnable through `index.html`.

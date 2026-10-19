@@ -1,0 +1,13 @@
+{
+  "source_art_redistributed": true,
+  "embedded_assets": [
+    {
+      "file": "assets/game_menu_reference.png",
+      "sha256": "d2b46686355d9fe0d4770f5edab51985ceba6f16365c3b8e020bac8122f0a4aa",
+      "modified": false
+    }
+  ],
+  "source_path": "configs/source-index.json#og-web-0156",
+  "license_evidence": "vendor/gamedevbench.LICENSE covers the repository. No separate screenshot license found; no additional artwork-license claim made.",
+  "review": "docs/task-reviews/preferences.md"
+}

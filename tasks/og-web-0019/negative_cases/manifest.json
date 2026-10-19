@@ -1,0 +1,5 @@
+[
+  {"fault":"unnormalized-direction","must_fail_check":"component","mutation":{"file":"projectile.js","find":"p.direction.x/length*SPEED*delta","replace":"p.direction.x*SPEED*delta"}},
+  {"fault":"crate-survives","must_fail_check":"component","mutation":{"file":"projectile.js","find":"world.destroyBody(body)","replace":"void 0"}},
+  {"fault":"reset-broken","must_fail_check":"reset-sequence","mutation":{"file":"fixture.js","find":"for(const p of bullets)world.removeProjectile(p);bullets=[];","replace":"/* active projectiles retained */"}}
+]

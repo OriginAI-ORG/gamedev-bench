@@ -1,0 +1,1 @@
+[{"fault":"missing-actor-stats-source","must_fail_check":"assembly","mutation":{"file":"bindings.js","find":"unit.detectRange.actor=unit","replace":"unit.detectRange.actor=null"}},{"fault":"all-detectors-use-first-unit","must_fail_check":"assembly","mutation":{"file":"bindings.js","find":"unit.detectRange.actor=unit","replace":"unit.detectRange.actor=unit.parent.children[0]"}}]

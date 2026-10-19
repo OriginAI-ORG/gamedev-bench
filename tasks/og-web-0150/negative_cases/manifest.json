@@ -1,0 +1,8 @@
+[
+ {"fault":"missing-score-event","must_fail_check":"events","mutation":{"file":"wiring.js","find":"tank.addEventListener('pickup-collected',pickup)","replace":"tank.addEventListener('unused',pickup)"}},
+ {"fault":"missing-finish-event","must_fail_check":"events","mutation":{"file":"wiring.js","find":"tank.weapon.addEventListener('reload-finished',finished)","replace":"tank.weapon.addEventListener('unused',finished)"}},
+ {"fault":"lost-cleanup","must_fail_check":"events","mutation":{"file":"wiring.js","find":"tank.removeEventListener('pickup-collected',pickup)","replace":"tank.removeEventListener('unused',pickup)"}},
+ {"fault":"duplicate-pickup","must_fail_check":"pickup-events","mutation":{"file":"component.js","find":"if(!this.active||!(body instanceof TankBase))","replace":"if(!(body instanceof TankBase))"}},
+ {"fault":"no-quantization","must_fail_check":"texture-progress","mutation":{"file":"component.js","find":"Math.round(value/this.step)*this.step","replace":"value"}},
+ {"fault":"no-reload-tick","must_fail_check":"reload","mutation":{"file":"component.js","find":"onReloadTick(progress){this.dispatchEvent(new CustomEvent('reload-progress',{detail:progress}));}","replace":"onReloadTick(progress){}"}}
+]

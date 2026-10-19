@@ -1,0 +1,12 @@
+{
+  "id": "og-web-9002",
+  "version": "0.1.0",
+  "title": "翻牌配对",
+  "entry": "index.html",
+  "contract": "visible-card-buttons-v1",
+  "source": "Original task, created locally for this pilot.",
+  "rights": "Original code and local typography, no external game assets.",
+  "generation_budget": { "wall_seconds": 1200, "max_response_tool_rounds": 30 },
+  "acceptance_budget": { "wall_seconds": 180 },
+  "public_deck": ["A", "B", "A", "C", "B", "C"]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "og-web-0100",
+  "version": "1.0.0",
+  "prompt": "prompt.md",
+  "prompt_zh": "prompt_zh.md",
+  "title": "战斗结算面板 / Battle Over Panel Fill C",
+  "entry": "index.html",
+  "contract": "webgame-battle-panel-v2",
+  "source": "configs/source-index.json#og-web-0100",
+  "public_verifier": "public-check.mjs",
+  "rights": "Browser fixture authored locally; media origins, retained licenses and substitutions are recorded in assets.json.",
+  "generation_budget": {
+    "wall_seconds": 1200,
+    "max_observable_tool_calls": 30
+  },
+  "acceptance_budget": {
+    "wall_seconds": 180
+  },
+  "family": "battle",
+  "migration_grade": "A",
+  "v1": true,
+  "source_kind": "OriginGameDevBench",
+  "benchmark": "OriginGameDevBench",
+  "taskkit": "OriginGameDevBench"
+}

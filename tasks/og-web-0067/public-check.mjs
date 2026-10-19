@@ -1,0 +1,1 @@
+import assert from 'node:assert/strict';export async function runPublicCheck(page,url,record=()=>{}){await page.goto(url);await page.waitForFunction(()=>document.querySelector('#status').textContent!=='Loading');assert.equal(await page.locator('#layers input').count(),3);assert.match(await page.locator('#status').innerText(),/Background: [1-9]/);record({layers:3});}

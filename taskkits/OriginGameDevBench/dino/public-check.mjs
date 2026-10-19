@@ -1,0 +1,1 @@
+import assert from 'node:assert/strict';export async function runPublicCheck(page,url,record=()=>{}){await page.goto(url);await page.locator('#right').click();await page.locator('#step').click();assert.match(await page.locator('#status').innerText(),/run.*x 85.00.*vx 100.00/);record({moved:true});}

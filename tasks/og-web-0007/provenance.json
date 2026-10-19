@@ -1,0 +1,49 @@
+{
+  "source_kind": "OriginGameDevBench",
+  "source_integrity": {
+    "instruction_sha256": "be36dde6a80efe21a298cc859577edef120508c8e54d05d17c8e6db261f76458",
+    "rubric_sha256": "c113a2e0d79a7d043423cebf50d9d0fa2962f05ccb6590c8517718d0c613a2ef",
+    "source_criteria": [
+      "M1",
+      "M2",
+      "M3",
+      "M4",
+      "M5",
+      "D1",
+      "D2",
+      "D3",
+      "D4",
+      "D5",
+      "V1",
+      "V2",
+      "V3",
+      "V4",
+      "A1",
+      "A2",
+      "A3",
+      "A4"
+    ]
+  },
+  "version": "1.0.0",
+  "scope": "Full browser inspection campaign:ten cumulative rule sets,five document schemas,dragging/manual marks,portrait matching,live time,wages/citations,consequential family allocations,illness/eviction,eight travelers,three recurring story characters and four endings.",
+  "removed_previous_requirements": [
+    "One-day/four-person slice as the whole game",
+    "Turn counter replacing real shift time",
+    "Name-only document comparison"
+  ],
+  "replacements": [
+    "Native launch/recordings become browser launch and real browser input traces",
+    "Unavailable mounted art libraries become an optional generated illustrated atlas"
+  ],
+  "added_requirements": [
+    "Directly authored fixed80-person roster,ten story events and five document schemas",
+    "Concrete wages,expenses,health,timing,story effects and ending thresholds",
+    "Public simulation interfaces,selectors and deterministic scenario fixtures"
+  ],
+  "equivalence_limits": "The supplied campaign removes original open-ended traveler/event content authoring. Exact economics,story routes and interfaces constrain balancing and architectural freedom. Full systems and18 weighted criteria are restored;this does not prove identical creative difficulty or interchangeable original benchmark scores.",
+  "review": "docs/task-reviews/border-check.md",
+  "implementation": "Directly authored bilingual contracts,reference,tests and input traces;full campaign tests use all80 actual travelers and legal budgets/story choices.",
+  "scoring": "All15/35/15/35 weights retained; unreviewed manual scores remain null.",
+  "id": "og-web-0007",
+  "source_record": "configs/source-index.json#og-web-0007"
+}

@@ -1,0 +1,19 @@
+{
+  "id": "og-web-0050",
+  "version": "1.0.0",
+  "review": "docs/task-reviews/sprite-components.md",
+  "removed": [
+    "Procedural stride-size substitution"
+  ],
+  "restored": [
+    "Idle16 and all 15 walk atlas cells per direction",
+    "299×240 crops, clockwise numbering, floating mode, scale2 and feet collider"
+  ],
+  "added": [
+    "Explicit base FPS5, playback and pixels"
+  ],
+  "source_validator_correction": "Walk sheet has 15 columns, not the validator's 17.",
+  "prior_results_valid_for_this_version": false,
+  "source_kind": "OriginGameDevBench",
+  "source_record": "configs/source-index.json#og-web-0050"
+}

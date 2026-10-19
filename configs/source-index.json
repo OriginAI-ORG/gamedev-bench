@@ -1,0 +1,704 @@
+{
+  "schema_version": 2,
+  "name": "OriginGameDevBench",
+  "version": "3.0.0",
+  "scope": "Attribution only; not runtime aliases or task IDs",
+  "sources": [
+    {
+      "name": "gamecraft-bench",
+      "commit": "a43347534374df9a0c1a6c001aa9380862783f6d",
+      "repository": "https://github.com/FreedomIntelligence/gamecraft-bench"
+    },
+    {
+      "name": "gamedevbench",
+      "commit": "48488b8ed70a3a1b1108f9062ba1774deb75b07a",
+      "repository": "https://github.com/waynchi/gamedevbench"
+    }
+  ],
+  "tasks": {
+    "og-web-0001": {
+      "upstream_artifact": "upstream/gamecraft-bench/tasks/idle-factory-planet"
+    },
+    "og-web-0002": {
+      "upstream_artifact": "upstream/gamecraft-bench/tasks/puzzle-circuit-wizard"
+    },
+    "og-web-0003": {
+      "upstream_artifact": "upstream/gamecraft-bench/tasks/puzzle-pipe-crisis"
+    },
+    "og-web-0004": {
+      "upstream_artifact": "upstream/gamecraft-bench/tasks/puzzle-rule-rewrite"
+    },
+    "og-web-0005": {
+      "upstream_artifact": "upstream/gamecraft-bench/tasks/roguelike-dice-throne"
+    },
+    "og-web-0006": {
+      "upstream_artifact": "upstream/gamecraft-bench/tasks/roguelike-word-spell"
+    },
+    "og-web-0007": {
+      "upstream_artifact": "upstream/gamecraft-bench/tasks/simulation-border-check"
+    },
+    "og-web-0008": {
+      "upstream_artifact": "upstream/gamecraft-bench/tasks/strategy-kingdom-cards"
+    },
+    "og-web-0009": {
+      "upstream_artifact": "upstream/gamecraft-bench/tasks/tycoon-potion-shop"
+    },
+    "og-web-0010": {
+      "upstream_artifact": "upstream/gamecraft-bench/tasks/visualnovel-courtroom-clue-trial"
+    },
+    "og-web-0011": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0002.zip"
+    },
+    "og-web-0012": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0004.zip"
+    },
+    "og-web-0013": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0005.zip"
+    },
+    "og-web-0014": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0006.zip"
+    },
+    "og-web-0015": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0007.zip"
+    },
+    "og-web-0016": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0008.zip"
+    },
+    "og-web-0017": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0010.zip"
+    },
+    "og-web-0018": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0011.zip"
+    },
+    "og-web-0019": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0012.zip"
+    },
+    "og-web-0020": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0013.zip"
+    },
+    "og-web-0021": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0016.zip"
+    },
+    "og-web-0022": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0020.zip"
+    },
+    "og-web-0023": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0021.zip"
+    },
+    "og-web-0024": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0022.zip"
+    },
+    "og-web-0025": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0023.zip"
+    },
+    "og-web-0026": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0024.zip"
+    },
+    "og-web-0027": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0025.zip"
+    },
+    "og-web-0028": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0028.zip"
+    },
+    "og-web-0029": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0029.zip"
+    },
+    "og-web-0030": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0036.zip"
+    },
+    "og-web-0031": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0037.zip"
+    },
+    "og-web-0032": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0044.zip"
+    },
+    "og-web-0033": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0048.zip"
+    },
+    "og-web-0034": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0049.zip"
+    },
+    "og-web-0035": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0050.zip"
+    },
+    "og-web-0036": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0051.zip"
+    },
+    "og-web-0037": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0052.zip"
+    },
+    "og-web-0038": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0054.zip"
+    },
+    "og-web-0039": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0058.zip"
+    },
+    "og-web-0040": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0059.zip"
+    },
+    "og-web-0041": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0060.zip"
+    },
+    "og-web-0042": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0063.zip"
+    },
+    "og-web-0043": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0065.zip"
+    },
+    "og-web-0044": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0066.zip"
+    },
+    "og-web-0045": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0067.zip"
+    },
+    "og-web-0046": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0068.zip"
+    },
+    "og-web-0047": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0079.zip"
+    },
+    "og-web-0048": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0080.zip"
+    },
+    "og-web-0049": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0081.zip"
+    },
+    "og-web-0050": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0082.zip"
+    },
+    "og-web-0051": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0083.zip"
+    },
+    "og-web-0052": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0084.zip"
+    },
+    "og-web-0053": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0086.zip"
+    },
+    "og-web-0054": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0087.zip"
+    },
+    "og-web-0055": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0088.zip"
+    },
+    "og-web-0056": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0089.zip"
+    },
+    "og-web-0057": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0090.zip"
+    },
+    "og-web-0058": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0091.zip"
+    },
+    "og-web-0059": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0092.zip"
+    },
+    "og-web-0060": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0093.zip"
+    },
+    "og-web-0061": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0098.zip"
+    },
+    "og-web-0062": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0099.zip"
+    },
+    "og-web-0063": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0102.zip"
+    },
+    "og-web-0064": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0104.zip"
+    },
+    "og-web-0065": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0105.zip"
+    },
+    "og-web-0066": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0109.zip"
+    },
+    "og-web-0067": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0112.zip"
+    },
+    "og-web-0068": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0113.zip"
+    },
+    "og-web-0069": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0115.zip"
+    },
+    "og-web-0070": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0118.zip"
+    },
+    "og-web-0071": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0119.zip"
+    },
+    "og-web-0072": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0120.zip"
+    },
+    "og-web-0073": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0122.zip"
+    },
+    "og-web-0074": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0126.zip"
+    },
+    "og-web-0075": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0127.zip"
+    },
+    "og-web-0076": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0128.zip"
+    },
+    "og-web-0077": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0131.zip"
+    },
+    "og-web-0078": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0132.zip"
+    },
+    "og-web-0079": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0133.zip"
+    },
+    "og-web-0080": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0134.zip"
+    },
+    "og-web-0081": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0135.zip"
+    },
+    "og-web-0082": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0136.zip"
+    },
+    "og-web-0083": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0137.zip"
+    },
+    "og-web-0084": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0138.zip"
+    },
+    "og-web-0085": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0139.zip"
+    },
+    "og-web-0086": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0140.zip"
+    },
+    "og-web-0087": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0141.zip"
+    },
+    "og-web-0088": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0142.zip"
+    },
+    "og-web-0089": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0143.zip"
+    },
+    "og-web-0090": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0144.zip"
+    },
+    "og-web-0091": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0145.zip"
+    },
+    "og-web-0092": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0146.zip"
+    },
+    "og-web-0093": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0147.zip"
+    },
+    "og-web-0094": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0148.zip"
+    },
+    "og-web-0095": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0149.zip"
+    },
+    "og-web-0096": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0150.zip"
+    },
+    "og-web-0097": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0151.zip"
+    },
+    "og-web-0098": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0152.zip"
+    },
+    "og-web-0099": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0153.zip"
+    },
+    "og-web-0100": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0154.zip"
+    },
+    "og-web-0101": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0155.zip"
+    },
+    "og-web-0102": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0156.zip"
+    },
+    "og-web-0103": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0157.zip"
+    },
+    "og-web-0104": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0158.zip"
+    },
+    "og-web-0105": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0159.zip"
+    },
+    "og-web-0106": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0160.zip"
+    },
+    "og-web-0107": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0161.zip"
+    },
+    "og-web-0108": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0162.zip"
+    },
+    "og-web-0109": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0163.zip"
+    },
+    "og-web-0110": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0216.zip"
+    },
+    "og-web-0111": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0217.zip"
+    },
+    "og-web-0112": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0218.zip"
+    },
+    "og-web-0113": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0219.zip"
+    },
+    "og-web-0114": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0220.zip"
+    },
+    "og-web-0115": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0221.zip"
+    },
+    "og-web-0116": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0222.zip"
+    },
+    "og-web-0117": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0223.zip"
+    },
+    "og-web-0118": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0224.zip"
+    },
+    "og-web-0119": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0225.zip"
+    },
+    "og-web-0120": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0226.zip"
+    },
+    "og-web-0121": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0227.zip"
+    },
+    "og-web-0122": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0228.zip"
+    },
+    "og-web-0123": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0229.zip"
+    },
+    "og-web-0124": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0230.zip"
+    },
+    "og-web-0125": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0231.zip"
+    },
+    "og-web-0126": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0232.zip"
+    },
+    "og-web-0127": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0233.zip"
+    },
+    "og-web-0128": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0234.zip"
+    },
+    "og-web-0129": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0235.zip"
+    },
+    "og-web-0130": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0236.zip"
+    },
+    "og-web-0131": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0237.zip"
+    },
+    "og-web-0132": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0238.zip"
+    },
+    "og-web-0133": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0239.zip"
+    },
+    "og-web-0134": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0240.zip"
+    },
+    "og-web-0135": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0241.zip"
+    },
+    "og-web-0136": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0242.zip"
+    },
+    "og-web-0137": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0243.zip"
+    },
+    "og-web-0138": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0244.zip"
+    },
+    "og-web-0139": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0245.zip"
+    },
+    "og-web-0140": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0246.zip"
+    },
+    "og-web-0141": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0247.zip"
+    },
+    "og-web-0142": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0248.zip"
+    },
+    "og-web-0143": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0249.zip"
+    },
+    "og-web-0144": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0250.zip"
+    },
+    "og-web-0145": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0251.zip"
+    },
+    "og-web-0146": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0252.zip"
+    },
+    "og-web-0147": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0253.zip"
+    },
+    "og-web-0148": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0254.zip"
+    },
+    "og-web-0149": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0255.zip"
+    },
+    "og-web-0150": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0256.zip"
+    },
+    "og-web-0151": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0257.zip"
+    },
+    "og-web-0152": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0258.zip"
+    },
+    "og-web-0153": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0259.zip"
+    },
+    "og-web-0154": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0260.zip"
+    },
+    "og-web-0155": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0261.zip"
+    },
+    "og-web-0156": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0262.zip"
+    },
+    "og-web-0157": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0263.zip"
+    },
+    "og-web-0158": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0264.zip"
+    },
+    "og-web-0159": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0265.zip"
+    },
+    "og-web-0160": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0266.zip"
+    },
+    "og-web-0161": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0267.zip"
+    },
+    "og-web-0162": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0268.zip"
+    },
+    "og-web-0163": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0269.zip"
+    },
+    "og-web-0164": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0270.zip"
+    },
+    "og-web-0165": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0271.zip"
+    },
+    "og-web-0166": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0272.zip"
+    },
+    "og-web-0167": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0273.zip"
+    },
+    "og-web-0168": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0274.zip"
+    },
+    "og-web-0169": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0275.zip"
+    },
+    "og-web-0170": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0276.zip"
+    },
+    "og-web-0171": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0277.zip"
+    },
+    "og-web-0172": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0278.zip"
+    },
+    "og-web-0173": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0279.zip"
+    },
+    "og-web-0174": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0280.zip"
+    },
+    "og-web-0175": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0281.zip"
+    },
+    "og-web-0176": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0282.zip"
+    },
+    "og-web-0177": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0283.zip"
+    },
+    "og-web-0178": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0284.zip"
+    },
+    "og-web-0179": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0285.zip"
+    },
+    "og-web-0180": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0286.zip"
+    },
+    "og-web-0181": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0287.zip"
+    },
+    "og-web-0182": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0288.zip"
+    },
+    "og-web-0183": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0289.zip"
+    },
+    "og-web-0184": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0290.zip"
+    },
+    "og-web-0185": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0291.zip"
+    },
+    "og-web-0186": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0292.zip"
+    },
+    "og-web-0187": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0293.zip"
+    },
+    "og-web-0188": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0294.zip"
+    },
+    "og-web-0189": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0295.zip"
+    },
+    "og-web-0190": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0296.zip"
+    },
+    "og-web-0191": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0297.zip"
+    },
+    "og-web-0192": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0298.zip"
+    },
+    "og-web-0193": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0299.zip"
+    },
+    "og-web-0194": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0300.zip"
+    },
+    "og-web-0195": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0301.zip"
+    },
+    "og-web-0196": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0302.zip"
+    },
+    "og-web-0197": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0303.zip"
+    },
+    "og-web-0198": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0304.zip"
+    },
+    "og-web-0199": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0305.zip"
+    },
+    "og-web-0200": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0306.zip"
+    },
+    "og-web-0201": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0307.zip"
+    },
+    "og-web-0202": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0308.zip"
+    },
+    "og-web-0203": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0309.zip"
+    },
+    "og-web-0204": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0310.zip"
+    },
+    "og-web-0205": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0311.zip"
+    },
+    "og-web-0206": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0312.zip"
+    },
+    "og-web-0207": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0313.zip"
+    },
+    "og-web-0208": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0314.zip"
+    },
+    "og-web-0209": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0315.zip"
+    },
+    "og-web-0210": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0316.zip"
+    },
+    "og-web-0211": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0317.zip"
+    },
+    "og-web-0212": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0318.zip"
+    },
+    "og-web-0213": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0319.zip"
+    },
+    "og-web-0214": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0320.zip"
+    },
+    "og-web-0215": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0321.zip"
+    },
+    "og-web-0216": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0322.zip"
+    },
+    "og-web-0217": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0323.zip"
+    },
+    "og-web-0218": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0324.zip"
+    },
+    "og-web-0219": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0325.zip"
+    },
+    "og-web-0220": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0326.zip"
+    },
+    "og-web-0221": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0327.zip"
+    },
+    "og-web-0222": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0328.zip"
+    },
+    "og-web-0223": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0329.zip"
+    },
+    "og-web-0224": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0330.zip"
+    },
+    "og-web-0225": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0331.zip"
+    },
+    "og-web-0226": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0332.zip"
+    },
+    "og-web-0227": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0333.zip"
+    },
+    "og-web-0228": {
+      "upstream_artifact": "upstream/gamedevbench/tasks/task_0334.zip"
+    }
+  }
+}

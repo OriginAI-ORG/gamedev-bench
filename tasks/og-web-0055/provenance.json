@@ -1,0 +1,22 @@
+{
+  "id": "og-web-0055",
+  "version": "1.0.0",
+  "review": "docs/task-reviews/sprite-components.md",
+  "requirements": "prompt.md",
+  "translation": "prompt_zh.md",
+  "acceptance": "verifier/scenarios.mjs",
+  "removed": [
+    "Generic SVG pose family that erased shuffled frame layout"
+  ],
+  "restored": [
+    "Task-specific rearranged bitmap and visual direction inference",
+    "All six distinct frames per direction",
+    "Exact sprite track, collider and ray configuration"
+  ],
+  "added": [
+    "Explicit timing and complete pixel checks"
+  ],
+  "prior_results_valid_for_this_version": false,
+  "source_kind": "OriginGameDevBench",
+  "source_record": "configs/source-index.json#og-web-0055"
+}

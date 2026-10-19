@@ -1,0 +1,18 @@
+{
+  "id": "og-web-0048",
+  "version": "1.0.0",
+  "review": "docs/task-reviews/sprite-components.md",
+  "removed": [
+    "Procedural stride-size substitution for walk assets"
+  ],
+  "restored": [
+    "Run-named clips use all 15 actual walk images",
+    "Idle16, clockwise numbering, floating mode, scale2 and feet collider"
+  ],
+  "added": [
+    "Explicit base FPS5, playback and pixels"
+  ],
+  "prior_results_valid_for_this_version": false,
+  "source_kind": "OriginGameDevBench",
+  "source_record": "configs/source-index.json#og-web-0048"
+}

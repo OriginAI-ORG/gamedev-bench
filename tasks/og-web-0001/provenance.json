@@ -1,0 +1,32 @@
+{
+  "version": "1.0.0",
+  "review": "docs/task-reviews/factory-planet.md",
+  "removed": [
+    "Fixed four-station/manual-step-only scope",
+    "Incorrect implication that offline earnings were explicitly required by the source"
+  ],
+  "restored": [
+    "Free spatial construction and directional resource transport",
+    "Continuous automatic production,backpressure and throughput",
+    "Three research branches,multi-input fabrication and storage",
+    "Depletion slowdown,retained technology and exponential prestige/cost scaling",
+    "Complete flow and13 weighted rubric criteria"
+  ],
+  "replaced": [
+    "Native project with local browser package and deterministic query scenarios",
+    "Unavailable asset libraries with optional local illustrated atlas"
+  ],
+  "added": [
+    "Concrete economy/recipe/transport values",
+    "Public simulation interface and DOM selectors",
+    "Browser inspection controls and explicit input replay manifest"
+  ],
+  "limits": [
+    "Specified economy and module contract narrow original implementation/balancing freedom",
+    "Functional QA does not certify aesthetic or progression-quality scores"
+  ],
+  "prior_results_valid_for_this_version": false,
+  "id": "og-web-0001",
+  "source_kind": "OriginGameDevBench",
+  "source_record": "configs/source-index.json#og-web-0001"
+}

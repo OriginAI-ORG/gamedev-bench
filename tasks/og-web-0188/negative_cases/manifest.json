@@ -1,0 +1,1 @@
+[{"fault":"wrong-panel-parent","must_fail_check":"placement","mutation":{"file":"placement.js","find":"card.scene.getByGroup(card.config.dragGroup)","replace":"card.homeParent.parentElement"}},{"fault":"stays-in-hand","must_fail_check":"placement","mutation":{"file":"placement.js","find":"card.scene.getByGroup(card.config.dragGroup)","replace":"card.homeParent"}}]

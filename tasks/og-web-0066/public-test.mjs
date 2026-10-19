@@ -1,0 +1,1 @@
+import assert from 'node:assert/strict';export async function runPublicCheck(page,url,record=()=>{}){await page.goto(url);await page.locator('#hurt').click();for(let i=0;i<6;i++)await page.locator('#step').click();assert.equal(await page.locator('#completed').innerText(),'Completed: 1');record({completed:1});}

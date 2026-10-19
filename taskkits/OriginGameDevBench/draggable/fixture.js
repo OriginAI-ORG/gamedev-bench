@@ -1,0 +1,4 @@
+import {Draggable} from './draggable.js';const $=id=>document.getElementById(id);let decoration;
+const targets=[{id:'DropTarget',layer:2,rect:{x:452,y:156,width:120,height:48}},{id:'Decoy',layer:4,rect:{x:740,y:156,width:120,height:48}}];
+function reset(){decoration?.dispose();decoration=new Draggable($('scene'),{position:{x:512,y:360},scale:[1,1],targets});decoration.addEventListener('dropped',e=>{$('drop-log').textContent=e.detail.overlaps.map(t=>t.id).join(', ')||'No overlaps';});$('drop-log').textContent='';$('count').textContent='1';}
+$('reset').onclick=reset;let previous;function frame(now){if(previous!==undefined)decoration.update(Math.min(.05,(now-previous)/1000));previous=now;$('count').textContent=decoration.destroyed?'0':'1';requestAnimationFrame(frame);}reset();requestAnimationFrame(frame);

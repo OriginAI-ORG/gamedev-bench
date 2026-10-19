@@ -1,0 +1,1 @@
+import{AudioVoice}from './engine.js';export class SoundPlayer{constructor(children=[],VoiceType=AudioVoice){this.children=children;this.VoiceType=VoiceType;this.name='';this.processAlways=false;}play(audio,single=false){}stop(){}}

@@ -1,0 +1,13 @@
+{
+  "task": "og-web-0038",
+  "source_art_redistributed": true,
+  "source_archive": "configs/source-index.json#og-web-0038",
+  "asset_root": "assets",
+  "files": 385,
+  "digest": "7e63e8c697e098e94f2e3db8cbabc7383a3aaa736dccd0911c78c04281446866",
+  "digest_definition": "docs/task-reviews/sprite-components.md",
+  "license_evidence": "assets/License.txt",
+  "asset_license": "Custom Bleed artwork license; retain original terms and required credit",
+  "credit": "Bleed - http://remusprites.carbonmade.com/",
+  "modified": false
+}

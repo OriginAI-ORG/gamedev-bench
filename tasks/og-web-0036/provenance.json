@@ -1,0 +1,20 @@
+{
+  "id": "og-web-0036",
+  "version": "1.0.0",
+  "review": "docs/task-reviews/movement-and-platforms.md",
+  "removed": [
+    "Generic canned movement demonstration"
+  ],
+  "restored": [
+    "Player assembly, original image and32×68 collider",
+    "Speed1200, jump-1800, gravity4000",
+    "Actual gravity integration, immediate axis speed and post-movement floor-gated jump"
+  ],
+  "added": [
+    "Browser parameter editor and fixed60Hz inspection",
+    "Behavioral checks replace source-text matching"
+  ],
+  "prior_results_valid_for_this_version": false,
+  "source_kind": "OriginGameDevBench",
+  "source_record": "configs/source-index.json#og-web-0036"
+}

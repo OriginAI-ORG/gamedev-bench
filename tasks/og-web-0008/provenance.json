@@ -1,0 +1,50 @@
+{
+  "source_kind": "OriginGameDevBench",
+  "source_integrity": {
+    "instruction_sha256": "81163e44752ab48cfaf9d875791e73fb3e263a2dd4303433103e3f7ade624b5f",
+    "rubric_sha256": "3432ca31ff7346e08e153c77ed65d32544c54b4838088143c3a57a81bdcd11f1",
+    "source_criteria": [
+      "M1",
+      "M2",
+      "M3",
+      "M4",
+      "M5",
+      "D1",
+      "D2",
+      "D3",
+      "D4",
+      "D5",
+      "V1",
+      "V2",
+      "V3",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "A5"
+    ]
+  },
+  "version": "1.0.0",
+  "scope": "Full browser strategy:actual shuffled deck/hand/discard,keep/permanent trash,three plays,construction/income,stronger acquired cards,army commitments,capture,six holdings,two active card-playing rivals,simultaneous contests,truce/trade/betrayal,all/no-territory endings and browsable campaign history.",
+  "removed_previous_requirements": [
+    "Fixed hand and three-territory miniature conquest as the whole task",
+    "Passive single opponent",
+    "No persistent diplomacy or campaign deck progression"
+  ],
+  "replacements": [
+    "Native launch/recordings become local browser launch and real browser input replay",
+    "Unavailable mounted art libraries become optional generated fantasy/parchment atlases"
+  ],
+  "added_requirements": [
+    "Concrete14-card catalog,16-card starting deck,six-holding map and economy",
+    "Exact AI planning priority,simultaneous contested combat and casualties",
+    "Seeded pile shuffling,public simulation interfaces,selectors and scenario fixtures",
+    "Explicit keep plus up-to-five-fresh-draw rule without duplication"
+  ],
+  "equivalence_limits": "All original core systems and18 weighted criteria are restored. Concrete map,card balance,AI policy and APIs constrain original design freedom and replace native editor work with browser engineering. No identical-difficulty or interchangeable benchmark-score claim is made.",
+  "review": "docs/task-reviews/kingdom-cards.md",
+  "implementation": "Directly authored bilingual prompts,reference and tests. Full campaign checks use actual draws and legal card choices against active rivals.",
+  "scoring": "All15/35/15/35 weights retained;manual artistic scores remain null until reviewed.",
+  "id": "og-web-0008",
+  "source_record": "configs/source-index.json#og-web-0008"
+}

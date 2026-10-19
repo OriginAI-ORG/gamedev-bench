@@ -1,0 +1,25 @@
+{
+  "id": "og-web-0029",
+  "version": "1.0.0",
+  "prompt": "prompt.md",
+  "prompt_zh": "prompt_zh.md",
+  "title": "一次性敌人波次 / Bonkahe Enemy Spawn Trigger",
+  "entry": "index.html",
+  "contract": "webgame-spawn-integration-v2",
+  "source": "configs/source-index.json#og-web-0029",
+  "public_verifier": "public-check.mjs",
+  "rights": "Browser fixture authored locally; media origins, retained licenses and substitutions are recorded in assets.json.",
+  "generation_budget": {
+    "wall_seconds": 1200,
+    "max_observable_tool_calls": 30
+  },
+  "acceptance_budget": {
+    "wall_seconds": 180
+  },
+  "family": "spawn",
+  "migration_grade": "A",
+  "v1": true,
+  "source_kind": "OriginGameDevBench",
+  "benchmark": "OriginGameDevBench",
+  "taskkit": "OriginGameDevBench"
+}

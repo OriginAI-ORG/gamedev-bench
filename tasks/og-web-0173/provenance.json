@@ -1,0 +1,23 @@
+{
+  "id": "og-web-0173",
+  "version": "1.0.0",
+  "review": "docs/task-reviews/targeting.md",
+  "removed": [
+    "Uniform50px base range",
+    "Log-only event-forwarding imitation"
+  ],
+  "restored": [
+    "heroes/monsters mapping and raw-to-typed forwarding repair",
+    "Provided two-stage implementation",
+    "30x3=90 radius,70/145 positions"
+  ],
+  "replaced": [
+    "Native event connection with EventTarget listeners"
+  ],
+  "added": [
+    "Direct forwarding/filtering,independent instances and cleanup checks"
+  ],
+  "prior_results_valid_for_this_version": false,
+  "source_kind": "OriginGameDevBench",
+  "source_record": "configs/source-index.json#og-web-0173"
+}

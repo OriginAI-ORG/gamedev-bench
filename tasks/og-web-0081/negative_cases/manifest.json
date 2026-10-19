@@ -1,0 +1,5 @@
+[
+  {"fault":"wrong-panel-color","must_fail_check":"layout","mutation":{"file":"view.js","find":"background:rgb(153,153,153)","replace":"background:rgb(100,100,100)"}},
+  {"fault":"minimum-ignored","must_fail_check":"layout","mutation":{"file":"view.js","find":"value+'px'","replace":"'1px'"}},
+  {"fault":"wrong-score-update","must_fail_check":"events","mutation":{"file":"fixture.js","find":"state.score+=100","replace":"state.score+=1"}}
+]

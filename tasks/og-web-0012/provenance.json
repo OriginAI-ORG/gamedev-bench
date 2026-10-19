@@ -1,0 +1,11 @@
+{
+  "version": "1.0.0",
+  "source_kind": "OriginGameDevBench",
+  "source_resolution": "The individual archive is recorded in task.json source.",
+  "review": "docs/task-reviews/projectile.md",
+  "scope": "Individually reviewed projectile behavior, quest integration, atlas/collider assembly and contact binding tasks.",
+  "equivalence_limits": "See each task row in the review. Supplied SVG art replaces source art; native-editor work becomes browser component assembly. No empirical equal-difficulty claim.",
+  "prior_results_valid_for_this_version": false,
+  "id": "og-web-0012",
+  "source_record": "configs/source-index.json#og-web-0012"
+}

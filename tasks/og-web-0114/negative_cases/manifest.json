@@ -1,0 +1,6 @@
+[
+ {"fault":"wrong-target","must_fail_check":"shape-coverage","mutation":{"file":"overlays.json","find":"[283.49997,110.99999]","replace":"[120,110]"}},
+ {"fault":"oversized-circle","must_fail_check":"shape-coverage","mutation":{"file":"overlays.json","find":"[0.8361113,0.8166667]","replace":"[1.8,1.8]"}},
+ {"fault":"shifted-highlight-group","must_fail_check":"shape-coverage","mutation":{"file":"overlays.json","find":"\"name\":\"CoinHighlights\",\"children\"","replace":"\"name\":\"CoinHighlights\",\"position\":[40,0],\"children\""}},
+ {"fault":"shifted-original-image","must_fail_check":"parent-transforms","mutation":{"file":"level.json","find":"\"position\":[0,0]","replace":"\"position\":[8,0]"}}
+]

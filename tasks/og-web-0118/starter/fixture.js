@@ -1,0 +1,8 @@
+const ns='http://www.w3.org/2000/svg',element=(tag,attributes)=>{const e=document.createElementNS(ns,tag);for(const[k,v]of Object.entries(attributes))e.setAttribute(k,v);return e;};
+export const level=await(await fetch('level.json')).json(),overlays=await(await fetch('overlays.json')).json();
+export const scene=document.getElementById('scene');scene.setAttribute('viewBox',`0 0 ${level.viewport.join(' ')}`);scene.setAttribute('width',level.viewport[0]);scene.setAttribute('height',level.viewport[1]);
+const transform=data=>{const p=data.position??[0,0],s=data.scale??[1,1],r=data.rotation??0;return`translate(${p.join(' ')}) rotate(${r*180/Math.PI}) scale(${s.join(' ')})`;};
+const parent=element('g',{id:'Level',transform:transform(level)});scene.append(parent);const original=element('image',{id:'Original',href:level.image.src,x:level.image.position[0],y:level.image.position[1],width:level.image.size[0],height:level.image.size[1],preserveAspectRatio:'none'});parent.append(original);
+export const group=element('g',{id:overlays.name,transform:transform(overlays)});parent.append(group);
+for(const shape of overlays.children??[]){const c=shape.color.map((v,i)=>v*(shape.modulate??[1,1,1,1])[i]),node=element('polygon',{id:shape.name,points:shape.points.map(p=>p.join(',')).join(' '),transform:transform(shape),fill:`rgb(${c.slice(0,3).map(v=>v*255).join(',')})`,'fill-opacity':c[3]});group.append(node);}
+const image=new Image();image.src=level.image.src;await image.decode();const show=document.getElementById('show');show.onchange=()=>{group.style.display=show.checked?'':'none';};document.getElementById('reset').onclick=()=>{show.checked=true;group.style.display='';};document.getElementById('status').textContent=`${group.children.length} highlights`;

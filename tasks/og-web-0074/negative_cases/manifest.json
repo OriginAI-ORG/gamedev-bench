@@ -1,0 +1,5 @@
+[
+ {"fault":"wrong-menu-offset","must_fail_check":"initial","mutation":{"file":"panel.css","find":"left:10px","replace":"left:20px"}},
+ {"fault":"grow-down-only","must_fail_check":"resize-growth","mutation":{"file":"panel.css","find":"top:50%","replace":"top:380px"}},
+ {"fault":"unchecked-default","must_fail_check":"initial","mutation":{"file":"panel.html","find":"type=\"checkbox\" checked","replace":"type=\"checkbox\""}}
+]

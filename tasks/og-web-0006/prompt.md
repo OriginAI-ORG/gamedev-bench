@@ -1,0 +1,47 @@
+# Word Spell
+
+Build a complete browser word-casting roguelike: form words under time pressure, enchant a persistent letter pool, choose a route through three floors and defeat a boss. Deliver a self-contained local `index.html` package. Preserve the supplied `dictionary.js` lexicon; artwork in the supplied fantasy and dice atlases is optional.
+
+- **R1 — Pool, hand and words.** A new run starts at 65/65 health with 20 gold and 20 independent common tiles in this order: A,A,E,E,E,I,I,O,R,R,S,S,T,T,L,N,D,C,H,F. Each tile has a unique ID. Before each combat turn shuffle the entire permanent pool with Fisher–Yates and draw 7 different tile IDs. Draws do not permanently consume tiles. Use unsigned 32-bit xorshift with shifts 13,17,5, divide by 4294967296, default seed 42 and zero seed replaced by 1. Drag tiles into an ordered spelling bar, reorder them, and return them to the hand. Clicking and keyboard letters provide alternatives; Enter casts, Backspace returns the last letter, Delete clears. A tile cannot occur twice in a word. Validate case-insensitive exact membership in the supplied 2053-word lexicon and length 3–7. Invalid words, empty casts and redraw/pass waste a turn and allow an enemy response. Valid word damage is word length multiplied by the sum of used tile weights; common weight is 1, so ordinary damage is length squared.
+- **R2 — Elements and turn order.** A valid word containing fire,ice,heal activates the corresponding element; enchanted tiles can also activate it. Each distinct element triggers once per cast. Fire adds 4 immediate damage and burns for 3 damage on each of the next 2 enemy responses, including the response to this cast; fire-weak enemies take 6 burn damage. Ice freezes the next 1 enemy response, or 2 for ice-weak enemies. Heal restores 6 health, capped at maximum. If a word activates the enemy's weakness, multiply its word damage by 1.5 and round down before adding fire damage. Apply heal and status effects, then immediate word/fire damage, then unused cursed-tile penalties; player death has priority over a simultaneous kill. A surviving player with a defeated enemy proceeds to reward/victory. Otherwise tick burn before the enemy's attack; a burn kill prevents the attack. Consume one freeze instead of an attack, or apply the displayed attack damage. Advance the enemy attack pattern even when frozen. If both sides survive, draw a new hand and reset the countdown. Clamp health to 0; total damage counts actual enemy health removed, including burn. Reapplying fire replaces its remaining duration with 2; ice keeps the larger remaining duration.
+- **R3 — Countdown and enemies.** Show enemy/player health, the next attack damage, weakness, status durations and a continuously decreasing countdown in seconds. Casting triggers the response immediately; reaching zero triggers a pass and redraw without user input. Time advances only during combat. Include these 6 ordinary enemies with distinct artwork and configurations, plus a boss; repeat each attack list cyclically. Victory awards 12 gold, or 40 for the boss. Non-boss wins offer rewards; boss victory or player death ends the run and disables combat.
+
+|Enemy ID|Health|Attack pattern|Seconds per turn|Weakness|
+|---|---|---|---|---|
+|goblin|30|4|20|fire|
+|slime|36|4,6|18|ice|
+|skeleton|42|6,8|16|heal|
+|witch|46|7,4,9|15|fire|
+|golem|64|8,10|13|ice|
+|wraith|56|6,11|12|heal|
+|dragon|135|10,14,8|12|ice|
+
+- **R4 — Five special variants.** Support gold vowels with weight 2; ember,frost,blessed consonants with weight 1 that activate fire,ice,heal respectively on valid casts; and cursed tiles of any letter with weight 3. Every cursed tile in the current hand but unused in a valid word costs 2 health; invalid/pass turns penalize every cursed tile in that hand. Visually distinguish variants with authored icons, not color alone. Upgrades only change common tiles, cost 10 gold in shops and are free as a reward. Reject incompatible letter/kind pairs, already-special targets, invalid IDs and insufficient funds without changing state. Upgrades affect later draws, not just displayed labels.
+- **R5 — Permanent deck management.** Shops offer every entry below; purchased tiles receive fresh IDs and count as collected. Selling any tile earns 5 gold; removing as a reward is free. Never reduce the pool below 7 tiles. After each non-boss win choose exactly one add,upgrade or removal action, or skip: floor 1 additions are gold-e,ember-f,rare-g; floor 2 additions frost-c,blessed-h,rare-m; floor 3 additions cursed-z,gold-e,ember-f. Shop transactions may repeat while affordable. Restrict transactions to their room and prevent repeat rewards. Show the entire inspectable pool and target selection. Rest heals up to 20 health once and advances; skipping is allowed.
+
+|Offer ID|Letter|Kind|Price|
+|---|---|---|---|
+|gold-e|E|gold|12|
+|ember-f|F|ember|14|
+|frost-c|C|frost|14|
+|blessed-h|H|blessed|14|
+|cursed-z|Z|cursed|8|
+|rare-g|G|normal|6|
+|rare-m|M|normal|6|
+
+- **R6 — Branching expedition.** Start at the first row; completing one choice opens both nodes on the next row. Reject unreachable or visited nodes. Keep health,gold,pool and statistics between rooms. The final boss has enough health for multiple ordinary strong words.
+
+|Row|Floor|Choices|
+|---|---|---|
+|0|1|`goblin` or `slime` combat|
+|1|1|`shop-1` or `rest-1`|
+|2|2|`skeleton` or `witch` combat|
+|3|2|`shop-2` or `rest-2`|
+|4|3|`golem` or `wraith` combat|
+|5|3|`shop-3` or `rest-3`|
+|6|3|`boss` using dragon|
+
+- **R7 — Complete flow and presentation.** Connect title,map,combat,reward,shop,rest and victory/death screens without restarting. Results show floor reached,longest valid word,total actual damage,tiles collected excluding the initial pool,elemental trigger totals and per-element counts. Score is floor multiplied by 100 plus longest-word length multiplied by 25 plus total damage. A new run clears previous progress. Use a coherent arcane art direction with illustrated enemies,letter-tile textures,special icons,themed map nodes and HUD/shop/result panels. The title arranges letters into an animated spell. Provide tile snap,casting and elemental bursts,enemy damage reactions and invalid-word fizzle feedback. At 1280 by 720 the hand,spelling bar,health,intent,countdown,elements and actions must be readable together. At 390 by 844 scrolling is allowed; long inventories may scroll at either size.
+- **R8 — Testable simulation.** Export `WordRun`, `INITIAL`, `KINDS`, `OFFERS`, `ENEMIES`, `NODES` from `game.js`. `new WordRun(seed,scenario)` exposes `screen`, `pool`, `hand`, `bar`, `hp`, `maxHp`, `gold`, `enemy`, `countdown`, `available`, `visited`, `current`, `row`, `floor`, `reward`, `longest`, `totalDamage`, `tilesCollected`, `triggers`, `turns`, `result`, `last`; tile records have `id`, `letter`, `kind`, and hand/bar contain IDs. Expose `start()`, `tile(id)`, `draw()`, `enter(id)`, `select(id,index)`, `unselect(id)`, `clear()`, `preview()`, `cast()`, `pass()`, `step(seconds)`, `add(offer,source)`, `upgrade(id,kind,source)`, `remove(id,source)`, `rest()`, `leave()`, `summary()`. The UI uses this same simulation. Source is `shop` or `reward`; adding defaults to shop and other transactions default to the current screen. Preview returns `word`, `valid`, `elements`, `damage`; last resolution additionally records `incoming`, `penalty`, `healed`, `burn`, `frozen`. Enemy state includes `id`, `hp`, `maxHp`, `attacks`, `seconds`, `weak`, `burn`, `frozen`, `turn`. Acceptance may set independent hand,health and status fixtures, but complete-run tests must use actual draws and legal choices.
+- **R9 — Browser controls and recordings.** Support `?seed=` and `?scenario=combat` for the initial goblin fight; `?scenario=spell` uses the distinct tile IDs spelling FIREHEA; `?scenario=shop` opens the first shop with 100 gold and 40 health; `?scenario=reward` opens the first goblin reward; `?scenario=near-victory` has the boss at 6 health with the FIREHEA hand; `?scenario=near-defeat` has the same hand,goblin,player health 1 and 0.6 seconds remaining. Keep visible selectors `#start`, `#node-ID`, `#hp`, `#gold`, `#floor`, `#pool-count`, `#hand`, `#tile-ID`, `#bar-ID`, `#spelling-bar`, `#word`, `#preview`, `#elements`, `#enemy-hp`, `#attack`, `#countdown`, `#cast`, `#clear`, `#pass`, `#effect-log`, `#selected-tile`, `#upgrade-kind`, `#upgrade`, `#remove`, `#buy-OFFER`, `#reward-OFFER`, `#continue`, `#rest`, `#status`, `#outcome`, `#result-floor`, `#longest`, `#total-damage`, `#collected`, `#trigger-count`, `#score`, `#restart`. Include 1–10 real input traces in `demo_outputs/`, indexed by `demos.json`, covering normal play,an elemental cast,pool management and a terminal outcome. Trace fields are optional `scenario`, `duration_frames` up to 600, and ordered `events` with `frame`, `type`, pointer `x`, `y`, `button` or keyboard `keycode`. Replay at 30 frames per second in 1280 by 720 with repeatable outcomes.
+- **R10 — Full assessment.** Preserve all 18 criteria and the launch gate in `rubric.md`: mechanics 15%,depth 35%,functional visuals 15%,presentation/art 35%. Automatic checks cover actual draws,word validation,damage,elements,countdown,special tiles,economy,branches,full runs,results,UI and input demos. Artistic quality,animation polish and strategic balance require recorded review; functional passing leaves unreviewed scores unset. The fixed lexicon,values,map and interfaces constrain design freedom for reproducible assessment.

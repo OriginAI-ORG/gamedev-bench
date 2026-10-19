@@ -1,0 +1,1 @@
+export async function createDemo(host,{manager,listFiles,soundDir='assets'}){host.textContent='Audio browser: implement the sound directory UI.';return{soundDir,update(){},dispose(){host.replaceChildren();}};}

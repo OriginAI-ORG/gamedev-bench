@@ -1,0 +1,28 @@
+{
+  "version": "1.0.0",
+  "review": "docs/task-reviews/card-drag.md",
+  "removed": [
+    "Monolithic drag-and-drop shortcut",
+    "Uniform drag threshold and zone geometry",
+    "Engine-specific exclusions in solver input"
+  ],
+  "restored": [
+    "Four-state reusable machine with guarded transitions and callback forwarding",
+    "Individual hierarchy,threshold,zone and titles",
+    "Original-index hand restoration",
+    "Distinct full-implementation,two-hook and one-parent repair boundaries"
+  ],
+  "replaced": [
+    "Native GUI and collision callbacks with DOM input and actual rectangle overlap",
+    "Deferred child-order operation with equivalent DOM insertion"
+  ],
+  "added": [
+    "Identity deduplication and listener cleanup",
+    "Independent clock boundary and component tests",
+    "Provided visible zone and add/reset inspection controls"
+  ],
+  "prior_results_valid_for_this_version": false,
+  "id": "og-web-0184",
+  "source_kind": "OriginGameDevBench",
+  "source_record": "configs/source-index.json#og-web-0184"
+}

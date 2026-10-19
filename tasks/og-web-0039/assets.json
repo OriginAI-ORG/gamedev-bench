@@ -1,0 +1,13 @@
+{
+  "task": "og-web-0039",
+  "source_archive": "configs/source-index.json#og-web-0039",
+  "source_art_redistributed": true,
+  "asset_root": "assets",
+  "unchanged_files": 10,
+  "hash_manifest": "taskkits/OriginGameDevBench/audio-demo/assets.json",
+  "new_fixture_files": [
+    "assets/files.json"
+  ],
+  "license_evidence": "vendor/gamedevbench.LICENSE; archive contains no separate media/font license",
+  "independent_media_license_verified": false
+}

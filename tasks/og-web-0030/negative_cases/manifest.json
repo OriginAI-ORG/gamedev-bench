@@ -1,0 +1,5 @@
+[
+ {"fault":"counts-instances","must_fail_check":"counts","mutation":{"file":"view.js","find":"this.traitData.countUnique(units)","replace":"units.length"}},
+ {"fault":"formatter-ignored","must_fail_check":"resource","mutation":{"file":"view.js","find":"this.traitData.formatLevels(count)","replace":"[{text:'2/4/6'}]"}},
+ {"fault":"inactive-not-faded","must_fail_check":"counts","mutation":{"file":"view.js","find":"value?'1':'0.5'","replace":"'1'"}}
+]

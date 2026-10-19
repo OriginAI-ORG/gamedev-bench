@@ -1,0 +1,4 @@
+import {Inventory} from './inventory.js';import {Slot} from './slot.js';const $=id=>document.getElementById(id);let inventory,slots;
+const count=()=>{$('count').textContent=inventory.items.length;};
+function reset(){let seed=51;slots=[];$('grid').replaceChildren();for(let i=0;i<6;i++){const button=document.createElement('button');button.id='slot-'+i;button.className='slot';$('grid').append(button);const slot=new Slot(button);slots.push(slot);button.onclick=()=>{if(!slot.slotItemResource)return;const index=inventory.items.indexOf(slot.slotItemResource);if(index>=0)inventory.items.splice(index,1);slot.setDataEmpty();count();};}inventory=new Inventory($('grid'),slots,{random:()=>{seed=(seed*1664525+1013904223)>>>0;return seed/4294967296;},icon:'item.svg'});count();}
+$('add').onclick=()=>{inventory.addItemResource();count();};$('clear').onclick=()=>{inventory.clearAllInventoryItems();count();};$('reset').onclick=reset;reset();

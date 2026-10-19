@@ -1,0 +1,2 @@
+import{Preferences}from './preferences.js';import{RemapButton}from './remap.js';
+export function mountMenu(root,services){const rows=root.querySelector('#RemapRows'),buttons=[];for(const action of['move_forward','move_backward','turn_left','turn_right','weapon_fire']){const label=document.createElement('span');label.textContent=action;const button=new RemapButton(action,services.inputs);buttons.push(button);rows.append(label,button.element);}return{prefs:new Preferences(),buttons,dispose(){buttons.forEach(b=>b.dispose());rows.replaceChildren();}};}

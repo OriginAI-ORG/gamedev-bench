@@ -1,0 +1,6 @@
+[
+ {"fault":"draws-back","must_fail_check":"interface","mutation":{"file":"pile.js","find":"this.cards.shift()","replace":"this.cards.pop()"}},
+ {"fault":"event-is-missing","must_fail_check":"ui","mutation":{"file":"pile.js","find":"this.dispatchEvent(new CustomEvent('size-changed',{detail:{count:this.cards.length}}));","replace":"/* no event */"}},
+ {"fault":"fixed-rotation","must_fail_check":"shuffle","mutation":{"file":"pile.js","find":"const j=Math.floor(this.random()*(i+1));","replace":"const j=0;"}},
+ {"fault":"zero-based-listing","must_fail_check":"interface","mutation":{"file":"pile.js","find":"${i+1}: ${c.id}","replace":"${i}: ${c.id}"}}
+]

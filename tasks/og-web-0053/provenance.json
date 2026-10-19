@@ -1,0 +1,23 @@
+{
+  "id": "og-web-0053",
+  "version": "1.0.0",
+  "review": "docs/task-reviews/sprite-components.md",
+  "requirements": "prompt.md",
+  "translation": "prompt_zh.md",
+  "acceptance": "verifier/scenarios.mjs",
+  "removed": [
+    "Procedural limb rotations and generic idle/run modes"
+  ],
+  "restored": [
+    "Infer grid from supplied bitmap",
+    "Four complete directional clips and exact sprite binding",
+    "32×32 collision and area ray"
+  ],
+  "added": [
+    "Explicit .1-second timing and initial frame0",
+    "Real playback and pixel comparison"
+  ],
+  "prior_results_valid_for_this_version": false,
+  "source_kind": "OriginGameDevBench",
+  "source_record": "configs/source-index.json#og-web-0053"
+}

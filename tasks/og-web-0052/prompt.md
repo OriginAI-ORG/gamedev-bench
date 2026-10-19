@@ -1,0 +1,10 @@
+# Add eight non-looping death animations
+
+Complete `component.js` in the supplied browser scene in `game/`; retain `index.html`. The player, idle/run animations, direction mapping, collider and sprite speed scale are already supplied. Add the missing death clips without rebuilding existing resources.
+
+- **R1 — Preserve and extend.** Export `configurePlayer(player, services)`, return the same player, and retain its existing sprite, collider, idle/run clips and frame objects. Keep floating mode, default `idle0`, frame 0 and `speedScale = 2`.
+- **R2 — Death frames.** Add `death0`–`death7` as supplied Clip objects using all 9 frames per direction from `assets/crusader_death.png`. Frame objects reference complete uniform atlas rectangles `[x, y, width, height]`, without margins or trimming. The atlas has 8 directional rows. Each death index must face the same direction as the existing idle/run index; inspect the supplied mapping and image. Use increasing columns for the sequence.
+- **R3 — Timing and completion.** Set each death clip's base FPS to 10 and disable looping. Preserve sprite speed scale 2, so actual death playback advances at 20 FPS and completes after 0.45 seconds. Keep the last frame visible and emit the supplied animation-finished event once per play; further advancement must not replay or emit another completion. The existing Sprite helper supplies playback and notifications when clip metadata is correct.
+- **R4 — Fixture.** Preserve actual image rendering, direction controls, Idle/Run/Death, Pause / Play, Advance 0.1 s, Probe pointer and Reset. Initial preview is paused; action/direction selection plays in real time. Reset restores the original idle0/frame 0 state and zero completion count with a fresh instance. Preserve art attribution and license.
+
+Acceptance checks all death rectangles and directions, preservation of existing object identities, 10 FPS/non-loop metadata and inherited scale, real last-frame/completion timing and count, actual atlas pixels and reset. The public example selects Death. Do not modify checks or fabricate results.

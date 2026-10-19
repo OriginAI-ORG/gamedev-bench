@@ -1,0 +1,15 @@
+{
+  "task": "og-web-0064",
+  "source_art_redistributed": true,
+  "source_archive": "configs/source-index.json#og-web-0064",
+  "embedded_assets": [
+    {
+      "file": "dino.png",
+      "source_file": "assets/sprites/DinoSprites - tard.png",
+      "sha256": "bcfda2b005df54c02ce11e5293583d94313b40e2ed349de28f0d85b259df4b50"
+    }
+  ],
+  "modified": false,
+  "license_evidence": "vendor/gamedevbench.LICENSE; source archive contains no separate image license",
+  "independent_art_license_verified": false
+}

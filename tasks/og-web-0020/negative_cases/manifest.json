@@ -1,0 +1,5 @@
+[
+ {"fault":"actor-not-stored","must_fail_check":"component","mutation":{"file":"machine.js","find":"this.actor=actor;","replace":"this.actor={dataset:{}};"}},
+ {"fault":"outgoing-state-not-exited","must_fail_check":"transitions","mutation":{"file":"machine.js","find":"if(this.state)this.state.exit();","replace":"/* missing exit */"}},
+ {"fault":"event-not-emitted","must_fail_check":"transitions","mutation":{"file":"machine.js","find":"this.dispatchEvent(new CustomEvent('state-changed',{detail:next}));","replace":"/* missing notification */"}}
+]

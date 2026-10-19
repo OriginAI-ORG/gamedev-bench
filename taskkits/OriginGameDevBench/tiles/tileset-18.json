@@ -1,0 +1,1 @@
+{"src":"tilemap.png","tileSize":[18,18],"separation":[1,1],"physics":[{"collisionLayer":2}],"tiles":{"0,0":{"polygons":[[[-9,-9],[9,-9],[9,9],[-9,9]]]}}}

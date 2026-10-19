@@ -1,0 +1,14 @@
+[
+  {
+    "fault": "all-match",
+    "must_fail_check": "mismatch-and-lock"
+  },
+  {
+    "fault": "self-match",
+    "must_fail_check": "match-and-repeat"
+  },
+  {
+    "fault": "stale-count",
+    "must_fail_check": "reset-counts"
+  }
+]

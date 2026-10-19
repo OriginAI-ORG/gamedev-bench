@@ -1,0 +1,45 @@
+{
+  "source_kind": "OriginGameDevBench",
+  "source_integrity": {
+    "instruction_sha256": "dc0c7e75e0f2250bf40d524d6ef55c740baf35a1b5e35305214a8df79fe43a3d",
+    "rubric_sha256": "fbfa3c5956e2052e9dd99d97d7b2a32c6f38a87cd8ea684f20ef11a5c8fa3cb7",
+    "source_criteria": [
+      "M1",
+      "M2",
+      "M3",
+      "M4",
+      "D1",
+      "D2",
+      "D3",
+      "D4",
+      "V1",
+      "V2",
+      "V3",
+      "A1",
+      "A2",
+      "A3"
+    ]
+  },
+  "version": "1.0.0",
+  "scope": "Restore dynamic horizontal/vertical rules,all5 properties,multiple simultaneous YOU,control transfer,atomic pushes,conditions,noun transformations,identity protection,HAS inheritance,unlimited undo and a complete20-level campaign with full presentation rubric.",
+  "removed_previous_requirements": [
+    "One6 by6 puzzle as the whole game",
+    "Fixed single-avatar movement without complete undo history"
+  ],
+  "replacements": [
+    "Native project launch/input recordings become browser package and real browser traces",
+    "Unavailable external asset libraries become optional generated fantasy illustrations",
+    "Example object nouns become six consistent illustrated nouns"
+  ],
+  "added_requirements": [
+    "Supplied20 hand-authored12 by9 layouts",
+    "Explicit ON/HAS grammar,maximal conditional parsing,one-stage simultaneous transformations,identity protection and defeat-before-victory ordering",
+    "Independent custom-level acceptance interface,DOM selectors and scenario fixtures"
+  ],
+  "equivalence_limits": "Core engine and complete campaign scope are restored,but supplied fixed layouts remove original level-design work. Specific grammar/conflict semantics and interfaces constrain design choices. Browser engineering is not the same as native editor work; identical difficulty or full original scoring is not claimed.",
+  "review": "docs/task-reviews/rule-rewrite.md",
+  "implementation": "Direct local code and bilingual authorship. Runtime sentence expansion loads authored movable blocks; it is not a task-generation script.",
+  "scoring": "All14 criteria and15/35/15/35 weights retained; unreviewed aesthetics stay null.",
+  "id": "og-web-0004",
+  "source_record": "configs/source-index.json#og-web-0004"
+}

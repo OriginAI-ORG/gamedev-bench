@@ -1,0 +1,18 @@
+{
+  "id": "og-web-0047",
+  "version": "1.0.0",
+  "review": "docs/task-reviews/sprite-components.md",
+  "removed": [
+    "Procedural limb animation"
+  ],
+  "restored": [
+    "Original separate idle16/run17 images",
+    "Clockwise right-first numbering, floating mode, scale2 and feet collider"
+  ],
+  "added": [
+    "Explicit base FPS5, real playback and pixels"
+  ],
+  "prior_results_valid_for_this_version": false,
+  "source_kind": "OriginGameDevBench",
+  "source_record": "configs/source-index.json#og-web-0047"
+}

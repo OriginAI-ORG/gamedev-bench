@@ -1,0 +1,8 @@
+[
+ {"fault":"depth-ignored","must_fail_check":"three-dimensional","mutation":{"file":"component.js","find":"body.position.map((v,i)=>v-this.player.position[i])","replace":"body.position.slice(0,2).map((v,i)=>v-this.player.position[i])"}},
+ {"fault":"copied-resource","must_fail_check":"component","mutation":{"file":"component.js","find":"{detail:data}","replace":"{detail:{...data}}"}},
+ {"fault":"focus-exit-missing","must_fail_check":"component","mutation":{"file":"component.js","find":"body.loseFocus();","replace":"void body;"}},
+ {"fault":"keyboard-repeat","must_fail_check":"input-dispose","mutation":{"file":"component.js","find":"e.code==='KeyF'&&!e.repeat","replace":"e.code==='KeyF'"}},
+ {"fault":"wrong-mask","must_fail_check":"initial","mutation":{"file":"component.js","find":"area.collisionMask=2","replace":"area.collisionMask=4"}},
+ {"fault":"listeners-leaked","must_fail_check":"input-dispose","mutation":{"file":"component.js","find":"this.area.removeEventListener('body-entered',this.enter);","replace":""}}
+]

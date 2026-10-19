@@ -1,0 +1,1 @@
+import{Mixer,AudioVoice}from './engine.js';import{createMusicPlayer}from './component.js';export const mixer=new Mixer(),registry=new Map(),dual=false;mixer.addBus('SFX');mixer.addBus('Music');export function initialize(){for(const p of registry.values())p.stop();registry.clear();registry.set('MusicPlayer',createMusicPlayer({mixer,AudioVoice}));}initialize();

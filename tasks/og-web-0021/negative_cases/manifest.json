@@ -1,0 +1,5 @@
+[
+ {"fault":"wrong-priority","must_fail_check":"initial","mutation":{"file":"component.js","find":"priority:Point.Priority.high","replace":"priority:0"}},
+ {"fault":"registry-unwired","must_fail_check":"initial","mutation":{"file":"component.js","find":"registry.add(point);","replace":"/* missing registration */"}},
+ {"fault":"existing-target-moved","must_fail_check":"component","mutation":{"file":"component.js","find":"return point;","replace":"chest.children[0].position[1]=2;return point;"}}
+]

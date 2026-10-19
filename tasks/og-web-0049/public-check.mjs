@@ -1,0 +1,1 @@
+import assert from 'node:assert/strict';export async function runPublicCheck(page,url,record=()=>{}){await page.goto(url);await page.locator('#run').click();await page.waitForFunction(()=>document.getElementById('status').textContent.startsWith('run0'));assert.equal(await page.locator('#sprite').isVisible(),true);record({action:'run0'});}

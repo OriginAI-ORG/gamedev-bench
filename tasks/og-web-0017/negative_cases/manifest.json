@@ -1,0 +1,7 @@
+[
+ {"fault":"wrong-size","must_fail_check":"wiring","mutation":{"file":"component.js","find":"size:[8,8]","replace":"size:[16,16]"}},
+ {"fault":"wrong-bus","must_fail_check":"muted-reset","mutation":{"file":"component.js","find":"'pickup.wav','SFX'","replace":"'pickup.wav','Master'"}},
+ {"fault":"unwired-contact","must_fail_check":"wiring","mutation":{"file":"component.js","find":"event=>pickup.onBodyEntered(event.detail)","replace":"event=>{}"}},
+ {"fault":"early-removal","must_fail_check":"wiring","mutation":{"file":"pickup.js","find":"await this.audio.play();this.removed=true;","replace":"this.removed=true;await this.audio.play();"}},
+ {"fault":"sound-before-collect","must_fail_check":"wiring","mutation":{"file":"pickup.js","find":"body.collect(this);await this.audio.play();","replace":"const playing=this.audio.play();body.collect(this);await playing;"}}
+]

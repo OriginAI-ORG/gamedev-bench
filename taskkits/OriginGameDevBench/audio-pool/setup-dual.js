@@ -1,0 +1,1 @@
+import{Mixer,AudioVoice}from './engine.js';import{installAudio}from './component.js';export const mixer=new Mixer(),registry=new Map(),dual=true;export function initialize(){for(const p of registry.values())p.stop();registry.clear();installAudio(registry,{mixer,AudioVoice});}initialize();

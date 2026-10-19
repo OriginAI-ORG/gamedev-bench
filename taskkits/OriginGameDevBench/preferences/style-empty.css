@@ -1,0 +1,1 @@
+body{margin:0;background:#202020;color:#eee;font:16px Arial,sans-serif}#stage{min-height:544px}#menu{padding:16px}#settings,#RemapRows{display:grid;grid-template-columns:180px 300px;gap:8px}button,input,select{font:inherit}button{padding:6px}#scene{max-width:100%}nav{padding:16px}

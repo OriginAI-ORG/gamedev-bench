@@ -1,0 +1,19 @@
+{
+  "task": "og-web-0066",
+  "source_art_redistributed": true,
+  "source_archive": "configs/source-index.json#og-web-0066",
+  "source_repository": "https://github.com/nicolasbize/fists-of-fury-course",
+  "embedded_assets": [
+    {
+      "file": "player.png",
+      "sha256": "14b570a3317ddfc75945bfb395679a3e14f96ed77cfa2c8f0ff98fa85b5353eb"
+    },
+    {
+      "file": "player_knife.png",
+      "sha256": "6c8cb84f009d67d51e2e00e962b7fffb2c20cf4f026d81a61e306fdfe65f145a"
+    }
+  ],
+  "modified": false,
+  "license_evidence": "vendor/gamedevbench.LICENSE; source archive contains no separate image license",
+  "independent_art_license_verified": false
+}

@@ -1,0 +1,1 @@
+{"scenario":"near-victory","duration_frames":120,"events":[{"frame":15,"type":"key_press","keycode":"F"},{"frame":25,"type":"key_press","keycode":"I"},{"frame":35,"type":"key_press","keycode":"R"},{"frame":45,"type":"key_press","keycode":"E"},{"frame":60,"type":"key_press","keycode":"ENTER"},{"frame":100,"type":"wait"}]}

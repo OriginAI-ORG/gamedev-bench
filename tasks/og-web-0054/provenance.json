@@ -1,0 +1,23 @@
+{
+  "id": "og-web-0054",
+  "version": "1.0.0",
+  "review": "docs/task-reviews/sprite-components.md",
+  "requirements": "prompt.md",
+  "translation": "prompt_zh.md",
+  "acceptance": "verifier/scenarios.mjs",
+  "removed": [
+    "Procedural limb rotations and disclosed generic collider answer"
+  ],
+  "restored": [
+    "Image-grid inference and actual directional frame selection",
+    "Collision sized from supplied game grid",
+    "Sprite tracks and area ray"
+  ],
+  "added": [
+    "Explicit gridCellSize binding and alternate-size probe",
+    ".1-second timing and real playback"
+  ],
+  "prior_results_valid_for_this_version": false,
+  "source_kind": "OriginGameDevBench",
+  "source_record": "configs/source-index.json#og-web-0054"
+}

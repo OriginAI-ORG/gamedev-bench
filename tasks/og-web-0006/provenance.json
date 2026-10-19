@@ -1,0 +1,51 @@
+{
+  "source_kind": "OriginGameDevBench",
+  "source_integrity": {
+    "instruction_sha256": "77585290ef30413d53fdce4bca7dcb1dc856d2a4220afa8538e6212febecadcb",
+    "rubric_sha256": "a378754f7b7fff7f0756f7d98d408189db469756f05691334fbf4e3bbbcf53c2",
+    "source_criteria": [
+      "M1",
+      "M2",
+      "M3",
+      "M4",
+      "M5",
+      "D1",
+      "D2",
+      "D3",
+      "D4",
+      "D5",
+      "V1",
+      "V2",
+      "V3",
+      "V4",
+      "A1",
+      "A2",
+      "A3",
+      "A4"
+    ]
+  },
+  "version": "1.0.0",
+  "scope": "Complete browser word-casting run:20-tile pool,7-tile actual draws,drag/reorder,2053-word exact lexicon,length damage,fire/ice/heal,real attack timers,persistent add/upgrade/remove,buy/sell shops,rest,5 special variants,6 enemies,3 branching floors,boss and full results/presentation.",
+  "removed_previous_requirements": [
+    "Single repeated enemy as the complete task",
+    "Fixed7-letter hand",
+    "14-word-only miniature dictionary",
+    "Turn-counter substitute for live countdown"
+  ],
+  "replacements": [
+    "Native launch/input traces become local browser launch and real browser input traces",
+    "Unavailable asset libraries become optional generated art",
+    "CARE healing shortcut becomes literal heal substring and blessed-letter healing"
+  ],
+  "added_requirements": [
+    "Fixed directly curated local lexicon,formulas and numerical balance",
+    "Concrete branching map,enemy patterns,shop/reward offerings",
+    "Exported simulation,seeded shuffle,stable selectors,scenario fixtures and precise resolution order"
+  ],
+  "equivalence_limits": "The original prescribes valid-word checking but no dictionary size. Supplying a fixed lexicon removes dictionary selection work and bounds vocabulary; fixed stats,map and APIs constrain design/architecture freedom. Restored systems and18 original weighted criteria do not prove identical difficulty or interchangeable benchmark scores.",
+  "review": "docs/task-reviews/word-spell.md",
+  "implementation": "Directly authored bilingual contracts,reference and checks. Full routes use actual seeded draws and legal word/economy decisions; no scripted combat wins.",
+  "scoring": "All15/35/15/35 category weights retained; manual scores remain null until reviewed.",
+  "id": "og-web-0006",
+  "source_record": "configs/source-index.json#og-web-0006"
+}

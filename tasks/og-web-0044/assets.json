@@ -1,0 +1,14 @@
+{
+  "task": "og-web-0044",
+  "source_archive": "configs/source-index.json#og-web-0044",
+  "source_art_redistributed": true,
+  "embedded_assets": [
+    {
+      "file": "tile_0108.png",
+      "sha256": "8a8b7fbc24fa1a17302a59b87fa51f72c85ef48cefdfca3d495f0cc46f7c3aeb"
+    }
+  ],
+  "modified": false,
+  "pixel_equivalence": "All 1024 RGBA bytes match the source embedded tile_0108 texture.",
+  "license_evidence": "vendor/gamedevbench.LICENSE"
+}

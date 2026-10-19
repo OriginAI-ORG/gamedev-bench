@@ -1,0 +1,1 @@
+import * as services from './components.js';import {configurePlayer}from './component.js';export function makePlayer(){const p={motionMode:'grounded',sprite:new services.Sprite(),collider:null};configurePlayer(p,services);return p;}

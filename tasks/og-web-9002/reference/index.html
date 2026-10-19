@@ -1,0 +1,46 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>记忆花园 · 翻牌配对</title>
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:#f3f0e9;color:#263a34;font:16px system-ui,sans-serif;display:grid;place-items:center}
+main{max-width:840px;width:94vw;padding:30px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}h1{font-size:38px;margin:12px 0}p{color:#5c7066;line-height:1.8}.eyebrow{font-size:12px;letter-spacing:2px;color:#577c69}.metrics{display:flex;gap:24px;margin:25px 0}.metrics strong{display:block;font-size:24px}.metrics span{font-size:12px;color:#5c7066}
+#board{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}button{font:600 16px system-ui;cursor:pointer;border:0;border-radius:10px;background:#355b49;color:white;padding:13px 22px}#board button{height:110px;padding:0;font:600 35px ui-monospace,monospace;box-shadow:0 5px 0 #233f31}
+#board button.revealed{background:#f7d7a0;color:#43351e;box-shadow:0 5px 0 #d6b780}button:focus-visible{outline:3px solid #3777bd;outline-offset:4px}
+@media(max-width:650px){main{grid-template-columns:1fr;padding:20px;gap:15px}#board button{height:85px}}
+</style></head><body><main><section><div class="eyebrow">LOCAL GAME LAB / 02</div><h1>记忆花园</h1><p>翻开卡片，找到相同的字母。<br>每次记住一点，离完成就更近一点。</p><div class="metrics"><div><span>尝试</span><strong id="attempts">0</strong></div><div><span>配对</span><strong id="pairs">0</strong></div><div><span>状态</span><strong id="status" role="status">进行中</strong></div></div><button id="reset">重新开始</button></section><div id="board" aria-label="配对棋盘"></div></main>
+<script>
+const fault = 'none';
+const deck = JSON.parse(new URLSearchParams(location.search).get('deck') || '["A","B","A","C","B","C"]');
+const board = document.getElementById('board');
+let opened, matched, first, locked, attempts, pairs, timer;
+function draw() {
+  board.replaceChildren();
+  deck.forEach((letter,index) => {
+    const button = document.createElement('button');
+    button.dataset.index = index; button.textContent = opened.has(index) || matched.has(index) ? letter : '?';
+    button.className = button.textContent === '?' ? '' : 'revealed';
+    button.addEventListener('click', () => flip(index)); board.append(button);
+  });
+  document.getElementById('attempts').textContent = attempts;
+  document.getElementById('pairs').textContent = pairs;
+  document.getElementById('status').textContent = pairs === deck.length/2 ? '胜利' : '进行中';
+}
+function flip(index) {
+  if (locked || matched.has(index) || (opened.has(index) && fault !== 'self-match')) return;
+  opened.add(index);
+  if (first === null) { first = index; draw(); return; }
+  attempts++;
+  if (deck[first] === deck[index] || fault === 'all-match') {
+    matched.add(first); matched.add(index); pairs++; opened.clear(); first = null; draw();
+  } else {
+    locked = true; draw();
+    timer = setTimeout(() => { opened.clear(); first = null; locked = false; draw(); }, 500);
+  }
+}
+function reset() {
+  clearTimeout(timer);
+  opened = new Set(); matched = new Set(); first = null; locked = false;
+  if (fault !== 'stale-count' || attempts === undefined) { attempts = 0; pairs = 0; }
+  draw();
+}
+document.getElementById('reset').addEventListener('click', reset);
+reset();
+</script></body></html>

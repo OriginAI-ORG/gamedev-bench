@@ -1,0 +1,1 @@
+import assert from 'node:assert/strict';export async function runPublicCheck(page,url,record=()=>{}){await page.goto(url);await page.locator('#inside').click();assert.equal(await page.locator('#hit').innerText(),'Blocked');assert.equal(await page.locator('#layers input').count(),2);record({collision:true});}

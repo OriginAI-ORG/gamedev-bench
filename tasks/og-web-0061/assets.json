@@ -1,0 +1,15 @@
+{
+  "task": "og-web-0061",
+  "source_art_redistributed": true,
+  "source_archive": "configs/source-index.json#og-web-0061",
+  "source_repository": "https://github.com/uheartbeast/ninja-platformer",
+  "embedded_assets": [
+    {
+      "file": "ninja_lower.png",
+      "sha256": "481e24923c5bfa6a8d86b98a758114c2da7280e154417fad60c6c88deb7d799f"
+    }
+  ],
+  "modified": false,
+  "license_evidence": "vendor/gamedevbench.LICENSE; source archive contains no separate image license",
+  "independent_art_license_verified": false
+}

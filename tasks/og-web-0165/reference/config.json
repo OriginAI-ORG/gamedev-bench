@@ -1,0 +1,1 @@
+{"mode":"standard","groups":["wizards","warlocks"],"names":["WizardUnit","WarlockNear","WarlockFar"],"baseRange":22,"attackRange":4,"near":70,"far":160,"closer":25,"outside":330}

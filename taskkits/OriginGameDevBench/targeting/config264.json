@@ -1,0 +1,1 @@
+{"mode":"standard","groups":["guards","intruders"],"names":["GuardUnit","IntruderNear","IntruderFar"],"baseRange":24,"attackRange":4,"near":80,"far":170,"closer":30,"outside":360}

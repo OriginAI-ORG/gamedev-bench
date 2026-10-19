@@ -1,0 +1,2 @@
+import assert from 'node:assert/strict';
+export async function runPublicCheck(page,url,record=()=>{}){await page.goto(url);const u=await page.locator('.unit').first().boundingBox(),p=await page.locator('#dropzone').boundingBox();await page.mouse.move(u.x+u.width/2,u.y+u.height/2);await page.mouse.down();await page.mouse.move(p.x+p.width/2,p.y+p.height/2,{steps:5});await page.mouse.up();assert.equal(await page.locator('#gold').innerText(),'3');assert.equal(await page.locator('.unit').count(),1);record({sold:'Swift Rogue',gold:3});}

@@ -1,0 +1,5 @@
+[
+ {"fault":"wrong-event-wired","must_fail_check":"events","mutation":{"file":"hud.js","find":"player.addEventListener('taken-damage',controller.onPlayerTakenDamage);","replace":"player.addEventListener('unused-event',controller.onPlayerTakenDamage);"}},
+ {"fault":"detached-label-bound","must_fail_check":"events","mutation":{"file":"hud.js","find":"controller.label=label;","replace":"controller.label=label.cloneNode(true);"}},
+ {"fault":"subscription-not-cleaned","must_fail_check":"component","mutation":{"file":"hud.js","find":"player.removeEventListener('taken-damage',controller.onPlayerTakenDamage);","replace":"/* stale listener remains */"}}
+]

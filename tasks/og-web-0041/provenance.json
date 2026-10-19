@@ -1,0 +1,27 @@
+{
+  "id": "og-web-0041",
+  "version": "1.0.0",
+  "review": "docs/task-reviews/minimap.md",
+  "removed": [
+    "Generic map demo without reusable lifecycle"
+  ],
+  "restored": [
+    "Deferred layout and identity-keyed clones",
+    "Relative projection,heading,inside/outside scales",
+    "Clamped zoom and wheel events",
+    "World group/icon/removal event wiring"
+  ],
+  "replaced": [
+    "Scene groups/events with Set and EventTarget",
+    "Native marker nodes with DOM image elements"
+  ],
+  "added": [
+    "All-boundary and reentry probes",
+    "Equal-name object identities",
+    "Property-setter limits and real wheel input",
+    "Idempotent lifecycle cleanup"
+  ],
+  "prior_results_valid_for_this_version": false,
+  "source_kind": "OriginGameDevBench",
+  "source_record": "configs/source-index.json#og-web-0041"
+}

@@ -1,0 +1,1 @@
+import {assembleLevel}from './component.js';import {createMenus}from './menus.js';import {SceneObject,Camera,createPlayer}from './spatial.js';export function setup(host,services){return assembleLevel(new SceneObject('Level'),{Camera,createPlayer,createMenus:()=>createMenus(host,services)});}

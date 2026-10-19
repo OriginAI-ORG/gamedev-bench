@@ -1,0 +1,7 @@
+[
+ {"fault":"focus-has-no-effect","must_fail_check":"input-filter","mutation":{"file":"component.js","find":"gainFocus(){this.highlight.visible=true;}","replace":"gainFocus(){}"}},
+ {"fault":"missing-metadata-factory","must_fail_check":"component","mutation":{"file":"component.js","find":"this.itemModel=itemModel;","replace":"this.itemModel=()=>itemModel();"}},
+ {"fault":"wrong-filter","must_fail_check":"input-filter","mutation":{"file":"component.js","find":"body.collisionMask=3;","replace":"body.collisionMask=1;"}},
+ {"fault":"hull-faces-outward","must_fail_check":"rendering","mutation":{"file":"component.js","find":"body.highlight.flipFaces=true;","replace":"body.highlight.flipFaces=false;"}},
+ {"fault":"emission-disabled","must_fail_check":"rendering","mutation":{"file":"component.js","find":"body.highlight.emissive=true;","replace":"body.highlight.emissive=false;"}}
+]

@@ -1,0 +1,9 @@
+[
+ {"fault":"game-keeps-running","must_fail_check":"pause-actions","mutation":{"file":"panel.js","find":"this.game.pause();","replace":"/* missing gameplay pause */"}},
+ {"fault":"external-event-unwired","must_fail_check":"events","mutation":{"file":"panel.js","find":"events.addEventListener('battle-over',this.onResult);","replace":"events.addEventListener('unused-event',this.onResult);"}},
+ {"fault":"message-hardcoded","must_fail_check":"events","mutation":{"file":"panel.js","find":"this.label.textContent=text;","replace":"this.label.textContent='Victory';"}},
+ {"fault":"action-not-restarted","must_fail_check":"pause-actions","mutation":{"file":"panel.js","find":"game.restart();","replace":"game.finish();"}},
+ {"fault":"center-offset","must_fail_check":"layout","mutation":{"file":"panel.js","find":"place-items:center;background:rgba","replace":"place-items:start;background:rgba"}},
+ {"fault":"missing-minimum","must_fail_check":"layout","mutation":{"file":"panel.js","find":"min-width:${config.minimum[0]}px","replace":"min-width:1px"}},
+ {"fault":"disposed-instance-still-active","must_fail_check":"component","mutation":{"file":"panel.js","find":"this.alive=false;","replace":"this.alive=true;"}}
+]

@@ -1,0 +1,1 @@
+{"mode":"standard","groups":["predators","prey"],"names":["PredatorUnit","PreyNear","PreyFar"],"baseRange":32,"attackRange":2,"near":50,"far":120,"closer":20,"outside":260}

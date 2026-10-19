@@ -1,0 +1,5 @@
+[
+  {"fault":"wrong-status-margins","must_fail_check":"layout","mutation":{"file":"view.js","find":"inset:20px 20px auto","replace":"inset:10px 10px auto"}},
+  {"fault":"score-not-right-aligned","must_fail_check":"layout","mutation":{"file":"view.js","find":"margin-left:auto;text-align:right","replace":"margin-left:0;text-align:left;margin-right:auto"}},
+  {"fault":"wrong-score-update","must_fail_check":"events","mutation":{"file":"fixture.js","find":"state.score+=100","replace":"state.score+=1"}}
+]

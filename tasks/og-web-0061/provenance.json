@@ -1,0 +1,19 @@
+{
+  "id": "og-web-0061",
+  "version": "1.0.0",
+  "review": "docs/task-reviews/sprite-components.md",
+  "removed": [
+    "Unrelated eight directions and collider configuration"
+  ],
+  "restored": [
+    "Six actual run frames at .1-second intervals",
+    "Stand frame6, .1-second non-loop",
+    "Exact sprite target, image, position and offset"
+  ],
+  "added": [
+    "Pixel checks for every frame and loop boundary"
+  ],
+  "prior_results_valid_for_this_version": false,
+  "source_kind": "OriginGameDevBench",
+  "source_record": "configs/source-index.json#og-web-0061"
+}

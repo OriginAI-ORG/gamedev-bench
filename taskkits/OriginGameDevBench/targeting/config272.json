@@ -1,0 +1,1 @@
+{"mode":"standard","groups":["workers","saboteurs"],"names":["WorkerMech","SaboteurNear","SaboteurFar"],"baseRange":38,"attackRange":2,"near":65,"far":150,"closer":14,"outside":320}

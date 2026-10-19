@@ -1,0 +1,8 @@
+{
+  "status": "pending",
+  "version": "1.0.0",
+  "review_type": null,
+  "reviewer": null,
+  "human_signoff": false,
+  "scope": "Repository split and version reset; historical approval is not reused."
+}

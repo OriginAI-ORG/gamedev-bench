@@ -1,0 +1,11 @@
+{
+  "version": "1.0.0",
+  "source_kind": "OriginGameDevBench",
+  "source_resolution": "The individual archive is recorded in task.json source.",
+  "review": "docs/task-reviews/battle-panel.md",
+  "scope": "All fifteen individual parameter sets, event/service integration, arbitrary messages, actual pause and restart are restored.",
+  "equivalence_limits": "End-session finishes the in-page session. Center offsets become centered minimum extents; contradictory source button flags follow stated rendered behavior. Correlated variants are not independent mechanics.",
+  "prior_results_valid_for_this_version": false,
+  "id": "og-web-0060",
+  "source_record": "configs/source-index.json#og-web-0060"
+}

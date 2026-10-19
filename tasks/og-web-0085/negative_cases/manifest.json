@@ -1,0 +1,5 @@
+[
+ {"fault":"primary-broken","must_fail_check":"core-sequence","mutation":{"file":"app.js","find":"dialog.hidden=false;","replace":"dialog.hidden=true;"}},
+ {"fault":"reset-broken","must_fail_check":"reset-sequence","mutation":{"file":"app.js","find":"document.querySelector('#reset').onclick=()=>{dialog.hidden=true;};","replace":"document.querySelector('#reset').onclick=()=>{};"}},
+ {"fault":"fixed-center-offset","must_fail_check":"symmetric-growth","mutation":{"file":"style.css","find":"#dialog-box{background","replace":"#dialog-box{position:absolute;left:calc(50% - 110px);top:calc(50% - 50px);background"}}
+]

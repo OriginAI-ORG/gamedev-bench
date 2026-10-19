@@ -1,0 +1,24 @@
+{
+  "id": "og-web-0077",
+  "version": "1.0.0",
+  "review": "docs/task-reviews/minimap.md",
+  "removed": [
+    "Requiring implementation of already supplied marker logic"
+  ],
+  "restored": [
+    "Configuration-only work and direct PNG bindings",
+    "Exact200px layout,margins,patches,center and hidden prototypes",
+    "Supplied tracking,zoom and removal integration"
+  ],
+  "replaced": [
+    "Native UI scene with declarative JSON",
+    "Unrelated source world presentation with a supplied inspection fixture"
+  ],
+  "added": [
+    "Measured layout and tiled pixels",
+    "Exercise preserved world integration without expanding solver code scope"
+  ],
+  "prior_results_valid_for_this_version": false,
+  "source_kind": "OriginGameDevBench",
+  "source_record": "configs/source-index.json#og-web-0077"
+}

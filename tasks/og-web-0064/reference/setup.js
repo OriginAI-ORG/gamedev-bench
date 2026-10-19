@@ -1,0 +1,1 @@
+import{Body}from './body.js';import*as services from './components.js';import{configurePlayer}from './component.js';export function makePlayer(){const p=new Body();configurePlayer(p,services);return p;}

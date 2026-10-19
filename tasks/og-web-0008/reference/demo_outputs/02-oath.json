@@ -1,0 +1,1 @@
+{"scenario":"diplomacy","duration_frames":180,"events":[{"frame":20,"type":"mouse_click","button":"left","x":145,"y":540},{"frame":50,"type":"mouse_click","button":"left","x":145,"y":540},{"frame":80,"type":"mouse_click","button":"left","x":340,"y":155},{"frame":110,"type":"mouse_click","button":"left","x":145,"y":540},{"frame":160,"type":"wait"}]}

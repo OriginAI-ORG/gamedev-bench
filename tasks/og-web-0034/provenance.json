@@ -1,0 +1,23 @@
+{
+  "id": "og-web-0034",
+  "version": "1.0.0",
+  "review": "docs/task-reviews/sprite-components.md",
+  "requirements": "prompt.md",
+  "translation": "prompt_zh.md",
+  "acceptance": "verifier/scenarios.mjs",
+  "removed": [
+    "Procedural limb rotations and generic idle/run modes"
+  ],
+  "restored": [
+    "Original 6×4 sheet and initial frame6",
+    "Four directional clips with six correct frames",
+    "Single sprite-frame track, collider and area ray"
+  ],
+  "added": [
+    "Explicit .1-second timing and image-order convention",
+    "Real playback and pixel comparison"
+  ],
+  "prior_results_valid_for_this_version": false,
+  "source_kind": "OriginGameDevBench",
+  "source_record": "configs/source-index.json#og-web-0034"
+}

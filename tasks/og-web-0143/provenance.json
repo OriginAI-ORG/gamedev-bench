@@ -1,0 +1,26 @@
+{
+  "id": "og-web-0143",
+  "version": "1.0.0",
+  "review": "docs/task-reviews/navigation-chase.md",
+  "removed": [
+    "9x7 discrete grid substitute",
+    "One-cell-per-step movement"
+  ],
+  "restored": [
+    "Missing controller and assembly",
+    "Continuous normalized waypoint pursuit with interpolation",
+    "Original 101-cell fence layout,720-cell terrain and three images",
+    "Live Target binding and 0.1-second timer"
+  ],
+  "replaced": [
+    "Native navigation/physics with provided browser services",
+    "Incidental target icon with beacon"
+  ],
+  "added": [
+    "Collision-free live trajectory verification",
+    "Explicit defaults and cleanup contract"
+  ],
+  "prior_results_valid_for_this_version": false,
+  "source_kind": "OriginGameDevBench",
+  "source_record": "configs/source-index.json#og-web-0143"
+}

@@ -1,0 +1,1 @@
+import assert from 'node:assert/strict';export async function runPublicCheck(page,url,record=()=>{}){await page.goto(url);assert.equal(await page.locator('#scene').getAttribute('data-camera'),'level');assert.equal(await page.locator('#launch-menu').isVisible(),true);record({camera:'level'});}

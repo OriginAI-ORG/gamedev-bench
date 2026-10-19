@@ -1,0 +1,23 @@
+{
+  "id": "og-web-0136",
+  "version": "1.0.0",
+  "review": "docs/task-reviews/collectible-overlays.md",
+  "removed": [
+    "Generated raster replacement",
+    "Forced cyan/0.45 styling"
+  ],
+  "restored": [
+    "Original gem,image offset,4 vertices,purple tint,85% IoU",
+    "Parent202.751,1.477 scale0.6 rotation0.14"
+  ],
+  "replaced": [
+    "Native polygons with SVG geometry"
+  ],
+  "added": [
+    "Explicit tint ranges",
+    "Group transforms,asset hashes and visible pixel checks"
+  ],
+  "prior_results_valid_for_this_version": false,
+  "source_kind": "OriginGameDevBench",
+  "source_record": "configs/source-index.json#og-web-0136"
+}

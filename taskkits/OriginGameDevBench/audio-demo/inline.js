@@ -1,0 +1,7 @@
+export async function createDemo(host,{manager,listFiles,soundDir='assets'}){
+ host.replaceChildren();Object.assign(host.style,{position:'fixed',inset:'0',padding:'20px',boxSizing:'border-box'});
+ const center=document.createElement('div');center.className='sound-center';Object.assign(center.style,{height:'100%',display:'grid',placeItems:'center'});const grid=document.createElement('div');grid.id='sound-grid';Object.assign(grid.style,{display:'grid',gridTemplateColumns:'repeat(2, max-content)',gap:'10px'});center.append(grid);host.append(center);
+ const bar=document.createElement('div');bar.id='counts';Object.assign(bar.style,{position:'fixed',left:'0',top:'0',fontFamily:'Poppins',fontSize:'24px'});const label=document.createElement('label');label.id='summary';bar.append(label);host.append(bar);
+ const handlers=[];for(const name of await listFiles(soundDir)){if(!/\.(wav|ogg)$/.test(name))continue;const button=document.createElement('button');button.textContent=name;button.style.fontFamily='Poppins';const handler=()=>manager.play(soundDir.replace(/\/$/,'')+'/'+name);button.addEventListener('click',handler);handlers.push([button,handler]);grid.append(button);}
+ return{soundDir,update(){label.textContent=`Available Streams: ${manager.available.length} | Queue: ${manager.queue.length}`;},dispose(){for(const[b,h]of handlers)b.removeEventListener('click',h);host.replaceChildren();}};
+}

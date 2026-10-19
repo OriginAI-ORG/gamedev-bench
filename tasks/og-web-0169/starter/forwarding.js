@@ -1,0 +1,1 @@
+export function connectForwarding(detector){const entered=event=>detector.onAreaEntered(event.detail),exited=event=>detector.onAreaExited(event.detail);detector.addEventListener('area-entered',entered);detector.addEventListener('area-exited',exited);return()=>{detector.removeEventListener('area-entered',entered);detector.removeEventListener('area-exited',exited);};}

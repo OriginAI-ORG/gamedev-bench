@@ -1,0 +1,5 @@
+[
+ {"fault":"no-exclusive-stop","must_fail_check":"pool-behavior","mutation":{"file":"sound-player.js","find":"if(single)this.stop();","replace":""}},
+ {"fault":"wrong-pool-size","must_fail_check":"initial","mutation":{"file":"component.js","find":"length:4","replace":"length:3"}},
+ {"fault":"paused-audio","must_fail_check":"lifetime-reset","mutation":{"file":"component.js","find":"processAlways=true","replace":"processAlways=false"}}
+]

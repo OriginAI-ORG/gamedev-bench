@@ -1,0 +1,1 @@
+#ui{position:fixed;left:0;top:50%;width:320px;height:100vh;min-height:var(--minimum-panel-height,0px);transform:translateY(-50%);background:rgba(37,56,76,0.7843137254901961)}#menu{position:absolute;left:10px;top:0;width:300px;height:811px;display:flex;flex-direction:column;gap:4px}#fullscreen-row,#fractal-row{display:flex;align-items:center;gap:4px}

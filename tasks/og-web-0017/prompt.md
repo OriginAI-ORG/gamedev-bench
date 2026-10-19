@@ -1,0 +1,11 @@
+# Assemble an automatic tank pickup
+
+Complete `component.js` in the supplied local browser game in `game/`; retain `index.html`. The package supplies the Tank and Pickup classes, collision loop, audio mixer, 8×8 bitmap and pickup sound. This task assembles and connects the collectible. The supplied Pickup handler already performs collection, sound playback and deferred removal.
+
+- **R1 — Factory and scene.** Export `createPickup(world, services)`. Create one instance of `services.Pickup`, name it `Pickup`, set `position = [64, 0]` and `scale = [4, 4]`, add it through `world.add(pickup)` and return that exact instance.
+- **R2 — Visual and collision.** Assign `sprite = {src: 'pickups.png'}` and `collider = {type: 'rectangle', size: [8, 8]}`. Keep the supplied bitmap and `pickup.wav` unchanged. The image and rectangle scale with the pickup, giving a 32×32 world-space footprint, centered on its position.
+- **R3 — Sound.** Assign `audio` from `services.createAudioPlayer('pickup.wav', 'SFX')`. Route the actual sound through the SFX gain bus; muting SFX silences playback without changing collection or removal timing. The supplied audio player's play promise resolves when its source finishes, not when playback begins.
+- **R4 — Contact integration.** Subscribe the pickup's `body-entered` event and pass its `detail` directly to `pickup.onBodyEntered`. A Tank contact calls its collect method with the exact pickup before audio starts. Non-Tank bodies do nothing. While sound plays the pickup remains in the scene, then disappears when sound finishes. Repeated contacts during playback cannot collect it again. Preserve the supplied handler rather than replacing the contact with a manual collection button.
+- **R5 — Fixture.** The Tank begins at [0, 0] with a 24×24 footprint. Left/Right buttons or arrow keys move it 16 world units per input; collision triggers collection. Preserve Non-tank contact, Mute SFX and Reset. Reset restores one pickup, the original Tank position, enabled SFX and a zero collection count.
+
+Acceptance checks factory identity, configuration and event wiring using supplied services, contact filtering and collection/playback/removal order, rendered bitmap and actual audio output including muted playback, one-shot collection and reset. The public example moves right into the pickup. Do not modify checks or fabricate results.

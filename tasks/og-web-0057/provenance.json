@@ -1,0 +1,22 @@
+{
+  "id": "og-web-0057",
+  "version": "1.0.0",
+  "review": "docs/task-reviews/sprite-components.md",
+  "requirements": "prompt.md",
+  "translation": "prompt_zh.md",
+  "acceptance": "verifier/scenarios.mjs",
+  "removed": [
+    "Generic SVG limb animation and idle/run states"
+  ],
+  "restored": [
+    "Explicit 6×4 slicing and strict direction correspondence",
+    "Complete six-frame clips on one sprite track",
+    "Collider and area-ray behavior"
+  ],
+  "added": [
+    "Explicit timing, ordering and real-time pixel checks"
+  ],
+  "prior_results_valid_for_this_version": false,
+  "source_kind": "OriginGameDevBench",
+  "source_record": "configs/source-index.json#og-web-0057"
+}

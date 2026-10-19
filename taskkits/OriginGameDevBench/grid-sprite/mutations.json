@@ -1,0 +1,6 @@
+[
+ {"fault":"area-filter-off","must_fail_check":"ray-collision","mutation":{"file":"component.js","find":"collideWithAreas=true","replace":"collideWithAreas=false"}},
+ {"fault":"missing-final-frame","must_fail_check":"configuration","mutation":{"file":"component.js","find":"keys:frames.map(","replace":"keys:frames.slice(0,5).map("}},
+ {"fault":"wrong-track-target","must_fail_check":"configuration","mutation":{"file":"component.js","find":"target:sprite","replace":"target:{...sprite}"}},
+ {"fault":"wrong-timing","must_fail_check":"configuration","mutation":{"file":"component.js","find":"duration:.6","replace":"duration:1.2"}}
+]

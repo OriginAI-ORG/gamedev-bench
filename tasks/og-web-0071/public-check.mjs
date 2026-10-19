@@ -1,0 +1,2 @@
+import assert from 'node:assert/strict';
+export async function runPublicCheck(page,url,record=()=>{}){await page.goto(url);const e=page.locator('.anchor').first();assert.equal(await e.isVisible(),true);const before=await e.evaluate(e=>[+e.getAttribute('cx'),+e.getAttribute('cy')]);await page.locator('#move').click();assert.deepEqual(await e.evaluate(e=>[+e.getAttribute('cx'),+e.getAttribute('cy')]),[before[0]+40,before[1]+20]);record({moved:true});}

@@ -1,0 +1,19 @@
+OriginGameDevBench
+Copyright 2026 OriginGameDevBench contributors
+
+Project source, authored task adaptations, and original programmatic fixtures
+are distributed under the Apache License, Version 2.0. See LICENSE.
+
+This project contains adapted task instructions and test geometry from
+GameDevBench (https://github.com/waynchi/gamedevbench) and GameCraft-Bench
+(https://github.com/FreedomIntelligence/gamecraft-bench), both Apache-2.0.
+The adaptations change runtime, scope, assets and validation as recorded in
+each task's provenance.json and prompt.md. They are not upstream benchmarks.
+Retained media and locally generated artwork are identified in each assets.json;
+source media retain their recorded license notices.
+
+Selected Apache-2.0 helpers from Analog Design Bench, GameCraft-Bench and
+GameDevBench retain their separate license texts in vendor/. Exact helper
+origins, changes and hashes are recorded in configs/upstream-lock.json.
+
+See THIRD_PARTY_NOTICES.md and configs/task-licenses.json for details.

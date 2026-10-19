@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "Please cite the exact release version and source archive SHA-256 used in your evaluation."
+title: "OriginGameDevBench"
+type: software
+version: "1.0.0"
+license: Apache-2.0
+authors:
+  - name: "OriginGameDevBench contributors"
+abstract: "A local benchmark of 218 browser component tasks and 10 complete games, with directly authored bilingual contracts, public feedback and independent acceptance."

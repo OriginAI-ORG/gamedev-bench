@@ -1,0 +1,1 @@
+import assert from 'node:assert/strict';export async function runPublicCheck(page,url,record=()=>{}){await page.goto(url);await page.locator('#death').click();await page.waitForFunction(()=>document.getElementById('status').textContent.includes('completed 1'));assert.equal(await page.locator('#status').innerText(),'death0 · frame 8 · completed 1');record({completed:1});}

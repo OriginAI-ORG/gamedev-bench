@@ -1,0 +1,1 @@
+{"mode":"standard","groups":["allies","hostiles"],"names":["AllyUnit","HostileNear","HostileFar"],"baseRange":40,"attackRange":2,"near":75,"far":140,"closer":15,"outside":310}

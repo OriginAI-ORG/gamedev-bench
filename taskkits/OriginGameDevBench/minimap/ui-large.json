@@ -1,0 +1,9 @@
+{
+ "size":[250,250],"margin":5,
+ "frame":{"texture":"assets/panel_woodDetail_blank.png","patch":[64,64,64,64]},
+ "content":{"margin":20,"grid":{"texture":"assets/pattern_blueprintPaper.png","mode":"tile","markers":[
+  {"name":"PlayerMarker","texture":"assets/minimapIcon_arrowA.png","center":true,"visible":true},
+  {"name":"MobMarker","texture":"assets/minimapIcon_jewelRed.png","visible":false},
+  {"name":"AlertMarker","texture":"assets/minimapIcon_exclamationYellow.png","visible":false}
+ ]}}
+}

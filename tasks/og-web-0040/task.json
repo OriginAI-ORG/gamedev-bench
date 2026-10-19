@@ -1,0 +1,25 @@
+{
+  "id": "og-web-0040",
+  "version": "1.0.0",
+  "prompt": "prompt.md",
+  "prompt_zh": "prompt_zh.md",
+  "title": "Configure a minimap with image resources",
+  "entry": "index.html",
+  "contract": "webgame-minimap-resource-ui-v2",
+  "source": "configs/source-index.json#og-web-0040",
+  "public_verifier": "public-check.mjs",
+  "rights": "Original supplied images preserved; asset provenance and license evidence in assets.json. Browser services authored locally.",
+  "generation_budget": {
+    "wall_seconds": 1200,
+    "max_observable_tool_calls": 30
+  },
+  "acceptance_budget": {
+    "wall_seconds": 180
+  },
+  "family": "minimap",
+  "migration_grade": "B",
+  "v1": true,
+  "source_kind": "OriginGameDevBench",
+  "benchmark": "OriginGameDevBench",
+  "taskkit": "OriginGameDevBench"
+}

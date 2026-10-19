@@ -1,0 +1,1 @@
+{"mode":"standard","groups":["blue_bots","red_bots"],"names":["BlueBot","RedBotNear","RedBotFar"],"baseRange":28,"attackRange":3,"near":60,"far":150,"closer":10,"outside":300}

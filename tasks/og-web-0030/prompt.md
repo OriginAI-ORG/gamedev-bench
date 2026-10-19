@@ -1,0 +1,11 @@
+# Data-driven trait tracker
+
+Complete `view.js` in the supplied local browser game under `game/`; retain `index.html`. The panel structure, unit controls, local icons and `Trait` data helpers are provided. Preserve the icon background, count/threshold row and name underneath.
+
+- **R1 — Resource binding.** Export `TraitUI(host)` with writable `traitData` and `active` properties, `update(units)` and `dispose()`. Assigning `traitData` immediately sets `#trait-icon` from its `.icon` and `#trait-name` from its `.name`. Retain the exact trait object. The fixture starts with elf and thresholds 2/4/6.
+- **R2 — Unique count.** `update(units)` obtains the count from `traitData.countUnique(units)` and displays it in `#active-units`. Supplied units have `stats.name` and `stats.traits`; the helper counts distinct names whose traits include that exact trait object. Duplicate unit instances remain visible but contribute only once. Removal must recompute the current count.
+- **R3 — Rich thresholds.** Render the tokens returned by `traitData.formatLevels(count)` inside `#levels`, preserving each token's text and optional color. The supplied elf trait highlights only the highest reached threshold in #fafa82: 2 at count 2–3, 4 at 4–5 and 6 at 6 or more; lower tiers are not simultaneously highlighted. Honor arbitrary resource names, icons, thresholds and formatter output.
+- **R4 — Activation.** Set `active` from `traitData.isActive(count)`. The whole panel's opacity is 1 when active and 0.5 otherwise. Setting `active` directly must also update opacity. The elf trait activates at 2 unique matching names.
+- **R5 — Integration.** Preserve add/remove, trait selection and reset controls. Switching traits changes the actual icon/name and recomputes from the current units. Reset clears units, restores elf, count 0 and inactive opacity, with one panel. `dispose()` removes the instance.
+
+Acceptance checks duplicate and nonmatching units, all three thresholds, highest-tier-only highlighting, resource replacement and custom formatter calls, loaded icon pixels, opacity, removal and reset. The public example adds Archer, Marksman and another Archer, yielding count 2. Do not modify checks or fabricate results.

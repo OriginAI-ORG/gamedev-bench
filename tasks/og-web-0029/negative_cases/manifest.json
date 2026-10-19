@@ -1,0 +1,7 @@
+[
+ {"fault":"transform-aliased","must_fail_check":"spawn-component","mutation":{"file":"component.js","find":"structuredClone(this.marker.transform)","replace":"this.marker.transform"}},
+ {"fault":"placement-omitted","must_fail_check":"spawn-component","mutation":{"file":"component.js","find":"enemy.placeOnMesh();","replace":""}},
+ {"fault":"contact-as-target","must_fail_check":"spawn-component","mutation":{"file":"component.js","find":"enemy.setNodeTarget(this.targetToSet)","replace":"enemy.setNodeTarget(body)"}},
+ {"fault":"first-marker-only","must_fail_check":"wave-binding","mutation":{"file":"component.js","find":"markers.map(marker=>","replace":"markers.slice(0,1).map(marker=>"}},
+ {"fault":"trigger-not-removed","must_fail_check":"wave-binding","mutation":{"file":"component.js","find":"this.trigger.remove();","replace":""}}
+]

@@ -1,0 +1,2 @@
+import assert from 'node:assert/strict';
+export async function runPublicCheck(page,url,record=()=>{}){await page.goto(url);await page.locator('#win').click();assert.equal(await page.locator('#battle-panel').isVisible(),true);assert.equal(await page.locator('#continue').isVisible(),true);assert.equal(await page.locator('#restart').isVisible(),false);assert.equal(await page.locator('#status').innerText(),'paused');record({action:'win',state:'paused'});}

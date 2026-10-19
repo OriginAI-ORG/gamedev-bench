@@ -1,0 +1,1 @@
+{"scenario":"restock","duration_frames":120,"events":[{"frame":25,"type":"mouse_click","button":"left","x":130,"y":384},{"frame":60,"type":"mouse_click","button":"left","x":72,"y":663},{"frame":100,"type":"wait"}]}

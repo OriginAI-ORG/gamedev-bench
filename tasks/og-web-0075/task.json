@@ -1,0 +1,25 @@
+{
+  "id": "og-web-0075",
+  "version": "1.0.0",
+  "prompt": "prompt.md",
+  "prompt_zh": "prompt_zh.md",
+  "title": "静音启动音乐 / Muted Startup Music",
+  "entry": "index.html",
+  "contract": "webgame-muted-startup-music-v2",
+  "source": "configs/source-index.json#og-web-0075",
+  "public_verifier": "public-check.mjs",
+  "rights": "Original supplied music; evidence in assets.json. Browser fixture authored locally.",
+  "generation_budget": {
+    "wall_seconds": 1200,
+    "max_observable_tool_calls": 30
+  },
+  "acceptance_budget": {
+    "wall_seconds": 180
+  },
+  "family": "audio",
+  "migration_grade": "B",
+  "v1": true,
+  "source_kind": "OriginGameDevBench",
+  "benchmark": "OriginGameDevBench",
+  "taskkit": "OriginGameDevBench"
+}

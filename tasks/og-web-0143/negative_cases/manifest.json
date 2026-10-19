@@ -1,0 +1,6 @@
+[
+ {"fault":"missing-delta","must_fail_check":"velocity","mutation":{"file":"controller.js","find":"weight=this.acceleration*dt","replace":"weight=this.acceleration"}},
+ {"fault":"local-target-position","must_fail_check":"target-timer","mutation":{"file":"controller.js","find":"target.globalPosition","replace":"target.position"}},
+ {"fault":"no-timer-connection","must_fail_check":"target-timer","mutation":{"file":"setup.js","find":"timer.addEventListener('timeout',listener);","replace":"timer.addEventListener('unused',listener);"}},
+ {"fault":"wrong-object","must_fail_check":"assembly","mutation":{"file":"setup.js","find":"objects.get(config.target)","replace":"objects.get(config.actor)"}}
+]

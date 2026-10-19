@@ -1,0 +1,24 @@
+{
+  "id": "og-web-0017",
+  "version": "1.0.0",
+  "review": "docs/task-reviews/pickup-components.md",
+  "requirements": "prompt.md",
+  "translation": "prompt_zh.md",
+  "acceptance": "verifier/scenarios.mjs",
+  "removed": [
+    "Unrelated F-key nearest-item inventory"
+  ],
+  "restored": [
+    "Typed automatic contact and callback wiring",
+    "8×8 collision geometry and original bitmap/audio",
+    "SFX routing and collect-before-play completion lifecycle",
+    "[64,0] position and [4,4] scale"
+  ],
+  "added": [
+    "Explicit inspection controls and duplicate-contact guard"
+  ],
+  "difficulty": "Scene assembly and integration preserved; supplied handler remains supplied. Browser interaction details differ as documented.",
+  "prior_results_valid_for_this_version": false,
+  "source_kind": "OriginGameDevBench",
+  "source_record": "configs/source-index.json#og-web-0017"
+}

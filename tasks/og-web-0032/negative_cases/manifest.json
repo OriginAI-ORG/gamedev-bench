@@ -1,0 +1,5 @@
+[
+ {"fault":"last-empty-slot","must_fail_check":"component","mutation":{"file":"inventory.js","find":"this.slots.find(s=>s.slotItemResource===null)","replace":"this.slots.findLast(s=>s.slotItemResource===null)"}},
+ {"fault":"twenty-is-unreachable","must_fail_check":"component","mutation":{"file":"inventory.js","find":"Math.floor(this.random()*20)","replace":"Math.floor(this.random()*19)"}},
+ {"fault":"slot-not-cleared","must_fail_check":"clear-reset","mutation":{"file":"inventory.js","find":"for(const slot of this.slots)slot.setDataEmpty();","replace":"/* resources cleared but slots stale */"}}
+]

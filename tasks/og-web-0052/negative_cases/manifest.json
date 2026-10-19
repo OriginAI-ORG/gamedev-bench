@@ -1,0 +1,6 @@
+[
+ {"fault":"looping-death","must_fail_check":"death-completion","mutation":{"file":"component.js","find":"loop:false","replace":"loop:true"}},
+ {"fault":"wrong-fps","must_fail_check":"death-completion","mutation":{"file":"component.js","find":"fps:10","replace":"fps:5"}},
+ {"fault":"wrong-direction","must_fail_check":"configuration","mutation":{"file":"component.js","find":"rows=[2,1,0,7,6,5,4,3]","replace":"rows=[0,1,2,3,4,5,6,7]"}},
+ {"fault":"missing-death-frame","must_fail_check":"configuration","mutation":{"file":"component.js","find":"length:9","replace":"length:8"}}
+]

@@ -1,0 +1,1 @@
+{"scenario":"near-mistrial","duration_frames":180,"events":[{"frame":30,"type":"mouse_click","button":"left","x":464,"y":590},{"frame":70,"type":"mouse_click","button":"left","x":1145,"y":438},{"frame":150,"type":"wait"}]}

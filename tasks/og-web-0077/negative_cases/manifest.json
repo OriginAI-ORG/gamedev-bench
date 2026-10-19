@@ -1,0 +1,5 @@
+[
+ {"fault":"outer-margin","must_fail_check":"layout","mutation":{"file":"ui.json","find":"\"margin\":5","replace":"\"margin\":8"}},
+ {"fault":"stretched-grid","must_fail_check":"image-pixels","mutation":{"file":"ui.json","find":"\"mode\":\"tile\"","replace":"\"mode\":\"stretch\""}},
+ {"fault":"wrong-arrow","must_fail_check":"ui-configuration","mutation":{"file":"ui.json","find":"\"texture\":\"assets/minimapIcon_arrowA.png\"","replace":"\"texture\":\"assets/minimapIcon_jewelRed.png\""}}
+]

@@ -1,0 +1,11 @@
+# Build an audio directory browser with a single statistics label
+
+Complete `createDemo(host,{manager,listFiles,soundDir='assets'})` in `component.js`. Return an object exposing the configured directory, an `update()` method and a `dispose()` method. The supplied eight-voice audio manager, real media decoding, animation-frame updates and sound output already work.
+
+- **R1 — Full-screen layout.** Fill the viewport with the provided host and use 20 pixels of padding on every side. Center a grid with exactly 2 columns and 10-pixel horizontal and vertical gaps. Keep the layout centered as the viewport changes.
+- **R2 — Discover sound buttons.** Call `listFiles(soundDir)` and create one button for every returned filename ending in .wav or .ogg. Ignore other files. Each button displays the complete filename and calls `manager.play(path)` with its directory-qualified path when pressed. Support a different directory and avoid duplicate path separators. Use the actual supplied audio files.
+- **R3 — One statistics label.** Add a bar at the top of the viewport containing one label with exactly the format `Available Streams: N | Queue: M`, replacing N and M with current numbers. Use the supplied `Poppins` font at 24 pixels for this label, and the same font for sound buttons.
+- **R4 — Live counts.** Each update reads `manager.available.length` for N and `manager.queue.length` for M. Do not infer counts from clicks or from a separate simulated pool. Initial counts reflect the manager's current state; the supplied manager starts with 8 available voices and an empty queue.
+- **R5 — Lifecycle.** Dispose removes this component's listeners and content; repeated disposal is safe. Reset must rebuild exactly one button per audio file, with one play call per press. Preserve the supplied Stop audio, Reset, voice indicators and actual output meter.
+
+Use `#sound-grid` for the button grid, `#counts` for the statistics bar and `#summary` for its single label. The supplied directory service reads local file manifests because this is a static browser application. Acceptance injects a different directory and manager, checks layout/font loading, plays decoded source audio, observes natural completion and tests all 8 voices plus queued requests. Keep the page runnable through `index.html`.

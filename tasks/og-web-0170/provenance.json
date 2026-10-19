@@ -1,0 +1,23 @@
+{
+  "id": "og-web-0170",
+  "version": "1.0.0",
+  "review": "docs/task-reviews/targeting.md",
+  "removed": [
+    "Uniform50px base range",
+    "Rewriting already supplied algorithms"
+  ],
+  "restored": [
+    "Forward actor to detector on stats assignment",
+    "36x2=72 radius,50/130 positions",
+    "Provided complete finder/detector implementation"
+  ],
+  "replaced": [
+    "Native setter integration with browser object setter"
+  ],
+  "added": [
+    "Repeated updates,identity,shape-overlap and cleanup checks"
+  ],
+  "prior_results_valid_for_this_version": false,
+  "source_kind": "OriginGameDevBench",
+  "source_record": "configs/source-index.json#og-web-0170"
+}

@@ -1,0 +1,5 @@
+[
+ {"fault":"wrong-object","must_fail_check":"assembly","mutation":{"file":"binding.js","find":"objects.get(config.target)","replace":"objects.get(config.actor)"}},
+ {"fault":"snapshot-object","must_fail_check":"assembly","mutation":{"file":"binding.js","find":"objects.get(config.target)","replace":"{...objects.get(config.target)}"}},
+ {"fault":"hardcoded-identity","must_fail_check":"binding-identity","mutation":{"file":"binding.js","find":"objects.get(config.target)","replace":"objects.get([...objects.keys()][1])"}}
+]

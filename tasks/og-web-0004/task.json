@@ -1,0 +1,39 @@
+{
+  "id": "og-web-0004",
+  "version": "1.0.0",
+  "title": "Rule Rewrite — dynamic language and twenty-level campaign",
+  "name": "Rule Rewrite — dynamic language and twenty-level campaign",
+  "benchmark": "OriginGameDevBench",
+  "kind": "complete-game",
+  "entry": "index.html",
+  "entrypoint": "index.html",
+  "prompt": "prompt.md",
+  "prompt_zh": "prompt_zh.md",
+  "starter": "starter",
+  "reference": "reference",
+  "public_verifier": "public-check.mjs",
+  "private_verifier": "verifier/scenarios.mjs",
+  "contract": "webgame-rule-language-v2",
+  "family": "rule-language",
+  "source": "configs/source-index.json#og-web-0004",
+  "generation_budget": {
+    "wall_seconds": 1200,
+    "max_observable_tool_calls": 30
+  },
+  "acceptance_budget": {
+    "wall_seconds": 240
+  },
+  "scoring": {
+    "automated": "functional checks only",
+    "manual_rubric": "rubric.md",
+    "weights": {
+      "mechanics": 0.15,
+      "depth": 0.35,
+      "visuals": 0.15,
+      "art": 0.35
+    },
+    "unreviewed_art_score": null
+  },
+  "source_kind": "OriginGameDevBench",
+  "taskkit": "OriginGameDevBench"
+}

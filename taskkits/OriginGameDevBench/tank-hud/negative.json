@@ -1,0 +1,6 @@
+[
+ {"fault":"missing-score-event","must_fail_check":"events","mutation":{"file":"wiring.js","find":"tank.addEventListener('pickup-collected',pickup)","replace":"tank.addEventListener('unused',pickup)"}},
+ {"fault":"missing-finish-event","must_fail_check":"events","mutation":{"file":"wiring.js","find":"tank.weapon.addEventListener('reload-finished',finished)","replace":"tank.weapon.addEventListener('unused',finished)"}},
+ {"fault":"lost-cleanup","must_fail_check":"events","mutation":{"file":"wiring.js","find":"tank.removeEventListener('pickup-collected',pickup)","replace":"tank.removeEventListener('unused',pickup)"}},
+ {"fault":"wrong-binding","must_fail_check":"assembly","mutation":{"file":"wiring.js","find":"game[config.tankProperty]=tank","replace":"game[config.tankProperty]=world"}}
+]

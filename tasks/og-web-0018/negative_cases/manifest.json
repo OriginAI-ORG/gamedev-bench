@@ -1,0 +1,5 @@
+[
+  {"fault":"sensor-unwired","must_fail_check":"component","mutation":{"file":"projectile.js","find":"projectile.addEventListener('sensorcontact',onSensor);","replace":"/* sensor listener omitted */"}},
+  {"fault":"body-unwired","must_fail_check":"component","mutation":{"file":"projectile.js","find":"projectile.addEventListener('bodycontact',onBody);","replace":"/* body listener omitted */"}},
+  {"fault":"reset-broken","must_fail_check":"reset-sequence","mutation":{"file":"fixture.js","find":"for(const p of bullets)world.removeProjectile(p);bullets=[];","replace":"/* active projectiles retained */"}}
+]

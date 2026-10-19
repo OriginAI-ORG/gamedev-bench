@@ -1,0 +1,19 @@
+{
+  "id": "og-web-0038",
+  "version": "1.0.0",
+  "review": "docs/task-reviews/sprite-components.md",
+  "removed": [
+    "Procedural limb animation and incorrect 16-frame run"
+  ],
+  "restored": [
+    "Original separate images: idle16/run17 in eight directions",
+    "Floating mode, scale2, feet collider"
+  ],
+  "added": [
+    "Explicit base FPS5, real playback and pixels"
+  ],
+  "clarification": "Any consistent direction bijection is accepted; source does not specify right-first numbering.",
+  "prior_results_valid_for_this_version": false,
+  "source_kind": "OriginGameDevBench",
+  "source_record": "configs/source-index.json#og-web-0038"
+}

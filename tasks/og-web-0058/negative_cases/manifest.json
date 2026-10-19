@@ -1,0 +1,6 @@
+[
+ {"fault":"interrupt-attack","must_fail_check":"event-binding","mutation":{"file":"component.js","find":"if(upper.current!=='attack')","replace":"if(true)"}},
+ {"fault":"omit-phase-seek","must_fail_check":"event-binding","mutation":{"file":"component.js","find":"upper.seek(lower.position);","replace":""}},
+ {"fault":"wrong-change-event","must_fail_check":"configuration","mutation":{"file":"component.js","find":"lower.addEventListener('animation-changed',changed)","replace":"lower.addEventListener('animation-finished',changed)"}},
+ {"fault":"leaked-listener","must_fail_check":"event-binding","mutation":{"file":"component.js","find":"lower.removeEventListener('animation-changed',changed);","replace":""}}
+]

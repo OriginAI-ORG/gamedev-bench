@@ -1,0 +1,8 @@
+{
+  "schema_version": 2,
+  "version": "3.0.0",
+  "project_code_license": "Apache-2.0",
+  "authoritative_records": "tasks/<id>/assets.json and the media licenses retained in each starter/reference",
+  "cohort": "configs/OriginGameDevBench.json",
+  "note": "This index makes no blanket media-license claim. Several tasks preserve original images, fonts or sounds. Their source evidence and any unresolved independent media-license attribution are recorded per task. Generated artwork has separate prompt records in docs/art-generation-prompts.md. The previous aggregate claim that no source pixels were copied is withdrawn. The 3.0.0 identifier migration preserves the recorded media provenance."
+}

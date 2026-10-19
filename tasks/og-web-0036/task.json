@@ -1,0 +1,25 @@
+{
+  "id": "og-web-0036",
+  "version": "1.0.0",
+  "prompt": "prompt.md",
+  "prompt_zh": "prompt_zh.md",
+  "title": "平台运动与加速 / Platform Character Core Movement",
+  "entry": "index.html",
+  "contract": "webgame-platform-controller-v2",
+  "source": "configs/source-index.json#og-web-0036",
+  "public_verifier": "public-check.mjs",
+  "rights": "Original supplied bitmap; asset provenance in assets.json. Browser fixture authored locally.",
+  "generation_budget": {
+    "wall_seconds": 1200,
+    "max_observable_tool_calls": 30
+  },
+  "acceptance_budget": {
+    "wall_seconds": 180
+  },
+  "family": "platform",
+  "migration_grade": "B",
+  "v1": true,
+  "source_kind": "OriginGameDevBench",
+  "benchmark": "OriginGameDevBench",
+  "taskkit": "OriginGameDevBench"
+}

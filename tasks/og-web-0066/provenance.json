@@ -1,0 +1,21 @@
+{
+  "id": "og-web-0066",
+  "version": "1.0.0",
+  "review": "docs/task-reviews/sprite-components.md",
+  "removed": [
+    "Manual completion count and missing weapon animation"
+  ],
+  "restored": [
+    "Dual sprite tracks70/71/72 and timed method event",
+    "Fall80 and grounded82 looping clips",
+    "Supplied RESET identity and both original atlases"
+  ],
+  "added": [
+    "Exactly-once completion and replay checks",
+    "Actual image crop verification"
+  ],
+  "source_validator_correction": "Successful assertions no longer exit with failure status.",
+  "prior_results_valid_for_this_version": false,
+  "source_kind": "OriginGameDevBench",
+  "source_record": "configs/source-index.json#og-web-0066"
+}

@@ -1,0 +1,1 @@
+import{SoundPlayer}from './sound-player.js';export{SoundPlayer};export function installAudio(registry,{mixer,AudioVoice}){registry.set('MusicPlayer',new SoundPlayer());registry.set('SFXPlayer',new SoundPlayer());return registry;}

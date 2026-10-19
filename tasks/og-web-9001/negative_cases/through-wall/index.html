@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>仓库小队 · 推箱子</title>
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:#111a28;color:#e9eef6;font:16px system-ui,sans-serif;display:grid;place-items:center}
+main{width:min(900px,94vw);padding:35px;display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center}
+.eyebrow{color:#75d9b2;letter-spacing:3px;font-size:12px}h1{font-size:40px;margin:16px 0}p{color:#aab9cf;line-height:1.8}.metrics{display:flex;gap:30px;margin:28px 0}.metrics strong{display:block;font-size:23px;margin-top:9px}.label{color:#aab9cf;font-size:12px}
+button{background:#75d9b2;border:0;border-radius:8px;padding:13px 21px;color:#142720;font:600 16px system-ui;cursor:pointer}button:focus-visible{outline:3px solid white;outline-offset:5px}
+#board{display:grid;gap:4px;background:#0b1220;padding:14px;border-radius:14px}
+.cell{width:46px;height:46px;display:grid;place-items:center;border-radius:5px;font:700 29px ui-monospace,monospace;background:#263447;color:#a4b7cc}
+.wall{background:#415573;color:#c8d5e8}.goal{background:#24463d;color:#85edb5}.box{background:#d9a35e;color:#302619}.player{background:#e4edf9;color:#152b4b}.done{background:#75d9b2;color:#163c2f}
+@media(max-width:760px){main{grid-template-columns:1fr;padding:18px;gap:10px}.cell{width:36px;height:36px;font-size:25px}#board{justify-self:start}h1{font-size:28px}}
+</style></head>
+<body><main><section><div class="eyebrow">LOCAL GAME LAB / 01</div><h1>仓库小队</h1><p>用方向键移动，将每只箱子推到绿色目标上。<br>先想好路线，箱子只能向前推。</p><div class="metrics"><div><span class="label">移动步数</span><strong id="steps">0</strong></div><div><span class="label">当前状态</span><strong id="status" role="status">进行中</strong></div></div><button type="button">重新开始</button><p class="label">方向键移动 · 撞墙不计步 · 随时重新开始</p></section><div id="board" aria-label="推箱子棋盘"></div></main>
+<script>
+const fault = 'through-wall';
+const fallback = ["#######", "#     #", "# .$@ #", "#     #", "#######"];
+const initial = JSON.parse(new URLSearchParams(location.search).get('map') || JSON.stringify(fallback));
+const board = document.getElementById('board');
+const stepLabel = document.getElementById('steps');
+const stateLabel = document.getElementById('status');
+let walls, goals, boxes, player, steps;
+const key = (r,c) => r + ',' + c;
+const won = () => fault === 'early-win' ? steps > 0 : [...boxes].every(p => goals.has(p));
+function reset() {
+  if (fault === 'broken-reset' && steps > 0) return;
+  walls = new Set(); goals = new Set(); boxes = new Set(); steps = 0;
+  initial.forEach((line,r) => [...line].forEach((ch,c) => {
+    const p = key(r,c);
+    if (ch === '#') walls.add(p);
+    if ('.$*+'.includes(ch) && ch !== '$') goals.add(p);
+    if ('$*'.includes(ch)) boxes.add(p);
+    if ('@+'.includes(ch)) player = [r,c];
+  }));
+  render();
+}
+function render() {
+  board.style.gridTemplateColumns = 'repeat(' + initial[0].length + ',auto)';
+  board.replaceChildren();
+  initial.forEach((line,r) => [...line].forEach((_,c) => {
+    const p = key(r,c), goal = goals.has(p), box = boxes.has(p), person = key(...player) === p;
+    const el = document.createElement('div'); el.className = 'cell'; el.dataset.row = r; el.dataset.col = c;
+    el.textContent = person ? (goal ? '⊕' : '@') : box ? (goal ? '■' : '□') : walls.has(p) ? '#' : goal ? '○' : '·';
+    el.classList.add(person ? 'player' : box ? (goal ? 'done' : 'box') : walls.has(p) ? 'wall' : goal ? 'goal' : 'floor');
+    board.append(el);
+  }));
+  stepLabel.textContent = steps;
+  stateLabel.textContent = won() ? '胜利' : '进行中';
+}
+function blocked(r,c) {
+  return r < 0 || c < 0 || r >= initial.length || c >= initial[0].length || (fault !== 'through-wall' && walls.has(key(r,c)));
+}
+document.addEventListener('keydown', event => {
+  const vector = {ArrowUp:[-1,0],ArrowDown:[1,0],ArrowLeft:[0,-1],ArrowRight:[0,1]}[event.key];
+  if (!vector) return;
+  event.preventDefault();
+  if (won()) return;
+  const [dr,dc] = vector, nr = player[0]+dr, nc = player[1]+dc, next = key(nr,nc);
+  if (blocked(nr,nc)) return;
+  if (boxes.has(next)) {
+    const br = nr+dr, bc = nc+dc, after = key(br,bc);
+    if (blocked(br,bc) || boxes.has(after)) return;
+    boxes.delete(next); boxes.add(after);
+  }
+  player = [nr,nc]; steps++; render();
+});
+document.querySelector('button').addEventListener('click', reset);
+reset();
+</script></body></html>

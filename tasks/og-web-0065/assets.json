@@ -1,0 +1,7 @@
+{
+  "task": "og-web-0065",
+  "source_archive": "configs/source-index.json#og-web-0065",
+  "source_art_redistributed": false,
+  "embedded_assets": [],
+  "diagnostic_audio": "Locally authored short sine buffers provided by the audio engine; source task supplied no media."
+}

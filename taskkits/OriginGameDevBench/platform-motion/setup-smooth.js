@@ -1,0 +1,1 @@
+import{Body,Sprite,RectangleCollider}from './components.js';import{configureMovement}from './component.js';export function makePlayer(){const p=new Body();p.name='Player';p.sprite=new Sprite('tileYellow_02.png');p.collider=new RectangleCollider([32,68]);p.speed=1200;p.jumpSpeed=-1800;p.gravity=4000;configureMovement(p);return p;}export const smooth=true;

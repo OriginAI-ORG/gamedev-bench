@@ -1,0 +1,1 @@
+{"scenario":"near-victory","duration_frames":120,"events":[{"frame":20,"type":"mouse_click","button":"left","x":770,"y":330},{"frame":50,"type":"mouse_click","button":"left","x":145,"y":540},{"frame":100,"type":"wait"}]}

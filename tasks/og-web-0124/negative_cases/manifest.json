@@ -1,0 +1,6 @@
+[
+ {"fault":"wrong-star-position","must_fail_check":"shape-coverage","mutation":{"file":"overlays.json","find":"[1003.077,76.15385]","replace":"[1023.077,76.15385]"}},
+ {"fault":"opaque-star","must_fail_check":"shape-coverage","mutation":{"file":"overlays.json","find":"[0.1,0.9,1,0.5]","replace":"[0.1,0.9,1,1]"}},
+ {"fault":"shifted-highlight-group","must_fail_check":"shape-coverage","mutation":{"file":"overlays.json","find":"\"name\":\"StarHighlights\",\"children\"","replace":"\"name\":\"StarHighlights\",\"position\":[0,30],\"children\""}},
+ {"fault":"lost-image-offset","must_fail_check":"parent-transforms","mutation":{"file":"level.json","find":"[0,-0.76923084]","replace":"[0,0]"}}
+]

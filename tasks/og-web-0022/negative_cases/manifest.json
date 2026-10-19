@@ -1,0 +1,6 @@
+[
+ {"fault":"wrong-panel-height","must_fail_check":"layout","mutation":{"file":"component.js","find":"panel('pause-menu',241","replace":"panel('pause-menu',392"}},
+ {"fault":"wrong-resume-callback","must_fail_check":"component","mutation":{"file":"component.js","find":"'Resume','hidePauseMenu'","replace":"'Resume','exitGame'"}},
+ {"fault":"wrong-material-reference","must_fail_check":"component","mutation":{"file":"component.js","find":"handler.transitionMaterial=material","replace":"handler.transitionMaterial=Object.create(material)"}},
+ {"fault":"overlay-blocks-input","must_fail_check":"component","mutation":{"file":"component.js","find":"zIndex:'2',pointerEvents:'none'","replace":"zIndex:'2',pointerEvents:'auto'"}}
+]

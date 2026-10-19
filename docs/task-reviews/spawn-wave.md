@@ -1,0 +1,11 @@
+# Spawn wave integration review
+
+og-web-0029's instruction, acceptance, full scene transforms and all supplied scripts were inspected. The source supplies a minimal EnemyAIController whose placement hook records invocation and whose target setter retains a reference; it does not contain a pathfinding algorithm. The repaired browser task preserves this integration boundary.
+
+| Removed or weakened by old Web task | Replaced | Added by old Web task | Repair |
+| --- | --- | --- | --- |
+| Configurable factory, exact controller type, sibling parenting, full local/world transforms, placement-before-target order, optional target assignment, target identity, three event connections and trigger teardown | Scene components and callbacks became three circles at fixed screen coordinates | Manual Step chase, independent axis movement and arbitrary x50/150–240 trigger | Restore EnemySpawnPoint, TriggerVolume and connectWave with supplied scene/factory helpers. Copy position and basis without aliases, call placement hook after parenting/copy, set exact configured target only when enabled, connect all markers, remove trigger only after the complete wave and unsubscribe. Restore source parent translations, marker coordinates, player position and box dimensions. |
+
+New browser details are supplied Forward/Back inspection controls moving Z by 2, a parent-axis rotation control, projected target lines, explicit disposable subscriptions and return values. The source exercises instantiation/setup rather than chase behavior, so the unrelated chase algorithm is removed. The supplied projection renders spatial placement; it does not claim navigation mesh rendering or pathfinding coverage.
+
+Independent checks inject a custom factory, translated/rotated/scaled parents and markers, a target distinct from the contacting body, and optional targeting disabled. They verify new instance identity, deep transform independence, parenting and call order; trigger tests observe enemy count at removal, all three bindings and pre-contact disposal. Browser checks verify visible placement/target lines, inherited rotation, repeated crossing and reset. The task passed three-repeat staged QA, five targeted mutations, four rendering faults and starter rejection. Final shared-hash results are recorded in validation/task-audit.json.

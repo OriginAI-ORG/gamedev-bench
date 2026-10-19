@@ -1,0 +1,6 @@
+[
+ {"fault":"pool-gets-copy","must_fail_check":"component","mutation":{"file":"portal.js","find":"this.unitPool.addUnit(unit.stats);","replace":"this.unitPool.addUnit({...unit.stats});"}},
+ {"fault":"quick-sell-unwired","must_fail_check":"component","mutation":{"file":"portal.js","find":"unit.addEventListener('quick-sell',sell);","replace":"unit.addEventListener('unused-event',sell);"}},
+ {"fault":"preview-not-facing","must_fail_check":"hover-facing","mutation":{"file":"portal.js","find":"if(this.currentUnit)this.view.faceUnit(this.currentUnit);","replace":"/* missing per-frame facing */"}},
+ {"fault":"sale-not-removed","must_fail_check":"sell-reset","mutation":{"file":"portal.js","find":"unit.remove();","replace":"/* unit remains visible */"}}
+]

@@ -1,0 +1,14 @@
+{
+  "task": "og-web-0076",
+  "source_archive": "configs/source-index.json#og-web-0076",
+  "source_art_redistributed": true,
+  "embedded_assets": [
+    {
+      "file": "icon.png",
+      "sha256": "6b5a6fef622ce6f0b6b42bceb2de405018ef65fc0aaed4b369db4cdaf8985710",
+      "modified": false
+    }
+  ],
+  "shader": "Original Julia math ported to supplied WebGL2 shader; material defaults transcribed from decoded source material.",
+  "license_evidence": "vendor/gamedevbench.LICENSE"
+}

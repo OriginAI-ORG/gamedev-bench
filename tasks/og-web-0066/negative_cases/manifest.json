@@ -1,0 +1,5 @@
+[
+ {"fault":"no-method-event","must_fail_check":"configuration","mutation":{"file":"component.js","find":"events:[{at:.3,target:player,method:'onActionComplete'}]","replace":"events:[]"}},
+ {"fault":"weapon-track-missing","must_fail_check":"configuration","mutation":{"file":"component.js","find":"[player.character,player.knife]","replace":"[player.character]"}},
+ {"fault":"wrong-grounded-cell","must_fail_check":"timeline-pixels","mutation":{"file":"component.js","find":"tracks([82])","replace":"tracks([81])"}}
+]

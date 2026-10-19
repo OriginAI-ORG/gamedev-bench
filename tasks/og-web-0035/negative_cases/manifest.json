@@ -1,0 +1,6 @@
+[
+ {"fault":"stale-ray","must_fail_check":"ray-order","mutation":{"file":"component.js","find":"this.ray.forceUpdate();","replace":""}},
+ {"fault":"early-unlock","must_fail_check":"tween-contract","mutation":{"file":"component.js","find":"await tween.finished;","replace":"void tween.finished;"}},
+ {"fault":"wrong-duration","must_fail_check":"tween-contract","mutation":{"file":"component.js","find":"duration:1/this.animationSpeed","replace":"duration:.5"}},
+ {"fault":"linear-motion","must_fail_check":"tween-contract","mutation":{"file":"component.js","find":"transition:'sine'","replace":"transition:'linear'"}}
+]

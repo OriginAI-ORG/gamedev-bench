@@ -1,0 +1,25 @@
+{
+  "id": "og-web-0084",
+  "version": "1.0.0",
+  "prompt": "prompt.md",
+  "prompt_zh": "prompt_zh.md",
+  "title": "居中警告对话框 / Alert Dialog Center Preset",
+  "entry": "index.html",
+  "contract": "webgame-dialog-v2",
+  "source": "configs/source-index.json#og-web-0084",
+  "public_verifier": "public-check.mjs",
+  "rights": "Browser fixture authored locally; media origins, retained licenses and substitutions are recorded in assets.json.",
+  "generation_budget": {
+    "wall_seconds": 1200,
+    "max_observable_tool_calls": 30
+  },
+  "acceptance_budget": {
+    "wall_seconds": 180
+  },
+  "family": "dialog",
+  "migration_grade": "A",
+  "v1": true,
+  "source_kind": "OriginGameDevBench",
+  "benchmark": "OriginGameDevBench",
+  "taskkit": "OriginGameDevBench"
+}

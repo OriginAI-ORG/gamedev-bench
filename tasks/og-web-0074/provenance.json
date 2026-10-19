@@ -1,0 +1,22 @@
+{
+  "id": "og-web-0074",
+  "version": "1.0.0",
+  "review": "docs/task-reviews/control-panels-and-materials.md",
+  "removed": [
+    "Unrelated fractal computation and application event wiring"
+  ],
+  "restored": [
+    "320px viewport-height panel, alpha.784314 on background only",
+    "Menu offsets10/310 and exact two-row controls",
+    "Bidirectional vertical growth"
+  ],
+  "added": [
+    "Content-driven height instead of borrowing99's811px height",
+    "Native checkbox and minimum-height probe",
+    "Explicit supplied browser theme color"
+  ],
+  "source_validator_correction": "Successful assertions return success rather than exit1.",
+  "prior_results_valid_for_this_version": false,
+  "source_kind": "OriginGameDevBench",
+  "source_record": "configs/source-index.json#og-web-0074"
+}

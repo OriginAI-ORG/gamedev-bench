@@ -1,0 +1,24 @@
+{
+  "id": "og-web-0113",
+  "version": "1.0.0",
+  "review": "docs/task-reviews/collectible-overlays.md",
+  "removed": [
+    "Simplified generated image",
+    "Visual-complexity exemption"
+  ],
+  "restored": [
+    "Original six collectibles and90% IoU",
+    "Position55.5,5 andscale0.75"
+  ],
+  "replaced": [
+    "Native shapes with editable SVG polygon data"
+  ],
+  "added": [
+    "Group-transform coverage",
+    "One-to-one matching",
+    "Original image hashes and rendered overlays"
+  ],
+  "prior_results_valid_for_this_version": false,
+  "source_kind": "OriginGameDevBench",
+  "source_record": "configs/source-index.json#og-web-0113"
+}

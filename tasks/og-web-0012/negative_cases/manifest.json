@@ -1,0 +1,5 @@
+[
+  {"fault":"wrong-filter","must_fail_check":"asset-and-filter","mutation":{"file":"projectile.js","find":"mask:26","replace":"mask:0"}},
+  {"fault":"wrong-crop","must_fail_check":"asset-and-filter","mutation":{"file":"projectile.js","find":"region:[69,0,4,4]","replace":"region:[0,0,4,4]"}},
+  {"fault":"reset-broken","must_fail_check":"reset-sequence","mutation":{"file":"fixture.js","find":"for(const p of bullets)world.removeProjectile(p);bullets=[];","replace":"/* active projectiles retained */"}}
+]

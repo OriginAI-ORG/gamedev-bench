@@ -1,0 +1,9 @@
+{
+ "size":[200,200],"margin":5,
+ "frame":{"texture":"frame","patch":[64,64,64,64]},
+ "content":{"margin":20,"grid":{"texture":"grid","mode":"tile","markers":[
+  {"name":"PlayerMarker","texture":"player","center":true,"visible":true},
+  {"name":"MobMarker","texture":"mob","visible":false},
+  {"name":"AlertMarker","texture":"alert","visible":false}
+ ]}}
+}

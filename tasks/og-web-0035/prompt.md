@@ -1,0 +1,11 @@
+# Tweened grid movement with collision gating
+
+Complete `GridController` in `component.js`. The supplied browser scene already contains the tile map, original sprite animations, player, ray probe and tween clock. Implement controlled movement rather than changing the supplied assets or map.
+
+- **R1 — Controller state.** Keep the supplied player, cache its exact `player.ray` as `ray`, initialize `animationSpeed` to 2 and `moving` to false. `handleInput(event)` forwards a pressed direction to `move(direction)` only when no move is active. Ignore released, unknown and overlapping movement requests.
+- **R2 — Refresh collision before moving.** Look up the direction in `player.inputs`. Set `ray.targetPosition` to that vector multiplied by `player.tileSize`, then call `ray.forceUpdate()` before `ray.isColliding()`. If blocked, leave the position and animation unchanged and create no tween. The default tile size is 64; use the supplied value rather than a fixed displacement.
+- **R3 — Smooth one-tile movement.** For an open direction, call `player.createTween({to,duration,transition})`, targeting the starting position plus one tile. Duration is 1 divided by the current animation speed; use `sine` transition. The supplied tween uses sine ease-in-out, so at normalized time t its progress is (1−cos(πt))/2. Do not teleport to the destination.
+- **R4 — Animation and asynchronous lifecycle.** Call `player.animator.play(direction)`, set moving before waiting for the tween's `finished` promise, and clear it only after that promise resolves. The flag remains true throughout movement. Input during the tween must neither start another move nor queue one for afterward.
+- **R5 — Integrated scene.** Preserve the supplied directional bitmap clips and visible tile collision. Buttons and arrow keys must exercise this controller. The 0.125-second step and Play/Pause control the actual tween clock; Reset restores the original scene and accepts fresh input.
+
+Acceptance checks ray update/query ordering, changed tile sizes and animation speeds, blocked movement, intermediate sine positions, exact final positions, animation selection, input locking and promise completion. Keep the local page runnable through `index.html`.

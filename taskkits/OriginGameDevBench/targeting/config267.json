@@ -1,0 +1,1 @@
+{"mode":"standard","groups":["player_units","enemy_units"],"names":["PlayerUnit","EnemyUnitNear","EnemyUnitFar"],"baseRange":36,"attackRange":2,"near":50,"far":130,"closer":10,"outside":300}

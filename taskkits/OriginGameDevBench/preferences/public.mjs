@@ -1,0 +1,2 @@
+import assert from 'node:assert/strict';
+export async function runPublicCheck(page,url,record=()=>{}){await page.goto(url);await page.locator('#clear').click();await page.locator('#MusicSlider').focus();await page.keyboard.press('Home');for(let i=0;i<7;i++)await page.keyboard.press('ArrowRight');await page.reload();assert.equal(await page.locator('#MusicSlider').inputValue(),'0.35');record({action:'save-and-reload'});return[{id:'save-and-reload',passed:true}];}

@@ -1,0 +1,5 @@
+[
+ {"fault":"missing-run-cell","must_fail_check":"configuration","mutation":{"file":"component.js","find":"[.5,5]","replace":"[.5,4]"}},
+ {"fault":"wrong-target","must_fail_check":"configuration","mutation":{"file":"component.js","find":"const target=player.lowerSprite","replace":"const target={...player.lowerSprite}"}},
+ {"fault":"run-no-loop","must_fail_check":"configuration","mutation":{"file":"component.js","find":"loop:true","replace":"loop:false"}}
+]

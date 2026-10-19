@@ -1,0 +1,7 @@
+[
+ {"fault":"teleports-to-pointer","must_fail_check":"component","mutation":{"file":"draggable.js","find":"1-Math.exp(-this.damping*delta)","replace":"1"}},
+ {"fault":"center-only-overlap","must_fail_check":"component","mutation":{"file":"draggable.js","find":"this.position.x-this.size[0]/2<t.rect.x+t.rect.width","replace":"this.position.x<t.rect.x+t.rect.width"}},
+ {"fault":"wrong-collision-mask","must_fail_check":"pointer","mutation":{"file":"draggable.js","find":"this.collisionMask=2;","replace":"this.collisionMask=6;"}},
+ {"fault":"instant-destruction","must_fail_check":"component","mutation":{"file":"draggable.js","find":"this.phase='despawning';this.age=0;","replace":"this.dispose();this.phase='despawning';this.age=0;"}},
+ {"fault":"wrong-sprite-scale","must_fail_check":"spawn","mutation":{"file":"index.html","find":"transform:scale(.58)","replace":"transform:scale(.9)"}}
+]

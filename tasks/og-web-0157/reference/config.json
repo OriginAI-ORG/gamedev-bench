@@ -1,0 +1,1 @@
+{"mode":"standard","groups":["heroes","goblins"],"names":["HeroUnit","GoblinNear","GoblinFar"],"baseRange":30,"attackRange":3,"near":70,"far":140,"closer":20,"outside":340}

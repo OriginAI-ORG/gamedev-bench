@@ -1,0 +1,1 @@
+export function configurePlayer(player,{Clip,Frame}){const rows=[2,1,0,7,6,5,4,3];for(let d=0;d<8;d++)player.sprite.animations['death'+d]=new Clip(Array.from({length:9},(_,i)=>new Frame('assets/crusader_death.png',[i*299,rows[d]*240,299,240])),{fps:10,loop:false});return player;}

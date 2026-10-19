@@ -1,0 +1,15 @@
+{
+  "task": "og-web-0075",
+  "source_archive": "configs/source-index.json#og-web-0075",
+  "source_art_redistributed": true,
+  "embedded_assets": [
+    {
+      "file": "music.ogg",
+      "sha256": "9d317d0e3d93e72afddc77056432bc3def70ba32e279f3837f57237a8afb36e4",
+      "bytes": 3119959,
+      "modified": false
+    }
+  ],
+  "license_evidence": "vendor/gamedevbench.LICENSE; archive contains no independent music license",
+  "independent_music_license_verified": false
+}

@@ -1,0 +1,1 @@
+{"mode":"forward","groups":["security_drones","intruders"],"names":["DroneUnit","IntruderNear","IntruderFar"],"baseRange":26,"attackRange":3,"near":60,"far":135,"closer":15,"outside":300}

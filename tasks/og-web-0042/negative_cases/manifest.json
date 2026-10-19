@@ -1,0 +1,5 @@
+[
+  {"fault":"wrong-overlay-insets","must_fail_check":"overlay","mutation":{"file":"view.js","find":"inset:60px 70px 100px","replace":"inset:60px 50px 100px"}},
+  {"fault":"restart-opens-menu","must_fail_check":"overlay","mutation":{"file":"view.js","find":"overlay.querySelector('#restart').onclick=actions.restart","replace":"overlay.querySelector('#restart').onclick=actions.menu"}},
+  {"fault":"wrong-score-update","must_fail_check":"events","mutation":{"file":"fixture.js","find":"state.score+=100","replace":"state.score+=1"}}
+]

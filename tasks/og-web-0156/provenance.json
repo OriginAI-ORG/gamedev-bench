@@ -1,0 +1,30 @@
+{
+  "id": "og-web-0156",
+  "version": "1.0.0",
+  "review": "docs/task-reviews/preferences.md",
+  "removed": [
+    "Invented0..100 sliders and70/80 defaults",
+    "Unrelated generic settings layout",
+    "Forward-only visible action list"
+  ],
+  "restored": [
+    "0..1 sliders,0.05 step,0/1 defaults",
+    "Saved resource fields and event dictionary",
+    "All five action rows and remap completion event",
+    "Actual input map restoration before button construction",
+    "Original cropped reference layout extended downward"
+  ],
+  "replaced": [
+    "Native persisted resource with localStorage JSON",
+    "Native input events with code/key records",
+    "Audio buses with supplied browser gain services"
+  ],
+  "added": [
+    "Cleanup and independent save checks",
+    "Responsive margins and scrollable uncropped menu",
+    "Provided test arena and audio tones"
+  ],
+  "prior_results_valid_for_this_version": false,
+  "source_kind": "OriginGameDevBench",
+  "source_record": "configs/source-index.json#og-web-0156"
+}

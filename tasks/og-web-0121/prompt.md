@@ -1,0 +1,11 @@
+# Fit a translucent polygon to the star collectible
+
+Inspect the original `assets/platformer_coins.jpg` and complete `overlays.json`. Preserve the supplied scene configuration in `level.json`, the original image and the browser renderer. Determine the star's position and contour from the image rather than replacing the scene with a simplified drawing.
+
+- **R1 — Scene alignment.** Retain the `Level` position, scale and rotation in level.json, including the image's separate local offset and top-left origin. The `StarHighlights` group remains under Level alongside the image, so both inherit the same parent transform.
+- **R2 — Star outline.** Add one polygon named `StarHighlight` under StarHighlights. Use at least 10 vertices to fit the single yellow star near the top of the image, including its tips and inward corners. Keep the polygon's geometry separate from the original image.
+- **R3 — Coverage.** Closely cover the star with minimal spill. Acceptance requires intersection-over-union of at least 0.85 against the annotated star contour in Level-local coordinates, including the polygon's own transform and its containing group's transform. The calculation samples pixel centers and supports concave polygons; an exact vertex list is not required.
+- **R4 — Semi-transparency.** Use a visible fill whose effective alpha is strictly between 0 and 1. Preserve the original scene beneath the overlay; do not replace the image with a precomposited screenshot.
+- **R5 — Inspection.** Preserve Show highlights and Reset view. Hiding the overlay reveals the intact original, and resetting restores the aligned overlay. The polygon must visibly affect the star's region when shown.
+
+The overlay document uses `name`, optional `position`, `scale`, `rotation`, and `children`. A polygon has `name`, `points` as [x,y] vertices and normalized RGBA `color`, plus optional position, scale, rotation and `modulate`. Defaults are position [0,0], scale [1,1], rotation 0 radians and modulation [1,1,1,1]. Effective color multiplies color and modulation componentwise. The renderer supplies hierarchy, transforms and drawing. Acceptance checks original assets, scene alignment, the fitted shape, transparency and actual pixels. Keep `index.html` runnable.

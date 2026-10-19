@@ -1,0 +1,25 @@
+{
+  "id": "og-web-0132",
+  "version": "1.0.0",
+  "review": "docs/task-reviews/collectible-overlays.md",
+  "removed": [
+    "Generated raster replacement",
+    "Forced cyan fill and0.45 alpha"
+  ],
+  "restored": [
+    "Original illustrated gemstone",
+    "Image offset1.5384617,11.538463",
+    "At least4 vertices,purple tint,semi-transparency,85% IoU",
+    "Parent53,5.5 scale0.65 rotation0"
+  ],
+  "replaced": [
+    "Native scene polygons with declarative SVG geometry"
+  ],
+  "added": [
+    "Tint ranges disclosed in prompt",
+    "Group transforms and visible pixel checks"
+  ],
+  "prior_results_valid_for_this_version": false,
+  "source_kind": "OriginGameDevBench",
+  "source_record": "configs/source-index.json#og-web-0132"
+}

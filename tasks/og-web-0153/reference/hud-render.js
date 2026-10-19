@@ -1,0 +1,2 @@
+const image=new Image();image.src='assets/ammo_ui_icon.png';export const ammoReady=image.decode();
+export function drawAmmo(canvas,config,value){const ctx=canvas.getContext('2d'),{under,progress}=config;ctx.clearRect(0,0,canvas.width,canvas.height);ctx.imageSmoothingEnabled=false;ctx.globalAlpha=.35;ctx.drawImage(image,...under,0,0,canvas.width,canvas.height);ctx.globalAlpha=1;ctx.save();ctx.beginPath();ctx.rect(0,canvas.height*(1-value),canvas.width,canvas.height*value);ctx.clip();ctx.drawImage(image,...progress,0,0,canvas.width,canvas.height);ctx.restore();}

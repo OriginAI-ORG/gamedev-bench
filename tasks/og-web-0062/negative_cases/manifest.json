@@ -1,0 +1,5 @@
+[
+ {"fault":"wrong-panel-width","must_fail_check":"initial","mutation":{"file":"panel.css","find":"width:320px","replace":"width:300px"}},
+ {"fault":"grow-down-only","must_fail_check":"resize-growth","mutation":{"file":"panel.css","find":"top:50%","replace":"top:380px"}},
+ {"fault":"wrong-menu-height","must_fail_check":"initial","mutation":{"file":"panel.css","find":"height:811px","replace":"height:711px"}}
+]

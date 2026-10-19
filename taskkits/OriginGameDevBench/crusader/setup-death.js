@@ -1,0 +1,1 @@
+import * as services from './components.js';import {configurePlayer as supplied}from './supplied.js';import {configurePlayer}from './component.js';export function makePlayer(){const p={};supplied(p,services);configurePlayer(p,services);return p;}

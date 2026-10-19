@@ -1,0 +1,31 @@
+{
+  "name": "origin-game-dev-bench",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "attempt": "node scripts/benchmark.mjs attempt",
+    "test": "node --test tests/*.test.mjs",
+    "doctor": "node scripts/benchmark.mjs doctor",
+    "self-test": "node scripts/benchmark.mjs self-test",
+    "evaluate": "node scripts/benchmark.mjs evaluate",
+    "sample": "node scripts/benchmark.mjs sample",
+    "serve": "node scripts/benchmark.mjs serve",
+    "report": "node scripts/benchmark.mjs report",
+    "cohort:audit": "node scripts/cohort/audit.mjs",
+    "cohort:qa": "node scripts/cohort/qa.mjs",
+    "cohort:plan": "node scripts/cohort/batch.mjs",
+    "cohort:run": "node scripts/cohort/batch.mjs --execute",
+    "isolation:check": "node scripts/check-isolation.mjs",
+    "validate:tests": "node scripts/validate-tests.mjs",
+    "release:check": "node scripts/release-check.mjs",
+    "release:final": "node scripts/release-check.mjs --final"
+  },
+  "devDependencies": {
+    "playwright": "1.64.0"
+  },
+  "license": "Apache-2.0"
+}

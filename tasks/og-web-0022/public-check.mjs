@@ -1,0 +1,1 @@
+import assert from 'node:assert/strict';export async function runPublicCheck(page,url,record=()=>{}){await page.goto(url);assert.equal(await page.locator('#launch-menu').isVisible(),true);assert.equal(await page.locator('#launch-menu h2').innerText(),'FPS Horror');record({launch:true});}

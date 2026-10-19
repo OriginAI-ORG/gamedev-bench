@@ -1,0 +1,5 @@
+[
+ {"fault":"wrong-layer-name","must_fail_check":"configuration","mutation":{"file":"scene.json","find":"\"Details\"","replace":"\"Detail\""}},
+ {"fault":"wrong-collision-mask","must_fail_check":"collision-mask","mutation":{"file":"tileset.json","find":"\"collisionLayer\":2","replace":"\"collisionLayer\":1"}},
+ {"fault":"partial-tile-polygon","must_fail_check":"collision-mask","mutation":{"file":"tileset.json","find":"[[-9,-9],[9,-9],[9,9],[-9,9]]","replace":"[[-8,-8],[8,-8],[8,8],[-8,8]]"}}
+]

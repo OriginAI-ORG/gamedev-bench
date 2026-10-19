@@ -1,0 +1,1 @@
+import{panel,renderer}from './setup.js';const $=id=>document.getElementById(id);for(const id of['width','height'])$(id).oninput=()=>{panel.minimum=[Number($('width').value),Number($('height').value)];renderer.draw();};$('reset').onclick=()=>{panel.minimum=[0,0];$('width').value=$('height').value=0;renderer.draw();};$('status').textContent='Ready';

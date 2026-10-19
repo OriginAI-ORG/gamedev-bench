@@ -1,0 +1,14 @@
+[
+  {
+    "fault": "through-wall",
+    "must_fail_check": "wall-and-movement"
+  },
+  {
+    "fault": "early-win",
+    "must_fail_check": "all-boxes-win"
+  },
+  {
+    "fault": "broken-reset",
+    "must_fail_check": "reset-state"
+  }
+]

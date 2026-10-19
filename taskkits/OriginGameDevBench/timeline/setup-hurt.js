@@ -1,0 +1,3 @@
+import*as services from './components.js';import{configureAnimations}from './component.js';
+export function makePlayer(){const character=new services.Sprite('player.png',10,10,{centered:false,offset:[-24,-48]}),knife=new services.Sprite('player_knife.png',10,10,{centered:false,offset:[-24,-48]}),p={character,knife,completed:0,onActionComplete(){this.completed++;},animator:new services.Animator()};p.animator.clips.RESET=new services.Clip({duration:.001,tracks:[character,knife].map(target=>({target,property:'frame',keys:[[0,0]]}))});configureAnimations(p,services);p.animator.play('RESET');return p;}
+export const settings={kind:'hurt',title:'Character and weapon action timeline',origin:[160,220],actions:['hurt','fall','grounded']};

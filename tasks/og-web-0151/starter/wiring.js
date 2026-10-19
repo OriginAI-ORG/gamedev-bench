@@ -1,0 +1,2 @@
+import{World}from './base.js';import{Tank,Pickup,Weapon,HUD}from './component.js';
+export function createGame(root,config){const world=new World();world.Pickup=class extends Pickup{constructor(position){super(position);this.points=config.points;}};const tank=new Tank(world);tank.weapon=new Weapon(world,tank);const ui=new HUD(root,config);return{name:'game',children:[world,tank,ui],world,tank,ui,score:0,dispose(){}};}

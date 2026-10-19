@@ -1,0 +1,7 @@
+{
+ "frame":{"src":"assets/panel_woodDetail_blank.png"},
+ "grid":{"src":"assets/pattern_blueprintPaper.png"},
+ "player":{"src":"assets/minimapIcon_arrowA.png"},
+ "mob":{"src":"assets/minimapIcon_jewelRed.png"},
+ "alert":{"src":"assets/minimapIcon_exclamationYellow.png"}
+}

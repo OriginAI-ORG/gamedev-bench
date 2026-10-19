@@ -1,0 +1,1 @@
+{"name":"TileMap","children":[{"type":"layer","name":"Base","tileset":"tileset.json","cells":[]},{"type":"layer","name":"Details","tileset":"tileset.json","cells":[]}]}

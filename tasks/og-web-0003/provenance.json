@@ -1,0 +1,46 @@
+{
+  "source_kind": "OriginGameDevBench",
+  "source_integrity": {
+    "instruction_sha256": "0ec221014c351cc96248ef3ec7c553621551622ebffffd3a29637e5607979088",
+    "rubric_sha256": "e2334e57970011871e8160843a16dfc79c1b14812d72f054ddd6a6fe5b17c1e1",
+    "source_criteria": [
+      "M1",
+      "M2",
+      "M3",
+      "M4",
+      "D1",
+      "D2",
+      "D3",
+      "D4",
+      "V1",
+      "V2",
+      "V3",
+      "A1",
+      "A2",
+      "A3"
+    ]
+  },
+  "version": "1.0.0",
+  "scope": "Restore finite inventory,placement/rotation,countdown,real multi-source propagation,branch leaks,contamination,acid damage,fast steam,isolated crosses,reservoirs,lined pipes,obstacles,fixed pipes,15-level campaign and complete presentation rubric.",
+  "removed_previous_requirements": [
+    "Fixed3 by3 pipe array",
+    "Single-fluid single-puzzle scope",
+    "Manual numeric-only flow check"
+  ],
+  "replacements": [
+    "Native project launch and input recordings become browser launch and deterministic browser traces",
+    "Unavailable external asset libraries become an optional generated industrial atlas"
+  ],
+  "added_requirements": [
+    "Exact15 level layouts,inventory and countdowns",
+    "7 by5 grid and explicit fluid travel/corrosion/buffer timing",
+    "Exported simulation,selectors and scenario fixtures",
+    "Two levels require an actually used reservoir"
+  ],
+  "equivalence_limits": "Restored core systems and all14 weighted criteria do not prove identical difficulty. Fixed level specifications reduce open-ended level-design freedom and API contracts constrain architecture; browser implementation differs from native editor work.",
+  "review": "docs/task-reviews/pipe-crisis.md",
+  "implementation": "Direct local JavaScript/HTML/CSS and bilingual authorship without task generation scripts.",
+  "scoring": "Full15/35/15/35 weights retained; manual aesthetic scores remain null until reviewed.",
+  "id": "og-web-0003",
+  "source_record": "configs/source-index.json#og-web-0003"
+}

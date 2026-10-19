@@ -1,0 +1,5 @@
+[
+ {"fault":"wrong-collider","must_fail_check":"initial","mutation":{"file":"component.js","find":"[32,68]","replace":"[68,32]"}},
+ {"fault":"gravity-not-scaled","must_fail_check":"physics-contract","mutation":{"file":"component.js","find":"p.gravity*dt","replace":"p.gravity"}},
+ {"fault":"air-jump","must_fail_check":"ground-jump","mutation":{"file":"component.js","find":"&&p.isOnFloor()","replace":""}}
+]

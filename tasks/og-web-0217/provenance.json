@@ -1,0 +1,27 @@
+{
+  "version": "1.0.0",
+  "review": "docs/task-reviews/smoke.md",
+  "removed": [
+    "Solver-written full SVG smoke simulator",
+    "Synthetic replacement flame and texture-free polylines",
+    "Fixed alpha/width formulas and source-engine disclaimer"
+  ],
+  "restored": [
+    "Add/configure-only work boundary",
+    "Original campfire and three textures",
+    "Independent material,three-axis sway curve,growth curve,color gradient",
+    "Per-task lifetime,preheat,velocity,sway,growth,trail duration and tessellation"
+  ],
+  "replaced": [
+    "Native particle resources with provided JavaScript resources and WebGL textured ribbons"
+  ],
+  "added": [
+    "Explicit normalized curve domains and midpoint gray check",
+    "Exact parameters rather than permissive one-sided bounds",
+    "Actual motion,texture,trail and reset assertions"
+  ],
+  "prior_results_valid_for_this_version": false,
+  "id": "og-web-0217",
+  "source_kind": "OriginGameDevBench",
+  "source_record": "configs/source-index.json#og-web-0217"
+}

@@ -1,0 +1,6 @@
+[
+ {"fault":"music-not-muted","must_fail_check":"configuration","mutation":{"file":"component.js","find":"mixer.setMuted('Music',true);","replace":""}},
+ {"fault":"master-not-configured","must_fail_check":"configuration","mutation":{"file":"component.js","find":"mixer.setMuted('Master',true);","replace":""}},
+ {"fault":"autoplay-off","must_fail_check":"configuration","mutation":{"file":"component.js","find":"autoplay=true","replace":"autoplay=false"}},
+ {"fault":"wrong-service-key","must_fail_check":"configuration","mutation":{"file":"component.js","find":"registry.set('MusicPlayer',voice)","replace":"registry.set('Music',voice)"}}
+]

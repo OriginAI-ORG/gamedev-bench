@@ -1,0 +1,1 @@
+export class GridController{constructor(player){this.player=player;this.ray=player.ray;this.animationSpeed=2;this.moving=false;}handleInput(event){if(event.pressed)return this.move(event.direction);}move(direction){const p=this.player,v=p.inputs[direction];if(v)p.position=p.position.map((n,i)=>n+v[i]*p.tileSize);}}

@@ -1,0 +1,10 @@
+# Reusable interactable pickup
+
+Complete `component.js` in the supplied browser game in `game/`. Retain `index.html` and local dependencies. The supplied WebGL renderer provides a frozen 0.75-unit cube, a separate 0.9-unit highlight hull, lighting, picking and collision filtering.
+
+- **R1 — Focus component.** Export `InteractableItem(body, highlight)` with exact `body` and `highlight` references. Hide the highlight on construction. `gainFocus()` shows that same hull and `loseFocus()` hides it. Repeated calls must not create copies or affect another instance.
+- **R2 — Pickup factory.** Export `createPickup()` returning a fresh `{body, interaction}`. Build the body with `createBasePickup()`, set `collisionLayer` to 2 and `collisionMask` to 3, and bind its own highlight to its interaction component. Preserve the frozen body, geometry and separate white emissive inverted highlight hull (`color: [1, 1, 1]`, `emissive: true`, `flipFaces: true`). The outline must appear around the cube without covering its shaded center and must keep its emission under lighting changes.
+- **R3 — Item data.** Export `ItemData(itemName, itemModel)` storing a string and a callable model factory. Export `testCube` as an ItemData instance with `itemName === 'Test Cube'` and `itemModel === createPickup`. Creating two pickups through this record must produce separate bodies, highlights and focus state.
+- **R4 — Integration.** Preserve pointer picking, keyboard canvas focus/blur, view rotation, light, category probe and reset controls. Categories 1 and 2 contact the center; category 4 is filtered out. Reset creates one fresh, unfocused cube with its metadata visible. The highlight must follow the three-dimensional cube as the view rotates.
+
+Acceptance exercises the component and metadata directly, actual ray/filter behavior, pointer and keyboard input, rendered outline and shaded center, lighting, rotation, instance independence and reset. The public example focuses then unfocuses the cube. Do not modify checks or fabricate results.

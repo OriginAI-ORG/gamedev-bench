@@ -1,0 +1,13 @@
+{
+  "task": "og-web-0036",
+  "source_archive": "configs/source-index.json#og-web-0036",
+  "source_art_redistributed": true,
+  "embedded_assets": [
+    {
+      "file": "tileYellow_02.png",
+      "sha256": "5d489eb39fee10393b26a4aea8ac2ca3254ded47d7359ad4e7fc2d72d9b73640"
+    }
+  ],
+  "modified": false,
+  "license_evidence": "vendor/gamedevbench.LICENSE"
+}

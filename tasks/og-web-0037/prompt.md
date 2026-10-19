@@ -1,0 +1,12 @@
+# Add acceleration and friction to a platform controller
+
+Complete `configureMovement(player)` and revise `physicsStep(player,input,dt)` in `component.js`. The supplied player, bitmap, collider, gravity, collision integration and jump behavior already work. Preserve them while changing horizontal response.
+
+- **R1 — Parameters.** Configure `friction` with default 0.1 and `acceleration` with default 0.25 on the same player, and return that player. Both are editable from 0 to 1 through the supplied controls. Retain speed 1200, jump speed -1800 and gravity 4000 as the initial existing parameters.
+- **R2 — Cache direction and accelerate.** Read `input.getAxis()` exactly once per physics update into a local direction. When it is nonzero, replace horizontal velocity with linear interpolation from its current value toward direction ×speed, using the current acceleration as the interpolation weight. For example, from rest with right input the first two horizontal velocities are 300 and 525.
+- **R3 — Friction.** With zero direction, interpolate horizontal velocity toward 0 using the current friction. From velocity 525, one idle update produces 472.5. Apply these weights per physics update, without multiplying them by elapsed time. The supplied browser clock runs at 60 physics updates per second.
+- **R4 — Preserve vertical physics.** Add gravity ×dt to vertical velocity, apply horizontal control, and call `player.moveAndSlide(dt)` once. Then apply jump speed only when `input.justPressed('jump')` and `player.isOnFloor()` are both true. Keep the current vertical velocity during horizontal interpolation and preserve ground collision and airborne jump rejection.
+- **R5 — Use live parameters.** Read current speed, friction and acceleration. Weight 0 leaves horizontal velocity unchanged; weight 1 reaches the target in one update. Preserve the supplied player, sprite and collider objects and the actual keyboard-driven scene.
+- **R6 — Inspection and reset.** Keep Play/Pause, the 1/60-second step, direction controls, Space to jump, parameter inputs and Reset. Show actual motion and retain the original bitmap. Reset restores the default parameters and resting player.
+
+Acceptance checks velocity sequences, direction reversal, single input sampling, extreme parameter values, operation order, jumps, landing, rendered motion and keyboard control. Keep the local page runnable through `index.html`.

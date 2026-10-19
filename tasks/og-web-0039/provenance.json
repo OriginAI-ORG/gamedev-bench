@@ -1,0 +1,25 @@
+{
+  "id": "og-web-0039",
+  "version": "1.0.0",
+  "review": "docs/task-reviews/audio-components.md",
+  "removed": [
+    "Four-voice synthetic pool and manual completion",
+    "Unrelated exclusive playback task"
+  ],
+  "restored": [
+    "Eight-voice manager remains supplied",
+    "Directory filtering and complete filename/path binding",
+    "20px margin,2-column10px grid, original font and four-label24px statistics",
+    "Actual source audio and natural completion"
+  ],
+  "replaced": [
+    "Filesystem enumeration with supplied browser directory-manifest service"
+  ],
+  "added": [
+    "Alternate directory/manager injection and disposal checks",
+    "Actual decoded-output sampling"
+  ],
+  "prior_results_valid_for_this_version": false,
+  "source_kind": "OriginGameDevBench",
+  "source_record": "configs/source-index.json#og-web-0039"
+}

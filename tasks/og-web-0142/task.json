@@ -1,0 +1,29 @@
+{
+  "id": "og-web-0142",
+  "name": "宝石轮廓高亮",
+  "title": "宝石轮廓高亮",
+  "version": "1.0.0",
+  "prompt_zh": "prompt_zh.md",
+  "contract": "webgame-original-gem-overlay-v2",
+  "benchmark": "OriginGameDevBench",
+  "kind": "existing-game-feature",
+  "entry": "index.html",
+  "entrypoint": "index.html",
+  "prompt": "prompt.md",
+  "starter": "starter",
+  "public_verifier": "public-check.mjs",
+  "private_verifier": "verifier/scenarios.mjs",
+  "reference": "reference",
+  "family": "collectible-overlay",
+  "estimated_minutes": 35,
+  "source": "configs/source-index.json#og-web-0142",
+  "generation_budget": {
+    "wall_seconds": 1200,
+    "max_observable_tool_calls": 30
+  },
+  "acceptance_budget": {
+    "wall_seconds": 180
+  },
+  "source_kind": "OriginGameDevBench",
+  "taskkit": "OriginGameDevBench"
+}

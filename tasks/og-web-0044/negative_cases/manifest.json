@@ -1,0 +1,5 @@
+[
+ {"fault":"stale-detectors","must_fail_check":"rebuild","mutation":{"file":"component.js","find":"p.mover.clearCollisionShapes();","replace":""}},
+ {"fault":"no-offset","must_fail_check":"rebuild","mutation":{"file":"component.js","find":"s.position=s.position.map((v,axis)=>v+p.tileOffsetAmount[axis]*i)","replace":"s.position=s.position.map(v=>v)"}},
+ {"fault":"no-detector-copy","must_fail_check":"detector-integration","mutation":{"file":"component.js","find":"p.mover.addCollisionShape(c);","replace":""}}
+]

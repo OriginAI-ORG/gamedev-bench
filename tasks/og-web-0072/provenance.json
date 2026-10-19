@@ -1,0 +1,24 @@
+{
+  "id": "og-web-0072",
+  "version": "1.0.0",
+  "review": "docs/task-reviews/trap-scenes.md",
+  "requirements": "prompt.md",
+  "translation": "prompt_zh.md",
+  "acceptance": "verifier/scenarios.mjs",
+  "removed": [
+    "Projectile firing and incorrect two-anchor approximation"
+  ],
+  "restored": [
+    "Copy complete instance and attributes",
+    "Bottom [0,32], top [0,-32], 64-unit separation",
+    "Rotate only top sprite to 270 degrees",
+    "Four unchanged marker children"
+  ],
+  "added": [
+    "Explicit deep-copy independence probes",
+    "Parent transforms, occlusion and reset"
+  ],
+  "prior_results_valid_for_this_version": false,
+  "source_kind": "OriginGameDevBench",
+  "source_record": "configs/source-index.json#og-web-0072"
+}

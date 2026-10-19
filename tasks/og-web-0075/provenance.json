@@ -1,0 +1,23 @@
+{
+  "id": "og-web-0075",
+  "version": "1.0.0",
+  "review": "docs/task-reviews/audio-components.md",
+  "removed": [
+    "Unrelated four-voice pool, queue and synthesized cue"
+  ],
+  "restored": [
+    "Original music file and existing single voice",
+    "Startup autoplay and exact global service",
+    "Independent Master/Music mute, Sounds preserved"
+  ],
+  "replaced": [
+    "Unconditional native autoplay with supplied browser unlock followed by automatic playback"
+  ],
+  "added": [
+    "Real gain and output probes, persistent source identity"
+  ],
+  "source_validator_correction": "Check Master mute and preserve the actual Sounds bus, not nonexistent Sound.",
+  "prior_results_valid_for_this_version": false,
+  "source_kind": "OriginGameDevBench",
+  "source_record": "configs/source-index.json#og-web-0075"
+}

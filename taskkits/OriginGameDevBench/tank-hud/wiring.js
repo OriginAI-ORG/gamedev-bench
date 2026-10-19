@@ -1,0 +1,4 @@
+import{World}from './base.js';import{Tank,Pickup,Weapon,HUD}from './component.js';
+export function createGame(root,config){const world=new World();world.Pickup=class extends Pickup{constructor(position){super(position);this.points=config.points;}};const tank=new Tank(world);tank.weapon=new Weapon(world,tank);const ui=new HUD(root,config),game={name:'game',children:[world,tank,ui],world,tank,ui,score:0};game[config.tankProperty]=tank;game[config.uiProperty]=ui;
+ const pickup=event=>{game.score+=event.detail;ui.setScore(game.score);},progress=event=>ui.setReload(event.detail),finished=()=>ui.setReload(1);tank.addEventListener('pickup-collected',pickup);tank.weapon.addEventListener('reload-progress',progress);tank.weapon.addEventListener('reload-finished',finished);game.dispose=()=>{tank.removeEventListener('pickup-collected',pickup);tank.weapon.removeEventListener('reload-progress',progress);tank.weapon.removeEventListener('reload-finished',finished);};return game;
+}

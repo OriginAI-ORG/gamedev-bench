@@ -1,0 +1,7 @@
+[
+ {"fault":"camera-position","must_fail_check":"projection","mutation":{"file":"component.js","find":"-12.2164,15.8305,12.4355","replace":"-10.2164,15.8305,12.4355"}},
+ {"fault":"camera-basis","must_fail_check":"component","mutation":{"file":"component.js","find":".794097,0,.607792","replace":"1,0,0"}},
+ {"fault":"player-binding","must_fail_check":"component","mutation":{"file":"component.js","find":"menus.playerNode=player","replace":"menus.playerNode={...player}"}},
+ {"fault":"material-overwritten","must_fail_check":"component","mutation":{"file":"component.js","find":"menus.levelCamera=camera;","replace":"menus.levelCamera=camera;menus.transitionMaterial=null;"}},
+ {"fault":"camera-active-too-early","must_fail_check":"component","mutation":{"file":"component.js","find":"camera.current=false","replace":"camera.current=true"}}
+]

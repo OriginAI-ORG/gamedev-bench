@@ -1,0 +1,49 @@
+{
+  "source_kind": "OriginGameDevBench",
+  "source_integrity": {
+    "instruction_sha256": "8fd4d672ba88ba30497bfba910cf460cd50812de59c43dd712f41ae332372efe",
+    "rubric_sha256": "58e236c4d67eb45e39dcb0fda043b501cdde8b485df2b521af7014baad57aa50",
+    "source_criteria": [
+      "M1",
+      "M2",
+      "M3",
+      "M4",
+      "M5",
+      "D1",
+      "D2",
+      "D3",
+      "D4",
+      "D5",
+      "V1",
+      "V2",
+      "V3",
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "A5"
+    ]
+  },
+  "version": "1.0.0",
+  "scope": "Complete seven-day browser apothecary:five finite ingredient types,four recipes,experimentation/books,procedure/freshness quality,timed brewing,capacity/aging,automatic four-type customer queue,budgets/patience,pricing/reputation/traffic,restocking,four upgrades,daily and weekly records.",
+  "removed_previous_requirements": [
+    "Two recipes/two customers as the entire game",
+    "Manual alternating-customer button replacing autonomous browsing/queues",
+    "Single-price miniature economy without day/week progression"
+  ],
+  "replacements": [
+    "Native launch/recordings become local browser launch and real browser input traces",
+    "Unavailable mounted art libraries become optional generated fantasy/apothecary artwork"
+  ],
+  "added_requirements": [
+    "Exact recipes,ingredient lots,quality and aging rules",
+    "Concrete customer timing,budgets,patience,price fairness and traffic formulas",
+    "Exact upgrade effects,discard controls,public simulation and scenarios"
+  ],
+  "equivalence_limits": "All18 weighted criteria and core systems are restored. Exact economics,recipes,disposal and interfaces constrain original open-ended design and replace native-editor work with browser engineering. The source does not require daily narrative events;their absence is not treated as a reduction. Identical difficulty or interchangeable scores are not claimed.",
+  "review": "docs/task-reviews/potion-shop.md",
+  "implementation": "Directly authored bilingual contracts,reference and independent tests. A complete legal week uses real brewing,automatic sales,stock purchases and all four upgrades.",
+  "scoring": "All15/35/15/35 category weights retained;unreviewed manual artistic values remain null.",
+  "id": "og-web-0009",
+  "source_record": "configs/source-index.json#og-web-0009"
+}

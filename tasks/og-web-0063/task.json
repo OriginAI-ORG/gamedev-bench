@@ -1,0 +1,25 @@
+{
+  "id": "og-web-0063",
+  "version": "1.0.0",
+  "prompt": "prompt.md",
+  "prompt_zh": "prompt_zh.md",
+  "title": "地图分层与碰撞 / TileMap Physics Layer and Details Layer",
+  "entry": "index.html",
+  "contract": "webgame-tile-collision-v2",
+  "source": "configs/source-index.json#og-web-0063",
+  "public_verifier": "public-check.mjs",
+  "rights": "Original supplied atlas; provenance in assets.json. Browser services authored locally.",
+  "generation_budget": {
+    "wall_seconds": 1200,
+    "max_observable_tool_calls": 30
+  },
+  "acceptance_budget": {
+    "wall_seconds": 180
+  },
+  "family": "tiles",
+  "migration_grade": "A",
+  "v1": true,
+  "source_kind": "OriginGameDevBench",
+  "benchmark": "OriginGameDevBench",
+  "taskkit": "OriginGameDevBench"
+}

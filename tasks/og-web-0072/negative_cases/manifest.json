@@ -1,0 +1,5 @@
+[
+ {"fault":"wrong-separation","must_fail_check":"initial","mutation":{"file":"component.js","find":"position=[0,-32]","replace":"position=[0,0]"}},
+ {"fault":"root-rotated","must_fail_check":"component","mutation":{"file":"component.js","find":"top.child('Sprite').rotation=270","replace":"top.rotation=270"}},
+ {"fault":"metadata-aliased","must_fail_check":"component","mutation":{"file":"component.js","find":"top.name='TrapTop'","replace":"top.properties=bottom.properties;top.name='TrapTop'"}}
+]

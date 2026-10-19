@@ -1,0 +1,5 @@
+[
+ {"fault":"background-hole","must_fail_check":"configuration","mutation":{"file":"scene.json","find":"[2,2,0,0],","replace":""}},
+ {"fault":"prop-outside","must_fail_check":"configuration","mutation":{"file":"scene.json","find":"[2,2,2,17]","replace":"[8,2,2,17]"}},
+ {"fault":"interior-wall","must_fail_check":"configuration","mutation":{"file":"scene.json","find":"[0,0,0,1]","replace":"[2,1,0,1]"}}
+]

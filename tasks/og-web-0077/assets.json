@@ -1,0 +1,13 @@
+{
+ "source_archives":["upstream/gamedevbench/tasks/task_0059.zip","upstream/gamedevbench/tasks/task_0060.zip","upstream/gamedevbench/tasks/task_0131.zip","upstream/gamedevbench/tasks/task_0132.zip"],
+ "source_art_redistributed":true,
+ "embedded_assets":[
+  {"file":"assets/minimapIcon_arrowA.png","sha256":"241ec06e72f5cdd728ac380dda3f900a19ace25628e461e26d091bd422ef36b6","modified":false},
+  {"file":"assets/minimapIcon_exclamationYellow.png","sha256":"2a04e49aeed779870b0b7723391dd1bc0a680f67923ba4104a59a233815afb8d","modified":false},
+  {"file":"assets/minimapIcon_jewelRed.png","sha256":"721ff0d2dd32c4350e1288c468a1f88a639789d8e6f95ba55567dbf0bc2995eb","modified":false},
+  {"file":"assets/panel_woodDetail_blank.png","sha256":"1c7a0baa8b5582fe21dc9dfc09e032866684ebfc429db47afb3e78f51578a03c","modified":false},
+  {"file":"assets/pattern_blueprintPaper.png","sha256":"49d4fc9894d591bbfb7511496fa89d7f3c8f90331bdc89594fc4dcddd0925598","modified":false}
+ ],
+ "license_evidence":"vendor/gamedevbench.LICENSE is the benchmark repository license; the inspected source archives contain no separate license for these five image files. No new independent image-license claim is made.",
+ "resource_equivalence":"PNG decoded pixels match the original binary image resources: four RGBA payloads at offset409, blueprint RGB payload at offset408."
+}

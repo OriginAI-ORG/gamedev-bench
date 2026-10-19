@@ -1,0 +1,11 @@
+{
+  "kind": "development-workflow-sample",
+  "generator": "current Codex conversation",
+  "independent_generation": false,
+  "blind_test": false,
+  "exact_model_id": null,
+  "token_usage": null,
+  "source": "Original implementation authored in this conversation, using a flat occupancy array.",
+  "limitations": "Same conversation can read task, reference and verifier. This is a pipeline demonstration, not a formal model benchmark attempt.",
+  "trajectory_scope": "The local runner records submission and acceptance events, not a complete generation transcript or private reasoning."
+}

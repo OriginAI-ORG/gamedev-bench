@@ -1,0 +1,21 @@
+{
+  "id": "og-web-0065",
+  "version": "1.0.0",
+  "review": "docs/task-reviews/audio-components.md",
+  "removed": [
+    "SFX-only pool and manual completion",
+    "Incorrect shared mute and queue"
+  ],
+  "restored": [
+    "Music4 and SFX16 using one reusable implementation",
+    "Ordered Music/SFX buses with independent routing",
+    "Global startup registration and persistent instances"
+  ],
+  "added": [
+    "Explicit first-idle/full-pool behavior where source prose was underspecified",
+    "Real sample isolation and scene-switch probes"
+  ],
+  "prior_results_valid_for_this_version": false,
+  "source_kind": "OriginGameDevBench",
+  "source_record": "configs/source-index.json#og-web-0065"
+}

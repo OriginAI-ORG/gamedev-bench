@@ -1,0 +1,25 @@
+{
+  "id": "og-web-0029",
+  "version": "1.0.0",
+  "review": "docs/task-reviews/spawn-wave.md",
+  "requirements": "prompt.md",
+  "translation": "prompt_zh.md",
+  "acceptance": "verifier/scenarios.mjs",
+  "removed": [
+    "Manual chase steps and arbitrary screen-space spawn coordinates"
+  ],
+  "restored": [
+    "Configurable exact factory and target references",
+    "Sibling parenting and complete independent transforms",
+    "Placement hook before optional target setup",
+    "Three event connections and trigger removal after the full wave"
+  ],
+  "added": [
+    "Explicit disposable subscriptions",
+    "Spatial inspection and parent-rotation controls"
+  ],
+  "difficulty": "Preserves component initialization and wiring; supplied placement hook is a stub in the source and browser fixture, not a pathfinding exercise.",
+  "prior_results_valid_for_this_version": false,
+  "source_kind": "OriginGameDevBench",
+  "source_record": "configs/source-index.json#og-web-0029"
+}

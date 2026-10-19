@@ -1,0 +1,5 @@
+[
+ {"fault":"missing-idle-frame","must_fail_check":"configuration","mutation":{"file":"component.js","find":"length:16","replace":"length:15"}},
+ {"fault":"wrong-speed-scale","must_fail_check":"playback-reset","mutation":{"file":"component.js","find":"sprite.speedScale=2","replace":"sprite.speedScale=1"}},
+ {"fault":"torso-collider","must_fail_check":"collider","mutation":{"file":"component.js","find":"[66,24],[7,44]","replace":"[66,24],[7,0]"}}
+]

@@ -1,0 +1,23 @@
+{
+  "id": "og-web-0063",
+  "version": "1.0.0",
+  "review": "docs/task-reviews/tile-components.md",
+  "removed": [
+    "Generic painted grid"
+  ],
+  "restored": [
+    "Base/Details ordering and shared resource",
+    "Original18px atlas with1px separation",
+    "Full-tile polygon on physics layer0 with bits2"
+  ],
+  "replaced": [
+    "Native resource editing with declarative JSON"
+  ],
+  "added": [
+    "Independent preview sample and actual geometric mask queries",
+    "Accept equivalent polygon winding"
+  ],
+  "prior_results_valid_for_this_version": false,
+  "source_kind": "OriginGameDevBench",
+  "source_record": "configs/source-index.json#og-web-0063"
+}

@@ -1,0 +1,5 @@
+[
+ {"fault":"wrong-material-seed","must_fail_check":"rendered-seed","mutation":{"file":"material.json","find":"[0.4,-0.2]","replace":"[-0.794084,0.136444]"}},
+ {"fault":"cloned-material","must_fail_check":"binding","mutation":{"file":"component.js","find":"panel.material=material","replace":"panel.material={...material}"}},
+ {"fault":"grow-one-direction","must_fail_check":"resize-growth","mutation":{"file":"component.js","find":"panel.growX='both'","replace":"panel.growX='end'"}}
+]

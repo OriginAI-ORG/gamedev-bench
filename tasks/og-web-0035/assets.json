@@ -1,0 +1,17 @@
+{
+  "task": "og-web-0035",
+  "source_archive": "configs/source-index.json#og-web-0035",
+  "source_art_redistributed": true,
+  "embedded_assets": [
+    {
+      "file": "sokoban_character.png",
+      "sha256": "c8467320182a8c302c201a16f5b9ea5e08271cbc740b9d20bf3b2b4d1c08cbe8"
+    },
+    {
+      "file": "sokoban_tilesheet.png",
+      "sha256": "a7f7b83c05ed5201c29bb0bf18d774ee9aa8d7084a2bd8d41b2e837fb4ad4346"
+    }
+  ],
+  "modified": false,
+  "license_evidence": "vendor/gamedevbench.LICENSE"
+}

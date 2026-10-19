@@ -1,0 +1,6 @@
+[
+ {"fault":"wav-only","must_fail_check":"directory-binding","mutation":{"file":"component.js","find":"(wav|ogg)","replace":"(wav)"}},
+ {"fault":"wrong-directory","must_fail_check":"directory-binding","mutation":{"file":"component.js","find":"soundDir.replace(/\\/$/,'')+'/'+name","replace":"'assets/'+name"}},
+ {"fault":"stale-available-count","must_fail_check":"directory-binding","mutation":{"file":"component.js","find":"textContent=manager.available.length","replace":"textContent=8"}},
+ {"fault":"one-column","must_fail_check":"initial-layout","mutation":{"file":"component.js","find":"repeat(2, max-content)","replace":"repeat(1, max-content)"}}
+]

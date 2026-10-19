@@ -1,0 +1,5 @@
+[
+ {"fault":"zero-group-remains-visible","must_fail_check":"updates","mutation":{"file":"view.js","find":"this[name].group.hidden=stats[name]===0;","replace":"this[name].group.hidden=false;"}},
+ {"fault":"wrong-health-gap","must_fail_check":"layout","mutation":{"file":"view.js","find":"['health',2]","replace":"['health',8]"}},
+ {"fault":"hardcoded-stats","must_fail_check":"component","mutation":{"file":"view.js","find":"this[name].label.textContent=stats[name];","replace":"this[name].label.textContent=4;"}}
+]

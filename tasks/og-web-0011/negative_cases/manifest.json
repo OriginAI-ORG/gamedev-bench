@@ -1,0 +1,5 @@
+[
+  {"fault":"quest-disconnected","must_fail_check":"core-sequence","mutation":{"file":"projectile.js","find":"quests.progressQuest('Shoot Em Up','kill_step',p.id)","replace":"void 0"}},
+  {"fault":"cleanup-missing","must_fail_check":"component","mutation":{"file":"projectile.js","find":"if(p.x < -50||p.y < -50||p.x > world.width+50||p.y > world.height+50)remove();","replace":"/* cleanup omitted */"}},
+  {"fault":"reset-broken","must_fail_check":"reset-sequence","mutation":{"file":"fixture.js","find":"for(const p of bullets)world.removeProjectile(p);bullets=[];","replace":"/* active projectiles retained */"}}
+]

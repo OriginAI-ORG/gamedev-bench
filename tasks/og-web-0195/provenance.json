@@ -1,0 +1,29 @@
+{
+  "version": "1.0.0",
+  "review": "docs/task-reviews/rain.md",
+  "removed": [
+    "Requirement to implement a whole particle simulator",
+    "Incorrect constant simultaneous drop count",
+    "Fixed y820 replacement floor",
+    "Engine-specific disclaimer"
+  ],
+  "restored": [
+    "Configuration-only starter boundary",
+    "Original per-task budgets,lifetimes,preprocess,wind,velocity,scale and collision bursts",
+    "Separate materials,actual sub-emitter identity,visibility and alignment",
+    "Original floor/collision geometry"
+  ],
+  "replaced": [
+    "Native GPU particle facilities with a provided browser CPU/Canvas runtime",
+    "Native occlusion with provided floor clipping"
+  ],
+  "added": [
+    "Exact target values instead of permissive one-sided source checks",
+    "Independent material/range ownership",
+    "Deterministic inspection,real collision/trajectory/rendering checks"
+  ],
+  "prior_results_valid_for_this_version": false,
+  "id": "og-web-0195",
+  "source_kind": "OriginGameDevBench",
+  "source_record": "configs/source-index.json#og-web-0195"
+}

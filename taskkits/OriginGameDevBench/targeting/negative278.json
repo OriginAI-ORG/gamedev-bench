@@ -1,0 +1,1 @@
+[{"fault":"missing-setter-binding","must_fail_check":"assembly","mutation":{"file":"bindings.js","find":"unit.targetFinder.actor=unit","replace":"unit.targetFinder.actor=null"}},{"fault":"all-setters-use-first-unit","must_fail_check":"assembly","mutation":{"file":"bindings.js","find":"unit.targetFinder.actor=unit","replace":"unit.targetFinder.actor=unit.parent.children[0]"}}]

@@ -1,0 +1,1 @@
+{"ui":"CombatHUD","panel":"BottomBar","panelHeight":40,"hand":"CardTray","flow":true,"dragLayer":"DragStage","dragGroup":"ui_layer","zoneName":"ConfirmArea","zone":[258,92],"threshold":0.055,"cards":["Guard","Drive","Slice"]}

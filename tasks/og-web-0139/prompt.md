@@ -1,0 +1,11 @@
+# Fit a purple highlight to the gemstone
+
+Inspect the original `assets/platformer_coins.jpg` and complete `overlays.json`. Keep `level.json`, the image and the supplied browser renderer unchanged. Determine the gemstone's location and silhouette from the illustrated scene.
+
+- **R1 — Scene hierarchy.** Preserve the `Level` position, scale and rotation and the image's separate local offset and top-left origin. Keep `GemstoneHighlights` under Level alongside the image. The polygon and image must inherit the same parent transform.
+- **R2 — Gemstone shape.** Add one polygon named `GemstoneHighlight` beneath GemstoneHighlights. Use at least 4 vertices to closely fit the purple gemstone, including its pointed lower edge. The highlight is an independent shape, not part of a replacement image.
+- **R3 — Tight coverage.** Minimize spill outside the gemstone. Acceptance requires intersection-over-union of at least 0.85 against the annotated contour in Level-local coordinates, including the polygon's own and containing group's transforms. Coverage uses pixel-center sampling and accepts different vertex representations.
+- **R4 — Purple translucent fill.** Effective alpha must be strictly between 0 and 1 and visibly reveal the original underneath. Effective normalized red must be in [0.35,1], green in [0.05,0.75], blue in [0.45,1], and blue must exceed green. A purple or pink-purple fill satisfying these ranges is required.
+- **R5 — Inspectable composition.** Retain Show highlights and Reset view. Hiding the polygon shows the intact original; reset restores the aligned highlight. The visible polygon must change pixels in the gemstone's region. Do not replace the original image with a precomposited screenshot.
+
+The overlay document has `name`, optional `position`, `scale`, `rotation`, and `children`. Each polygon has `name`, `points` as [x,y] vertices, normalized RGBA `color`, and optional position, scale, rotation and `modulate`. Defaults are position [0,0], scale [1,1], rotation 0 radians and modulation [1,1,1,1]. Effective color multiplies color and modulation componentwise. The supplied renderer handles hierarchy and drawing. Acceptance checks original assets, transforms, geometric overlap, tint, transparency and actual overlay pixels. Keep `index.html` runnable.

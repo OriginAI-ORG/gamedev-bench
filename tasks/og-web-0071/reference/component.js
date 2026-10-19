@@ -1,0 +1,1 @@
+export function configureTrap(trap,Node){const holder=trap.add(new Node('SpawningPoints'));holder.add(new Node('SpawnLeft',{position:[-15,4]}));holder.add(new Node('SpawnRight',{position:[15,4],z:1}));return holder;}

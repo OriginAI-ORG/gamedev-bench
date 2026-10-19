@@ -1,0 +1,5 @@
+[
+ {"fault":"vertical-anchor","must_fail_check":"initial","mutation":{"file":"component.js","find":"position:[-15,4]","replace":"position:[4,-15]"}},
+ {"fault":"layer-lost","must_fail_check":"layers","mutation":{"file":"component.js","find":"z:1","replace":"z:0"}},
+ {"fault":"sprite-rotation-lost","must_fail_check":"component","mutation":{"file":"component.js","find":"return holder;","replace":"trap.child('Sprite').rotation=0;return holder;"}}
+]

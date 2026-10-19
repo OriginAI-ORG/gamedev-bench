@@ -1,0 +1,8 @@
+[
+ {"fault":"no-save","must_fail_check":"immediate-save","mutation":{"file":"preferences.js","find":"storage.setItem(storageKey,JSON.stringify({music:this.music,sfx:this.sfx,inputType:this.inputType,remaps:this.remaps}));","replace":"void storage;"}},
+ {"fault":"lost-live-remap","must_fail_check":"restore-and-play","mutation":{"file":"menu.js","find":"if(prefs.remaps[action])services.inputs.set(action,prefs.remaps[action]);","replace":"void action;"}},
+ {"fault":"lost-remap-event","must_fail_check":"restore-and-play","mutation":{"file":"remap.js","find":"'remapped'","replace":"'unused'"}},
+ {"fault":"sfx-not-restored","must_fail_check":"restore-and-play","mutation":{"file":"menu.js","find":"sfx.value=prefs.sfx","replace":"sfx.value=1"}},
+ {"fault":"lost-menu-layout","must_fail_check":"reference-layout","mutation":{"file":"style.css","find":"left:256px;top:360px","replace":"left:16px;top:16px"}},
+ {"fault":"lost-listener-cleanup","must_fail_check":"cleanup","mutation":{"file":"menu.js","find":"for(const remove of subscriptions)remove();","replace":"void subscriptions;"}}
+]

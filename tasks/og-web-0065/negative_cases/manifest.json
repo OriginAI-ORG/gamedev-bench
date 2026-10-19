@@ -1,0 +1,5 @@
+[
+ {"fault":"small-sfx-pool","must_fail_check":"initial","mutation":{"file":"component.js","find":"length:16","replace":"length:8"}},
+ {"fault":"sfx-routed-to-music","must_fail_check":"actual-routing","mutation":{"file":"component.js","find":"new AudioVoice(mixer,'SFX')","replace":"new AudioVoice(mixer,'Music')"}},
+ {"fault":"last-idle-first","must_fail_check":"pool-behavior","mutation":{"file":"sound-player.js","find":"this.children.find(","replace":"[...this.children].reverse().find("}}
+]

@@ -1,0 +1,7 @@
+[
+ {"fault":"wrong-gem-position","must_fail_check":"shape-coverage","mutation":{"file":"overlays.json","find":"[1481.5385,648.4616]","replace":"[1481.5385,668.4616]"}},
+ {"fault":"wrong-tint","must_fail_check":"shape-coverage","mutation":{"file":"overlays.json","find":"[0.8,0.2,0.9,0.5]","replace":"[0.2,0.9,0.3,0.5]"}},
+ {"fault":"opaque-gem","must_fail_check":"shape-coverage","mutation":{"file":"overlays.json","find":"[0.8,0.2,0.9,0.5]","replace":"[0.8,0.2,0.9,1]"}},
+ {"fault":"lost-local-rotation","must_fail_check":"shape-coverage","mutation":{"file":"overlays.json","find":"\"rotation\":3.1415927","replace":"\"rotation\":0"}},
+ {"fault":"lost-image-offset","must_fail_check":"parent-transforms","mutation":{"file":"level.json","find":"[1.5384617,11.538463]","replace":"[0,0]"}}
+]

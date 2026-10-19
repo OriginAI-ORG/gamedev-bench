@@ -1,0 +1,11 @@
+export class Sprite{constructor(src,columns,rows=1,options={}){Object.assign(this,{src,columns,rows,frame:0,position:[0,0],offset:[0,0],centered:true,flipH:false},options);}}
+export class Clip{constructor({duration,step=.1,loop=false,tracks=[],events=[]}){Object.assign(this,{duration,step,loop,tracks,events});}}
+export class Animator extends EventTarget{
+ constructor(clips={}){super();Object.assign(this,{clips,current:null,position:0,playing:false});}
+ play(name){if(!this.clips[name])return;if(name===this.current&&this.playing)return;const changed=name!==this.current;this.current=name;this.position=0;this.playing=true;this.apply();if(changed)this.dispatchEvent(new CustomEvent('animation-changed',{detail:name}));}
+ seek(position){this.position=position;this.apply();}
+ apply(){const clip=this.clips[this.current];if(!clip)return;for(const track of clip.tracks){let value=track.keys[0]?.[1];for(const[at,next]of track.keys)if(at<=this.position+1e-9)value=next;track.target[track.property]=value;}}
+ advance(dt){if(!this.playing)return;const name=this.current,c=this.clips[name],before=this.position,next=before+dt;if(c.loop){this.position=next%c.duration;this.apply();return;}this.position=Math.min(next,c.duration);this.apply();for(const e of c.events)if(e.at>before&&e.at<=next+1e-9)e.target[e.method]();if(next+1e-9>=c.duration){this.playing=false;this.dispatchEvent(new CustomEvent('animation-finished',{detail:name}));}}
+}
+export async function loadImages(sprites){const images={};for(const s of sprites){if(images[s.src])continue;const image=new Image();image.src=s.src;await image.decode();images[s.src]=image;}return images;}
+export function paint(canvas,sprites,images,{scale=4,origin=[160,120]}={}){const c=canvas.getContext('2d');c.fillStyle='#213e4a';c.fillRect(0,0,canvas.width,canvas.height);c.imageSmoothingEnabled=false;for(const s of sprites){const image=images[s.src],w=image.width/s.columns,h=image.height/s.rows;c.save();c.translate(origin[0]+s.position[0]*scale,origin[1]+s.position[1]*scale);if(s.flipH)c.scale(-1,1);c.drawImage(image,s.frame%s.columns*w,Math.floor(s.frame/s.columns)*h,w,h,(s.offset[0]-(s.centered?w/2:0))*scale,(s.offset[1]-(s.centered?h/2:0))*scale,w*scale,h*scale);c.restore();}}

@@ -1,0 +1,12 @@
+{
+  "id": "og-web-9001",
+  "version": "0.1.0",
+  "title": "推箱子",
+  "entry": "index.html",
+  "contract": "visible-dom-grid-v1",
+  "source": "Original task, created locally for this pilot.",
+  "rights": "Original pilot material; third-party source code and assets are not included.",
+  "generation_budget": { "wall_seconds": 1200, "max_response_tool_rounds": 30 },
+  "acceptance_budget": { "wall_seconds": 180 },
+  "public_map": ["#######", "#     #", "# .$@ #", "#     #", "#######"]
+}

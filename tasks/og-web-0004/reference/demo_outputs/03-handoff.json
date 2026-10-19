@@ -1,0 +1,1 @@
+{"scenario":"handoff","duration_frames":180,"events":[{"frame":30,"type":"key_press","keycode":"DOWN"},{"frame":75,"type":"key_press","keycode":"RIGHT"},{"frame":120,"type":"key_press","keycode":"RIGHT"}]}

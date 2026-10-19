@@ -1,0 +1,1 @@
+{"scenario":"escape","duration_frames":90,"events":[{"frame":30,"type":"mouse_click","button":"left","x":425,"y":325},{"frame":75,"type":"wait"}]}

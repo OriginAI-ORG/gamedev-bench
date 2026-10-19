@@ -1,0 +1,1 @@
+import assert from 'node:assert/strict';export async function runPublicCheck(page,url,record=()=>{}){await page.goto(url);for(let i=0;i<5;i++)await page.keyboard.press('ArrowUp');assert.equal(await page.locator('.enemy').count(),3);assert.equal(await page.locator('#trigger').count(),0);record({enemies:3});}

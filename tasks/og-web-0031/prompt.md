@@ -1,0 +1,10 @@
+# Resource-aware sell portal
+
+Complete `portal.js` in the supplied local browser game in `game/`; keep `index.html`. The fixture provides draggable Unit objects, overlap events, a PortalView, player stats and a reusable unit pool.
+
+- **R1 — Wiring.** Export `SellPortal(view, units, playerStats, unitPool)`. Subscribe to `view.events` events `unit-enter` and `unit-exit`, whose `detail` is the Unit. Scan the supplied units and call `setupUnit(unit)` to connect each Unit's `dropped` and `quick-sell` events. Repeated setup must not duplicate subscriptions. Provide `onEnter(unit)`, `onExit(unit)`, `update()`, `sellUnit(unit)` and `dispose()`.
+- **R2 — Preview.** On entry, retain the exact Unit as `.currentUnit`, highlight through `view.setHighlighted(true)`, and show `unit.stats.getGoldValue()` with `view.showGold(value)`. Each `update()` calls `view.faceUnit(currentUnit)` so the visible creature faces the unit. Exiting the current Unit clears it, hides the preview with `showGold(null)` and removes the outline. Exiting another Unit must not clear the current one.
+- **R3 — Sale.** A dropped or quick-sold Unit is sold only when it is the current overlapping Unit and has not already been sold. Mark it sold, add its computed gold value to `playerStats.gold`, pass its exact stats object to `unitPool.addUnit(stats)`, call `unit.remove()`, then clear the preview and current Unit. Repeated events and another Unit's drop must not pay twice or sell the wrong instance.
+- **R4 — Integration and cleanup.** Preserve pointer drag/drop, S quick sell, cancellation and reset. Swift Rogue is worth 3 (3×1); Stone Champion is worth 12 (4×3). Show gold, remaining units and returned resource names. `dispose()` removes overlap/unit subscriptions and clears the preview; Reset restores two fresh units and zero gold with no stale listeners.
+
+Acceptance checks dynamic prices, exact returned resource identity, both event paths, wrong-unit drops, one-time removal, overlap exit, sprite facing, disposal and visible drag/reset behavior. The public example drops Swift Rogue into the portal for 3 gold. Do not modify checks or fabricate results.

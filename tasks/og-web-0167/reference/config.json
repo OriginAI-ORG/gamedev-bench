@@ -1,0 +1,1 @@
+{"mode":"standard","groups":["sentries","raiders"],"names":["SentryUnit","RaiderNear","RaiderFar"],"baseRange":27,"attackRange":3,"near":60,"far":145,"closer":16,"outside":305}

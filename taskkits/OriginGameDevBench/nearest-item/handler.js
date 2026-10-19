@@ -1,0 +1,7 @@
+export class PlayerInteractionHandler extends EventTarget{
+ constructor({area,input,player,itemTypes,ItemClass}){super();Object.assign(this,{area,input,player,itemTypes,ItemClass,nearbyBodies:[]});area.collisionLayer=0;area.collisionMask=2;this.enter=e=>this.onBodyEntered(e.detail);this.exit=e=>this.onBodyExited(e.detail);this.key=e=>{if(e.code==='KeyF'&&!e.repeat)this.pickupNearestItem();};area.addEventListener('body-entered',this.enter);area.addEventListener('body-exited',this.exit);input.addEventListener('keydown',this.key);}
+ onBodyEntered(body){if(!(body instanceof this.ItemClass)||body.removed||this.nearbyBodies.includes(body))return;this.nearbyBodies.push(body);body.gainFocus();}
+ onBodyExited(body){const index=this.nearbyBodies.indexOf(body);if(index<0)return;this.nearbyBodies.splice(index,1);body.loseFocus();}
+ pickupNearestItem(){let nearest=null,distance=Infinity;for(const body of this.nearbyBodies){if(body.removed)continue;const d=Math.hypot(...body.position.map((v,i)=>v-this.player.position[i]));if(d<distance){nearest=body;distance=d;}}if(!nearest)return null;this.onBodyExited(nearest);nearest.remove();const data=this.itemTypes.find(data=>data.prefabId===nearest.prefabId);if(data)this.dispatchEvent(new CustomEvent('item-picked-up',{detail:data}));return nearest;}
+ dispose(){this.area.removeEventListener('body-entered',this.enter);this.area.removeEventListener('body-exited',this.exit);this.input.removeEventListener('keydown',this.key);for(const body of [...this.nearbyBodies])this.onBodyExited(body);}
+}

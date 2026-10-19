@@ -1,0 +1,25 @@
+{
+  "id": "og-web-0040",
+  "version": "1.0.0",
+  "review": "docs/task-reviews/minimap.md",
+  "removed": [
+    "Generic interactive map task",
+    "Asset and layout exemptions"
+  ],
+  "restored": [
+    "Configuration-only work",
+    "200px root,5px outer,20px content,64px patches",
+    "Original tiled pattern and three marker images",
+    "Named image resources and hidden prototypes"
+  ],
+  "replaced": [
+    "Native resource/scene editing with image descriptors and declarative UI JSON"
+  ],
+  "added": [
+    "Actual layout and image-pixel checks",
+    "Immutable supplied runtime"
+  ],
+  "prior_results_valid_for_this_version": false,
+  "source_kind": "OriginGameDevBench",
+  "source_record": "configs/source-index.json#og-web-0040"
+}

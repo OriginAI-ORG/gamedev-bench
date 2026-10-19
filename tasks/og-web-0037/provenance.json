@@ -1,0 +1,20 @@
+{
+  "id": "og-web-0037",
+  "version": "1.0.0",
+  "review": "docs/task-reviews/movement-and-platforms.md",
+  "removed": [
+    "Generic movement task obscuring already supplied controller"
+  ],
+  "restored": [
+    "Existing player and vertical physics stay supplied",
+    "Per-update acceleration.25 and friction.1",
+    "Cached axis, current parameter weights and ground-gated jump"
+  ],
+  "added": [
+    "Explicit60Hz browser clock and extreme parameter probes",
+    "Actual velocity sequence and keyboard assertions"
+  ],
+  "prior_results_valid_for_this_version": false,
+  "source_kind": "OriginGameDevBench",
+  "source_record": "configs/source-index.json#og-web-0037"
+}

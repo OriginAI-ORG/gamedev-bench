@@ -1,0 +1,11 @@
+# Quest-aware projectile
+
+Complete the projectile in the supplied browser shooting range. Work in `game/`; the entry point is `index.html`. All assets and modules must work locally without network access.
+
+- **R1 — Integration.** Export `SPEED = 500` and `createProjectile({id, position, direction, tank, world, quests})` from `projectile.js`. Return a projectile with `id`, `x`, `y`, `direction`, `tank`, `active`, `tick(deltaSeconds)`, `onSensor(target)` and `onBody(body)`. Preserve the supplied firing owner and direction. Use the supplied quest service and world lifecycle; a separate displayed counter is insufficient.
+- **R2 — Travel.** Keep continuous travel at 500 pixels/second using the normalized direction and elapsed seconds. A zero direction remains stationary. Calls with different time steps must accumulate the same displacement for the same elapsed time. The supplied animation loop, controls and collision dispatcher are part of the starter.
+- **R3 — Quest event.** An active projectile contacting a sensor whose `group` is `enemy` must call `quests.progressQuest('Shoot Em Up', 'kill_step', id)` once, then call `world.removeProjectile(projectile)`. Other contacts remove the projectile without advancing any quest. Repeated callbacks after disposal must have no effect. Do not alter the Supply Run quest. The provided HUD must show the service's progress.
+- **R4 — Cleanup.** Dispose when the projectile center is more than 50 pixels beyond any edge of `world.width × world.height`. At exactly 50 pixels outside it remains active. Cleanup must not advance a quest. Disposed projectiles must stop moving and reacting to contacts.
+- **R5 — Playable integration.** Keep `#fire`, `#aim`, `#target-kind`, `#tank`, `#pause`, `#reset`, `#scene`, `.shot`, `#shots`, `#quest-progress` and `#supply-progress` operational. Fire/Space creates a visible textured projectile; its rendered position follows its motion. Reset clears projectiles and both quest counters. Keep both quest states independent.
+
+Acceptance exercises variable time steps, zero and non-unit directions, two firing owners, enemy and neutral contacts, duplicate contacts, all four cleanup boundaries, live continuous motion and reset. The public example fires and observes 200 ms of movement. Implement real behavior; do not modify checks or fabricate test results.

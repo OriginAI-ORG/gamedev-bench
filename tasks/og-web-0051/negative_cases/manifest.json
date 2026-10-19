@@ -1,0 +1,5 @@
+[
+ {"fault":"torso-collider","must_fail_check":"collider","mutation":{"file":"component.js","find":"[66,24],[7,44]","replace":"[66,24],[7,0]"}},
+ {"fault":"image-size-collider","must_fail_check":"collider","mutation":{"file":"component.js","find":"[66,24]","replace":"[299,240]"}},
+ {"fault":"changed-existing-animation","must_fail_check":"configuration","mutation":{"file":"component.js","find":"return player;","replace":"player.sprite.speedScale=1;return player;"}}
+]

@@ -1,0 +1,28 @@
+{
+  "id": "og-web-0022",
+  "version": "1.0.0",
+  "review": "docs/task-reviews/menus-and-cameras.md",
+  "requirements": "prompt.md",
+  "translation": "prompt_zh.md",
+  "acceptance": "verifier/scenarios.mjs",
+  "removed": [
+    "Generic menu-state-only acceptance"
+  ],
+  "restored": [
+    "Exact panel offsets and initial hidden state",
+    "Provided controller and material identity",
+    "Seven callback connections and pause-independent interaction",
+    "Viewport overlay, layer and click-through"
+  ],
+  "replaced": [
+    "Supplied noise postprocessing material with supplied browser radial transition",
+    "Native exit with local session end",
+    "Numerical font size with CSS pixels"
+  ],
+  "added": [
+    "Multiple viewport and actual-motion checks"
+  ],
+  "prior_results_valid_for_this_version": false,
+  "source_kind": "OriginGameDevBench",
+  "source_record": "configs/source-index.json#og-web-0022"
+}

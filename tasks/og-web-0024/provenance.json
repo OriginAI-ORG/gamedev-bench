@@ -1,0 +1,22 @@
+{
+  "id": "og-web-0024",
+  "version": "1.0.0",
+  "review": "docs/task-reviews/trap-scenes.md",
+  "requirements": "prompt.md",
+  "translation": "prompt_zh.md",
+  "acceptance": "verifier/scenarios.mjs",
+  "removed": [
+    "Projectile firing and stepping"
+  ],
+  "restored": [
+    "Holder hierarchy, literal signed coordinates and layer ordering",
+    "Supplied bitmap"
+  ],
+  "added": [
+    "Parent transform and occlusion probes"
+  ],
+  "source_conflict": "Coordinate signs take precedence over conflicting above/below descriptions.",
+  "prior_results_valid_for_this_version": false,
+  "source_kind": "OriginGameDevBench",
+  "source_record": "configs/source-index.json#og-web-0024"
+}

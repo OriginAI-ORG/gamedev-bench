@@ -1,0 +1,25 @@
+{
+  "id": "og-web-0035",
+  "version": "1.0.0",
+  "prompt": "prompt.md",
+  "prompt_zh": "prompt_zh.md",
+  "title": "格子移动与平台拼接 / Tween Grid Movement",
+  "entry": "index.html",
+  "contract": "webgame-grid-tween-v2",
+  "source": "configs/source-index.json#og-web-0035",
+  "public_verifier": "public-check.mjs",
+  "rights": "Original supplied bitmaps; asset provenance in assets.json. Browser fixture authored locally.",
+  "generation_budget": {
+    "wall_seconds": 1200,
+    "max_observable_tool_calls": 30
+  },
+  "acceptance_budget": {
+    "wall_seconds": 180
+  },
+  "family": "grid",
+  "migration_grade": "A",
+  "v1": true,
+  "source_kind": "OriginGameDevBench",
+  "benchmark": "OriginGameDevBench",
+  "taskkit": "OriginGameDevBench"
+}

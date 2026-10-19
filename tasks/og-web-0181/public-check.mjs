@@ -1,0 +1,2 @@
+import assert from 'node:assert/strict';
+export async function runPublicCheck(page,url){await page.goto(url);await page.waitForFunction(()=>document.querySelectorAll('.card').length===3);const card=page.locator('.card').nth(1),b=await card.boundingBox(),s=await page.locator('#scene').boundingBox();await page.mouse.move(b.x+10,b.y+10);await page.mouse.down();await page.mouse.move(b.x+11,b.y+9);await page.mouse.move(s.x+s.width*.4,s.y+s.height*.3);await page.waitForTimeout(120);await page.mouse.up();assert.equal(await page.locator('.card').count(),2);return{passed:true};}

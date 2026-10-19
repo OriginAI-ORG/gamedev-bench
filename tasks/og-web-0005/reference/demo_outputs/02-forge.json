@@ -1,0 +1,1 @@
+{"scenario":"shop","duration_frames":150,"events":[{"frame":15,"type":"mouse_click","button":"left","x":181,"y":409},{"frame":45,"type":"mouse_click","button":"left","x":1099,"y":606},{"frame":90,"type":"mouse_click","button":"left","x":215,"y":197}]}

@@ -1,0 +1,46 @@
+{
+  "source_kind": "OriginGameDevBench",
+  "source_integrity": {
+    "instruction_sha256": "9f156871109df5a40e9ff900f621b4a24c928be8db9988288b42a0125ae11f37",
+    "rubric_sha256": "4bedc063e7cb32c21bda28c48a2c132d9fc8998f9adef02f62a0f2a2f032fe75",
+    "source_criteria": [
+      "M1",
+      "M2",
+      "M3",
+      "M4",
+      "D1",
+      "D2",
+      "D3",
+      "D4",
+      "V1",
+      "V2",
+      "V3",
+      "A1",
+      "A2",
+      "A3"
+    ]
+  },
+  "version": "1.0.0",
+  "scope": "Restore complete spatial circuit campaign: placement/wiring,15 puzzles,arithmetic,multiplexers,buses,splitters,delay and feedback memory,limits,efficiency,navigation and full visual rubric.",
+  "removed_previous_requirements": [
+    "Three mandatory serial gate slots",
+    "One fixed four-row XOR target",
+    "Instant numeric-only signal display"
+  ],
+  "replacements": [
+    "Native project/launch/input recording becomes local browser entry and real browser input traces",
+    "Unavailable external art libraries become an optional locally generated illustrated atlas"
+  ],
+  "added_requirements": [
+    "Concrete15 puzzle specifications and budgets",
+    "7 by4 board and one fixed/crossing-constrained puzzle",
+    "Named simulation exports,selectors and scenario fixtures",
+    "Splitter must use both output pins in the two-output bus puzzle"
+  ],
+  "equivalence_limits": "The complete core system and full weighted criteria are restored, but fixed puzzle content and module interfaces constrain original design freedom. Browser engineering is not identical to native editor work; no identical-difficulty or full-score claim is made.",
+  "review": "docs/task-reviews/circuit-wizard.md",
+  "implementation": "Directly authored local JavaScript/HTML/CSS and bilingual prompts; no task generation script.",
+  "scoring": "Original14 criteria and category weights retained; unreviewed artistic scores remain null.",
+  "id": "og-web-0002",
+  "source_record": "configs/source-index.json#og-web-0002"
+}

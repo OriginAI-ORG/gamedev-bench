@@ -1,0 +1,11 @@
+# Slice and animate a moving dinosaur
+
+Complete `configurePlayer(player,{Sprite,Clip,Animator})` and `updatePlayer(player,axis)` in `component.js`. The browser fixture supplies a movable body, gravity, ground collision, jumping, controls and image rendering. Configure its sprite and animation, then drive horizontal movement and facing.
+
+- **R1 — Sprite sheet.** Create `player.sprite` with the supplied `Sprite` class using `dino.png`, a 576×24 image sliced into 24 columns and 1 row. Keep its local position [0,-2]. Use the original bitmap cells.
+- **R2 — Clips.** Create `player.animator` with the supplied `Animator` and `Clip` classes. Its `default` clip uses frames 0–3 in order; `run` uses the six running frames 4–9 in order. Both loop at 5 frames per second, with durations 0.8 and 1.2 seconds respectively. Each has one track targeting the exact sprite's `frame` property, with keys at 0.2-second intervals. Initially play default.
+- **R3 — Horizontal control.** The input axis is -1, 0 or 1. Set `player.velocity[0]` to axis ×100 pixels per second. Play run for nonzero input and default for zero input. Repeated updates in the same state must allow the animation to advance instead of continually restarting it.
+- **R4 — Facing and integration.** Set `player.sprite.flipH` for leftward movement and clear it for rightward movement. Preserve the last facing direction while idle. Preserve vertical velocity, the supplied body, collider and jumping behavior. Return the same player from configuration. The provided body integrates velocity over elapsed time.
+- **R5 — Visible result.** Arrow keys and direction buttons must affect actual movement, bitmap animation and horizontal mirroring. Preserve Play/Pause, the 0.05-second step, Space to jump and Reset. Reset returns to the initial default animation and right-facing pose.
+
+The supplied `Sprite` takes the image path, column count, row count and options. A `Clip` takes `duration`, `step`, `loop` and `tracks`; each track has `target`, `property` and `keys` of [time,value] pairs. Acceptance checks slicing, all selected frames, elapsed movement, phase continuity, mirroring, keyboard input and rendered pixels. Keep the local page runnable through `index.html`.
