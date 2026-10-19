@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Private security report / 私密安全报告
+    url: https://github.com/OriginAI-ORG/gamedev-bench/security/advisories/new
+    about: Report security vulnerabilities privately; do not open a public Issue / 安全漏洞请私密提交。
+  - name: Contribution guide / 贡献指南
+    url: https://github.com/OriginAI-ORG/gamedev-bench/blob/main/CONTRIBUTING.md
+    about: Local setup, testing, licensing, and review requirements / 本机开发、测试、授权与审查要求。

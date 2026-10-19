@@ -1,0 +1,16 @@
+Early GameBoy, Regular, Version 1.0
+Copyright LDEJRuff 2012
+Designer: LDEJRuff
+Font creation service recorded in the font: http://fontstruct.com
+
+The bundled, unmodified font's name table (IDs 0, 9, 13 and 14) identifies
+the author and the Creative Commons Attribution-ShareAlike 3.0 Unported license:
+https://creativecommons.org/licenses/by-sa/3.0/
+Legal terms: https://creativecommons.org/licenses/by-sa/3.0/legalcode
+
+File: taskkits/OriginGameDevBench/preferences/assets/Early GameBoy.ttf
+SHA-256: fb84ef1d7f83 (prefix; full digest is in validation/media-license-audit.json)
+No changes have been made to the font in this preparation update.
+Retain this attribution and the license link with redistributed copies.
+Adaptations of this font must follow the license's attribution and share-alike
+conditions. The project's Apache-2.0 license does not relicense this font.

@@ -17,3 +17,7 @@ GameDevBench retain their separate license texts in vendor/. Exact helper
 origins, changes and hashes are recorded in configs/upstream-lock.json.
 
 See THIRD_PARTY_NOTICES.md and configs/task-licenses.json for details.
+
+Additional media attribution and separate terms are recorded in
+THIRD_PARTY_NOTICES.md, vendor/licenses/, and docs/MEDIA-LICENSE-AUDIT.md.
+The audit records unresolved permissions; this NOTICE grants no new asset rights.

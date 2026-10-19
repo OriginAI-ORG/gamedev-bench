@@ -1,5 +1,15 @@
 # Changelog
 
+## Unreleased — open-source preparation
+
+- Correct contribution commands, add bilingual Issue/PR templates and a private
+  vulnerability reporting policy, and document local review and release handling.
+- Inventory 2,924 standalone media paths (450 unique contents), retain matched
+  author/font licenses, and document unresolved permission evidence. Source
+  packaging now requires a current media audit with no unresolved entries.
+- Preserve frozen task bytes and historical validation; no new model score or
+  formal benchmark release is claimed.
+
 ## 1.0.0 — standalone repository — 2026-10-19
 
 - Start local Git history for the standalone runner and 228-task source release.

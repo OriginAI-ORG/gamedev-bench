@@ -11,10 +11,14 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 FILES = [".gitignore", ".gitattributes", "README.md", "THIRD_PARTY_NOTICES.md", "LICENSE", "NOTICE", "CONTRIBUTING.md", "SECURITY.md", "CHANGELOG.md", "CITATION.cff", "package.json", "package-lock.json", "docs/PROTOCOL.md",
          "configs/pilot.json", "configs/upstream-lock.json", "configs/OriginGameDevBench.json", "configs/source-index.json", "configs/task-licenses.json", "configs/review-signoff.json", "configs/family-review-notes.json", "docs/WEBGAME-REVISION-2026-10-16.md", "docs/art-generation-prompts.md", "docs/IDENTIFIERS-3.0.0.md", "docs/REPOSITORY-1.0.0.md", "docs/ACCEPTANCE-ERRATA-2026-10-15.md", "docs/RUN-TIME-ESTIMATE-2026-10-19.md"]
-DIRS = ["core", "agents", "runner", "environments", "tasks", "taskkits", "samples", "vendor", "scripts", "tests", "validation", "results", "docs/task-reviews"]
+FILES += ["configs/media-license-evidence.json", "docs/MEDIA-LICENSE-AUDIT.md", "docs/OPEN-SOURCE-MAINTENANCE.md"]
+DIRS = ["core", "agents", "runner", "environments", "tasks", "taskkits", "samples", "vendor", "scripts", "tests", "validation", "results", "docs/task-reviews", ".github"]
 EXCLUDED = {"__pycache__", "node_modules", ".git", ".codex", ".agents", ".env", ".npm-cache", ".browsers"}
 
 def main():
+    media_check = subprocess.run([sys.executable, "-B", "scripts/audit-media-licenses.py", "--require-cleared"], cwd=ROOT)
+    if media_check.returncode:
+        raise SystemExit(media_check.returncode)
     command = ["node", "scripts/release-check.mjs", "--save-qa"]
     if "--final" in sys.argv:
         command.append("--final")

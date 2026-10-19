@@ -4,6 +4,11 @@
 agents implementing browser game components and complete games: fresh starter →
 public feedback → frozen submission → private acceptance.
 
+**Media authorization review remains incomplete.** Code is Apache-2.0; bundled
+media have separate terms, including restricted Bleed artwork and unresolved
+permissions. Read the [media audit](docs/MEDIA-LICENSE-AUDIT.md) before redistributing
+the complete collection. Source packaging is blocked while these gaps remain.
+
 The fixed cohort is `og-web-0001` through `og-web-0228`, covering 42 concrete
 families. English `prompt.md` is the task input; `prompt_zh.md` is its matching
 Chinese translation. Internal pilots `og-web-9001` and `og-web-9002` are unscored.
@@ -148,6 +153,7 @@ npm.cmd run isolation:check
 npm.cmd run cohort:qa -- --concurrency 3 --resume
 npm.cmd run cohort:audit
 npm.cmd run release:check
+python -B scripts/audit-media-licenses.py --require-cleared
 python -B scripts/package_release.py
 node scripts/package-smoke.mjs
 ```
@@ -192,5 +198,11 @@ See [NOTICE](NOTICE), [third-party notices](THIRD_PARTY_NOTICES.md), per-task
 provenance and `configs/task-licenses.json`. Model trajectories have separate
 authorization requirements and are excluded from source releases.
 
+The current [media audit](docs/MEDIA-LICENSE-AUDIT.md) supplements historical
+per-task records with verified font and original-project license evidence and
+lists unresolved files. Technical QA does not clear media permissions. Keep the
+notices in `vendor/licenses/` with the assets.
+
 See [CONTRIBUTING](CONTRIBUTING.md), [SECURITY](SECURITY.md),
 [CHANGELOG](CHANGELOG.md), and [CITATION.cff](CITATION.cff).
+Maintainers: see [open-source maintenance](docs/OPEN-SOURCE-MAINTENANCE.md).

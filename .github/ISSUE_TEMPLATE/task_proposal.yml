@@ -1,0 +1,31 @@
+name: Task or scoring proposal / 任务与评分建议
+description: Propose a task change, scoring correction, or feature / 提出任务、评分或功能改进
+title: "[Proposal] "
+body:
+  - type: input
+    id: scope
+    attributes:
+      label: Affected tasks and version / 涉及的任务与版本
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem and proposed behavior / 问题与改进方案
+      description: Explain the requirement and an example that demonstrates the need.
+    validations:
+      required: true
+  - type: textarea
+    id: evaluation
+    attributes:
+      label: Evaluation and comparability / 验收与分数可比性
+      description: Describe reference behavior, incorrect implementations to reject, and whether prior scores would become invalid.
+    validations:
+      required: true
+  - type: textarea
+    id: provenance
+    attributes:
+      label: Sources and licenses / 来源与授权
+      description: For new code or media, give author, original URL, exact license, and redistribution evidence. State none if no third-party material is involved.
+    validations:
+      required: true

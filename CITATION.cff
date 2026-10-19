@@ -3,6 +3,9 @@ message: "Please cite the exact release version and source archive SHA-256 used 
 title: "OriginGameDevBench"
 type: software
 version: "1.0.0"
+repository-code: "https://github.com/OriginAI-ORG/gamedev-bench"
+url: "https://github.com/OriginAI-ORG/gamedev-bench"
+date-released: "2026-10-19"
 license: Apache-2.0
 authors:
   - name: "OriginGameDevBench contributors"

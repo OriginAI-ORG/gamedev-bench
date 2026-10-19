@@ -1,0 +1,48 @@
+name: Bug report / 问题反馈
+description: Report a runner, task, or evaluation defect / 报告运行或评测问题
+title: "[Bug] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For security vulnerabilities, use the private link in SECURITY.md. Do not post credentials, personal configuration, model conversations, or private data here.
+        安全漏洞请使用 SECURITY.md 中的私密入口。请勿公开凭据、个人配置、模型对话或私人数据。
+  - type: input
+    id: version
+    attributes:
+      label: Version and commit / 版本与提交
+      placeholder: "origin-gamedev-bench 1.0.0, commit SHA"
+    validations:
+      required: true
+  - type: input
+    id: task
+    attributes:
+      label: Task ID or component / 任务或组件
+      placeholder: "og-web-0011, runner, documentation"
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment / 运行环境
+      description: OS, Node.js, Python, Playwright/Chromium versions. Include model and effort only if relevant.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction steps / 复现步骤
+      description: Provide commands and a minimal example you have permission to share.
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Expected and actual behavior / 预期与实际行为
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Sanitized evidence / 脱敏证据
+      description: Relevant error output, hashes, screenshots, or evaluation receipts. A QA result is not a model score.
