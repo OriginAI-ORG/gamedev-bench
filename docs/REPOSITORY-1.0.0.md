@@ -37,13 +37,22 @@ Install locked dependencies and Chromium in that copy, then follow README's loca
 run commands. Each copy writes only its own attempts and artifacts. Model calls
 require an explicitly selected model and an authorized local CLI account.
 
-## Website boundary
+## Website boundary — updated decision, 2026-10-19
 
-`bench-admin-site` owns future private imports, experiments, review and acceptance.
-`game-benchmark-site` consumes approved immutable snapshots. They use separate
-D1 databases and separate R2 buckets; no cloud resource is needed to run this bench.
-Publishing and model evaluation are separate operations. This split performs no
-Cloudflare upload, cloud provisioning, remote Git push or model generation.
+`bench-admin-site` owns future imports, experiments, review, acceptance and snapshot
+export. The admin and `game-benchmark-site` share one D1 database and one R2 bucket
+per environment; the admin maintains the shared migration chain. After approval,
+only the admin exports immutable snapshots. The public site consumes published
+exports through the backend public read-only interface, with field/artifact and
+publication-state checks. Export does not automatically publish a snapshot.
+
+This replaces the initial split's separate-store plan. Shared storage wiring and
+export services are still future work; existing local bindings have not changed.
+The benchmark runner itself still needs no Cloudflare account or website database.
+Publishing and model evaluation remain separate operations. This documentation
+update performs no cloud provisioning/upload, remote Git push or benchmark model run.
+The frozen v1.0.0 tag, source archives and validation receipts retain their original
+bytes and historical design; current documentation records this later decision.
 
 Source archives use the package version. A 1.0.0 source tag does not imply that
 the independent model-baseline release gate has passed. Validation receipts and
