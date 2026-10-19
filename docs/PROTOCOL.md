@@ -1,145 +1,64 @@
-# OriginGameDevBench 1.0.0 protocol
+# OriginGameDevBench 1.0.0 评测协议
 
-The frozen cohort contains 228 Web tasks: 10 complete-game tasks
-and 218 component tasks. Another 245 source entries and the
-two original pilot tasks are outside this revision and every score denominator.
-All scored tasks are version 1.0.0 in the standalone origin-gamedev-bench release series. English `prompt.md` remains the solver input;
-`prompt_zh.md` is the corresponding translation. Prior results are invalid for this version.
+冻结题库包含 228 道 Web 任务：10 道完整游戏和 218 道组件题。另 245 个来源条目及两个原始试点不在本次修订范围内，也不进入任何分数分母。所有计分任务属于独立 `origin-gamedev-bench` 发布系列的 1.0.0 版本。英文 `prompt.md` 仍是解题输入，`prompt_zh.md` 是对应译文。先前结果不适用于本版本。
 
-## What is measured
+## 评测内容
 
-An agent implements browser game components or complete campaigns in a supplied
-starter. Published browser interfaces allow the verifier to replay inputs and
-inspect outputs. Functional QA does not automatically award artistic scores.
-Parameter variants remain separate tasks but are also grouped into families.
-Adapted scores are not directly comparable with either upstream leaderboard.
+智能体在给定起始项目中实现浏览器游戏组件或完整流程。公开的浏览器接口允许验收器重放输入并检查输出。功能 QA 不会自动授予艺术分。参数变体既是独立任务，也按任务族汇总。改编后的分数不能与两个上游排行榜直接比较。
 
-The collectible-overlay tasks preserve the original image content and precise
-alignment requirements. Other tasks document their individual retained media or
-substitutions in assets.json. The ten complete-game tasks retain their source
-rubric categories and weights; manual aesthetic criteria remain null until reviewed.
-Fixed APIs, data, levels and numerical rules improve reproducibility but constrain
-some original design freedom. Native editor work becomes browser engineering.
-These differences are documented per task; empirical equal difficulty is unproven.
+收集物覆盖层任务保留原始图像和精确对齐要求；其他题保留或替换的素材逐项记录在 `assets.json` 中。十道完整游戏保留来源评分维度及权重，人工审美项在审阅前保持 `null`。固定 API、数据、关卡及数值规则提高复现性，也限制部分原始设计自由。原生编辑器操作转为浏览器工程，这些差异逐题记录，尚未实证证明难度相同。
 
-The task list is fixed in configs/OriginGameDevBench.json. Validation writes a separate
-hash-bound receipt in validation/task-audit.json. A missing, stale or failing
-receipt blocks formal runs; it never silently removes a task from the denominator.
+题目清单固定在 `configs/OriginGameDevBench.json`。验证另写与哈希绑定的 `validation/task-audit.json` 回执。回执缺失、过期或失败会阻止正式运行，不能静默从分母中删除任务。
 
-## One attempt
+## 一次尝试的流程
 
-1. Create a fresh workspace from the hashed public task and a new ephemeral model session.
-2. Require the native sandbox preflight to permit public reads and game/request writes,
-   deny reads of references, private verifiers and the parent attempt, deny parent
-   listing/writes, and deny writes to the public instruction. Use the same permission
-   profile for the model. Unsupported hosts stop before a model call.
-3. Permit local editing plus public `test`, `observe`, and `submit` tools. Commands
-   have network access disabled. Plugins, external apps, memory, remote control,
-   browser automation tools, and subagents are disabled for the solver.
-4. Freeze the first explicit submission and its SHA-256 digest. A timeout or missing
-   submission is an unsuccessful attempt; a retained final draft is diagnostic only.
-5. Run private acceptance in a separate process, with a fresh browser context per
-   scenario, blocked external requests and WebSockets, and screenshots/video.
-6. Require every functional scenario and the shared rendered-surface check to pass.
-   Compare submission hashes before and after acceptance.
+1. 根据有哈希记录的公开任务建立全新工作区，并创建新的临时模型会话。
+2. 原生沙箱预检必须允许读取公开文件、写入游戏与请求目录，同时拒绝读取参考实现、私有验收器和父尝试目录，拒绝列出或写入父目录，拒绝改写公开题面。模型使用同一权限配置。不支持的主机在模型调用前停止。
+3. 允许本地编辑及公开 `test`、`observe`、`submit` 工具。解题命令禁止联网，并禁用插件、外部应用、记忆、远程控制、浏览器自动操作工具及子代理。
+4. 冻结第一次明确提交及其 SHA-256。超时或未提交均为不成功尝试；保留的最终草稿仅用于诊断。
+5. 在独立进程中执行私有验收。每个场景使用新的浏览器上下文，阻止外部请求和 WebSocket，并保留截图、录像。
+6. 所有功能场景与共享渲染表面检查都必须通过；验收前后比较提交哈希。
 
-The sandbox evidence is scoped to tested native command boundaries and explicit
-probes. It is not a claim of protection against operating-system vulnerabilities
-or a supported untrusted multi-tenant service.
+沙箱证据只覆盖已测试的原生命令边界及明确探针，不代表能防御操作系统漏洞，也不意味着可作为不可信多租户服务使用。
 
-"Private" means withheld from the solver workspace during an attempt. The source
-release contains the verifiers and references for reproducibility. Filesystem
-isolation does not establish that a model has never encountered these tasks or
-their upstream sources during training.
+“私有”指在尝试期间不向解题工作区提供。源码发布仍包含验收器和参考实现，以便复现。文件系统隔离不能证明模型训练时从未接触这些任务或上游内容。
 
-## Budgets and retries
+## 预算与重试
 
-Generation wall budget: 1,200 seconds per task. Acceptance wall budget is 180
-seconds by default; eight complete-game tasks declare 240 seconds in task.json.
-The task's published metadata is authoritative for both budgets.
-The adapter also stops at 30 observed tool calls. CLI events are observed after
-dispatch, so this is an observed-call stop condition, not an exact pre-dispatch
-30-call guarantee. Wall time is the primary comparable budget. Record observed
-calls and any overshoot; never describe them as model response rounds.
+每题生成的实际耗时预算为 1,200 秒。验收默认 180 秒，其中八道完整游戏在 `task.json` 中声明为 240 秒。两种预算均以该题公开元数据为准。
 
-Model identifier, reasoning effort, CLI version, dependency lock, task hashes,
-harness hashes and feedback configuration are recorded. Repeat runs use separate
-batches; do not select the best outcome across retries. Resuming a batch reuses
-completed attempts only when task and harness hashes match. Infrastructure errors
-are recorded separately and may be retried with their earlier evidence retained.
-Functional failure and model timeout are completed unsuccessful attempts.
+适配器还会在观察到 30 次工具调用后停止。CLI 事件在派发之后才能被观察，因此这是基于已观察调用的停止条件，不能保证在第 30 次派发前精确拦截。主要可比分配是实际耗时预算。应记录观察到的调用数及超额情况，不能称其为模型回答轮数。
 
-On Windows, the solver is instructed to explicitly select `cmd.exe` with login
-disabled on each shell call: PowerShell's location provider cannot enter this
-strictly isolated workspace. `NODE_OPTIONS=--preserve-symlinks
---preserve-symlinks-main` avoids Node canonicalizing denied ancestors before
-loading permitted script files. Native file access restrictions still apply.
-Preflight loads an actual Node script through cmd.exe and verifies relative
-workspace reads/writes and the same denied paths. Personal config remains denied.
-An invalid intermediate game tree skips a revision snapshot and records the gap;
-it does not abort the solver. Public tests and final submission still reject
-hidden files, symlinks and oversized projects. An invalid final draft retains
-generation metadata and counts as unsuccessful unless generation itself was
-interrupted by infrastructure.
+记录模型标识、推理强度、CLI 版本、依赖锁、任务与框架哈希，以及反馈配置。重复运行使用独立批次，不能从多次重试中挑选最优结果。只有任务和框架哈希一致时，恢复批次才能复用已完成尝试。基础设施错误单独记录，保留旧证据后可重试；功能失败和模型超时则属于已完成的不成功尝试。
 
-`--diagnostic-continuation` with `--resume` explicitly allows a changed harness
-while requiring identical tasks, model and effort. It preserves completed
-outcomes, records each execution phase's harness hashes and concurrency, and
-permanently labels the batch diagnostic. The baseline exporter rejects it.
-Use a fresh batch after repairs for a comparable formal release baseline.
+Windows 上要求解题者每次 Shell 调用显式选择 `cmd.exe` 并关闭登录模式，因为 PowerShell 的位置提供器无法进入该严格隔离的工作区。`NODE_OPTIONS=--preserve-symlinks --preserve-symlinks-main` 防止 Node 在加载获准脚本前解析被禁止的祖先路径；原生文件访问限制仍然有效。预检通过 `cmd.exe` 加载真实 Node 脚本，检查工作区相对读写及相同的拒绝路径，个人配置仍不可访问。
 
-## Scores
+中间游戏目录无效时，跳过该次修订快照并记录缺口，不中止解题。公开测试及最终提交仍拒绝隐藏文件、符号链接和超大项目。无效最终草稿保留生成元数据并计为不成功，除非生成本身因基础设施中断。
 
-- `pass@1`: successful explicit submissions / all 228 frozen tasks.
-- Family macro score: unweighted mean of the 42 current source/family pass rates.
-- Also report completion, submission, timeout, infrastructure failures, time and
-  actual returned token counts. Missing usage is unknown, not zero.
-- Publish the exact model/harness pairing; do not infer monetary cost from tokens.
-- Confidence intervals must account for family dependence. Do not treat all
-  parameter variants as independent samples when interpreting uncertainty.
+`--diagnostic-continuation` 配合 `--resume` 可明确允许框架变化，但任务、模型和推理强度仍须一致。它保留已完成结果，记录每阶段框架哈希与并发数，并永久将批次标为诊断批次，基线导出器会拒绝它。修复后应新建批次，获得可比较的正式发布基线。
 
-`formal_eligible` denotes successful isolation checks for the attempt. A final
-release additionally requires a complete baseline and disclosed task-review sign-off.
-Reference-solution QA is never counted as a model score. Human visual/aesthetic
-review is reported separately from the deterministic functional verdict.
+## 分数
 
-## Release gates
+- `pass@1`：成功的明确提交数除以全部 228 道冻结任务。
+- 任务族宏平均：当前 42 个来源／任务族通过率的不加权平均。
+- 同时报告完成、提交、超时、基础设施失败、耗时，以及实际返回的 token 用量。缺失用量表示未知，不是零。
+- 公布准确的模型与框架组合，不凭 token 数推断费用。
+- 置信区间应考虑任务族内相关性，解释不确定性时不能把所有参数变体当成独立样本。
 
-`npm run release:check` requires every frozen task's current QA hash, three
-reference repetitions, public checks, behavior mutations, four rendered-surface
-mutations, starter rejection, task licenses, tests and isolation receipts.
+`formal_eligible` 表示本次尝试的隔离检查通过。正式发布还需要完整基线和已披露的任务审查签署。参考解 QA 从不计作模型成绩。人工视觉或审美审查与确定性的功能结论分开报告。
 
-`npm run release:final` additionally requires a signed technical task review covering
-the current manifest and a complete isolated model baseline with matching hashes.
-The project owner requested AI task-by-task review for this revision. The record
-names the reviewer as AI; it is not human sign-off or an independent expert review.
-Candidate packages are explicitly
-labeled `release-candidate`; they are not releases with a validated independent model baseline.
+## 发布条件
 
-The final gate also requires an archive integrity check, a fresh dependency install
-from that archive, and local runtime tests bound to the same harness/task hashes.
-Reusing a locally installed matching Chromium is disclosed in the receipt; it is
-not described as a browser download on a new machine.
+`npm run release:check` 要求全部冻结任务具备当前 QA 哈希、三次参考重复、公开检查、行为负例、四种渲染表面负例、起始项目拒绝、任务许可证、测试及隔离回执。
 
-Coverage limits: visual guards reject blank, transparent, fully clipped and
-covered game surfaces, and required actors/outputs are checked for visibility.
-These are not aesthetic scores or a proof against every adversarial rendering
-trick. Material and visual tasks inspect actual rendered pixels where specified.
-Audio tasks test actual decoded output energy, natural completion and bus isolation
-alongside pool/queue behavior. They do not assess subjective sound quality or exact
-waveform fidelity. Behavior outside the published browser contract is not claimed.
-Human/technical review should consider these limits explicitly.
+`npm run release:final` 还要求覆盖当前清单的技术审查签署，以及哈希匹配的完整隔离模型基线。本次修订由项目所有者要求 AI 逐题审查，记录明确署名 AI，不属于人工签署或独立专家评审。候选包明确标为 `release-candidate`，不代表已经具有验证过的独立模型基线。
 
-## Provenance and data
+正式条件还包括归档完整性检查、从归档全新安装依赖，以及绑定相同框架和任务哈希的本地运行时测试。如果复用本地已安装的匹配 Chromium，回执会明确说明，不宣称在新机器上下载浏览器。
 
-Source commit identities are in `configs/source-index.json`; helper provenance is
-in `configs/upstream-lock.json`. Project code and directly authored adaptations
-use Apache-2.0. Per-task assets.json records retained source media, replacements,
-hashes and license evidence. Retained media keep their own terms; a repository
-license is not asserted to establish missing independent media permissions.
-Optional generated game artwork has prompt records in docs/art-generation-prompts.md.
+覆盖范围存在限制：视觉防护拒绝空白、透明、完全裁切和被覆盖的游戏表面，并检查必要对象和输出是否可见。它不提供审美分数，也不证明能抵挡所有对抗性渲染技巧。材质与视觉任务在规定处检查实际像素。音频题同时检查真实解码输出能量、自然结束、总线隔离及池／队列行为，不评估主观音质或精确波形保真。未声明覆盖公开浏览器合同之外的行为；人工和技术审查应明确考虑这些限制。
 
-Local attempts retain observable commands, outputs, code revisions, public
-feedback, submission hashes and acceptance evidence. Private reasoning is omitted.
-Model trajectories are excluded from source archives and require separate rights
-review before redistribution or training. A code license does not grant those rights.
+## 来源与数据
+
+来源提交在 `configs/source-index.json`，辅助代码来源在 `configs/upstream-lock.json`。项目代码及直接编写的改编内容使用 Apache-2.0。每题 `assets.json` 记录保留素材、替代素材、哈希及许可证据。保留素材沿用自身条款，不能用仓库许可证代替缺失的独立素材授权。可选生成美术的提示词记录见 `docs/art-generation-prompts.md`。
+
+本地尝试保留可观察的命令、输出、代码修订、公开反馈、提交哈希和验收证据，不包含私有推理。模型轨迹不进入源码归档；再分发或用于训练前须另行审查权利。代码许可证不授予这些权利。

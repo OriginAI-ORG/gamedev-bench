@@ -1,68 +1,49 @@
-# Changelog
+# 更新记录
 
-## Unreleased — open-source preparation
+## 尚未发布：开源准备
 
-- Correct contribution commands, add bilingual Issue/PR templates and a private
-  vulnerability reporting policy, and document local review and release handling.
-- Inventory 2,924 standalone media paths (450 unique contents), retain matched
-  author/font licenses, and document unresolved permission evidence. Source
-  packaging now requires a current media audit with no unresolved entries.
-- Preserve frozen task bytes and historical validation; no new model score or
-  formal benchmark release is claimed.
+- 修正贡献命令，添加 Issue／PR 模板和私密漏洞报告政策，说明本地审查与发布流程。
+- 将仓库说明、维护指南、审计和任务审查资料统一为中文；正式评测输入、接口、数值及许可证原文保持准确。
+- 盘点 2,924 个独立媒体路径（450 份去重内容），补入匹配的作者与字体许可，记录未解决的授权证据。源码打包要求当前素材审计没有待核实条目。
+- 保留冻结任务字节与历史验证，不宣称产生新模型成绩或新的正式基准发布。
 
-## 1.0.0 — standalone repository — 2026-10-19
+## 1.0.0：独立仓库，2026-10-19
 
-- Start local Git history for the standalone runner and 228-task source release.
-- Preserve all authored English/Chinese prompts, reference implementations and acceptance scenarios from development 3.0.0.
-- Set scored task and package metadata to 1.0.0; use release series `origin-gamedev-bench` to distinguish the old development 1.0.0.
-- Keep model results, website code, production credentials and deployment state outside the repository.
-- Run fresh hash-bound validation; retain the independent-model-baseline gate. Historical model scores are not relabeled.
+- 为独立运行器及 228 题源码发布建立本地 Git 历史。
+- 保留开发版 3.0.0 的全部已编写双语题面、参考实现和验收场景。
+- 将计分任务与包元数据设为 1.0.0，以 `origin-gamedev-bench` 发布系列区分旧开发版 1.0.0。
+- 模型结果、网站代码、生产凭据和部署状态放在仓库之外。
+- 执行新的哈希绑定验证，保留独立模型基线条件，不重标历史模型成绩。
 
-The entries below describe the preceding development project, not tags in this repository.
+以下条目描述前身开发项目，不是本仓库的标签。
 
-## Development 3.0.0 — 2026-10-19
+## 开发版 3.0.0：2026-10-19
 
-- Replace task directories, configurations, shared module paths and references with canonical `og-web-0001`–`og-web-0228` identifiers and OriginGameDevBench. No alias resolution remains.
-- Reindex historical QA and model-result metadata while preserving execution dates, outcomes and unchanged playable code.
-- Keep the reviewed bilingual task requirements and the English model input unchanged.
-- Rerun cohort QA and archive checks; distribute only the current canonical source package.
+- 任务目录、配置、共享模块路径和引用统一为 `og-web-0001`–`og-web-0228` 及 OriginGameDevBench，不再解析别名。
+- 重新索引历史 QA 与模型结果元数据，保留执行日期、结果和未变的可玩代码。
+- 保留已审查双语要求及英文模型输入。
+- 重跑题库 QA 与归档检查，只分发当前规范源码包。
 
+## 开发版 2.0.0
 
-## Development 2.0.0
+- 逐题审查并直接改写全部 228 题合同、参考实现和验收；新增对应中文说明，同时保留英文输入。
+- 恢复可复用组件、场景与资源配置、实时事件链、精确几何、必要原素材及十个完整游戏流程。
+- 逐题记录删减、替换、新增和剩余差异，保留原完整游戏评分权重及未计分的人工艺术项。
+- 停用生成式题库维护。冻结题库验证另写回执，旧分数、签署和生成规范不再代表新版本。
+- 修复隔离提交中的本地审阅资源加载，并新增模块、JSON、音频加载以及跨包和界面访问阻止测试。
+- 全量 QA 通过 228/228：1,240 个私有场景各重复三次、922 个行为负例、912 个渲染负例，及全部公开与起始项目检查。这是参考／验收器证据，不是新模型基线或艺术分。
 
-- Individually reviewed and directly rewrote all 228 task contracts, references
-  and acceptance; added matching Chinese companions while retaining English input.
-- Restored reusable components, scene/resource configuration, live event paths,
-  precise geometry, original assets where required and complete ten-game campaigns.
-- Recorded task-level removed/replaced/added requirements and remaining differences;
-  retained original complete-game rubric weights and unscored manual artistic items.
-- Retired generation-based catalog maintenance. Frozen cohort validation now writes
-  a separate receipt; old scores, signatures and generated specifications are superseded.
-- Repaired local review resource loading within each isolated submission and added
-  tests for module/JSON/audio loading and cross-package/UI blocking.
-- Full-cohort QA passed 228/228: 1,240 private scenarios repeated three times,
-  922 behavioral mutants, 912 rendering mutants and all public/starter checks.
-  This is reference/verifier evidence, not a new model baseline or artistic score.
+## 开发版 1.0.0：通过发布条件前为候选版
 
-## Development 1.0.0 (candidate until release gates pass)
+- 冻结候选题库：228 道可执行改编任务，39 个来源／任务族。
+- 公开反馈、验收和测试素材 QA 共用渲染表面检查；加入透明、裁切、遮挡表面回归负例。
+- 每次尝试执行原生读写隔离探针，并保护任务题面。
+- 将 33 题上游位图替换为原创可复现测试素材，补充背景完整性检查、项目许可及逐题素材来源。
+- 完整实现允许清单内的本地源码打包，检查当前 QA 哈希，明确候选版与正式版状态。
+- 说明评分、预算、重试、范围、来源和贡献规则。
+- 拒绝不可见的必要对象；验证分形几何、小地图旋转及战斗面板尺寸，要求追踪敌人在目标处停止。
+- 区分已恢复的传输重连与最终生成失败。
+- 修正私有验收对未公开 ID、文字装饰、SVG 序列化、坐标原点及动画时序的假设。添加保持合同语义的实现变体，以及错误颜色／步长回归用例。
+- 不重新生成模型代码，直接重验未变提交；保留原成绩，在本地进度服务的 `/reaccept` 展示新旧独立证据。
 
-- Frozen candidate cohort: 228 executable adaptations, 39 source/family groups.
-- Shared rendered-surface checks in public feedback, acceptance and fixture QA;
-  regression mutations for transparent, clipped and covered game surfaces.
-- Per-attempt native read/write confinement probes and protected task instructions.
-- Replaced upstream raster artwork in 33 tasks with original reproducible fixtures;
-  added background integrity checks, project license and per-task asset provenance.
-- Complete allowlisted local source packaging with current QA hash gates and
-  explicit candidate versus final-release status.
-- Documented scoring, budgets, retries, scope, provenance and contribution rules.
-- Reject invisible required objects, validate fractal geometry and minimap rotation,
-  enforce battle-panel dimensions, and stop chase enemies at their target.
-- Distinguish recovered transport reconnects from terminal generation failures.
-- Correct private acceptance assumptions about unpublished IDs, text decoration,
-  SVG serialization, coordinate origins and animation timing. Add contract-preserving
-  implementation variants and wrong-color/stride regression cases.
-- Reaccept unchanged submissions without model generation, preserve original scores
-  and expose separate old/new evidence at `/reaccept` on the local progress server.
-
-Final v1 remains gated on complete matching model-baseline evidence and disclosed AI technical
-review. This file records implementation changes, not a claim those gates passed.
+正式 v1 仍要求完整匹配的模型基线证据及已披露 AI 技术审查。本文件记录实现变化，不代表这些条件已通过。

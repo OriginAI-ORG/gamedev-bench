@@ -1,14 +1,24 @@
-# Border Check: source comparison and repair
+# 《Border Check》逐项对照与修订记录
 
-The complete source instruction and18 rubric items have been inspected. The previous adaptation is non-equivalent: one day,four people,no draggable documents,no face/photo comparison,no real timer,no household allocation,no recurring moral story and no endings. The repair restores ten cumulative daily rule sets,five distinct document types,independent portraits,real timed shifts,per-person wages and citations,consequential rent/heat/food/medicine allocation,three recurring story characters and four reachable endings.
+## 原始要求与旧任务的问题
 
-|Comparison|Change and repair|Acceptance|
-|---|---|---|
-|Removed by the previous slice|Ten-day escalation,five-document workload,dragging,photo comparison and real shift deadlines.|All80 roster records,independent altered fields,photo/date/weight/nationality boundaries,drag/manual marks and real timer expiry.|
-|Removed|Household allocation,illness,consequential expenses and financial survival.|Exact wages/fines,atomic affordability,food/heat loss,medicine,healing,consecutive rent arrears and family-loss run.|
-|Removed|Recurring moral narrative and four accumulated-choice endings.|Ten events for Marek/Irena/Sera;actual bribe/cost/corruption/resistance changes;three complete ten-day campaigns and legal failure campaign.|
-|Removed or weakened|Complete title/briefing/report/story/result flow and18 weighted visual/content criteria.|Full rubric at15/35/15/35,illustrated desks/portraits/documents,visible stamps/marks/reactions,cumulative reports and input demos;manual art scores stay null.|
-|Replaced|Native launch/recordings and unavailable asset mounts.|Local browser package,real mouse/keyboard trace replay and optional generated border atlas.|
-|Added for reproducibility|Fixed80-person campaign,ten events,economics,illness schedule,ending thresholds,public model and controls.|Supplied content removes open-ended traveler/event authoring;independent rule fixtures prevent a roster-answer table from standing in for an inspector.|
+原始任务有 18 项标准。旧版本仅有一天、四名入境者，缺少证件拖动、照片核验、真实计时、家庭系统、道德选择、故事和多结局，不能与原任务等同。
 
-Version2.0.0 passed staged QA in82 seconds:three reference repeats,eleven private scenarios,five behavior mutants,visual mutants,starter rejection and four input recordings. Three complete80-person campaigns reach compliance,resistance and escape;two legal timed-out unpaid shifts reach family loss. Source comparison,bilingual contract,reference,public example and private tests are directly authored. Final combined QA is recorded in validation/task-audit.json. Restored systems are not proof of identical creative freedom,platform difficulty or benchmark scores.
+修订恢复了十天逐日累积的规则、五种证件、人物肖像、限时班次、工资与处罚、租金／供暖／食物／药品、三名故事人物和四种结局。
+
+## 差异与验证
+
+| 对照项 | 修订内容 | 验证重点 |
+| --- | --- | --- |
+| 十天规则与证件检查不足 | 80 人名单、独立变更字段、照片、日期、体重和国籍边界、拖动、手工标记及计时 | 独立构造错误证件，避免只记住名单答案 |
+| 家庭和经济缺失 | 工资、罚款、原子化支付、食物与供暖不足的后果、药品治疗、连续欠租和家庭失败 | 支付能力、逐日变化及终局条件 |
+| 故事与结局缺失 | 十个事件，人物 Marek、Irena、Sera，贿赂、支出、腐败和抵抗路线 | 三次完整十天流程及合法失败流程 |
+| 完整展示与评分缺失 | 全部 18 项及 15/35/15/35 权重，柜台、肖像、证件、印章、人物反应和累计报告 | 真实输入；人工美术评分为 `null` |
+| 原生运行与素材 | 浏览器鼠标／键盘操作及可选边检图集 | 实际操作和渲染 |
+| 新增的确定性条件 | 固定 80 人名单、十个事件、经济、疾病、结局、公开模型与控件 | 减少开放创作空间；通过独立数据防止硬编码名单答案 |
+
+## 质量检查与证据
+
+2.0.0 分阶段质量检查用时 82 秒，包括参考实现三次重复、11 个私有场景、5 个行为变异、视觉变异、起始项目拒绝和 4 段输入记录。三条路线分别处理全部 80 人，覆盖守规、抵抗和逃离；另以两个合法超时、未获工资的班次触发家庭失败。来源对照、双语契约、参考实现、公开示例和私有测试均直接编写。
+
+最终综合质量检查记录于 `validation/task-audit.json`。这些结果不能证明创作自由或平台难度与原任务相同，也不能当作模型成绩或人工美术评分。

@@ -1,17 +1,25 @@
-# Dice Throne: individual source comparison and repair
+# 《Dice Throne》逐项对照与修订记录
 
-The source instruction and18 rubric criteria were read. The previous Web slice kept one repeatable enemy,5 dice,locking,two rerolls and sword/shield/heart arithmetic. It omitted skull specials,visible independently rolled enemy dice,actual random sampling,equipment modifying faces,the branching dungeon,shops/new dice,rest,boss,run results and nearly all full-game presentation.
+## 原始要求与旧任务的问题
 
-The directly authored simulation supplies seeded uniform face sampling,five initial six-face dice,sword/shield/heart/skull effects,two limited rerolls with locked dice preserved,eight distinct face-modifying items,six ordinary enemy configurations plus a custom-face dragon,13 branching nodes across four floors,shop/rest/loot and complete run summaries. The full browser UI uses that engine. Optional atlases include six distinct ordinary enemy identities,dragon art,eight individually illustrated items and special face icons.
+原始任务有 18 项标准。旧版本虽提供可反复挑战的敌人、五颗骰子、锁定、两次重掷，以及剑／盾／心的数值结算，但省略了骷髅、敌人独立掷骰、真正的随机抽面、骰面装备、分支地下城、商店、新骰子、休息点、首领、最终结果和完整展示。
 
-|Change|Previous loss / non-equivalence|Repair and acceptance|
-|---|---|---|
-|Removed|Visible enemy rolls and skull special effects.|Independent enemy-face arrays and simultaneous visible intent; separate piercing effects; direct effect-order tests.|
-|Replaced incorrectly|Fixed dice sequence removed genuine sampling and equipment probability changes.|Seeded uniform sampling of actual face arrays,including a seven-face modified die; distribution,lock and reroll-limit checks.|
-|Removed|Face equipment,new dice,shops and run persistence.|All8 distinct item transformations,selected target die,affordability,invalid-target rejection,new-die limit,free loot and persistent actual face inspector.|
-|Removed|Enemy variety,branching dungeon,rest,elites,boss and run statistics.|Six ordinary enemy configurations,13-node map,elite scaling,rest,custom boss faces and complete victory/death reports. Three legal seeded runs reach and defeat the boss using actual rolls and purchases.|
-|Removed|Full art/navigation rubric and most presentation.|Illustrated title,dungeon,characters,items,dice,lock glow,tumble/effect feedback and all18 criteria at15/35/15/35 weighting. Manual quality remains separately reviewed.|
-|Replaced|Native project/trace protocol and missing mounted art libraries.|Local browser package,actual mouse traces and optional generated artwork.|
-|Added|Exact stats,random algorithm,map,scenario fixtures and exported interfaces.|Explicit in both prompts. These constrain balancing/content/architecture freedom; restored scope does not prove identical difficulty.|
+## 修订内容
 
-Version2.0.0 includes aligned prompts,blank starter,reference,public example,ten private scenarios,five behavior mutants and four real input demos. Private coverage includes1000 sampled seven-face rolls,locked-die preservation,two-reroll limit,all-locked rejection,effects and healing/defense order,all8 exact modifications,route legality,shop/rest/loot economy,fresh-run reset and terminal UI. Final release requires final-file QA receipts; no model run or full artistic score is claimed.
+新实现对实际骰面数组使用带种子的均匀抽样。初始为五颗六面骰，支持骷髅、锁定后保持骰面和两次重掷；包含八种改造物品、六类普通敌人、定制巨龙首领、四层共 13 个节点，以及商店、休息、战利品和完整界面。可选素材覆盖六种敌人形象、巨龙、八种物品和特殊骰面。
+
+| 对照项 | 修订内容 | 验证重点 |
+| --- | --- | --- |
+| 敌人掷骰与骷髅缺失 | 敌人独立骰面数组、可见行动意图、独立穿透效果和明确结算顺序 | 双方骰面与效果按各自规则结算 |
+| 固定序列替代随机性 | 对实际骰面数组进行带种子的均匀抽样，包含七面骰 | 分布、锁定、重掷上限 |
+| 装备和持续成长缺失 | 八种骰面改造、选择目标、购买条件、新骰子数量限制、免费战利品和骰面查看 | 全部改造、无效目标、余额不足及持久化 |
+| 敌人和地图不足 | 六类普通敌人、13 个节点、精英、休息、首领及最终结果 | 三次合法种子下的完整流程，使用真实掷骰与购买操作 |
+| 展示要求缺失 | 恢复 18 项标准及 15/35/15/35 权重 | 人工展示评分单独记录 |
+| 原生程序与素材流程 | 浏览器真实鼠标记录和可选生成素材 | 实际交互与渲染 |
+| 新增的固定条件 | 固定属性、随机数规则、地图、测试数据和接口 | 限制了设计自由 |
+
+## 验证与证据
+
+2.0.0 包含对齐的双语提示词、空白起始项目、参考实现、公开示例、10 个私有场景、5 个行为变异测试和 4 段真实输入演示。验证覆盖七面骰的 1,000 次抽样、锁定与两次重掷限制、拒绝全部锁定时的无效重掷、治疗和防御的效果顺序、八种精确改造、合法路线、商店／休息／战利品经济、全新开局重置和终局界面。
+
+最终发布要求对应最终文件的质量检查回执；这里没有宣称模型运行成绩或完整人工美术评分。

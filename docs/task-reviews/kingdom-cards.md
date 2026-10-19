@@ -1,14 +1,24 @@
-# Kingdom Cards: source comparison and repair
+# 《Kingdom Cards》逐项对照与修订记录
 
-The original instruction and all18 rubric criteria have been read. The previous fixed-hand three-territory slice omits real shuffled draw/discard/trash/keep persistence,diplomacy,two active AI factions,deck acquisitions,meaningful territorial strategy and a complete campaign/history. The repair must restore the four required card categories with at least two distinct cards each,farms/markets/barracks,actual army commitment,active rival expansion and attacks,truce/trade/betrayal,permanent stronger card gains,win-all/lose-all and territory-history results.
+## 原始要求与旧任务的问题
 
-|Comparison|Change and repair|Acceptance|
-|---|---|---|
-|Removed by previous slice|Persistent shuffled decks,keep/permanent trash and stronger acquisitions.|Unique card IDs,reshuffle conservation,twenty-turn trash exclusion,kept cards plus fresh draws,construction/capture gains.|
-|Removed|Diplomacy and two active opponents.|Real truce/trade/betrayal effects,two independent hands and paid actions,simultaneous competing armies with tie/loser/casualty checks.|
-|Weakened|Three holdings and fixed hands reduced strategic campaign complexity.|Six connected holdings with different yields and positions;four required categories with multiple variants,plus stronger provision cards;real troop commitments and production.|
-|Removed|Complete campaign,history and most visual/content rubric coverage.|All/no-territory results,three legal seed campaigns,interactive history,new game,18-item15/35/15/35 rubric and real input demos.|
-|Replaced|Native launch/recordings and mounted art libraries.|Local browser entry/input replay and optional generated fantasy/parchment artwork.|
-|Added|Exact card/map/economy values,AI policy,simultaneous conflict rule,seed and public interfaces.|These constrain open-ended design and platform engineering;they do not imply equal creative freedom or interchangeable scores.|
+原始任务有 18 项标准。旧版本使用固定手牌和三块领土，省略了洗牌、抽牌、弃牌、销毁、留牌、外交、两个主动行动的 AI、永久卡牌获取、策略选择和战役历史。
 
-Version2.0.0 passed staged QA in96 seconds:three reference repetitions,eleven private scenarios,six behavior mutants,visual mutants,starter rejection and four input demos. Seeds42,43,44 complete actual shuffled campaigns in6,4,7 turns without forced territory changes. Independent fixtures cover both AI armies targeting one territory and a tied contest,real resource transfers,defense thresholds,permanent acquisitions and deck thinning. English/Chinese contracts,reference and tests are directly authored. Final combined QA is recorded in validation/task-audit.json;manual art/balance scores are not inferred from functional passing.
+修订恢复四类卡牌，每类至少两种；农场、市场、兵营和真实军队；AI 扩张与进攻；休战、贸易和背叛；永久获得的强力卡牌；占领全部领土获胜、失去全部领土失败；以及战役历史。
+
+## 差异与验证
+
+| 对照项 | 修订内容 | 验证重点 |
+| --- | --- | --- |
+| 固定手牌替代持续牌组 | 唯一卡牌标识、洗牌与守恒、销毁、留牌及补充抽牌 | 连续 20 回合、销毁卡不再进入牌组，以及建造和占领后的状态 |
+| 外交和两个 AI 不足 | 外交效果、独立手牌、付费行动、同时结算军队 | 平局、败方伤亡和双方实际行动 |
+| 三块固定领土与单一资源 | 六块连通领土、不同产出与位置、四类卡牌变体、补给卡和真实产兵 | 资源、邻接和生产限制 |
+| 完整流程与评分缺失 | 全占领／全失去的结果、三次合法种子流程、历史与新游戏、18 项标准 | 15/35/15/35 权重及真实操作演示 |
+| 原生程序和素材 | 浏览器运行与可选奇幻羊皮纸素材 | 实际输入和渲染 |
+| 新增固定条件 | 固定数值、AI、冲突规则、种子和接口 | 限制设计自由，不能据此认定分数可直接等同 |
+
+## 质量检查与证据
+
+2.0.0 分阶段质量检查用时 96 秒，包括参考实现三次重复、11 个私有场景、6 个行为变异、视觉变异、起始项目拒绝和 4 段输入演示。种子 42、43、44 分别在 6、4、7 回合完成真实洗牌的战役，未强制修改领土。独立检查还覆盖双方 AI 军队争夺同一领土及平局、真实资源转移、防御阈值、永久卡牌获取和牌组精简。英文／中文契约、参考实现和测试均直接编写，最终综合质量检查在 `validation/task-audit.json`。
+
+最终结果不推导人工美术分数，也不证明原生任务与浏览器任务的工作量完全相等。

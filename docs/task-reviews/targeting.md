@@ -1,45 +1,45 @@
-# Battle targeting — eighteen individual reviews
+# 战斗目标选择：十八项独立审查
 
-All18 instructions, validators, unit stats, main scenes and component files were compared. The263–273 archives omit detector/finder implementations and assembly;274–280 already contain those algorithms with specific missing connections. The previous Web version used base50 everywhere, centered-point range tests and a flat SVG state model. It retained nearest opposing selection but lost collision formulas, component identity, actual two-stage forwarding and seven distinct repair boundaries. All source archives contain no bitmap/vector artwork; visible Web inspection geometry is supplied, not omitted source art.
+比较了 18 项指令、验证器、单位属性、主场景和组件。263–273 缺少检测器／查找器实现与组装；274–280 已有算法，但缺少特定连接。旧 Web 版本统一使用基数 50、中心点范围测试和平面 SVG 状态模型，保留最近敌方选择，却丢失碰撞公式、组件身份、真实两阶段转发及七种不同修复边界。源包均无位图／矢量美术；可见检查几何是提供的示例，不是遗漏的源美术。
 
-## Per-task parameters and work boundaries
+## 逐项参数与工作边界
 
-Own/opposing group columns correspond to team0. Team1 targets the own group. Both enemy units have attack range1; every original body is24×24. Position/probe columns give x with y0; the player starts at0.
+己方／敌方分组列对应 team0，team1 以己方列为目标。两个敌方单位攻击范围均为 1，所有原物体为 24×24。位置／探针列给出 x，y 为 0；玩家从 0 开始。
 
-| Task | Own / opposing group | Base × player range = radius | Near / far | Move far closer / move both outside | Repair scope |
-|---|---|---|---|---|---|
-| og-web-0157 | heroes / goblins |30×3=90|70/140|20/340|Implement detector/finder/mapping/assembly|
-| og-web-0158 | guards / intruders |24×4=96|80/170|30/360|Implement detector/finder/mapping/assembly|
-| og-web-0159 | blue_bots / red_bots |28×3=84|60/150|10/300|Implement detector/finder/mapping/assembly|
-| og-web-0160 | predators / prey |32×2=64|50/120|20/260|Implement detector/finder/mapping/assembly|
-| og-web-0161 | player_units / enemy_units |36×2=72|50/130|10/300|Implement detector/finder/mapping/assembly|
-| og-web-0162 | allies / hostiles |40×2=80|75/140|15/310|Implement detector/finder/mapping/assembly|
-| og-web-0163 | security_drones / intruders |26×3=78|55/130|12/280|Implement detector/finder/mapping/assembly|
-| og-web-0164 | fleet_a / fleet_b |34×2=68|60/125|18/290|Implement detector/finder/mapping/assembly|
-| og-web-0165 | wizards / warlocks |22×4=88|70/160|25/330|Implement detector/finder/mapping/assembly|
-| og-web-0166 | workers / saboteurs |38×2=76|65/150|14/320|Implement detector/finder/mapping/assembly|
-| og-web-0167 | sentries / raiders |27×3=81|60/145|16/305|Implement detector/finder/mapping/assembly|
-| og-web-0168 | player_units / enemy_units |36×2=72|50/130|10/300|Supply missing explicit finder.detector reference; actor and algorithms already supplied|
-| og-web-0169 | player_units / enemy_units |36×2=72|50/130|10/300|Supply missing actor reference to finder nested under detector; source test explicitly uses nested lookup|
-| og-web-0170 | player_units / enemy_units |36×2=72|50/130|10/300|Assign detector.actor on unit stats updates; detector reads actor.stats|
-| og-web-0171 | player_units / enemy_units |36×2=72|50/130|10/300|Connect raw detector events to existing typed forwarding handlers|
-| og-web-0172 | player_units / enemy_units |36×2=72|50/130|10/300|Invoke finder actor setter from stats update; source setter and detector forwarding already present|
-| og-web-0173 | heroes / monsters |30×3=90|70/145|20/340|Connect raw events to typed handlers; preserve distinct groups/positions|
-| og-web-0174 | security_drones / intruders |26×3=78|60/135|15/300|Connect raw events to typed handlers; preserve distinct groups/positions|
+| 任务 | 己方／敌方分组 | 基数 × 玩家范围 = 半径 | 近／远 | 把远处移近／两者移出 | 修复范围 |
+| --- | --- | --- | --- | --- | --- |
+| og-web-0157 | heroes / goblins | 30×3=90 | 70/140 | 20/340 | 实现检测器／查找器／映射／组装 |
+| og-web-0158 | guards / intruders | 24×4=96 | 80/170 | 30/360 | 实现检测器／查找器／映射／组装 |
+| og-web-0159 | blue_bots / red_bots | 28×3=84 | 60/150 | 10/300 | 实现检测器／查找器／映射／组装 |
+| og-web-0160 | predators / prey | 32×2=64 | 50/120 | 20/260 | 实现检测器／查找器／映射／组装 |
+| og-web-0161 | player_units / enemy_units | 36×2=72 | 50/130 | 10/300 | 实现检测器／查找器／映射／组装 |
+| og-web-0162 | allies / hostiles | 40×2=80 | 75/140 | 15/310 | 实现检测器／查找器／映射／组装 |
+| og-web-0163 | security_drones / intruders | 26×3=78 | 55/130 | 12/280 | 实现检测器／查找器／映射／组装 |
+| og-web-0164 | fleet_a / fleet_b | 34×2=68 | 60/125 | 18/290 | 实现检测器／查找器／映射／组装 |
+| og-web-0165 | wizards / warlocks | 22×4=88 | 70/160 | 25/330 | 实现检测器／查找器／映射／组装 |
+| og-web-0166 | workers / saboteurs | 38×2=76 | 65/150 | 14/320 | 实现检测器／查找器／映射／组装 |
+| og-web-0167 | sentries / raiders | 27×3=81 | 60/145 | 16/305 | 实现检测器／查找器／映射／组装 |
+| og-web-0168 | player_units / enemy_units | 36×2=72 | 50/130 | 10/300 | 补充明确的 finder.detector 引用；角色和算法已提供 |
+| og-web-0169 | player_units / enemy_units | 36×2=72 | 50/130 | 10/300 | 补充检测器下嵌套查找器的 actor 引用；源测试明确使用嵌套查找 |
+| og-web-0170 | player_units / enemy_units | 36×2=72 | 50/130 | 10/300 | 单位属性更新时赋值 detector.actor；检测器读取 actor.stats |
+| og-web-0171 | player_units / enemy_units | 36×2=72 | 50/130 | 10/300 | 连接原始检测器事件到已有类型化转发处理器 |
+| og-web-0172 | player_units / enemy_units | 36×2=72 | 50/130 | 10/300 | 属性更新调用 finder 的 actor setter；源 setter 和检测器转发已存在 |
+| og-web-0173 | heroes / monsters | 30×3=90 | 70/145 | 20/340 | 连接原始事件到类型化处理器；保留独立分组／位置 |
+| og-web-0174 | security_drones / intruders | 26×3=78 | 60/135 | 15/300 | 连接原始事件到类型化处理器；保留独立分组／位置 |
 
-Full validators were read for263/274 and differences inspected across every task. After normalizing only string/numeric literals, control flow is identical except275's nested finder lookup. The parameter table retains all numeric differences; the component inspections above retain differences the common source validator does not directly assess.
+完整阅读了 263／274 验证器并检查各项差异。仅归一化字符串／数字后，控制流相同，例外为 275 的嵌套查找。表格保留全部数值差异，组件检查另保留共用验证器未直接考查的区别。
 
-## Removed, replaced and added
+## 移除、替换与新增
 
-- Removed the fabricated base50 and common world positions, center-only range checks, undifferentiated flat state and algorithm rewrites for274–280. Original numeric values are supplied explicitly because several source instructions omitted values demanded by their validators.
-- Restored detector layer4×(team+1), mask2−team, body layerteam+1/mask0, a new independent circle on stats assignment, current stats forwarding and inherited world coordinates. A provided circle-versus-rectangle overlap service replaces native area physics. Its edge/corner behavior is independently tested.
-- Restored typed BattleUnit reference arrays, actual EventTarget subscriptions, full-group nearest selection by squared distance, sibling/nested hierarchy, explicit detector binding, actor-derived configuration, setter-triggered subscriptions and filtered forwarding as applicable.
-- Replaced native resources with UnitStats objects, scene groups with a recursive browser scene registry, and scene connections with object references/listeners. Stats cloning already existed and remains supplied. Browser rendering and controls are provided to expose runtime state.
-- Retained the v1 empty-group reset and stable tie behavior, and added explicit duplicate/absent-event guards and cleanup. The source finder used a minimum-index expression without an empty-group guard, and raw handlers would append duplicate artificial enter events. These are disclosed robustness additions; they do not establish equal difficulty across platforms.
-- Added stats reassignment checks for both teams, separate shape/list identity, inherited offsets, type filtering, nearest targets beyond the circle, repeated binding without duplicate subscriptions, direct forwarding probes and mutation coverage. For the seven repair variants, these verify preserved supplied behavior rather than expand the implementation assignment.
+- 移除虚构基数 50、统一位置、仅中心点范围、无区分平面状态，以及 274–280 的算法重写。若原指令漏写验证器要求的数值，现在明确提供。
+- 恢复检测器 layer=4×(team+1)、mask=2−team，物体 layer=team+1／mask=0，属性赋值时创建独立圆形，当前属性转发及继承世界坐标。提供圆对矩形重叠服务替代原生物理，独立测试边缘／角落。
+- 按各任务恢复类型化 BattleUnit 引用数组、真实 EventTarget 订阅、全组内按平方距离选择最近目标、同级／嵌套层级、明确检测器绑定、从角色取得配置、setter 触发订阅和过滤转发。
+- UnitStats 对象替代原生资源，递归浏览器注册表替代场景分组，对象引用／监听器替代连接。原已有属性克隆，继续提供；渲染和控件也已提供，用于展示状态。
+- 保留 v1 空分组重置及稳定平局行为，新增重复／不存在事件保护和清理。源查找器没有空组保护，原始处理器会重复添加人工进入事件；这些是披露的健壮性新增项，不证明平台难度相同。
+- 新增双队伍属性重新赋值、独立形状／列表身份、继承偏移、类型过滤、圆外最近目标、重复绑定不重复订阅、直接转发和变异覆盖。七项修复变体检查已有行为保持，而非扩大实现工作。
 
-## Acceptance
+## 验收
 
-Each task checks exact config, group mapping, scene structure, bindings, bits, sizes and source positions; live overlap and target-switch examples; independent geometry edge/corner samples; opposite-team search and closest-target changes; in-place typed membership events and cleanup; SVG radius/line/count changes and keyboard movement. Forwarding tasks also exercise both raw directions on independent detectors and reject non-unit payloads. Initial incomplete starters must fail. Behavioral mutations distinguish wrong formulas, reused shapes, range-limited nearest searches, duplicate members, omitted bindings and leaked forwarding listeners.
+逐项检查精确配置、分组映射、结构、绑定、位值、尺寸、源位置、实时重叠与目标切换、独立几何边角采样、反向队伍搜索、最近目标变化、原地类型成员事件及清理、SVG 半径／连线／计数变化和键盘移动。转发任务在独立检测器上检查两个原始方向并拒绝非单位载荷。未完成起始项目必须失败。变异区分错误公式、复用形状、范围内限定最近搜索、重复成员、遗漏绑定和泄漏转发监听器。
 
-Staged QA receipts are recorded under artifacts/og-qa. All packages are version2.0.0 with matched bilingual requirements and English solver input. Final cohort QA is indexed in validation/task-audit.json against the frozen shared code. Naming/parameter variants should retain their family grouping when reporting benchmark results; they are not18 independent algorithmic challenges.
+分阶段凭据位于 artifacts/og-qa。包均为 2.0.0，双语要求匹配，英文为求解者输入。最终批次证据按冻结共享代码索引于 validation/task-audit.json。报告时保留命名／参数变体的任务族分组，不能把它们视为 18 个独立算法挑战。

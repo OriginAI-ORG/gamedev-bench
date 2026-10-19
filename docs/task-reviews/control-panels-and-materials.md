@@ -1,11 +1,13 @@
-# Control-panel and material review
+# 控制面板与材质审查
 
-Source instructions, scenes and validators for og-web-0062, og-web-0074 and og-web-0076 have been read. These tasks have distinct assembly scopes; they are not requests to implement a fractal explorer.
+已阅读 `og-web-0062`、`og-web-0074`、`og-web-0076` 的原始指令、场景和验证器。这些任务各自有明确的组装范围，并不要求实现分形浏览器。
 
-- og-web-0062: configure a left-wide320px panel with panel-only alpha200/255 and vertical growth in both directions. Menu is300×811 at[10,0], containing horizontal fullscreen and fractal rows. Fullscreen text is `(F)ull Screen: `, checkbox starts pressed; fractal text is `Select Fractal: ` and buttons Mandelbrot/Julia. No source event wiring or fractal algorithm is supplied or requested. Old Web implementation added unrelated interaction/renderer work. Preserve layout-only scope; browser HTML/CSS replaces scene assembly.
-- og-web-0074: same two rows and320px full-height panel, alpha.784314, Menu offsets10/310. Unlike99, its prose does not require height811. Do not silently carry that height over. Test panel-only alpha separately from descendant opacity, vertical resize and growth around the center.
-- og-web-0076: assemble full-viewport texture panel, bind the provided material and icon, set only material seed[.4,-.2], and preserve the supplied shader. The source compressed material was decoded read-only with built-in Zstandard: its defaults match the shader (scale.5, position0, aspect1.778, seed[-.794084,.136444], power2, iterations50, escape4, smoothing1, color method0). A supplied WebGL shader/material service can preserve this configuration task; solver should not write the fractal algorithm. Acceptance must verify resource identity, seed override outside shader, full-size layout and actual rendered output against independent calculations.
+- `og-web-0062`：配置靠左、全高、宽 320 px 的面板，仅面板背景透明度为 200/255，并沿竖直方向向两侧增长。Menu 位于 [10,0]，尺寸 300×811，包含水平排列的全屏行和分形行。全屏文字是 `(F)ull Screen: `，复选框初始选中；分形文字是 `Select Fractal: `，按钮为 Mandelbrot／Julia。原任务没有提供或要求事件接线或分形算法。旧 Web 实现新增了无关交互／渲染工作；修订保留纯布局范围，以浏览器 HTML／CSS 替代场景组装。
+- `og-web-0074`：同样包含两行及宽 320 px 的全高面板，透明度 .784314，Menu 偏移为 10/310。与 99 不同，原文没有要求高度 811，不能默默沿用。分别检查面板背景透明度与子元素不透明度、竖直尺寸变化及围绕中心增长。
+- `og-web-0076`：组装全视口纹理面板，绑定提供的材质与图标，只把材质 seed 设置为 [.4,-.2]，保留提供的着色器。原压缩材质通过内置 Zstandard 以只读方式解码；默认值与着色器一致：scale .5、position 0、aspect 1.778、seed [-.794084,.136444]、power 2、iterations 50、escape 4、smoothing 1、color method 0。提供 WebGL 着色器／材质服务，保留配置任务本身；求解者无需编写分形算法。验收检查资源身份、在着色器之外覆盖 seed、全尺寸布局，以及与独立计算一致的实际渲染。
 
-All three original validators print success and then exit1; success handling is repaired. All three implementations passed three-repeat staged QA, targeted mutations, rendering faults and starter rejection. Final shared-hash results are recorded in validation/task-audit.json.
+三个原验证器均在输出成功后以 1 退出，修订已修复成功处理。三个实现通过分阶段三次重复质量检查、定向变异、渲染故障和起始项目拒绝检查。最终共享文件哈希结果记录于 `validation/task-audit.json`。
 
-The99/126 browser theme makes the otherwise unspecified native panel color explicit as[37,56,76]. Transparency applies only to that background, preserving child opacity. The supplied minimum-height inspector exercises centered growth rather than checking a dead flag. Native focus/toggle behavior and reset are explicit browser additions; no fractal renderer or fullscreen application behavior is charged to these layout tasks. For128, the WebGL2 service preserves the original material parameters and both coloring branches. The immutable supplied shader is hashed, material binding is identity-checked, and sample pixels are compared with independent CPU calculations before and after a uniform change. Its original icon bytes are retained even though the material replaces the visible texture color.
+99／126 的浏览器主题把原生任务未规定的面板颜色明确为 [37,56,76]。透明度只作用于背景，保留子元素不透明度。已提供的最小高度检查器实际检验居中增长，而非检查不起作用的标志。原生焦点／切换行为与重置明确列为浏览器新增项；这些布局任务不承担分形渲染器或应用全屏行为的实现工作。
+
+128 的 WebGL2 服务保留原材质参数及两条着色分支。提供的不可变着色器有哈希记录，材质绑定按对象身份检查；修改 uniform 前后均把采样像素与独立 CPU 计算比较。原始图标字节保留，即使材质替代了其可见纹理颜色。

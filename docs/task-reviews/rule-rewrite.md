@@ -1,17 +1,38 @@
-# Rule Rewrite: individual source comparison and repair
+# 《Rule Rewrite》逐项对照与修订记录
 
-The source instruction and all14 rubric criteria were inspected. The previous6×6 single level omitted simultaneous multi-object YOU control,unlimited undo,a20-level campaign,transformations,conditional rules and most complete-game presentation. Its retained five properties alone are not an equivalent replacement.
+## 原始要求与旧任务的问题
 
-The repair is a12×9 campaign with20 individually written layouts in five worlds. Words form horizontal/vertical IS sentences,including noun transformations; ON introduces spatial conditions and HAS creates inherited objects after defeat. Identity sentences protect against transformation. Properties are YOU/STOP/PUSH/WIN/DEFEAT. All matching controlled objects move together,blocked pushes are atomic,rule changes are immediate and undo restores positions,nouns,control,death and outcome without a history cap.
+原始任务有 14 项标准。旧版本的单个 6×6 布局省略了多个 `YOU` 对象、无限撤销、20 关流程、名词变换、条件规则及完整展示。仅保留五种属性不能说明任务等价。
 
-All20 directly authored layouts have independently specified movement solutions,executed successfully through the engine:1 URRD;2 LDDDL;3 URRRDD;4 UDDRRRRRR;5 DDDDDRD;6 DRR;7 UDD;8 RUR;9 UDD;10 URRDD;11 URR;12 UD;13 URRRRRRD;14 DDRRRRUU;15 RURRDD;16 UURRRRDD;17 RRRR;18 RRUU;19 UDDRR;20 UDRRRDD. Browser QA also checks actual keyboard play and replays title-flow,control-transfer and inheritance/undo demos.
+## 恢复的规则与关卡
 
-| Change | Old loss / replacement | Repair and verification |
-|---|---|---|
-| Removed | One6×6 level substituted for20 distinct campaign levels. | Twenty layouts across five worlds,with title/selection/completion/navigation,all solutions exercised. |
-| Removed | Multiple YOU,undo,transformation and late conditional interactions were absent. | Independent fixtures test simultaneous control,atomic word/object pushes,condition activation,conditional suffix exclusion,identity protection,one-stage chains,inheritance,death-before-win and300-step undo. |
-| Weakened | Static single-board presentation replaced full themed art and navigation. | Illustrated six-noun set,textured board/words,active-rule glow,tile movement,control/goal/hazard markers and complete14-item scoring rubric. |
-| Replaced | Native launch/input recordings and unavailable mounted art libraries. | Local browser package,actual browser input traces and optional generated fantasy art. |
-| Added | Concrete layouts,nouns,ON/HAS grammar,conflict timing and exported interfaces. | Explicit bilingual contracts. Supplying layouts removes some original level-design work; module requirements constrain architecture. These are remaining adaptation differences,not proof of identical difficulty. |
+修订后使用 12×9 棋盘，包含五个世界、20 个布局。横向和纵向的 `IS` 规则支持名词变换；`ON` 表达空间条件；`HAS` 支持对象被消灭后的继承，并保留对象身份保护。属性包括 `YOU`、`STOP`、`PUSH`、`WIN` 和 `DEFEAT`。
 
-Version2.0.0 contains aligned English/Chinese prompts,reference,blank starter plus layout data,public example,ten private scenarios and five behavior mutations. Preserve all15/35/15/35 weights and leave unreviewed manual art scores null. Final release evidence requires the final-hash QA receipt; the staged implementation is not a model benchmark score.
+所有受控对象在一次操作中共同移动；被阻挡的推动保持原子性，词块变化立即更新规则。撤销恢复位置、名词、控制权、死亡与胜负状态，不设置次数上限。
+
+20 个关卡分别使用独立编写的解法验证：
+
+| 关卡 | 操作序列 | 关卡 | 操作序列 |
+| --- | --- | --- | --- |
+| 1 | `URRD` | 11 | `URR` |
+| 2 | `LDDDL` | 12 | `UD` |
+| 3 | `URRRDD` | 13 | `URRRRRRD` |
+| 4 | `UDDRRRRRR` | 14 | `DDRRRRUU` |
+| 5 | `DDDDDRD` | 15 | `RURRDD` |
+| 6 | `DRR` | 16 | `UURRRRDD` |
+| 7 | `UDD` | 17 | `RRRR` |
+| 8 | `RUR` | 18 | `RRUU` |
+| 9 | `UDD` | 19 | `UDDRR` |
+| 10 | `URRDD` | 20 | `UDRRRDD` |
+
+## 差异与验证
+
+| 对照项 | 修订内容 | 验证重点 |
+| --- | --- | --- |
+| 单个关卡替代完整流程 | 五个世界、20 关及完整进度流程 | 全部独立解法 |
+| 缺失多对象控制、撤销、变换与条件 | 恢复同时移动、原子推动、词块和物体交互、条件规则、后缀排除、身份保护、单阶段变换链及继承 | 死亡先于胜利判定，连续 300 步撤销等边界 |
+| 展示被压缩 | 六种名词、带纹理的棋盘与词块、激活规则发光、移动标记 | 保留 14 项完整评分要求 |
+| 原生运行和素材 | 浏览器真实输入记录及可选奇幻素材 | 标题、控制权转移、继承和撤销的真实键盘演示 |
+| 新增的确定性约束 | 固定布局、名词、`ON`／`HAS` 语法、冲突时序和导出接口 | 限制了关卡设计与模块选择 |
+
+2.0.0 已对齐英文／中文提示词、参考实现、空白起始项目及布局数据、公开示例、10 个私有场景和 5 个行为变异测试。评分保留 15/35/15/35 权重，未经审阅的人工美术评分为 `null`。最终发布证据要求对应最终哈希的质量检查回执；分阶段实现验证不能作为模型分数。

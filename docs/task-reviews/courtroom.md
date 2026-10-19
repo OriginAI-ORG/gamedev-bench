@@ -1,18 +1,26 @@
-# Courtroom Clue Trial review
+# 《Courtroom》逐项对照与修订记录
 
-Read the complete source instruction and all18 rubric criteria. The source asks for one complete courtroom case, with a second interactive deduction layer, at least4 exhibits and3 statements, multiple roles, two reachable endings, authored art and real input demos. It does not demand multiple cases or a long branching campaign. The old prompt incorrectly listed those as omitted source requirements.
+## 原始要求与旧任务的问题
 
-| Area | Old Web change | Equivalence | Repair and acceptance |
-|---|---|---|---|
-|Case loop|Removed title,opening brief and staged outcome screens; began directly in a text form.|Not equivalent to the complete-case loop.|Title→brief→testimony→objection/penalty→verdict→retry/title. Automated paths exercise both endings.|
-|Evidence/content|Reduced at least4 exhibits to3; retained only2 fixed contradiction pairings.|Undersized exhibit collection.|Four distinct exhibits with different facts; outage proves first contradiction,fingerprint or physical plan proves second,ticket is relevant contextual evidence but not a universal answer.|
-|Mechanics|Retained previous/next/press/selection/credibility and two stages.|Core sequence mostly retained.|Keep those mechanics; independently reject correct exhibit on wrong statement,wrong exhibit on contradiction,no-selection penalties and post-verdict actions.|
-|Roles/art|Replaced characters and environment with a scale emoji and generic panels.|Not equivalent; original staged roles and presentation disappeared.|Four illustrated roles with expression changes,designed exhibits,court background,brief and verdict composition,objection/reaction/transition animations. Preserve all manual art criteria.|
-|Demos|Removed deterministic input traces and named scenario launch.|Not equivalent to source evidence protocol.|URL scenarios plus1–10 real-input JSON traces at1280×720,30fps,max600frames. Reference includes a full correct chain and mistrial. Replay checks execute actual coordinates.|
-|Evaluation|Functional pass only; original weighted content/visual/art assessment not executable.|Cannot be interpreted as original score.|Restore18-criterion rubric and15/35/15/35 category weights. Automated QA reports functionality only; unreviewed narrative/art values remain null.|
+原始任务的 18 项标准要求一个完整案件、第二层可交互推理、至少四件证物、三条证词、多个角色、两种结局、美术和输入演示。原始要求并未要求多个案件或长篇分支剧情，旧版本关于这些“省略项”的表述不成立。
 
-Removed: native entry/CLI/tool paths and the incomplete-subtask label. Replaced: browser entry,query scenarios,static files and local generated art atlas in place of unavailable source asset libraries. Added: required DOM selectors,explicit retry/final-state guards,narrow-screen support and a concrete warehouse story. This last choice restricts the original open narrative authorship; it is an explicit adaptation limitation, not claimed equivalent freedom. The core evidence-comparison and multi-stage deduction workload remains, and wording/layout/animation/art choices stay open. The reference supports a second valid final deduction using the warehouse plan instead of making only one exhibit meaningful.
+## 逐项对照
 
-The starter contains no solution logic, only a blank entry and an optional art atlas. The atlas reduces asset-search overhead relative to choosing from the source's mounted libraries but does not supply scene composition,UI,animation or logic. It was generated with the built-in image tool; origin/hash/prompt record are in assets.json and docs/art-generation-prompts.md. No original source artwork is redistributed.
+| 对照项 | 旧版本问题与修订内容 | 验证重点 |
+| --- | --- | --- |
+| 完整案件流程 | 旧版直接展示文字表单，缺少标题、案情和结局，不能视为等价；恢复标题、简报、证词、异议、处罚、裁决和重试 | 两种结局均可通过真实操作抵达 |
+| 证物与第二层推理 | 旧版把至少四件证物缩为三件，只有两组配对；恢复四条事实 | 第一层使用停电证据；第二层可使用指纹或实体平面图；票据提供背景而非通用答案 |
+| 核心交互 | 上一条／下一条、追问、选证物、可信度和两层推理大体保留 | 正确证物配错误证词、错误证物配正确证词、未选证物、处罚和裁决后的操作 |
+| 角色与展示 | 旧版使用表情符号；恢复四名有插画和表情的角色、证物、法庭、简报、裁决及动画 | 美术仍需人工评分 |
+| 操作记录 | 恢复 URL 场景及 1–10 段真实输入 JSON | 1280×720、30 fps、最多 600 帧；使用实际坐标完成正确推理和审判失败流程 |
+| 评分范围 | 功能测试不能替代加权评价 | 恢复 18 项及 15/35/15/35 权重，叙事与美术人工评分为 `null` |
 
-Acceptance combines browser actions,statement/evidence negative controls,actual ending guards,viewport visibility and deterministic input playback. Mutation cases accept an exhibit on every statement,remove credibility loss,or skip the second interactive layer. Manual rubric review is still needed for narrative fairness and art quality; functional passing alone must not populate those scores. Updated task version2.0.0 supersedes its1.0.0 subset evidence.
+## 改编引入的限制
+
+移除了原生程序入口、工具路径和“不完整子任务”标记，改用浏览器查询参数、静态服务与生成素材。原素材库没有随任务提供。新增 DOM 选择器、重试与终局保护、窄视口约束，以及具体的仓库案件叙事，会减少创作自由；台词、布局、动画和美术仍可自行设计，第二层推理保留有效的平面图证据解法。
+
+起始项目为空白，仅附可选图集，不包含案件逻辑。相比从源任务挂载的素材库选择资源，图集降低了搜集成本，但没有提供完成的界面、场景、动画或游戏逻辑。图集使用内置图像工具生成，来源、哈希与提示词记录于 `assets.json` 和 `docs/art-generation-prompts.md`；没有再分发源任务的原始美术。
+
+## 验证与结论
+
+验收覆盖正常行为、失败结局、视口和操作回放。变异测试覆盖“任何证物都能反驳任何证词”、不扣可信度和跳过第二层推理。人工评估的叙事公平性与美术单独记录；v2 证据取代旧 v1 记录。

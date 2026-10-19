@@ -1,59 +1,37 @@
-# Standalone repository 1.0.0
+# 独立仓库 1.0.0
 
-The 2026-10-19 local split starts the `origin-gamedev-bench` release series at
-1.0.0. Its predecessor is development 3.0.0, source archive SHA-256
-`dc850c8eac25f88388384e3f58c41fa2f8c5336513e8f1892b7576b0d988f50b`.
-The exact source manifest is retained in local import evidence; the public split
-receipt records the unchanged bilingual prompt hashes.
+2026-10-19 的本地拆分使 `origin-gamedev-bench` 发布系列从 1.0.0 开始。其前身为开发版 3.0.0，对应源码归档 SHA-256：
 
-## Scope and identity
+`dc850c8eac25f88388384e3f58c41fa2f8c5336513e8f1892b7576b0d988f50b`
 
-- 228 scored tasks, 42 concrete families, canonical `og-web-*` IDs.
-- Runner, environment, references, private acceptance, public checks, licenses and
-  task-review documentation are source-controlled. Solver workspaces receive only
-  public task inputs; the model must not receive this entire evaluation repository.
-- `validation/` contains current validation evidence, never model leaderboard scores.
-- Source-control Git contains no installed dependencies, browser binaries, model
-  attempts, website applications, credentials, personal configuration or uploads.
-- Deployment histories, historical model data and the old combined project are
-  not Git history of this new repository.
+准确的来源清单保存在本地导入证据中；公开拆分回执记录了保持不变的双语题面哈希。
 
-A benchmark release must be identified by release series + version + content
-hash/commit. Historical development 1.0.0 and standalone 1.0.0 are different
-releases even though their version strings match. No old model record is rewritten
-to claim execution on this repository. The old task-review documents retain their
-original dates and explicitly historical development-version context.
+## 范围与身份
 
-## Local testing copies
+- 228 道计分任务、42 个具体任务族，使用统一 `og-web-*` 编号。
+- 运行器、环境、参考实现、私有验收、公开检查、许可证及任务审查文档纳入版本控制。解题工作区只接收公开任务输入，不能把整个验收仓库提供给模型。
+- `validation/` 保存当前验证证据，不是模型排行榜成绩。
+- Git 源码不包含已安装依赖、浏览器二进制、模型尝试、网站应用、凭据、个人配置或上传内容。
+- 部署历史、历史模型数据和旧合并项目不属于本独立仓库的 Git 历史。
 
-Use `bench-test/<version>/<model>/<run-id>/bench` for a separate checkout per run.
-For example, from the common parent directory after the local tag exists:
+基准发布必须由“发布系列＋版本＋内容哈希或提交号”共同标识。历史开发版 1.0.0 与独立仓库 1.0.0 是不同发布，即使版本字符串相同。不得重写旧模型记录，声称它们是在本仓库执行的。旧任务审查文档保留原日期，并明确其历史开发版本背景。
+
+## 本地测试副本
+
+每次运行使用独立检出目录 `bench-test/<version>/<model>/<run-id>/bench`。例如本地标签存在后，在共同父目录执行：
 
 ```powershell
 git clone --no-hardlinks --branch v1.0.0 ./origin-gamedev-bench ./bench-test/1.0.0/gpt-6-astra/RUN_ID/bench
 ```
 
-Install locked dependencies and Chromium in that copy, then follow README's local
-run commands. Each copy writes only its own attempts and artifacts. Model calls
-require an explicitly selected model and an authorized local CLI account.
+在副本中安装锁定依赖和 Chromium，再按 README 的本机命令运行。每个副本只写自己的尝试和产物。模型调用需要明确选择模型，并使用已授权的本地 CLI 账号。
 
-## Website boundary — updated decision, 2026-10-19
+## 网站边界：2026-10-19 更新的决定
 
-`bench-admin-site` owns future imports, experiments, review, acceptance and snapshot
-export. The admin and `game-benchmark-site` share one D1 database and one R2 bucket
-per environment; the admin maintains the shared migration chain. After approval,
-only the admin exports immutable snapshots. The public site consumes published
-exports through the backend public read-only interface, with field/artifact and
-publication-state checks. Export does not automatically publish a snapshot.
+未来的导入、实验、审阅、验收和快照导出由 `bench-admin-site` 负责。每个环境中，管理端与 `game-benchmark-site` 共用一个 D1 数据库及一个 R2 存储桶，共享迁移链由管理端维护。审批通过后，仅管理端导出不可变快照。公开站经后端的公开只读接口读取已发布导出，并检查字段、产物及发布状态。导出不会自动发布快照。
 
-This replaces the initial split's separate-store plan. Shared storage wiring and
-export services are still future work; existing local bindings have not changed.
-The benchmark runner itself still needs no Cloudflare account or website database.
-Publishing and model evaluation remain separate operations. This documentation
-update performs no cloud provisioning/upload, remote Git push or benchmark model run.
-The frozen v1.0.0 tag, source archives and validation receipts retain their original
-bytes and historical design; current documentation records this later decision.
+该决定取代最初拆分时的独立存储方案。共享存储连接和导出服务仍是后续工作，既有本地绑定未改变。基准运行器仍不需要 Cloudflare 账号或网站数据库。
 
-Source archives use the package version. A 1.0.0 source tag does not imply that
-the independent model-baseline release gate has passed. Validation receipts and
-their scopes disclose what was actually executed.
+发布与模型评测是两个独立操作。记录该决定时的文档更新没有创建云端资源、上传、推送远端 Git 或运行模型基准。冻结的 `v1.0.0` 标签、源码归档及验证回执保留原始字节和历史设计，当前文档记录后续决定。
+
+源码归档使用包版本。1.0.0 源码标签不代表独立模型基线的正式发布条件已经通过。验证回执及其范围说明实际执行了哪些工作。

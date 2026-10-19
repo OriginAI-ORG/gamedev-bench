@@ -1,36 +1,21 @@
-# Security boundaries
+# 安全说明
 
-## Private reports
+## 私密报告漏洞
 
-Use [GitHub private vulnerability reporting](https://github.com/OriginAI-ORG/gamedev-bench/security/advisories/new)
-(**Security → Advisories → Report a vulnerability**). A GitHub login is required.
-Private reporting is enabled. Do not post exploitable vulnerabilities, credentials,
-personal configuration or model conversations in a public Issue or PR.
-If the form is unavailable, open an Issue requesting restoration of the private
-channel without any vulnerability details; wait for a private channel to report.
+请使用 [GitHub 私密漏洞报告入口](https://github.com/OriginAI-ORG/gamedev-bench/security/advisories/new)，或依次打开仓库的 **Security → Advisories → Report a vulnerability**。需要登录 GitHub；本仓库已启用私密报告。
 
-Include the commit/release, OS and dependency versions, affected task or boundary,
-minimal sanitized reproduction, expected/actual behavior and impact. Keep local
-evidence and hashes; share only what is necessary. Do not attach live credentials.
+请勿在公开 Issue 或 PR 中发布可利用的漏洞细节、凭据、个人配置或模型对话。如果入口不可用，可以提交一个仅请求恢复私密报告通道的 Issue，不附漏洞细节；等私密通道恢复后再报告。
 
-Maintainers assess reports on current `main` and the latest source release series
-(currently 1.0.0), coordinate fixes/disclosure with the reporter and identify affected
-versions in advisories. Older development snapshots have no promised backports.
-Response times are best effort; no SLA or bounty is offered.
+报告应包括提交号或发布版本、操作系统与依赖版本、受影响的任务或安全边界、最小脱敏复现、预期和实际行为，以及影响范围。保留本地证据与哈希，只分享复现所需的最少内容，不要附带仍然有效的凭据。
 
-## Execution boundaries
+维护者受理当前 `main` 和最新源码版本系列（目前为 1.0.0）的问题，与报告者协调修复和披露，并在安全公告中标明受影响版本。不承诺为早期开发快照回移修复。响应尽力而为，不提供 SLA 或漏洞奖金承诺。
 
-This is a local benchmark harness. Use the native restricted permission profile
-and the per-attempt preflight; never disable confinement to obtain a score.
-References, private tests, prior attempts and personal configuration must not be
-readable by solver commands. The benchmark host retains the existing login;
-credentials are neither staged in task workspaces nor included in release archives.
+## 执行边界
 
-The supported tested model-run host is Windows with the Codex MXC sandbox.
-Other platforms require their own successful isolation and runtime validation.
-Browser execution is headless, local, sandboxed and restricted to the submission
-origin. Submissions are served as static files; dependency/build scripts are not run.
-The harness is not an untrusted multi-tenant hosting service.
+本项目是本机运行的评测框架。必须使用原生受限权限配置，并对每次尝试执行预检；不得为了获得分数而关闭隔离。
 
-Coordinate disclosure through the private report so users can receive a fix or
-mitigation before exploit details are published.
+解题命令不得读取参考实现、私有测试、先前尝试或个人配置。评测主机保留现有登录状态；凭据不会放入任务工作区或发布归档。
+
+已验证的模型运行环境是配合 Codex MXC 沙箱的 Windows。其他平台需要独立完成运行时和隔离验证。浏览器以本地、无头、沙箱模式运行，仅允许提交内容的来源域。提交内容按静态文件提供服务，不运行依赖安装或构建脚本。本框架不是面向不可信用户的多租户托管服务。
+
+请通过私密报告协调披露，使受影响用户能在利用细节公开前获得修复或缓解办法。

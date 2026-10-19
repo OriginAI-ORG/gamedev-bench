@@ -1,14 +1,22 @@
-# Circuit Wizard: individual source comparison
+# 《Circuit Wizard》逐项对照与修订记录
 
-Both the source instruction and all14 rubric items were inspected. The source describes a complete campaign,not merely a boolean calculator: spatial placement,wiring,truth-table validation,arithmetic,multiplexers,buses,delay and feedback memory,limited layouts,locked components and a polished electronics workshop.
+## 原始要求与旧任务的问题
 
-| Change | Previous loss / non-equivalence | Repair and acceptance |
-|---|---|---|
-| Removed | Three fixed serial slots replaced arbitrary construction and real wires. | Bounded7×4 placement,drag/move/delete,independent pins,fan-out and replacement/disconnection. Test occupied/out-of-bounds cells,budget,wires surviving moves and removing incident connections. |
-| Removed | A single four-row XOR puzzle replaced at least15 themed puzzles. | Fifteen explicitly authored puzzles across five chapters,including compound logic,half/full adders,multiplexer,two-bit buses,echo and reset-priority feedback latch. Independently build every solution and compare outputs to separate expectations. |
-| Removed | No gate budgets,wire-crossing restriction,fixed components,splitters,delays or bus lanes. | Restore each; crossing is enforced geometrically in a locked-component puzzle. Check both splitter pins,16-row two-bit combinations,sequential output and feedback state across repeated runs. |
-| Weakened | Numeric display and one boolean pass result replaced animated signal propagation and full presentation. | Directional wire pulses,high/low/unknown states,expected/actual rows,efficiency,chapter/puzzle/completion navigation and illustrated PCB/components. Functional evidence cannot stand in for full art scores. |
-| Replaced | Native project launch and input traces. | Local browser package,deterministic query scenarios and actual mouse/keyboard playback,with launch gate. |
-| Added | Exact puzzle targets/budgets,coordinates and component choices; exported simulation and stable IDs. | Explicitly documented in both prompts. They make behavior reproducible but constrain original level-design and architectural freedom. This is a restored complete-game scope,not proof of identical difficulty. |
+原始任务的 14 项标准覆盖完整关卡流程、空间放置、自由接线、真值表、算术电路、多路选择器、总线、延时反馈、受限布局、锁定元件，以及完整的电路工坊展示。旧版本把空间电路缩成三个固定串联槽位，以一个四行异或题替代至少 15 个关卡，不能保留原任务的机制范围。
 
-All14 criteria retain their original15/35/15/35 category weights. The unprovided source art libraries are replaced by optional generated industrial illustrations; code and task files are authored directly. The blank starter supplies no solved circuit. Public checking demonstrates one inverter,while private checking exercises all puzzles,wrong solutions,limits,memory,real drag/wire input and demos. Four behavior mutations target XOR logic,first-row-only acceptance,locked-gate removal and lost delay state. Final release evidence is the QA receipt for the final file hashes; manual aesthetic scores remain null.
+## 修订内容
+
+| 对照项 | 修订后的行为 | 验证重点 |
+| --- | --- | --- |
+| 三个固定串联槽位替代任意接线 | 7×4 网格、元件拖动与删除、独立引脚、输出分支，以及替换或断开导线 | 占用格、越界、元件预算；移动保留导线，删除移除关联导线 |
+| 单一四行异或题替代关卡流程 | 五章共 15 题，包含复合逻辑、半加器、全加器、多路选择器、二位总线、回声和复位优先锁存器 | 独立编写的解法和期望输出 |
+| 缺失布局限制与特殊元件 | 恢复预算、几何交叉检测、固定元件、分线器、延时及总线 | 锁定元件、分线器两个引脚、16 行真值表，以及重复执行的时序反馈 |
+| 仅用布尔数字替代展示 | 导线脉冲、高电平／低电平／未知态、期望与实际结果、效率、关卡导航和电路板插画 | 展示检查不推导美术评分 |
+| 原生程序流程 | 浏览器场景、真实输入记录及启动检查 | 实际放置、接线和测试操作 |
+| 新增确定性限制 | 固定目标、预算、坐标、元件、导出接口和控件标识 | 限制了关卡设计和架构自由，不能证明难度完全相同 |
+
+14 项评分标准保留 15/35/15/35 权重。原始素材库没有随任务提供，因此补充了可选生成素材。起始项目直接编写，保持空白，不包含已解答电路。
+
+## 验证与证据
+
+公开检查覆盖反相器；私有检查覆盖全部关卡、错误电路、预算、记忆元件，以及真实拖动和接线演示。四个变异测试分别针对错误的异或实现、只检查第一行真值表、允许删除锁定元件和丢失延时状态。最终发布证据须是对应最终文件哈希的质量检查回执，人工美术评分仍为 `null`。

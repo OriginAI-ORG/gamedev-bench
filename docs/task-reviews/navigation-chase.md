@@ -1,32 +1,32 @@
-# Navigation chase — individual revision review
+# 导航追逐：逐项修订审查
 
-The seven archives, instructions, controller files, scene hierarchy, tile layers and test code were inspected individually. All use the same 101 fence cells, 720 terrain cells and three unchanged images. The previous browser packages replaced this with a 9×7 grid, a single wall and one-cell discrete steps. That lost continuous velocity interpolation, collision-body behavior, periodic live target refresh, component integration and the original visual/spatial complexity. It was not equivalent.
+逐项检查了七个压缩包、指令、控制器、层级、瓦片层和测试。它们均使用相同的 101 个围栏格、720 个地形格和三张未改图片。旧浏览器包替换为 9×7 网格、一堵墙和逐格离散移动，丢失连续速度插值、碰撞体行为、周期实时目标刷新、组件集成及原视觉／空间复杂度，不等价。
 
-## Per-task source and repair
+## 各任务的来源与修订
 
-| Task | Actual supplied implementation | Required identity | Source target-movement probes | Repair |
-|---|---|---|---|---|
-| og-web-0143 | Controller and Navigation subtree missing | Enemy.target → Target | +(32,48) | Implement controller and assemble navigation components; supplied constructor keeps speed300/acceleration7 defaults explicit |
-| og-web-0144 | Complete controller, agent, timer and timeout connection supplied | Chaser.goal → Goal | +(32,48) | Preserve implementation; complete live object binding |
-| og-web-0145 | Complete controller, agent, timer and timeout connection supplied | Guard.beacon → Beacon | +(24,40), then+(-16,20) | Preserve implementation; complete live object binding |
-| og-web-0146 | Complete controller, agent, timer and timeout connection supplied | Drone.focus → Focus | +(48,16) | Preserve implementation; complete live object binding |
-| og-web-0147 | Complete controller, agent, timer and timeout connection supplied | Hunter.marker → Marker | +(-20,36), then+(12,-28) | Preserve implementation; complete live object binding |
-| og-web-0148 | Complete controller, agent, timer and timeout connection supplied | Seeker.objective → Objective | +(40,-24) | Preserve implementation; complete live object binding |
-| og-web-0149 | Complete controller, agent, timer and timeout connection supplied | Bot.checkpoint → Checkpoint | +(28,44), then+(8,-12) | Preserve implementation; complete live object binding |
+| 任务 | 实际提供的实现 | 必需身份绑定 | 源目标移动探针 | 修订 |
+| --- | --- | --- | --- | --- |
+| og-web-0143 | 缺少控制器和 Navigation 子树 | Enemy.target → Target | +(32,48) | 实现控制器并组装导航组件；提供的构造函数明确默认速度 300／加速度 7 |
+| og-web-0144 | 已提供完整控制器、代理、计时器和超时连接 | Chaser.goal → Goal | +(32,48) | 保留实现，补全实时对象绑定 |
+| og-web-0145 | 已提供完整控制器、代理、计时器和超时连接 | Guard.beacon → Beacon | +(24,40)，再 +(-16,20) | 保留实现，补全实时对象绑定 |
+| og-web-0146 | 已提供完整控制器、代理、计时器和超时连接 | Drone.focus → Focus | +(48,16) | 保留实现，补全实时对象绑定 |
+| og-web-0147 | 已提供完整控制器、代理、计时器和超时连接 | Hunter.marker → Marker | +(-20,36)，再 +(12,-28) | 保留实现，补全实时对象绑定 |
+| og-web-0148 | 已提供完整控制器、代理、计时器和超时连接 | Seeker.objective → Objective | +(40,-24) | 保留实现，补全实时对象绑定 |
+| og-web-0149 | 已提供完整控制器、代理、计时器和超时连接 | Bot.checkpoint → Checkpoint | +(28,44)，再 +(8,-12) | 保留实现，补全实时对象绑定 |
 
-In 250–255 the serialized typed reference is a relative path, while the actor declaration lacks the corresponding node-path annotation. The source engine was not executed, so this is not claimed as a reproduced runtime defect. The browser contract tests the needed live object identity directly. Giving these six tasks a blank controller would add work that was already solved in their supplied projects; the binding-only starter preserves that distinction. Naming variants remain correlated and should not be counted as independent difficulty evidence.
+250–255 中序列化类型引用为相对路径，角色声明却缺少对应节点路径注解。未运行源引擎，因此不宣称已复现运行时缺陷。浏览器契约直接检查需要的实时对象身份。给这六项空白控制器会增加原项目已完成的工作；仅绑定的起始项目保留此区别。命名变体仍相关，不能算作独立难度证据。
 
-## Removed, replaced and added requirements
+## 移除、替换与新增要求
 
-- Removed the arbitrary 9×7 wall layout, 100ms cell hopping, forced SVG circle selectors and a requirement to recreate the supplied controller in six variants.
-- Restored normalized waypoint direction, per-frame velocity interpolation, collision-aware movement, automatic100ms target refresh, live world-space coordinates, original actor/camera positions, collision bits and all original tile cells/images.
-- Replaced native navigation and physics APIs with provided browser services. The service contains BFS and circle-versus-wall collision; solving path planning from scratch is not part of these tasks. A parent/child object model preserves assembly and inherited coordinates. EventTarget supplies the timeout connection.
-- Replaced the incidental20px editor-logo target placeholder with a20px yellow beacon. The original tank, terrain and fence images are unchanged. This is a disclosed visual substitution, not a claim of full-scene pixel identity.
-- Added explicit lifecycle cleanup, alternate object/configuration identity checks, real browser interaction, and a30-simulated-second/20px arrival bound for a reachable stationary target. The bound makes runtime pursuit testable; it is not an original numeric requirement.
-- The original navigation region had no baked polygon vertices or outlines, and source tests only checked structure/code patterns plus direct timeout calls. The supplied browser planner makes the intended chase playable. This repairs an untested functional dependency instead of asking solvers to invent navigation geometry.
+- 移除任意 9×7 墙体布局、100 ms 格子跳跃、强制 SVG 圆形选择器，以及六个变体重建已提供控制器的要求。
+- 恢复归一化路径方向、逐帧速度插值、考虑碰撞的移动、自动 100 ms 目标刷新、实时世界坐标、原角色／相机位置、碰撞位及全部原瓦片和图片。
+- 用提供的浏览器服务替代原生导航／物理 API。服务包含 BFS 和圆形对墙碰撞，不要求从零实现寻路。父子对象模型保留组装及继承坐标；EventTarget 提供超时连接。
+- 偶然使用的 20 px 编辑器标志目标占位图改为 20 px 黄色信标。坦克、地形、围栏原图不变；这是已披露的替换，不宣称全场景像素相同。
+- 新增生命周期清理、替代对象／配置身份检查、真实交互，以及对可达静止目标的 30 秒模拟时间／20 px 到达边界。该边界使追逐可测试，不是原数值要求。
+- 原导航区域没有烘焙多边形顶点或轮廓，原测试只查结构／代码模式及直接超时调用。提供的浏览器规划器让追逐可玩，修复未测试的功能依赖，不要求求解者发明导航几何。
 
-## Acceptance and difficulty
+## 验收与难度
 
-Acceptance checks immutable provided runtime/assets/configuration; hierarchy and flags; exact target identity; every source movement probe; inherited parent offsets; timer cadence and null-target behavior; disposal; independent velocity calculations on nonzero and zero-length paths; real3600-step routes in both directions without wall intersections or teleports; rendered movement; wall-click rejection; run/pause and reset. Mutation checks cover missing elapsed time, local/global confusion, missing timeout connection, wrong objects, snapshots and hard-coded bindings. Public checks show movement; incomplete starters must fail.
+验收检查不可变的运行时／素材／配置、层级和标志、精确目标身份、全部源移动探针、父偏移继承、计时频率、空目标行为、销毁、非零与零长度路径的独立速度计算、双向真实 3600 步路线无穿墙或瞬移、渲染移动、拒绝墙体点击、运行／暂停和重置。变异覆盖丢失经过时间、局部／全局混淆、缺失超时连接、错误对象、快照和硬编码绑定。公开检查展示移动，未完成起始项目必须失败。
 
-The browser ports retain the domain logic and original work boundaries but do not assess native editor operation. Cross-platform difficulty cannot be declared identical from reference QA. In particular, binding-only tasks are intentionally small because their source controller was already complete. All revised packages are version2.0.0; staged QA receipts are under artifacts/og-qa and final hash-bound evidence is indexed in validation/task-audit.json.
+浏览器移植保留领域逻辑和原工作边界，不评估原生编辑器操作。参考实现检查不能证明跨平台难度相同；仅绑定任务本来就小，因为原控制器已完成。修订包均为 2.0.0，分阶段凭据位于 `artifacts/og-qa`，最终哈希证据索引在 `validation/task-audit.json`。

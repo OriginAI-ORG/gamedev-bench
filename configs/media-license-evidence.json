@@ -61,7 +61,7 @@
         "tasks/og-web-0093/assets.json": "66041c5daaa73ad0d82031379de7bd7faa866668c4e4c3ef646cc568b44bebe0",
         "tasks/og-web-0094/assets.json": "66041c5daaa73ad0d82031379de7bd7faa866668c4e4c3ef646cc568b44bebe0",
         "tasks/og-web-0095/assets.json": "66041c5daaa73ad0d82031379de7bd7faa866668c4e4c3ef646cc568b44bebe0",
-        "docs/art-generation-prompts.md": "31c2ce4bb9e9f58de91a635f21f2a7fe17907582d2bb2a42ca1e381b5c0d2941"
+        "docs/art-generation-prompts.md": "a9d3370dfb39989af1c476c3b272c4504d4213b06587c6d8623757de8b1d6328"
       },
       "sources": [
         "Local task assets.json and image-generation prompt records"

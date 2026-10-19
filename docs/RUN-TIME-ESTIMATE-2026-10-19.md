@@ -1,22 +1,17 @@
-# Version 3.0.0 runtime estimate — 2026-10-19
+# 3.0.0 版本运行时间估算：2026-10-19
 
-These estimates concern the fixed 228-task cohort on the current local machine. They do not start a model run and exclude quota waits, service outages, manual interruptions and retries.
+以下估算针对当前本机上的固定 228 题。估算不会启动模型运行，不包含配额等待、服务故障、人工中断和重试。
 
-| Run type | Concurrency | Expected elapsed time | Basis |
-| --- | ---: | --- | --- |
-| Complete reference and verifier QA | 3 | 25–30 minutes reserved | Measured complete 3.0.0 run plus local variation |
-| Model generation followed by acceptance, once per task | 4 | Approximately 8–16 hours | Planning assumption; not measured 3.0.0 model throughput |
-| Model generation followed by acceptance, once per task | 1 (runner default) | Approximately 30–64 hours | Same assumptions, serialized |
+| 运行类型 | 并发数 | 预计总耗时 | 依据 |
+|---|---:|---|---|
+| 完整参考实现与验收器 QA | 3 | 预留 25–30 分钟 | 完整 3.0.0 实测加本机波动 |
+| 每题一次模型生成及后续验收 | 4 | 约 8–16 小时 | 规划假设，非 3.0.0 模型吞吐实测 |
+| 每题一次模型生成及后续验收 | 1（运行器默认值） | 约 30–64 小时 | 相同假设下串行执行 |
 
-The complete 3.0.0 QA first pass took 1,429,261 ms (23 minutes 49.261 seconds),
-executing all 228 tasks at concurrency three with no cached task reuse. A browser
-`ERR_NO_BUFFER_SPACE` interrupted one scenario in `og-web-0088`; the task passed an
-isolated 14.429-second retry without source changes. The final result is 228/228.
-The first pass and retry evidence are retained in `validation/qa-execution.json`.
-The run covers three repetitions per reference scenario, public tests, behavioral
-and rendering fault injection, and starter rejection. Packaging, clean installation
-checks, website tests and publication are additional work.
+完整 3.0.0 QA 首轮耗时 1,429,261 ms，即 23 分 49.261 秒；并发为 3，执行全部 228 题，没有复用缓存。`og-web-0088` 的一个场景因浏览器 `ERR_NO_BUFFER_SPACE` 中断，在源码不变的情况下单独重试 14.429 秒后通过，最终为 228/228。首轮及重试证据保存在 `validation/qa-execution.json`。
 
-The existing model planner in `scripts/cohort/batch.mjs` assumes 6–12 minutes for generation, 0.5–2 minutes for acceptance, and 20% scheduling allowance. For 228 tasks this gives 7.41–15.96 hours at concurrency four, or 29.64–63.84 hours serialized. The 1.0.0 historical model cohort averaged 5.70 minutes of generation per task, but that older, weaker task set does not establish 3.0.0 throughput.
+该运行覆盖每个参考场景重复三次、公开测试、行为与渲染故障注入，以及起始项目拒绝。打包、干净安装检查、网站测试和发布另计。
 
-Current task budgets are 20 minutes of generation per task, plus three minutes of acceptance for 220 tasks and four minutes for eight tasks. Exhausting all these allowances totals 87.53 worker-hours, or roughly 22 hours at concurrency four (87.53 hours serialized), before startup, quota waits and retries. This is a budget-based planning bound, not a guaranteed end-to-end deadline. The reference QA runner and model runner are separate workloads.
+现有模型规划器 `scripts/cohort/batch.mjs` 假设生成耗时 6–12 分钟、验收 0.5–2 分钟，并预留 20% 调度余量。228 题在并发 4 时为 7.41–15.96 小时，串行则为 29.64–63.84 小时。历史 1.0.0 模型题库平均每题生成耗时 5.70 分钟，但旧题集要求更弱，不能据此确定 3.0.0 吞吐。
+
+当前每题生成预算为 20 分钟；220 题验收预算为 3 分钟，另 8 题为 4 分钟。全部用满时共计 87.53 个执行小时，并发 4 时约 22 小时，串行为 87.53 小时，尚未计入启动、配额等待和重试。这是基于预算的规划上界，不是端到端完成期限保证。参考 QA 与模型评测是不同负载。

@@ -1,9 +1,9 @@
-# Rain configuration: individual review
+# 雨效配置：逐项审查
 
-Inspected every task_config instruction and numeric validator clause for295–314. All twenty main scenes have identical SHA256 prefix50084abf4f0f; after replacing numeric/string literals, validators share control flow hash prefixbf56d6c19144. These are parameter configuration variants, not simulator implementation exercises. The original emitters, ground and collision support exist but have incorrect material values and no collision sub-emitter connection.
+检查了 295–314 的每条 task_config 指令及数值验证条款。20 个主场景相同，SHA-256 前缀为 `50084abf4f0f`；替换数字／字符串字面值后，验证器控制流哈希前缀相同，为 `bf56d6c19144`。这些是参数配置变体，不是模拟器实现练习。原发射器、地面和碰撞支持已存在，但材质值错误，且没有碰撞子发射器连接。
 
-| Task | Rain amount / life / preprocess | Speed | Direction X | Scale min | Contact size | Burst | Splash capacity | Splash speed | Gravity | Splash scale |
-|---|---|---|---|---|---|---|---|---|---|---|
+| 任务 | 雨数量／寿命／预处理 | 速度 | 方向 X | 最小缩放 | 接触尺寸 | 爆发数量 | 水花容量 | 水花速度 | 重力 | 水花缩放 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 |295|400 /6 /12|300–500|.05|.15|4|3|3200|30–40|80|.08–.15|
 |296|1200 /4 /8|800–1100|.1|.3|6|6|9600|70–90|120|.12–.25|
 |297|600 /5 /10|500–700|.3|.2|5|4|4800|45–55|98|.1–.2|
@@ -25,10 +25,10 @@ Inspected every task_config instruction and numeric validator clause for295–31
 |313|1400 /3 /6|850–1150|.15|.32|6.8|7|11200|75–95|125|.14–.28|
 |314|500 /6.5 /13|350–500|.08|.18|4.3|3|3000|32–45|82|.09–.17|
 
-The old browser requirements retained many numeric values but changed the work to implementing an entire fixed-seed SVG simulation. They also required a constant simultaneous rain count, moved the floor to820, discarded spread and visibility configuration, and had no separately configured material/sub-emitter object relationship. This is a substantial scope change in both directions, not a faithful difficulty-preserving port. The repair supplies a functioning runtime and asks only for configuration and connection, matching the original missing work.
+旧浏览器要求保留很多数值，却把工作改成实现完整的固定种子 SVG 模拟，还要求固定同时存活雨滴数、将地板移至 820、丢弃扩散和可见性配置，并缺少独立材质／子发射器对象关系。这是双向的大幅范围变化，不能算保留难度的忠实移植。修订提供可运行的运行时，只要求配置和连接，与原缺失工作相符。
 
-Removed: native resource/serialization types, blanket source-engine exclusions, mandatory solver implementation of the simulator, SVG-only output and a fixed simultaneous live count. Replaced: GPU runtime with supplied CPU/Canvas simulation; native collision/occlusion with supplied contact tests and floor clipping; material resources with separate configurable material objects. The original floor polygon is y220–320, collider top260 and height120, occluder top260; these distinct inherited coordinates are preserved rather than silently aligning them. The visibility rectangle is explicitly relative to the emitter. The phrase “900px wide” conflicts with the source validator's half-extents900 and1800-wide sky; use half-width900.
+移除原生资源／序列化类型、笼统源引擎排除声明、求解者实现模拟器、仅 SVG 输出及固定同时存活数量。以提供的 CPU／Canvas 模拟替代 GPU 运行时，以接触测试／地板裁剪替代原生碰撞／遮挡，以独立可配置材质对象替代材质资源。原地板多边形为 y220–320，碰撞体顶部 260、高 120，遮挡体顶部 260；这些不同继承坐标保留，不擅自对齐。可见矩形明确相对发射器。“宽 900 px”与源验证器半宽 900、天空宽 1800 矛盾，采用半宽 900。
 
-Restored in every row: actual preprocessing, independent Rain/Splash materials, hide-on-contact, the actual Splash object connection, immediate collision bursts, velocity alignment, respective capacities, emitter positions, initial45° rain and5° splash spreads, and all listed values. Source tests use one-sided minima/loose scale bounds; the new contract states exact target settings instead of allowing physically unrelated extreme values. That tightening is recorded as added precision, not identical legacy acceptance. Source files have no textures. Supplied streak/droplet geometry makes alignment and scale visible; GPU random distribution and rasterization are not claimed to be reproduced.
+每项均恢复真实预处理、独立 Rain／Splash 材质、接触隐藏、实际 Splash 对象连接、即时碰撞爆发、速度对齐、各自容量、发射器位置、初始雨扩散 45°／水花 5° 及表中数值。原测试只有单侧下限／宽松缩放边界；新契约给出精确目标值，避免接受物理上无关的极端值。这是新增精度，不是相同的旧验收。源文件没有纹理；提供的条纹／水滴几何使对齐与缩放可见，不宣称重现 GPU 随机分布或栅格化。
 
-Added: independent range ownership, repeatable pause/step/reset inspection, real emission/distribution/flight/collision/render assertions. Source validators inspect configuration only. Tests now check600 fresh samples, emission rate, true preheat contacts, inside/outside floor impacts, one burst per hit, splash capacity and gravity trajectory, lifespan, culling, rotation and deterministic reset. Mutations remove contacts, disconnect Splash, skip preheat or remove gravity. Simulation runs in the provider, so these stronger checks do not ask solvers to implement extra physics. Difficulty equivalence remains a contract analysis; no new model-completion experiment has yet been run.
+新增独立范围归属、可重复暂停／步进／重置，以及真实发射／分布／飞行／碰撞／渲染断言。源验证器只检查配置；现在检查 600 个新样本、发射速率、真实预热接触、地板内外碰撞、每次命中仅一次爆发、水花容量和重力轨迹、寿命、裁剪、旋转及确定性重置。变异移除接触、断开 Splash、跳过预热或移除重力。模拟由提供方实现，增强检查不要求求解者增加物理实现。难度等价仍只是契约分析，尚未运行新的模型完成实验。

@@ -1,14 +1,14 @@
-# Menus and camera assembly
+# 菜单与相机组装
 
-Source instructions, complete tests, supplied menu handlers, panel scenes, material/shader definitions and player/level scenes were reviewed separately. Both are assembly and reference-binding exercises; the browser starter supplies the controller, transitions and projection math.
+分别审查了原始指令、完整测试、提供的菜单处理器、面板场景、材质／着色器定义及玩家／关卡场景。两项都是组装和引用绑定练习；浏览器起始项目提供控制器、过渡效果与投影计算。
 
-| Task | Removed or weakened by old Web version | Replaced | Added by old Web version | Repair and checks |
-| --- | --- | --- | --- | --- |
-| og-web-0022 | Three exact panels, initial hidden state, full-viewport root, button typography, exact controller references, material identity, all callback connections and processing while paused | A complete menu hierarchy became generic state-changing controls | Simplified state text and generic menus | Restore panel offsets [-205,-196] to [205,196]/[205,45]/[205,63], supplied handler construction, three references, seven button callbacks, 31-pixel font, overlay layer 2 with pointer-events none, and shared material identity. Test alternate handler spies, hidden construction, multiple viewport sizes, all callbacks, real paused actor/time, fullscreen, restart and quit. |
-| og-web-0023 | Static camera position/basis, inactive construction, player camera child, reuse of complete player/menu instances, exact exported references and material preservation | Camera/scene assembly became a menu state label | Generic play/death controls without camera rendering | Restore injected factories and sibling scene objects. Keep original position/basis and tolerances; compare independent projected landmark coordinates through actual camera switching. Test exact identity, factory call counts, parents, untouched material and player camera, pause/death/restart integration. |
+| 任务 | 旧 Web 版本移除或弱化的要求 | 替换与旧版新增项 | 修订与检查 |
+| --- | --- | --- | --- |
+| og-web-0022 | 三个精确面板、初始隐藏、全视口根节点、按钮排版、控制器精确引用、材质身份、全部回调连接及暂停时处理 | 完整菜单层级变成通用状态控件、简化状态文字及通用菜单 | 恢复面板偏移 [-205,-196] 至 [205,196]／[205,45]／[205,63]、提供的处理器构建、三个引用、七个按钮回调、31 px 字体、覆盖层 2、pointer-events none 和共享材质身份。检查替代处理器探针、隐藏构建、多视口、全部回调、真实角色／时间暂停、全屏、重启和退出。 |
+| og-web-0023 | 静态相机位置／基向量、非激活构建、玩家相机子节点、复用完整玩家／菜单实例、精确导出引用及材质保留 | 相机／场景组装变成菜单状态标签，新增没有相机渲染的通用游玩／死亡控件 | 恢复注入工厂和同级场景对象。保留原位置／基向量及容差，通过真实相机切换比较独立计算的地标投影。检查身份、工厂调用数、父节点、未改动材质和玩家相机，以及暂停／死亡／重启集成。 |
 
-Explicit browser substitutions: numerical font size 31 maps to CSS pixels (the source prose says pt, but its property/test uses an unscaled numerical font size). Quit ends the local session because a page cannot generally close its host browser. User-gesture fullscreen uses the browser Fullscreen API. The supplied transition material is a two-second radial tint/fade with shared strength 0–3; it replaces the original supplied screen-texture/noise shader rather than assigning shader-authoring work to the solver. Its detailed noise texture is not reproduced; binding, runtime strength changes, pause independence and visible transition remain required. Source code also captures the mouse; this supplied menu-inspection fixture does not require pointer lock because there is no first-person movement task. These are documented scope changes, not unqualified difficulty equivalence.
+明确的平台替换：数值字体大小 31 映射为 CSS 像素，源文字写 pt，但属性／测试使用未缩放数值。退出结束本地会话，因为网页通常无法关闭宿主浏览器。用户手势全屏使用 Fullscreen API。提供的过渡材质为两秒径向染色／淡出，共享强度 0–3，替代原先提供的屏幕纹理／噪声着色器，不要求求解者编写着色器。未复刻细节噪声纹理，但仍要求绑定、运行时强度变化、不受暂停影响及可见过渡。源代码还捕获鼠标；此菜单检查示例没有第一人称移动任务，因此不要求指针锁定。这些是明确记录的范围变化，不是无条件的难度等价声明。
 
-og-web-0023's source LevelCamera is constructed inactive and activated by the supplied start handler; acceptance distinguishes those phases. Its source death handler can move the static camera to optional arguments; the browser's supplied inspection action reuses the static shot. The source player/level fixtures contain no detailed world meshes; supplied colored 3D landmarks make the camera's projection observable without adding model-building work.
+`og-web-0023` 的源 LevelCamera 构建时不激活，由提供的开始处理器激活；验收区分两个阶段。源死亡处理器可以按可选参数移动静态相机；浏览器检查动作复用静态镜头。源玩家／关卡没有详细世界网格；提供彩色三维地标，使投影可观察，不新增建模工作。
 
-Both tasks passed three-repeat staged QA, targeted mutations, visual faults and starter rejection. A camera-switch assertion was fixed to wait for the rendered frame before comparing coordinates; the final passing run includes both menu and player views. Final shared-hash results are recorded in validation/task-audit.json.
+两项均通过分阶段三次重复检查、定向变异、视觉故障和起始项目拒绝。相机切换断言已修复为等待渲染帧再比较坐标；最终通过运行覆盖菜单和玩家视图。共享哈希结果记录于 `validation/task-audit.json`。

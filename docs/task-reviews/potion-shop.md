@@ -1,19 +1,25 @@
-# Potion Shop — 2.0.0 review
+# 《Potion Shop》逐项对照与修订记录
 
-The original instruction and all 18 weighted rubric criteria were compared with the previous Web package. The old two-recipe, two-customer slice was not equivalent to the requested shop simulation.
+## 原始要求与旧任务的问题
 
-| Change | Previous adaptation | Repaired requirement and acceptance |
+原始任务有 18 项标准。旧版本只有两种配方和两类顾客，不能代表原任务范围。旧来源说明曾把每日事件列为省略项，但原始要求没有要求每日事件，修订不把这一点作为新增的硬性标准。
+
+## 修订内容与验证
+
+| 对照项 | 修订内容 | 验证重点 |
 | --- | --- | --- |
-| Removed | Morning/afternoon/evening and week progression | Seven actual days, sales deadlines, daily ledgers and a final aggregate. A legal complete week brews and sells 51 bottles, buys stock and all four upgrades. |
-| Removed | Ingredient freshness and operation-dependent quality | Five finite ingredient types, oldest-lot consumption, three temperatures, stirring, timed brewing, bounded quality, daily aging and expiry. Independent boundary tests verify ingredients are consumed once and occupied/full stations reject brewing. |
-| Replaced | Recipe experimentation and books became two fixed buttons | Four recipes, unknown-recipe discovery from successful mixtures and paid recipe books. Invalid pairs waste ingredients; discovery is recorded only once. |
-| Replaced | Autonomous customers became a manual customer button | Four illustrated customer types with distinct requests, budgets and patience; timed arrival, browsing, automatic purchase and unhappy departures. Wrong offers and repeated purchases are independently rejected. |
-| Removed | Pricing, reputation and demand feedback | Editable per-potion prices, quality-adjusted affordability, reputation changes and traffic calculated when opening. Tests compare cheap/fair/expensive prices and quality boundaries. |
-| Removed | Restocking, rare materials and functional upgrades | Paid evening supplies and four one-time upgrades: capacity, brew speed, next-day garden supplies and reputation. Check funds, duplicate purchase, timing and actual effects. |
-| Removed | Coherent shop areas, polish and complete scoring | Illustrated shop/ingredients/potions/customers, recipe journal, progress and feedback, daily/week review. All original category weights remain 15/35/15/35. Artistic criteria require a recorded review and remain unscored until then. |
-| Replaced | Native launch and recordings | Browser entry and three playable input traces exercising brewing/sales, purchases/upgrades and the week result. |
-| Added | No exact original formulas | Published recipes, prices, timing, aging, discard controls, state interfaces and deterministic scenarios. These constrain open-ended balancing and are disclosed additions. |
+| 完整经营周期不足 | 七天、上午／下午／晚上、截止时间、账本与最终结果 | 合法经营一周，酿造 51 瓶、补货并购买全部四项升级 |
+| 原料新鲜度与操作相关品质不足 | 五种有限原料、优先使用最老批次、三种温度、搅拌、定时酿造、有界品质、逐日老化和过期 | 原料只扣除一次，忙碌或容量已满时拒绝操作 |
+| 配方发现不足 | 四种配方、实验发现、付费配方书与无效组合损耗 | 配方只发现一次，错误组合确实消耗资源 |
+| 顾客系统不足 | 四类有插画的顾客、需求、预算、耐心、定时到店、浏览、自动购买和不满离开 | 错误报价与重复交易被拒绝 |
+| 价格与声誉不足 | 可编辑价格、品质与支付能力、声誉影响开店客流 | 比较低价、合理价和高价，检查品质边界 |
+| 补货和升级不足 | 晚间付费补货及四项一次性升级：容量、速度、次日花园与声誉 | 余额、重复购买、购买时机及真实效果 |
+| 完整展示与评分缺失 | 店铺、配方日志、进度、反馈、每日和每周结算 | 保留 15/35/15/35 原权重；美术不自动评分 |
+| 原生程序运行方式 | 浏览器中的三段真实输入记录 | 酿造、购买和完整一周流程 |
+| 新增的固定条件 | 配方、价格、时间、陈化／丢弃规则、状态接口和场景 | 限制了平衡设计自由 |
 
-The old provenance said daily events had been removed, but the source does not explicitly require such a system. No daily narrative-event requirement was invented. Optional generated artwork substitutes for unavailable mounted asset libraries. A browser implementation cannot preserve native-editor workflow, and fixed balancing reduces some design freedom; identical empirical difficulty and interchangeable scores are not claimed.
+## 证据与边界
 
-Staged validation passed all 11 scenarios with three reference repetitions, six behavioral mutants, four rendering mutants, starter rejection, the public example and three real input demos. The complete-week test uses actual brewing, automatic sales, stock purchases and every upgrade without directly rewriting campaign state. The final cohort audit records current task and harness hashes.
+原始素材库未提供，因此补充可选生成素材。浏览器实现、固定数值与原生编辑器流程存在差异，不能据此证明难度完全相同。
+
+分阶段检查通过全部 11 个场景，包括参考实现三次重复、6 个行为变异、4 个渲染变异、起始项目拒绝、公开示例及 3 段真实输入演示。完整一周使用实际酿造、自动销售、补货和全部升级，没有直接篡改战役状态。最终批次审计记录当前任务与检查框架哈希。

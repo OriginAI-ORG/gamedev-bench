@@ -1,17 +1,17 @@
-# og-web-0156 — preference persistence review
+# og-web-0156：偏好持久化审查
 
-Read the original instruction, full validator, menu/remap scripts, scene layout, theme and original960×544 screenshot. The source lacks its preference resource and save/load integration; remapping already changes the live input map but has no completion event for persistence. The former Web prompt retained immediate persistence and one remap, but changed sliders to0..100, invented70/80 defaults, omitted four visible action rows and replaced the referenced layout. Those changes were not equivalent.
+已阅读原始指令、完整验证器、菜单／重映射脚本、场景布局、主题及 960×544 原截图。源项目缺少偏好资源和保存／加载集成；重映射已修改实时输入映射，但没有用于持久化的完成事件。旧 Web 提示词保留即时保存和一个重映射，却把滑块改成 0..100、虚构 70/80 默认值、漏掉四个可见动作行并替换参考布局。这些变动不等价。
 
-## Requirement repair
+## 要求修订
 
-- Removed the0..100 range,70/80 defaults, arbitrary settings-panel layout and forward-only action list.
-- Restored music0/SFX1 defaults,0..1 range and0.05 step; input types Keyboard/Gamepad with indices0/1; preference fields including an event dictionary; immediate saves from each handler; reload into visible controls; and applying saved bindings before constructing remap buttons.
-- Restored all five source rows in order: move_forward, move_backward, turn_left, turn_right, weapon_fire. A remap completion event carries action/event to the menu, preserving separation of responsibilities.
-- Replaced the native resource file with a serializable localStorage preference object. Keyboard events retain code/key, and the browser input map receives them on recreation. Audio gain services preserve volume values and mute below0.05. These are supplied services, not extra audio implementation work.
-- Restored the original reference image in the task package. Its captured upper layout begins at x256,y360 with controls nearx398. The image cuts off halfway through the action list. The browser layout extends downward, allows scrolling and uses smaller margins on narrow screens. Reproducing the crop as inaccessible controls would not satisfy the intended usable menu.
-- The screenshot uses plain light16px text. The source theme contains a separate bitmap font, but that font is not shown in the reference and is not made a new requirement. No full-frame pixel-equivalence claim is made: layout, colors, hierarchy, supplied reference bytes and actual visible controls are checked directly.
-- Added listener cleanup, preservation of unrelated fields during independent saves, alternative preference values, persistent remapping of another existing action, a provided input-test arena and provided audio test tones. Clear/recreate controls remain harness conveniences. Native application quit is represented by an ended-game view.
+- 移除 0..100 范围、70/80 默认值、任意设置面板布局及仅含前进的动作列表。
+- 恢复 music 0／SFX 1 默认值、0..1 范围、.05 步进；输入类型 Keyboard／Gamepad，索引 0/1；含事件字典的偏好字段；每个处理器即时保存；重新加载可见控件；构建重映射按钮前应用已保存绑定。
+- 按原顺序恢复五行：move_forward、move_backward、turn_left、turn_right、weapon_fire。重映射完成事件向菜单传递 action／event，保留职责分离。
+- 原生资源文件替换为可序列化 localStorage 对象。键盘事件保留 code／key，重建时交给浏览器输入映射。音频增益服务保留音量并在低于 .05 时静音；这些服务已提供，不新增音频实现工作。
+- 任务包恢复原参考图。截图上部布局从 x256,y360 开始，控件约在 x398；动作列表只截到一半。浏览器布局向下延展、允许滚动，并在窄屏缩小边距；复制裁剪导致控件不可达不符合可用菜单意图。
+- 截图采用普通浅色 16 px 文字。源主题有另一个位图字体，但参考图没有使用，不新增为要求。不宣称全帧像素等价，直接检查布局、颜色、层级、参考图字节及实际可见控件。
+- 新增监听器清理、独立保存时保留无关字段、替代偏好值、另一个已有动作的持久重映射、提供的输入测试场景及音频测试音。清空／重建是检查便利控件；原生退出以游戏结束视图表示。
 
-## Acceptance
+## 验收
 
-The private checks restore the original0.35/0.65/index1/I example, modify additional values, verify storage immediately after each event, check service gains and input scheme, recreate the menu after explicitly resetting its input map, reload the browser, and confirm that I actually moves the rendered actor while W no longer does. Other cases check a separate storage adapter, remap dictionaries, disposed listeners, reference geometry/colors, narrow-screen containment and accessible full rows. Mutations break each save/restore/event/layout/cleanup path independently. The reference passed three runs, public feedback, behavior/visual negatives and starter rejection. The task is version2.0.0; its English prompt remains the input.
+私有检查恢复原 0.35/0.65/index1/I 示例，修改其他值，每个事件后立即检查存储，检查服务增益和输入方案；明确重置输入映射后重建菜单，重新加载浏览器，确认 I 实际移动角色而 W 不再有效。另检查独立存储适配器、重映射字典、已销毁监听器、参考几何／颜色、窄屏容纳及完整动作行可访问性。变异分别破坏保存／恢复／事件／布局／清理路径。参考实现通过三次运行、公开反馈、行为／视觉反例和起始项目拒绝。任务版本为 2.0.0，英文提示词仍作为评测输入。

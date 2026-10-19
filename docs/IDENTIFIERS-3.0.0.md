@@ -1,52 +1,13 @@
-# OriginGameDevBench 3.0.0 identifier migration
+# OriginGameDevBench 3.0.0 编号迁移
 
-The scored cohort has exactly 228 tasks, numbered `og-web-0001` through
-`og-web-0228` in the existing cohort order. These are the actual directory names,
-configuration IDs, result keys and resource paths. Each concrete family retains
-its name under the `OriginGameDevBench/` prefix. Internal pilot fixtures are
-`og-web-9001` and `og-web-9002` and are excluded from cohort scores.
+计分题库严格包含 228 题，按既有题库顺序编号为 `og-web-0001` 至 `og-web-0228`。这些是实际目录名、配置 ID、结果键和资源路径。每个具体任务族保留名称，统一放在 `OriginGameDevBench/` 前缀下。内部试点为 `og-web-9001`、`og-web-9002`，不计入题库成绩。
 
-The migration is intentionally incompatible. The runner, API, task links and
-playable resource routes accept only canonical IDs. There is no alias registry,
-redirect or fallback for retired identifiers. Only the current canonical source
-archive is distributed. Upstream repository URLs and asset copyright notices
-remain factual attribution; they are not runtime identifiers.
+此次迁移有意不兼容旧编号。运行器、API、任务链接及可玩资源路由只接受规范编号，不提供旧编号的别名表、跳转或回退。仅分发当前规范源码归档。上游仓库 URL 和素材版权声明作为事实来源保留，不作为运行时标识。
 
-The 2.0 authored requirements, reference behavior and acceptance scenarios are
-preserved. English `prompt.md` remains the model input. `prompt_zh.md` remains the
-corresponding Chinese translation. No task-content generator is used. Shared
-modules are now under `taskkits/OriginGameDevBench/`; cohort commands are under
-`scripts/cohort/`, with the manifest at `configs/OriginGameDevBench.json`.
+2.0 中已编写的任务要求、参考行为和验收场景保持不变。英文 `prompt.md` 仍为模型输入，`prompt_zh.md` 为对应中文说明。不使用任务内容生成器。共享模块位于 `taskkits/OriginGameDevBench/`，题库命令位于 `scripts/cohort/`，清单为 `configs/OriginGameDevBench.json`。
 
-Current 3.0 QA runs against the renamed directories and configurations. The
-reference implementation runs each private scenario three times, and checks
-public examples, behavioral and visual faults, and starter rejection. The
-release also verifies the archive manifest, clean extraction, locked dependency
-installation, local filesystem isolation and website routes.
+3.0 QA 在改名后的目录与配置上运行。参考实现对每个私有场景执行三次，并检查公开示例、行为与视觉故障、起始项目拒绝。发布还验证归档清单、干净解压、锁定依赖安装、本地文件系统隔离和网站路由。
 
-Historical 2.0 QA and 1.0 model records are reindexed, retaining their original
-execution dates, outcomes and execution hashes. Their metadata discloses the
-identity migration and original record digest. Snapshot file hashes describe the
-reindexed bytes; recorded execution hashes describe the original run. Historical gameplay code is unchanged except 53 `TASK_CONFIG.id` string values;
-a digest comparison records these identity-only edits. Screenshots and recordings
-are preserved. These records are not
-new 3.0 model results. The downloadable current package contains the current
-reference/verifier QA and the reindexed historical website data.
+历史 2.0 QA 和 1.0 模型记录重新索引，同时保留原执行日期、结果及执行哈希。元数据披露编号迁移和原记录摘要：快照文件哈希描述重新索引后的字节，执行哈希描述当时的运行。历史游戏代码仅有 53 个 `TASK_CONFIG.id` 字符串变化，摘要对照记录了这些纯编号修改；截图和录像保留。这些不是新的 3.0 模型结果。当时可下载的当前包包含当前参考／验收器 QA，以及重新索引的历史网站数据。
 
-A complete independent model baseline for 3.0 has not been run. Reference QA is
-not a model score or a human art assessment. The release remains a candidate
-under the existing final-release gate.
-
-## 中文说明
-
-3.0.0 使用实际编号 `og-web-0001` 至 `og-web-0228`，任务目录、配置、结果、
-资源路径和链接全部一致。具体任务族保留，来源前缀统一为 `OriginGameDevBench/`。
-内部试验题 `og-web-9001`、`og-web-9002` 不计入 228 题成绩。
-
-此变更不保留旧编号兼容或跳转，只分发最新统一编号源码包。原仓库链接与素材
-版权声明仍作为真实归属信息保留，不参与任务编号解析。
-
-英文 `prompt.md` 仍为任务输入，中文 `prompt_zh.md` 与之对应。编号迁移不改写
-2.0 的题目要求、玩法或验收场景，不使用题目生成脚本。3.0 在新目录与配置下
-重新执行 QA；2.0 QA 和 1.0 模型成绩保留原日期、结果及执行哈希，明确披露
-编号迁移。历史试玩中仅 53 个 `TASK_CONFIG.id` 字符串改名，其他代码和截图、录像保持原样，不能算作 3.0 新模型测试。
+3.0 尚未运行完整独立模型基线。参考 QA 不等于模型成绩或人工美术评估。按现有正式发布条件，该版本仍是候选版。

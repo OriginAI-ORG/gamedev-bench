@@ -1,16 +1,22 @@
-# Word Spell: source comparison and repair
+# 《Word Spell》逐项对照与修订记录
 
-The source instruction and all18 rubric items were read. The previous single-encounter Web slice omitted persistent tile-pool management,upgrades/removal,buy/sell shops,rest,branching floors,six enemy configurations,five special tile variants,boss and complete results/presentation. It named a missing large dictionary as a loss,although the source requires valid-word checking without prescribing a lexicon size; avoid inventing a source size requirement.
+## 原始要求与旧任务的问题
 
-A2053-word local game lexicon is directly curated in dictionary.js. The repair restores a20-tile starting pool,seven unique drawn tiles,real drag/reorder input,exact word validation,length-based damage,fire/ice/heal triggers,live attack countdown and costly invalid/pass turns. Five special variants include double-scoring golden vowels,enchanted fire/ice/heal consonants,and cursed unused-tile penalties. Reward choices add/upgrade/remove; shops buy/sell/upgrade;rest heals;three branching floors contain six ordinary enemies and a boss. All18 source criteria and15/35/15/35 weights remain.
+原始任务有 18 项标准。旧版本的单场战斗省略了字母池升级、移除、购买、出售、休息、分支路线、六类敌人、五类特殊字母、首领和最终结果。原始要求提出单词验证，但没有规定词典规模，不能把“大词典”写成原任务的硬性要求。
 
-|Comparison|Change and repair|Acceptance|
-|---|---|---|
-|Removed in the old adaptation|Permanent pool,upgrades,removal,shop/rest/branching campaign,boss and run statistics.|Real mutation/persistence,economy,route legality,three legal seeded complete runs and result checks.|
-|Replaced and weakened|A fixed hand and14-word list became the entire word game;turn-counter attacks replaced live time pressure.|2053-word supplied lexicon,seeded seven-tile draws,real seconds,damage/element order,automatic expiry and expensive invalid turns.|
-|Incorrect substitution|CARE healing replaced the explicit heal substring and only one simplified enemy remained.|Restore heal trigger plus blessed consonants,six enemy patterns/weaknesses,five tile kinds and high-health boss.|
-|Removed presentation and score coverage|Full game flow,illustrations,snap/cast/fizzle feedback and most weighted criteria were absent.|English/Chinese complete contract,18-item rubric,optional original generated art,real input demos and manual visual scoring retained.|
-|Platform replacement|Native launch and recordings become local browser entry and real browser input playback.|Functional launch gate,viewport checks and deterministic input traces.|
-|Added reproducibility constraints|Fixed lexicon,formulas,stats,map,seed algorithm,scenario fixtures and exported model/selectors.|Independent state fixtures plus legal full-run tests. These constrain design freedom and remove dictionary selection work.|
+## 修订内容
 
-Version2.0.0 passed staged QA in86 seconds:three reference repetitions,eleven private scenarios,five behavior mutants,visual mutants,starter rejection and four real traces. Seeds42,43,44 win using actual hands and legal management;bosses take4–5 casts. No forced health/roll outcomes are used in full-run tests. Final all-task evidence is indexed in validation/task-audit.json after integration. Functional passing does not establish identical difficulty or award unreviewed art scores.
+新实现提供含 2,053 个词的整理词典 `dictionary.js`，初始字母池为 20 个，每次抽取七个具有独立身份的字母，支持真实拖动与重排。合法单词按长度造成伤害，并支持火焰、冰冻和治疗；计时使用实际秒数，无效施法和跳过回合有代价。五类特殊字母包括提供双倍效果的金色元音、带有火焰／冰冻／治疗效果的附魔辅音，以及未使用时造成惩罚的诅咒字母。流程包含奖励添加／升级／移除、商店买卖与升级、休息、三层路线、六类敌人和首领，恢复全部 18 项评分及原权重。
+
+| 对照项 | 修订内容 | 验证重点 |
+| --- | --- | --- |
+| 缺失持续成长与完整流程 | 真实修改字母池、经济与路线 | 三次合法种子下的完整通关 |
+| 固定手牌、14 个词和回合计数替代计时 | 2,053 个词、带种子的七字母抽取、真实秒数、顺序与到期处理 | 无效输入的代价和计时边界 |
+| 将 `CARE` 错当成治疗条件 | 使用 `heal` 子串及受祝福辅音，补齐六类敌人的模式和弱点、五类特殊字母、高生命值首领 | 实际词形、效果与战斗结算 |
+| 完整展示缺失 | 双语说明、18 项标准、15/35/15/35 权重和可选原创生成素材；恢复吸附、施法与失败反馈 | 真实输入及独立人工评分 |
+| 原生运行方式 | 浏览器启动、视口和操作记录 | 完整交互流程 |
+| 新增固定条件 | 词典、公式、属性、地图、种子、测试数据和接口 | 限制了词典选择与设计自由 |
+
+## 验证与结论
+
+2.0.0 分阶段质量检查用时 86 秒，包括参考实现三次重复、11 个私有场景、5 个行为变异、视觉变异、起始项目拒绝和 4 段真实操作记录。种子 42、43、44 的通关使用真实手牌和合法管理操作；首领需要 4–5 次施法，没有强制修改生命值或抽取结果。集成后的全部任务证据索引于 `validation/task-audit.json`；功能通过不能证明与原任务难度完全相同，也不能产生未经审阅的美术分数。

@@ -1,18 +1,24 @@
-# Idle Factory Planet: individual source comparison and repair
+# 《Idle Factory Planet》逐项对照与修订记录
 
-The source instruction and13 rubric criteria were inspected. Core requirements are free grid placement,continuous production,visible connected conveyors,finite deposits and slowdown,prestige with retained research and permanent multiplier. Depth requires four production stages,at least three research upgrades,per-stage throughput and exponential cost/production scaling with abbreviated large numbers. Complete title→planet→research→depletion→prestige flow and industrial art/animation are evaluated.
+## 原始要求与旧任务的问题
 
-The old Web task reduced this to four fixed stations with manual one-second stepping. It omitted actual placement/routing,continuous operation,distinct machines on a map,multiple research branches,throughput/bottleneck visualization and most presentation. Its provenance listed absent offline accumulation as a lost source requirement, but the original does not explicitly require offline earnings. Do not invent that requirement in the repair.
+原始指令及 13 项评分标准要求：在网格上自由布置工厂、持续生产、可见且真正连通的传送带、有限矿藏及枯竭后的减产，以及保留研究并提供永久倍率的重置机制。还包括四个生产阶段、至少三项研究升级、各阶段吞吐量、指数增长的价格与产量、缩写显示的大数，以及从标题、星球生产、研究、枯竭到重置的完整流程和工业风美术。
 
-The new reference implements a10×6 grid with directional conveyors,miners,smelters,fabricators,sellers,storage and multi-input fabrication. Continuous simulation transfers actual resource items through adjacent outputs; disconnected machines back up. Research unlocks faster mining,buffers and compound fabrication. The planet depletes and miners slow;prestige clears layout while preserving technology and doubling the permanent production multiplier. The illustrated industrial atlas provides optional assets,not a completed UI in the starter.
+旧版本只有四个固定工位，并依靠手动推进一秒来生产，省略了运输路线、持续运转、地图上的机器、分支和瓶颈展示。旧来源说明把离线收益写成必需项，但原始要求没有提出这一点，不能据此认定任务有缺失。
 
-| Comparison | Removed, replaced or added requirement | Repair and acceptance |
+## 修订后的实现与验证
+
+新版本采用 10×6 网格，提供有方向的传送带、采矿机、冶炼机、制造机、销售点、仓储及多输入制造配方。资源只能在相邻且连接正确的设备之间流动；断开的线路会造成积压。研究覆盖加快采矿、扩大缓冲区和复合制造。有限矿藏耗尽后采矿速度降低；重置清空布局、保留科技，并使永久倍率翻倍。工业素材为可选的生成资源，不是已经完成的界面。
+
+| 对照项 | 修订内容 | 验证重点 |
 | --- | --- | --- |
-| Removed in previous adaptation | Free spatial construction, directed transport and blocked production were reduced to four fixed stations. | Restore drag/click placement, rotation, salvage, upgrades and adjacent routing. Check disconnected output, wrong direction, unfed smelters and ore-equivalent conservation across the complete chain. |
-| Removed | Continuous operation, several technology branches and stage throughput. | Restore timed simulation, three dependent research upgrades, buffer capacity, compound recipes and visible measured rates. Check real UI production without stepping, affordability, duplicate purchases and missing ingredients. |
-| Weakened | Resource depletion and prestige were numeric button operations without a spatial factory to reset. | Restore mining slowdown, finite deposits, next-planet preview and retained research. Check exact boundary, prohibited early prestige, cleared layout, production/sale multiplier and a second prestige. |
-| Removed | Most of the original13 weighted complete-game criteria and themed visual presentation. | Preserve all criteria in rubric.md at15/35/15/35 weighting with launch gate. Restore title, machine illustrations, operating indicators, cargo, technology panels and full next-planet flow. Automated visibility checks are not an art score. |
-| Replaced | Native application launch and input recordings. | Local browser entry, deterministic scenarios and actual mouse/keyboard traces at1280×720/30fps. Replay both continuous production and prestige. |
-| Added for reproducibility | Fixed10×6 dimensions, concrete recipes/prices/timing, named scenario fixtures, exported simulation and stable controls. | These constrain originally open balancing/architecture choices. They make routing/economy independently testable, but are not identical creative freedom or engine-editor work. The starter remains an empty page with optional art. |
+| 被删去的空间布局 | 恢复拖放或点击放置、旋转、回收、升级和运输路线 | 断线、方向错误、没有供料的冶炼机，以及按矿石当量计算的资源守恒 |
+| 被删去的持续生产、研究与吞吐量 | 定时模拟、三项有依赖关系的研究、缓冲区、配方及实测生产速率 | 无需手动步进的真实界面操作；购买能力、重复购买、缺少原料时的处理 |
+| 被弱化为数值变化的枯竭与重置 | 有限矿藏、减产、下一颗星球及保留研究 | 精确边界、拒绝过早重置、清空布局、生产和销售倍率、第二次重置 |
+| 被删去的 13 项评分与展示要求 | 恢复全部标准和 15/35/15/35 权重，补充启动门槛、标题、运行中的机器、货物、科技及下一颗星球 | 可见性与交互验证不能代替人工美术评分 |
+| 原生程序启动与操作记录 | 改为浏览器确定性场景及真实鼠标、键盘记录 | 1280×720、30 fps 下的生产及重置流程 |
+| 新增的任务约束 | 固定 10×6 网格、配方、价格、时间、场景数据、导出的模拟接口和稳定控件 | 这些条件限制了自由平衡设计与架构选择；起始项目仍为空白，素材可选 |
 
-Version2.0.0 has matching English/Chinese prompts, a full13-item rubric, reference simulation/UI, public example, eight private scenarios and four behavioral mutants. Validation status is recorded in artifacts/og-qa/og-web-0001/result.json; final release requires a fresh all-task run against final file hashes. No manual art score is claimed.
+## 证据与结论的边界
+
+2.0.0 已对齐英文／中文提示词、13 项评分标准、参考模拟与界面、公开示例、8 个私有场景及 4 个行为变异测试。验证状态位于 `artifacts/og-qa/og-web-0001/result.json`；最终发布仍要求针对最终文件哈希重新运行全部任务。自动化检查证明的是已覆盖行为，不是人工美术分数，也不是对原生工作量完全相等的证明。

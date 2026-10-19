@@ -1,23 +1,23 @@
-name: License or attribution / 许可与署名
-description: Report missing attribution or provide asset permission evidence / 补充授权证据或报告署名遗漏
-title: "[License] "
+name: 许可与署名
+description: 补充素材授权证据或报告署名遗漏
+title: "[授权] "
 body:
   - type: input
     id: asset
     attributes:
-      label: File path or SHA-256 / 文件路径或哈希
+      label: 文件路径或 SHA-256 哈希
     validations:
       required: true
   - type: textarea
     id: evidence
     attributes:
-      label: Original source and license evidence / 原始来源及许可证据
-      description: Link public author statements, original license files, and the matching asset version. Do not post confidential agreements or personal contact details.
+      label: 原始来源及许可证据
+      description: 请提供作者公开声明、原始许可文件及对应素材版本的链接。请勿公开保密协议或个人联系方式。
     validations:
       required: true
   - type: textarea
     id: action
     attributes:
-      label: Requested correction / 建议修正
+      label: 建议修正
     validations:
       required: true

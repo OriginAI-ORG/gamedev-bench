@@ -1,48 +1,47 @@
-name: Bug report / 问题反馈
-description: Report a runner, task, or evaluation defect / 报告运行或评测问题
-title: "[Bug] "
+name: 问题反馈
+description: 报告运行器、任务或评测中的问题
+title: "[问题] "
 body:
   - type: markdown
     attributes:
       value: |
-        For security vulnerabilities, use the private link in SECURITY.md. Do not post credentials, personal configuration, model conversations, or private data here.
         安全漏洞请使用 SECURITY.md 中的私密入口。请勿公开凭据、个人配置、模型对话或私人数据。
   - type: input
     id: version
     attributes:
-      label: Version and commit / 版本与提交
-      placeholder: "origin-gamedev-bench 1.0.0, commit SHA"
+      label: 版本与提交
+      placeholder: "origin-gamedev-bench 1.0.0，提交 SHA"
     validations:
       required: true
   - type: input
     id: task
     attributes:
-      label: Task ID or component / 任务或组件
-      placeholder: "og-web-0011, runner, documentation"
+      label: 任务或组件
+      placeholder: "og-web-0011、运行器、文档"
     validations:
       required: true
   - type: textarea
     id: environment
     attributes:
-      label: Environment / 运行环境
-      description: OS, Node.js, Python, Playwright/Chromium versions. Include model and effort only if relevant.
+      label: 运行环境
+      description: 操作系统、Node.js、Python、Playwright/Chromium 版本；如与问题有关，请补充模型及推理强度。
     validations:
       required: true
   - type: textarea
     id: reproduction
     attributes:
-      label: Reproduction steps / 复现步骤
-      description: Provide commands and a minimal example you have permission to share.
+      label: 复现步骤
+      description: 请提供复现命令及你有权公开的最小示例。
     validations:
       required: true
   - type: textarea
     id: behavior
     attributes:
-      label: Expected and actual behavior / 预期与实际行为
+      label: 预期与实际行为
     validations:
       required: true
   - type: textarea
     id: evidence
     attributes:
-      label: Sanitized evidence / 脱敏证据
-      description: Relevant error output, hashes, screenshots, or evaluation receipts. A QA result is not a model score.
+      label: 脱敏证据
+      description: 提供相关错误输出、哈希、截图或评测凭据。质量检查结果不代表模型分数。

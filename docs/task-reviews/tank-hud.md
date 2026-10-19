@@ -1,28 +1,28 @@
-# Tank HUD — individual revision review
+# 坦克 HUD：逐项修订审查
 
-All six original instructions, validators, tank/weapon/pickup scripts, scene files, project entries and image hashes were compared. The v1 browser task retained numeric score increments and quantization, but replaced gameplay pickups with clickable tokens, doubled the reload from0.5 to1second, discarded the ammo texture and omitted the component/event chain. That simplified the actual integration problem and changed timing.
+比较了六项原始指令、验证器、坦克／武器／拾取脚本、场景、项目入口和图片哈希。v1 浏览器任务保留分数增量与量化，却用可点击代币替代游戏拾取，把装填从 .5 秒加倍为 1 秒，丢弃弹药纹理并省略组件／事件链，简化集成问题且改变时间。
 
-| Task | Points | Reload step | Game reference properties | Source state and repair |
-|---|---:|---:|---|---|
-| og-web-0150 |100|0.1|tank,ui|HUD/game wrapper absent; implement components and events. Exact image regions (0,0,16,16) and (0,16,16,16) restored.|
-| og-web-0151 |75|0.1|player_tank,hud|HUD/game wrapper absent; implement components and events. Source requires the same PNG for both layers but does not specify regions.|
-| og-web-0152 |125|0.2|tank_node,status_ui|HUD/game wrapper absent; implement components and events. Preserve its distinct quantization.|
-| og-web-0153 |40|0.05|vehicle,overlay|HUD/game wrapper absent; implement components and events. Preserve its distinct quantization.|
-| og-web-0154 |250|0.25|tank_actor,hud_layer|HUD/game wrapper absent; implement components and events. Source's0.22second progress probe replaces the shorter frame-based probe; browser tests elapsed0.22seconds directly.|
-| og-web-0155 |60|0.2|hero_tank,scoreboard|Source already has a complete wrapper, HUD, event emitters/connections and correct startup scene. Treat this as a defective restoration baseline; provide complete components and explicitly disconnect only the wrapper bindings/subscriptions for a bounded repair exercise.|
+| 任务 | 分数 | 装填步长 | 游戏引用属性 | 来源状态与修订 |
+| --- | --- | --- | --- | --- |
+| og-web-0150 | 100 | 0.1 | tank,ui | 缺少 HUD／游戏包装器，需实现组件和事件；恢复精确图像区域 (0,0,16,16) 与 (0,16,16,16)。 |
+| og-web-0151 | 75 | 0.1 | player_tank,hud | 缺少 HUD／游戏包装器，需实现组件和事件；源任务要求两层用同一 PNG，但未指定区域。 |
+| og-web-0152 | 125 | 0.2 | tank_node,status_ui | 缺少 HUD／游戏包装器，需实现组件和事件；保留本项量化步长。 |
+| og-web-0153 | 40 | 0.05 | vehicle,overlay | 缺少 HUD／游戏包装器，需实现组件和事件；保留本项量化步长。 |
+| og-web-0154 | 250 | 0.25 | tank_actor,hud_layer | 缺少 HUD／游戏包装器，需实现组件和事件；源 .22 秒进度探针替代较短逐帧探针，浏览器直接检查经过 .22 秒。 |
+| og-web-0155 | 60 | 0.2 | hero_tank,scoreboard | 源已包含完整包装器、HUD、事件发射／连接和正确启动场景，属于有缺陷的恢复基线；提供完整组件，仅明确断开包装器绑定／订阅，形成有限修复练习。 |
 
-The261 source was inspected, not executed in its native engine. Its claimed missing feature is nevertheless present in all relevant files. The revised261 exercise intentionally introduces missing bindings, so difficulty equivalence to that already-complete baseline is not claimed. This exception must remain visible in reports, not averaged away as an ordinary parameter variant.
+已检查 261 源项目，但未在原生引擎运行。它声称缺失的功能实际上已存在于全部相关文件。修订后的 261 有意引入缺失绑定，因此不宣称与原本已完成的基线难度等价；报告必须保留此例外，不能按普通参数变体平均掉。
 
-## Changes
+## 变动
 
-- Removed token-click scoring, forced SVG rectangles,1second reload and the requirement to recreate already-supplied components in261.
-- Restored the original six bitmap assets,500ms timer, game/World/Tank/UI composition, per-task reference names, pickup→tank→game→HUD score delivery, weapon progress/completion delivery, quantization and bottom-to-top textured fill.
-- The supplied browser fixture keeps the184-cell perimeter,19 crate positions, slight world rotation, tank movement/turn/turret controls, bullets and crate destruction. AABB collision and static crates replace the native rigid-body solver. This supplied approximation is outside the HUD work and is not presented as complete physics equivalence.
-- Browser modules/EventTarget replace scene resources/events. A DOM output and Canvas progress indicator replace label/texture controls. Public gameplay uses real collision pickup detection; injected events separately prove wiring.
-- Added disposal checks, type/duplicate-pickup guards, independent event probes, automatic reload checks, image hashes and rendered progress pixels. The original tests directly invoked a pickup callback and did not test duplicate collection or cleanup.
-- For257–260 the provided default texture crop configuration uses the same gray/yellow16px halves as256; these regions were not mandated by their original validator. They are supplied configuration, not additional artwork work.261 retains both whole-image layers from its supplied UI. The renderer dims the underlay to35% so identical source layers still show visible progress; this is an explicit presentation repair.
-- Added the progressbar accessibility attributes and a32×48 display size to the browser contract.261 already supplied that minimum size; the other missing UIs had no exact layout requirement. Numerical score/timer/step requirements remain task-specific in configuration.
+- 移除点击代币计分、强制 SVG 矩形、1 秒装填及 261 重建已提供组件的要求。
+- 恢复六张原位图、500 ms 计时器、game／World／Tank／UI 组合、逐项引用名、拾取→坦克→游戏→HUD 计分、武器进度／完成传递、量化及从下向上的纹理填充。
+- 提供的示例保留 184 格周界、19 个箱子位置、轻微世界旋转、坦克移动／转向／炮塔、子弹与箱子销毁。AABB 碰撞和静态箱子替代原生刚体求解器；此近似在 HUD 工作范围外，不代表完整物理等价。
+- 浏览器模块／EventTarget 替代场景资源／事件；DOM 输出和 Canvas 进度指示替代标签／纹理控件。公开玩法使用真实碰撞拾取，注入事件单独证明接线。
+- 新增销毁检查、类型／重复拾取保护、独立事件探针、自动装填、图像哈希及渲染进度像素。原测试直接调用拾取回调，未检查重复收集或清理。
+- 257–260 默认纹理裁剪与 256 一样使用灰／黄 16 px 半区，原验证器未强制这些区域；它们属于提供配置，不是额外美术工作。261 保留原 UI 的两层整图；渲染器把底图调暗至 35%，使相同图层仍能显示进度，这是明确的展示修复。
+- 新增 progressbar 无障碍属性和 32×48 显示尺寸。261 已提供此最小尺寸，其他缺失 UI 没有精确布局要求；分数／计时／步长仍逐项配置。
 
-## Verification
+## 验证
 
-Private scenarios cover visible HUD/unique controls; original image bytes; immutable supplied services; scene identities; arbitrary score events; independent finish events; no events after disposal; tank-only and one-shot pickups; live normalized timer emissions and firing lock; exact textured clipping/quantized values; and real keyboard shooting, crate destruction, driving, pickup disappearance and reset. The public scenario performs the real shoot-and-collect sequence. Behavioral mutations target lost subscriptions, cleanup, duplicate pickups, quantization and missing tick events. Starter rejection is required. Fresh staged receipts live under artifacts/og-qa; final full-cohort results are recorded in validation/task-audit.json.
+私有场景覆盖可见 HUD／唯一控件、原图字节、不可变服务、场景身份、任意计分事件、独立完成事件、销毁后无事件、仅坦克且单次拾取、实时归一化计时事件与射击锁、精确纹理裁剪／量化，以及真实键盘射击、毁箱、驾驶、拾取消失和重置。公开场景执行真实射击收集流程。变异针对丢失订阅、清理、重复拾取、量化和缺失 tick 事件。起始项目必须被拒绝。新分阶段凭据位于 artifacts/og-qa，最终完整批次结果记录在 validation/task-audit.json。

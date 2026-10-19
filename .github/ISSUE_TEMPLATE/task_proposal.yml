@@ -1,31 +1,31 @@
-name: Task or scoring proposal / 任务与评分建议
-description: Propose a task change, scoring correction, or feature / 提出任务、评分或功能改进
-title: "[Proposal] "
+name: 任务与评分建议
+description: 提出任务、评分或功能改进
+title: "[建议] "
 body:
   - type: input
     id: scope
     attributes:
-      label: Affected tasks and version / 涉及的任务与版本
+      label: 涉及的任务与版本
     validations:
       required: true
   - type: textarea
     id: problem
     attributes:
-      label: Problem and proposed behavior / 问题与改进方案
-      description: Explain the requirement and an example that demonstrates the need.
+      label: 问题与改进方案
+      description: 请说明需求，并举例说明为何需要改进。
     validations:
       required: true
   - type: textarea
     id: evaluation
     attributes:
-      label: Evaluation and comparability / 验收与分数可比性
-      description: Describe reference behavior, incorrect implementations to reject, and whether prior scores would become invalid.
+      label: 验收与分数可比性
+      description: 请说明参考行为、需要拒绝的错误实现，以及改动是否会使旧分数失效。
     validations:
       required: true
   - type: textarea
     id: provenance
     attributes:
-      label: Sources and licenses / 来源与授权
-      description: For new code or media, give author, original URL, exact license, and redistribution evidence. State none if no third-party material is involved.
+      label: 来源与授权
+      description: 新增代码或媒体时，请提供作者、原始网址、确切许可及再分发授权证据。不涉及第三方材料时请注明“无”。
     validations:
       required: true

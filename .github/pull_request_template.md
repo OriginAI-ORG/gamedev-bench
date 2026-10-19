@@ -1,19 +1,19 @@
-## Problem and change / 问题与修改
+## 问题与修改
 
-Describe the trigger, expected behavior, and resulting change. Link the Issue;
-use `Fixes #123` only when this PR fully resolves it.
+说明触发条件、预期行为及本次修改后的行为，并链接对应 Issue。
+只有完整解决问题时才使用 `Fixes #123`。
 
-## Scope and evidence / 范围与证据
+## 范围与证据
 
-- Affected task IDs and version:
-- Local checks run, with results (or why a check does not apply):
-- Impact on task hashes, acceptance behavior, and existing model scores:
-- Third-party source, exact license, attribution, and file hashes (if applicable):
+- 受影响的任务编号及版本：
+- 已运行的本地检查与结果（或说明为何不适用）：
+- 对任务哈希、验收行为及既有模型成绩的影响：
+- 第三方来源、准确许可证、署名和文件哈希（如涉及）：
 
-## Review / 审查
+## 审查清单
 
-- [ ] The change contains no credentials, personal configuration, session records, or private model trajectories.
-- [ ] I have the right to submit my contribution under the project's Apache-2.0 code license; separately licensed materials are identified with their original terms.
-- [ ] Task changes include matching English/Chinese prompts, reference behavior, and negative cases, or this is not a task change.
-- [ ] Test claims describe what actually ran; failed evidence and previous scores remain distinguishable.
-- [ ] Media changes update the license inventory; missing permission is not treated as permission.
+- [ ] 修改中不含凭据、个人配置、会话记录或私有模型轨迹。
+- [ ] 我有权按项目的 Apache-2.0 代码许可提交贡献；独立授权内容已标明并保留原条款。
+- [ ] 任务修改已同步中英文题面、参考行为和负例，或本次不涉及任务修改。
+- [ ] 测试说明如实记录实际执行情况，失败证据与历史成绩仍可区分。
+- [ ] 素材修改已更新授权清单，不将缺失许可视为已获许可。

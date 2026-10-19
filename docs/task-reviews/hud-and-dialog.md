@@ -1,30 +1,30 @@
-# HUD and dialog task review
+# HUD 与对话框任务审查
 
-Source instructions and validators were inspected individually in the 20 task archives below. Compared with the 1.0.0 Web prompts, family runtime and verifier. All 20 repairs passed staged three-repeat QA; final evidence is bound by the cohort audit.
+已逐项检查以下 20 个源压缩包的指令和验证器，并与 1.0.0 Web 提示词、任务族运行时及验证器比较。20 项修订均通过分阶段三次重复检查，最终证据由批次审计绑定。
 
-The common HUD regression was replacement of a textured instrument and precise layout with a generic progress bar, labels and damage buttons. The old verifier checked one anchored edge, labels and state changes, but did not fully check stretch, growth direction, minimum dimensions, gray color or instrument anchoring. Gameplay damage/score/fuel/reset controls are additions; they are retained as a supplied test fixture so these layout tasks do not become unrelated gameplay-programming exercises.
+HUD 的共同退化是以通用进度条、标签和伤害按钮替代纹理仪表与精确布局。旧验证器检查一条锚定边、标签及状态变化，却未完整检查拉伸、增长方向、最小尺寸、灰色或仪表锚定。玩法伤害／分数／燃料／重置控件是新增项，作为提供的测试示例保留，避免布局任务变成无关玩法编程。
 
-| Task | Removed | Replaced | Added | Repair and independent acceptance |
+| 任务 | 移除或弱化 | 替换 | 新增 | 修订与独立验收 |
 | --- | --- | --- | --- | --- |
-| og-web-0013 | 58 px minimum height, gray RGBA .6/.6/.6/1, full-width bottom anchoring, textured meter/indicator and centered instrument | Native UI hierarchy → browser overlay; textures → progress widget | Damage, scoring, fuel and reset | Restore bottom bar growth upward, width stretch, separate local meter/indicator images, bottom-center instrument, initial Lives: 3 / Points: 0 and hidden GAME OVER. Check two viewport sizes and increased minimum height, loaded images, label values, overlay and fixture events. |
-| og-web-0042 | 70/60/70/100 overlay insets, gradient background, three specific labels, menu/restart controls, operation while gameplay is paused | Full game-over screen → one generic message; title incorrectly became GAME OVER | Generic fuel widget and damage buttons | Restore top status labels and a hidden inset gradient panel with Game Over!!!, current score, high score 100, menu/restart. Test every inset, visible gradient pixels, initial hidden state and working controls during paused gameplay. Remove unrelated fuel requirement. |
-| og-web-0043 | 20 px left/top/right padding and right-aligned score | Structured status bar → generic top HUD | Fuel, game-over and damage subsystem | Restore Health: 100 / Score: 0 with exact top padding and score on the right, across viewport sizes. Do not grade an unrelated fuel or game-over screen. Supplied fixture changes health and score. |
-| og-web-0079 | Same geometry, color and textured instrument as og-web-0013 | Same generic HUD | Same fixture interactions | Restore bottom-wide 58 px / Lives: 3 / Points: 0 / GAME OVER; record source dependence on og-web-0013. Run task-specific QA, including texture loading and growth. |
-| og-web-0080 | Bottom-wide growth, 58 px, gray fill, instrument images and alignment | Generic progress bar and overlay | Fixture state transitions | Restore the stated bottom configuration and GAME OVER; verify width stretch and growth without moving the bottom edge. Source test requires bottom-center instrument even though its instruction is shorter. |
-| og-web-0081 | Bottom-wide growth and textured instrument | Generic bar | Fixture state transitions | Restore bottom bar growing upward from a fixed edge, 58 px minimum, gray, Lives/Points and GAME OVER; independently change minimum size and verify meter alignment. |
-| og-web-0082 | 58 px gray bottom strip and textured instrument | Generic bar | Fixture state transitions | Restore bottom strip with Health: 3 / Score: 0 and DEFEAT; verify exact labels as well as growth, images, initial hidden state and centering. |
-| og-web-0083 | 58 px gray bottom dashboard and textured instrument | Generic bar | Fixture state transitions | Restore Ships: 3 / Score: 0 and RETRY with bottom-center meter; test labels independently of the other bottom variants. |
-| og-web-0087 | Top-wide growth downward, 58 px, gray, top-centered images | Generic top HUD | Fixture state transitions | Restore Lives: 3 / Points: 0 and GAME OVER; verify increasing height leaves top fixed and instrument touching the top center. |
-| og-web-0088 | Top-wide growth and top-centered images | Generic top HUD | Fixture state transitions | Restore 58 px gray header, Lives: 3 / Points: 0 and DEFEAT; test labels, growth, image positioning and hidden initial overlay. |
-| og-web-0089 | Top-wide geometry and image anchoring | Generic top HUD | Fixture state transitions | Restore 58 px gray strip, Health: 3 / Score: 0 and RETRY; test top-center alignment and downward growth. |
-| og-web-0090 | 86 px minimum width, full-height left anchoring, rightward growth, gray fill and vertically centered images | Generic left HUD | Fixture state transitions | Restore Ammo: 3 / Score: 0 and GAME OVER with left-centered instrument; verify height stretch and width growth without moving left edge. |
-| og-web-0091 | Left-wide geometry, instrument and gray fill | Generic left HUD | Fixture state transitions | Restore 86 px sidebar, Ammo: 3 / Score: 0 and DEFEAT; check image loading, left-middle placement and growth. |
-| og-web-0092 | Left-wide geometry, instrument and gray fill | Generic left HUD | Fixture state transitions | Restore 86 px rail, Health: 3 / Score: 0 and RETRY; test the task-specific text and full-height anchoring. |
-| og-web-0093 | 86 px minimum width, full-height right anchoring, leftward growth, gray and images | Generic right HUD | Fixture state transitions | Restore Lives: 3 / Points: 0 and GAME OVER; verify right edge stays fixed during width growth and instrument stays at right-middle. |
-| og-web-0094 | Right-wide geometry, instrument and gray fill | Generic right HUD | Fixture state transitions | Restore 86 px panel, Ammo: 3 / Score: 0 and DEFEAT; check image alignment and leftward growth. |
-| og-web-0095 | Right-wide geometry, instrument and gray fill | Generic right HUD | Fixture state transitions | Restore 86 px panel, Health: 3 / Score: 0 and RETRY; check both viewport sizes, growth, labels and initial hidden state. |
-| og-web-0084 | Explicit symmetric growth check was missing; center and 220×100 minimum were retained | Centered container hierarchy → browser dialog | Open/close/reset controls | Largely behavior-equivalent. Retain ALERT and initial hidden state; add checks after increasing panel width/height and resizing the viewport, proving the center remains fixed. |
-| og-web-0085 | Explicit symmetric growth check was missing; center and 240×110 minimum were retained | Container hierarchy → browser dialog | Open/close/reset controls | Retain DANGER, hidden initial state and 240×110; add size-growth and viewport checks with a single dialog instance. |
-| og-web-0086 | Explicit symmetric growth check was missing; center and 230×100 minimum were retained | Container hierarchy → browser dialog | Open/close/reset controls | Retain WARNING, hidden initial state and 230×100; add size-growth and viewport checks. |
+| og-web-0013 | 纹理仪表、精确布局、增长方向、尺寸、颜色或锚定检查不足 | 原生界面／纹理仪表改成通用栏或消息 | 伤害、分数、燃料／重置等示例状态操作 | 恢复向上增长的底栏、全宽拉伸、最小高度 58 px、灰色 RGBA .6/.6/.6/1、独立仪表／指示器图片和底部居中仪表；初始 Lives: 3 / Points: 0，隐藏 GAME OVER。检查两个视口、增大最小高度、图片、标签、覆盖层和示例事件。 |
+| og-web-0042 | 纹理仪表、精确布局、增长方向、尺寸、颜色或锚定检查不足 | 原生界面／纹理仪表改成通用栏或消息 | 伤害、分数、燃料／重置等示例状态操作 | 恢复顶部状态标签及初始隐藏的渐变面板，内边距 70/60/70/100；文字 Game Over!!!、当前分数、最高分 100、菜单／重启。检查各边距、渐变像素及暂停期间控件可用。移除无关燃料要求。 |
+| og-web-0043 | 纹理仪表、精确布局、增长方向、尺寸、颜色或锚定检查不足 | 原生界面／纹理仪表改成通用栏或消息 | 伤害、分数、燃料／重置等示例状态操作 | 恢复 Health: 100 / Score: 0，左／上／右边距 20 px，分数右对齐，覆盖不同视口。不评分无关燃料或结束界面；健康和分数变化由示例提供。 |
+| og-web-0079 | 纹理仪表、精确布局、增长方向、尺寸、颜色或锚定检查不足 | 原生界面／纹理仪表改成通用栏或消息 | 伤害、分数、燃料／重置等示例状态操作 | 恢复底部全宽 58 px、灰色、Lives: 3 / Points: 0 / GAME OVER；记录对 og-web-0013 的来源依赖，逐项检查纹理加载、增长和仪表居中。 |
+| og-web-0080 | 纹理仪表、精确布局、增长方向、尺寸、颜色或锚定检查不足 | 原生界面／纹理仪表改成通用栏或消息 | 伤害、分数、燃料／重置等示例状态操作 | 恢复底部 58 px 灰色栏、Lives: 3 / Points: 0 / GAME OVER，检查全宽和底边固定时向上增长。原测试要求仪表底部居中，尽管指令较简短。 |
+| og-web-0081 | 纹理仪表、精确布局、增长方向、尺寸、颜色或锚定检查不足 | 原生界面／纹理仪表改成通用栏或消息 | 伤害、分数、燃料／重置等示例状态操作 | 恢复底边固定、向上增长、最小 58 px 的灰色底栏、Lives/Points 和 GAME OVER；独立修改最小尺寸并检查纹理仪表对齐。 |
+| og-web-0082 | 纹理仪表、精确布局、增长方向、尺寸、颜色或锚定检查不足 | 原生界面／纹理仪表改成通用栏或消息 | 伤害、分数、燃料／重置等示例状态操作 | 恢复 58 px 灰色底栏、Health: 3 / Score: 0 和 DEFEAT；检查文字、增长、图片、初始隐藏和居中。 |
+| og-web-0083 | 纹理仪表、精确布局、增长方向、尺寸、颜色或锚定检查不足 | 原生界面／纹理仪表改成通用栏或消息 | 伤害、分数、燃料／重置等示例状态操作 | 恢复 58 px 灰色底部面板、Ships: 3 / Score: 0 和 RETRY，仪表底部居中；独立检查本项标签。 |
+| og-web-0087 | 纹理仪表、精确布局、增长方向、尺寸、颜色或锚定检查不足 | 原生界面／纹理仪表改成通用栏或消息 | 伤害、分数、燃料／重置等示例状态操作 | 恢复 58 px 灰色顶部全宽栏、Lives: 3 / Points: 0 和 GAME OVER；高度增加时顶部固定且向下增长，图片贴合顶部中心。 |
+| og-web-0088 | 纹理仪表、精确布局、增长方向、尺寸、颜色或锚定检查不足 | 原生界面／纹理仪表改成通用栏或消息 | 伤害、分数、燃料／重置等示例状态操作 | 恢复 58 px 灰色顶部全宽栏、Lives: 3 / Points: 0 和 DEFEAT；检查文字、向下增长、顶部居中图片和初始隐藏。 |
+| og-web-0089 | 纹理仪表、精确布局、增长方向、尺寸、颜色或锚定检查不足 | 原生界面／纹理仪表改成通用栏或消息 | 伤害、分数、燃料／重置等示例状态操作 | 恢复 58 px 灰色顶部全宽栏、Health: 3 / Score: 0 和 RETRY；检查顶部居中及向下增长。 |
+| og-web-0090 | 纹理仪表、精确布局、增长方向、尺寸、颜色或锚定检查不足 | 原生界面／纹理仪表改成通用栏或消息 | 伤害、分数、燃料／重置等示例状态操作 | 恢复最小宽 86 px 的全高灰色左栏、Ammo: 3 / Score: 0 和 GAME OVER，仪表左侧垂直居中；高度拉伸，宽度向右增长，左边固定。 |
+| og-web-0091 | 纹理仪表、精确布局、增长方向、尺寸、颜色或锚定检查不足 | 原生界面／纹理仪表改成通用栏或消息 | 伤害、分数、燃料／重置等示例状态操作 | 恢复 86 px 全高灰色左栏、Ammo: 3 / Score: 0 和 DEFEAT；检查图片加载、左侧居中及向右增长。 |
+| og-web-0092 | 纹理仪表、精确布局、增长方向、尺寸、颜色或锚定检查不足 | 原生界面／纹理仪表改成通用栏或消息 | 伤害、分数、燃料／重置等示例状态操作 | 恢复 86 px 全高灰色左栏、Health: 3 / Score: 0 和 RETRY；检查专用文字、全高锚定、仪表及增长。 |
+| og-web-0093 | 纹理仪表、精确布局、增长方向、尺寸、颜色或锚定检查不足 | 原生界面／纹理仪表改成通用栏或消息 | 伤害、分数、燃料／重置等示例状态操作 | 恢复最小宽 86 px 的全高灰色右栏、Lives: 3 / Points: 0 和 GAME OVER；宽度向左增长时右边固定，仪表右侧垂直居中。 |
+| og-web-0094 | 纹理仪表、精确布局、增长方向、尺寸、颜色或锚定检查不足 | 原生界面／纹理仪表改成通用栏或消息 | 伤害、分数、燃料／重置等示例状态操作 | 恢复 86 px 全高灰色右栏、Ammo: 3 / Score: 0 和 DEFEAT；检查图片对齐和向左增长。 |
+| og-web-0095 | 纹理仪表、精确布局、增长方向、尺寸、颜色或锚定检查不足 | 原生界面／纹理仪表改成通用栏或消息 | 伤害、分数、燃料／重置等示例状态操作 | 恢复 86 px 全高灰色右栏、Health: 3 / Score: 0 和 RETRY；检查两个视口、增长、标签和初始隐藏。 |
+| og-web-0084 | 缺少显式对称增长检查；原居中和最小尺寸已保留 | 居中容器层级改为浏览器对话框 | 打开／关闭／重置控件 | 行为基本等价：保留 ALERT、初始隐藏、居中和最小 220×100。增加面板宽高及视口变化检查，证明中心不动。 |
+| og-web-0085 | 缺少显式对称增长检查；原居中和最小尺寸已保留 | 居中容器层级改为浏览器对话框 | 打开／关闭／重置控件 | 保留 DANGER、初始隐藏、居中和最小 240×110；使用单个对话框实例增加尺寸增长及视口检查。 |
+| og-web-0086 | 缺少显式对称增长检查；原居中和最小尺寸已保留 | 居中容器层级改为浏览器对话框 | 打开／关闭／重置控件 | 保留 WARNING、初始隐藏、居中和最小 230×100；增加尺寸增长及视口检查。 |
 
-All new prompts describe browser components directly. Original image filenames are replaced by explicitly supplied local SVG assets; loading, composition, alignment and visibility remain tested. This is a recorded asset substitution, not evidence of pixel or empirical difficulty equivalence. The near-duplicate layout variants remain correlated tasks.
+全部新提示词直接描述浏览器组件。原图片文件名换成明确提供的本地 SVG 素材，仍检查加载、组合、对齐和可见性。这是有记录的素材替换，不是像素相同或实测难度等价的证据。近似重复的布局变体仍是相关任务。

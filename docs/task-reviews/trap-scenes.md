@@ -1,15 +1,15 @@
-# Trap scene review
+# 陷阱场景审查
 
-All five source instructions, supplied scenes and source acceptance files were read individually. These are scene-configuration tasks, not shooting tasks. The old implementation added projectile firing/stepping and replaced the actual bitmap, obscuring the alignment work. The revised packages reuse the supplied 64×64 bitmap and scene graph helpers. The final artifact is a local browser scene; solver instructions contain only that contract.
+逐项阅读了五个源任务的指令、场景及验收文件。这些是场景配置任务，不是射击任务。旧实现新增弹体发射／步进并替换实际位图，模糊了对齐工作。修订复用提供的 64×64 位图和场景图助手；最终产物为本地浏览器场景，求解指令只描述该契约。
 
-| Task | Removed from old Web task | Restored / replaced | Added browser acceptance | Equivalence decision |
+| 任务 | 从旧任务移除 | 恢复／替换 | 新增浏览器验收 | 等价判断 |
 | --- | --- | --- | --- | --- |
-| og-web-0024 | Fire/Step and unrelated projectile state | Actual holder and two children; SpawnTop [0,15], SpawnBot [0,-15], lower-named marker z=1; supplied bitmap | Parent translation/rotation and real layer probe | Old visual-only dots lost the hierarchy. Source wording about above/below contradicts its coordinates; retain its literal coordinates and explain positive Y downward. |
-| og-web-0069 | Generated approximate spikes and projectile actions | Inspect actual bitmap; upper/lower tip markers [4,-15]/[4,15], unchanged sprite, lower marker z=1 | Visible coordinate checks, sprite preservation and occlusion | Source acceptance allowed 8.5 pixels around [0,±15], while the actual tips are offset horizontally. New 2-pixel image-space tolerance checks the stated visual target more strictly; difficulty is not claimed identical. |
-| og-web-0070 | Approximate recentered illustration and firing | Move sprite so rectangle is centered at origin, then align separate holder markers to actual tips; reference sprite [20,0], markers [24,±15] | Independent sprite-position and marker checks, inherited transforms | Old adaptation omitted sprite-only centering. Source tolerances were 6 and 8.5 pixels; new tolerance is 2 pixels against actual bitmap geometry. Prompts require inspection, without giving the solution coordinates. |
-| og-web-0071 | Vertical-style substitute and projectile actions | Preserve supplied sprite rotation 90 degrees; align left/right tips [-15,4]/[15,4], right z=1 | Check sprite unchanged and avoid double rotation of marker holder | Source checks centered near [±15,0] with 8.5-pixel tolerance; real bitmap tips justify the offset and tighter 2-pixel tolerance. |
-| og-web-0072 | Two incorrect markers and only 32 units between trap origins | Deep copy complete TrapBot at [0,32]; new TrapTop at [0,-32], only its Sprite rotated to 270 degrees; four unchanged marker children | Arbitrary nested metadata and extra-child preservation, no mutable aliases, parent links, reset | Old adaptation materially reduced copying and transform work. Restored 64-unit separation and sprite-only rotation. Deep independence makes the intended instance-copy semantics executable. |
+| og-web-0024 | Fire／Step 和无关弹体状态 | 实际容器和两个子节点；SpawnTop [0,15]、SpawnBot [0,-15]，名称为下方的标记 z=1；原位图 | 父平移／旋转及真实层级探针 | 旧视觉点丢失层级。源“上／下”描述与坐标矛盾，保留字面坐标并说明正 Y 向下 |
+| og-web-0069 | 生成的近似尖刺及弹体动作 | 检查原位图；上下尖端 [4,-15]／[4,15]，精灵不变，下标记 z=1 | 可见坐标、精灵保留和遮挡 | 源允许距 [0,±15] 8.5 px，实际尖端有水平偏移；新图像空间容差 2 px 更严格，不宣称难度相同 |
+| og-web-0070 | 近似重居中插画及射击 | 仅移动精灵，使矩形居中原点，再对齐独立容器标记；参考精灵 [20,0]、标记 [24,±15] | 独立精灵／标记位置和继承变换 | 旧版遗漏仅精灵居中。源容差为 6／8.5 px，新容差按实际位图几何为 2 px；提示词要求观察，不给解答坐标 |
+| og-web-0071 | 竖直式替代图及弹体动作 | 保留精灵旋转 90°，对齐左右尖端 [-15,4]／[15,4]，右标记 z=1 | 精灵不变，避免标记容器重复旋转 | 源在 [±15,0] 附近检查 8.5 px 容差；实际尖端支持偏移及更严格 2 px 容差 |
+| og-web-0072 | 两个错误标记及陷阱原点仅相距 32 | 深复制位于 [0,32] 的完整 TrapBot；新 TrapTop 位于 [0,-32]，仅 Sprite 旋转 270°；四个标记子节点不变 | 任意嵌套元数据和额外子节点保留、无可变别名、父链接、重置 | 旧版明显减少复制／变换工作；恢复 64 单位间距及仅精灵旋转，深度独立使实例复制语义可执行 |
 
-Shared supplied helpers implement matrix composition and deep cloning. The solver configures the scene; implementing the helpers is not an added algorithm task. Move/Rotate/Layer/Reset are supplied inspection controls. Private scenarios test initial output, component wiring, transformed positions, actual SVG paint order and repeat reset. Each task has three focused mutations plus four shared rendering mutations. Public examples test parent movement. All five passed three-repeat staged QA, starter rejection and mutations; final shared-hash results are recorded in validation/task-audit.json.
+提供的共用助手实现矩阵组合和深克隆。求解者配置场景，不额外实现这些算法；Move／Rotate／Layer／Reset 是已提供检查控件。私有场景检查初始输出、组件接线、变换位置、真实 SVG 绘制顺序和重复重置。每项三个定向变异及四个共享渲染变异；公开示例检查父节点移动。五项均通过分阶段三次重复、起始项目拒绝及变异。最终共享哈希结果在 `validation/task-audit.json`。
 
-Asset: `trap.png`, unchanged bytes from each task's supplied `wall_trap.png`, SHA-256 `402d128f7b8cb52cba7107ccc50f955cb78033c3de15eb5f73989d24e51fa378`. Source attribution stays in package metadata, outside solver requirements.
+素材 `trap.png` 保持各源任务 `wall_trap.png` 字节不变，SHA-256 为 `402d128f7b8cb52cba7107ccc50f955cb78033c3de15eb5f73989d24e51fa378`。来源署名保留在包元数据，不写入求解要求。

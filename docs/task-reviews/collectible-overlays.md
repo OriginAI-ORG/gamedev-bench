@@ -1,51 +1,51 @@
-# Collectible overlay review
+# 可收集物覆盖层审查
 
-All33 original instructions, main scenes and validator differences were read. Both original JPEGs were inspected visually and their bytes were compared across the variants. The old Web adaptation preserved geometric targets and transforms but replaced the illustrated levels with generated raster fixtures and expressly excluded the original image's visual complexity. That replacement is not equivalent for a visual localization and contour-fitting task.
+已阅读全部 33 项原始指令、主场景及验证器差异，目视检查两张原始 JPEG，并比较不同变体中的字节。旧 Web 改编保留几何目标与变换，却用生成的栅格示例替代插画关卡，并明确排除原图视觉复杂度。对于视觉定位与轮廓拟合任务，这种替换并不等价。
 
-The repair restores original images, independently editable polygons, hierarchy, semi-transparency and original IoU thresholds. Supplied native scene services become a supplied SVG renderer driven by level.json and overlays.json. The solver still determines the geometry visually; target coordinates remain private and are not placed in the starter or prompt. Shared wording is directly authored once for variants whose substantive requirements are the same, and copied without a content generator; their individually transcribed scene data and private target differences remain separate.
+修订恢复原图、可独立编辑的多边形、层级、半透明和原 IoU 阈值。原生场景服务改为提供的 SVG 渲染器，由 level.json 与 overlays.json 驱动。求解者仍需视觉判断几何，目标坐标保持私有，不写入起始项目或提示词。实质要求相同的变体共用直接编写的文字，并在没有内容生成器的情况下复制；逐项转录的场景数据和私有目标差异仍独立保留。
 
-Removed: generated raster replacements, blanket asset/visual-complexity exemptions and the adaptation's arbitrary cyan fill / fixed0.45 alpha. Replaced: native scene hierarchy/shape resources with SVG groups/polygons and declarative data. Added: original-asset hashes, actual overlay pixel checks, inherited group transforms in geometric acceptance and deterministic one-to-one target matching. Visibility/reset and responsive presentation are supplied inspection services, not additional solver programming requirements. Native editor manipulation is replaced by text configuration, so tool-use difficulty is not claimed identical. No empirical model difficulty baseline has been rerun.
+移除生成栅格替代品、笼统的素材／视觉复杂度豁免、任意青色填充及固定 .45 透明度。原生层级／形状资源替换为 SVG 分组／多边形及声明数据。新增原始素材哈希、实际覆盖像素检查、包含继承分组变换的几何验收和确定性一对一匹配。可见性／重置及响应式展示是提供的检查服务，不是新增编程工作。原生编辑器操作变为文本配置，不能声称工具难度相同；未重新运行模型难度基线。
 
-The six-coin tests retain analytic polygon clipping at90% IoU. The single-star and gemstone tests retain source pixel-center sampling at85% IoU, including concave stars. Coin numbering can match any target bijectively. The source used greedy matching and ignored the containing highlight group's transform; the repaired check searches a complete one-to-one matching and measures transformed geometry. This avoids false rejection from numbering and false success from a displaced group. Vertex lists need not exactly match the oracle.
+六金币测试保留解析多边形裁剪和 90% IoU；单星及宝石保留源像素中心采样和 85% IoU，包括凹星形。金币编号可以与任意目标双射匹配。源验证采用贪心匹配且忽略高亮父组变换；修订搜索完整一对一匹配并测量变换后几何，避免编号造成误拒及分组移位造成误通过。顶点列表无需与标准答案逐点一致。
 
-| Task | Subject | Parent position | Uniform scale | Rotation radians | Individual review / repair |
+| 任务 | 对象 | 父节点位置 | 统一缩放 | 旋转弧度 | 逐项审查／修订 |
 | --- | --- | --- | --- | --- | --- |
-| og-web-0110 | Six circular coin highlights |55.5,5|1|0|Original529×350 image; six shapes, at least8 vertices and90% IoU. Source has no explicit scale assertion; retain supplied unit scale. Passed staged QA. |
-| og-web-0111 | Six circular coin highlights |55.5,5|0.55|0|Retain smaller scene scale and six targets. Passed staged QA. |
-| og-web-0112 | Six circular coin highlights |55.5,5|0.65|0|Retain its distinct scene scale. Passed staged QA. |
-| og-web-0113 | Six circular coin highlights |55.5,5|0.75|0|Retain its distinct scene scale. Passed staged QA. |
-| og-web-0114 | Six circular coin highlights |55.5,5|0.85|0|Retain its distinct scene scale. Passed staged QA. |
-| og-web-0115 | Six circular coin highlights |55.5,5|0.95|0|Retain its distinct scene scale. Passed staged QA. |
-| og-web-0116 | Six circular coin highlights |219.175,37.657|0.55|0.37|Targets5/6 have different positions/scales from216; retained individually. Passed staged QA. |
-| og-web-0117 | Six circular coin highlights |116.307,148.276|0.65|-0.43|Targets4/5/6 have different positions/scales from216; retained individually. Passed staged QA. |
-| og-web-0118 | Six circular coin highlights |155.049,8.622|0.75|0.22|Base targets with this inherited rotation. Passed staged QA. |
-| og-web-0119 | Six circular coin highlights |80.204,56.83|0.85|-0.11|Base targets with this inherited rotation. Passed staged QA. |
-| og-web-0120 | Six circular coin highlights |75.574,3.835|0.95|0.04|Base targets with this inherited rotation. Passed staged QA. |
-| og-web-0121 | Single star |53,5.5|0.65|0|Original1610×980 image; image offset[0,-0.76923084], concave outline with at least10 vertices,85% IoU. Passed staged QA. |
-| og-web-0122 | Single star |147.06,123.832|0.58|-0.1|Same local target and image offset; distinct parent transform retained. Passed staged QA. |
-| og-web-0123 | Single star |182.04,28.342|0.6|0.08|Same local target and image offset; distinct parent transform retained. Passed staged QA. |
-| og-web-0124 | Single star |163.975,154.92|0.55|-0.14|Same local target and image offset; distinct parent transform retained. Passed staged QA. |
-| og-web-0125 | Single star |184.431,4.461|0.61|0.12|Same local target and image offset; distinct parent transform retained. Passed staged QA. |
-| og-web-0126 | Single star |165.228,108.717|0.57|-0.06|Same local target and image offset; distinct parent transform retained. Passed staged QA. |
-| og-web-0127 | Single star |213.586,3.171|0.59|0.15|Same local target and image offset; distinct parent transform retained. Passed staged QA. |
-| og-web-0128 | Single star |173.749,180.879|0.53|-0.18|Same local target and image offset; distinct parent transform retained. Passed staged QA. |
-| og-web-0129 | Single star |161.296,41.702|0.61|0.04|Same local target and image offset; distinct parent transform retained. Passed staged QA. |
-| og-web-0130 | Single star |211.163,22.665|0.55|0.16|Same local target and image offset; distinct parent transform retained. Passed staged QA. |
-| og-web-0131 | Single star |115.625,61.995|0.64|-0.03|Same local target and image offset; distinct parent transform retained. Passed staged QA. |
-| og-web-0132 | Gemstone |53,5.5|0.65|0|Original1610×980 image; image offset[1.5384617,11.538463], at least4 vertices,85% IoU and purple tint. Passed staged QA. |
-| og-web-0133 | Gemstone |142.435,133.737|0.58|-0.12|Same local target/tint/offset; distinct parent transform retained. Passed staged QA. |
-| og-web-0134 | Gemstone |170.225,12.571|0.62|0.09|Same local target/tint/offset; distinct parent transform retained. Passed staged QA. |
-| og-web-0135 | Gemstone |168.697,168.035|0.54|-0.16|Same local target/tint/offset; distinct parent transform retained. Passed staged QA. |
-| og-web-0136 | Gemstone |202.751,1.477|0.6|0.14|Same local target/tint/offset; distinct parent transform retained. Passed staged QA. |
-| og-web-0137 | Gemstone |176.049,108.474|0.56|-0.05|Same local target/tint/offset; distinct parent transform retained. Passed staged QA. |
-| og-web-0138 | Gemstone |188.509,-25.555|0.63|0.16|Negative parent y is intentional and retained. Passed staged QA. |
-| og-web-0139 | Gemstone |180.812,188.842|0.52|-0.19|Same local target/tint/offset; distinct parent transform retained. Passed staged QA. |
-| og-web-0140 | Gemstone |158.137,46.505|0.61|0.03|Same local target/tint/offset; distinct parent transform retained. Passed staged QA. |
-| og-web-0141 | Gemstone |252.652,15.589|0.55|0.18|Same local target/tint/offset; distinct parent transform retained. Passed staged QA. |
-| og-web-0142 | Gemstone |118.631,56.766|0.64|-0.02|Same local target/tint/offset; distinct parent transform retained. Passed staged QA. |
+| og-web-0110 | 六枚圆形金币高亮 | 55.5,5 | 1 | 0 | 原始 529×350 图片；六个形状，各至少 8 个顶点且 IoU 达到 90%。源验证器没有明确缩放断言，保留提供的单位缩放。 已通过分阶段质量检查。 |
+| og-web-0111 | 六枚圆形金币高亮 | 55.5,5 | 0.55 | 0 | 保留较小的场景缩放及六个目标。 已通过分阶段质量检查。 |
+| og-web-0112 | 六枚圆形金币高亮 | 55.5,5 | 0.65 | 0 | 保留该项独立的场景缩放。 已通过分阶段质量检查。 |
+| og-web-0113 | 六枚圆形金币高亮 | 55.5,5 | 0.75 | 0 | 保留该项独立的场景缩放。 已通过分阶段质量检查。 |
+| og-web-0114 | 六枚圆形金币高亮 | 55.5,5 | 0.85 | 0 | 保留该项独立的场景缩放。 已通过分阶段质量检查。 |
+| og-web-0115 | 六枚圆形金币高亮 | 55.5,5 | 0.95 | 0 | 保留该项独立的场景缩放。 已通过分阶段质量检查。 |
+| og-web-0116 | 六枚圆形金币高亮 | 219.175,37.657 | 0.55 | 0.37 | 目标 5/6 的位置和缩放与 216 不同，逐个保留。 已通过分阶段质量检查。 |
+| og-web-0117 | 六枚圆形金币高亮 | 116.307,148.276 | 0.65 | -0.43 | 目标 4/5/6 的位置和缩放与 216 不同，逐个保留。 已通过分阶段质量检查。 |
+| og-web-0118 | 六枚圆形金币高亮 | 155.049,8.622 | 0.75 | 0.22 | 基础目标继承本项旋转。 已通过分阶段质量检查。 |
+| og-web-0119 | 六枚圆形金币高亮 | 80.204,56.83 | 0.85 | -0.11 | 基础目标继承本项旋转。 已通过分阶段质量检查。 |
+| og-web-0120 | 六枚圆形金币高亮 | 75.574,3.835 | 0.95 | 0.04 | 基础目标继承本项旋转。 已通过分阶段质量检查。 |
+| og-web-0121 | 单颗星星 | 53,5.5 | 0.65 | 0 | 原始 1610×980 图片；图片偏移 [0,-0.76923084]，凹星形轮廓至少 10 个顶点，IoU 达到 85%。 已通过分阶段质量检查。 |
+| og-web-0122 | 单颗星星 | 147.06,123.832 | 0.58 | -0.1 | 局部目标与图片偏移相同，保留独立父节点变换。 已通过分阶段质量检查。 |
+| og-web-0123 | 单颗星星 | 182.04,28.342 | 0.6 | 0.08 | 局部目标与图片偏移相同，保留独立父节点变换。 已通过分阶段质量检查。 |
+| og-web-0124 | 单颗星星 | 163.975,154.92 | 0.55 | -0.14 | 局部目标与图片偏移相同，保留独立父节点变换。 已通过分阶段质量检查。 |
+| og-web-0125 | 单颗星星 | 184.431,4.461 | 0.61 | 0.12 | 局部目标与图片偏移相同，保留独立父节点变换。 已通过分阶段质量检查。 |
+| og-web-0126 | 单颗星星 | 165.228,108.717 | 0.57 | -0.06 | 局部目标与图片偏移相同，保留独立父节点变换。 已通过分阶段质量检查。 |
+| og-web-0127 | 单颗星星 | 213.586,3.171 | 0.59 | 0.15 | 局部目标与图片偏移相同，保留独立父节点变换。 已通过分阶段质量检查。 |
+| og-web-0128 | 单颗星星 | 173.749,180.879 | 0.53 | -0.18 | 局部目标与图片偏移相同，保留独立父节点变换。 已通过分阶段质量检查。 |
+| og-web-0129 | 单颗星星 | 161.296,41.702 | 0.61 | 0.04 | 局部目标与图片偏移相同，保留独立父节点变换。 已通过分阶段质量检查。 |
+| og-web-0130 | 单颗星星 | 211.163,22.665 | 0.55 | 0.16 | 局部目标与图片偏移相同，保留独立父节点变换。 已通过分阶段质量检查。 |
+| og-web-0131 | 单颗星星 | 115.625,61.995 | 0.64 | -0.03 | 局部目标与图片偏移相同，保留独立父节点变换。 已通过分阶段质量检查。 |
+| og-web-0132 | 宝石 | 53,5.5 | 0.65 | 0 | 原始 1610×980 图片；图片偏移 [1.5384617,11.538463]，至少 4 个顶点，IoU 达到 85%，带紫色调。 已通过分阶段质量检查。 |
+| og-web-0133 | 宝石 | 142.435,133.737 | 0.58 | -0.12 | 局部目标、色调与偏移相同，保留独立父节点变换。 已通过分阶段质量检查。 |
+| og-web-0134 | 宝石 | 170.225,12.571 | 0.62 | 0.09 | 局部目标、色调与偏移相同，保留独立父节点变换。 已通过分阶段质量检查。 |
+| og-web-0135 | 宝石 | 168.697,168.035 | 0.54 | -0.16 | 局部目标、色调与偏移相同，保留独立父节点变换。 已通过分阶段质量检查。 |
+| og-web-0136 | 宝石 | 202.751,1.477 | 0.6 | 0.14 | 局部目标、色调与偏移相同，保留独立父节点变换。 已通过分阶段质量检查。 |
+| og-web-0137 | 宝石 | 176.049,108.474 | 0.56 | -0.05 | 局部目标、色调与偏移相同，保留独立父节点变换。 已通过分阶段质量检查。 |
+| og-web-0138 | 宝石 | 188.509,-25.555 | 0.63 | 0.16 | 父节点 y 为负值是有意设置，予以保留。 已通过分阶段质量检查。 |
+| og-web-0139 | 宝石 | 180.812,188.842 | 0.52 | -0.19 | 局部目标、色调与偏移相同，保留独立父节点变换。 已通过分阶段质量检查。 |
+| og-web-0140 | 宝石 | 158.137,46.505 | 0.61 | 0.03 | 局部目标、色调与偏移相同，保留独立父节点变换。 已通过分阶段质量检查。 |
+| og-web-0141 | 宝石 | 252.652,15.589 | 0.55 | 0.18 | 局部目标、色调与偏移相同，保留独立父节点变换。 已通过分阶段质量检查。 |
+| og-web-0142 | 宝石 | 118.631,56.766 | 0.64 | -0.02 | 局部目标、色调与偏移相同，保留独立父节点变换。 已通过分阶段质量检查。 |
 
-Coin scenes use a supplied640×360 inspection viewport; star/gem scenes use1152×648. These are browser presentation choices, not inferred original explicit viewport requirements. All parent transforms and image-local positions remain as supplied. The source rotated-coin scenes already contain their requested rotations; they are retained in the starter rather than turned into an extra programming task.
+金币场景使用提供的 640×360 检查视口，星星／宝石使用 1152×648。这是浏览器展示选择，不是从源任务推断出的明确视口要求。所有父节点变换和图片局部位置均保持原值。旋转金币源场景已包含所要求的旋转，起始项目保留这些设置，不改成额外编程任务。
 
-The gemstone source validator requires effective normalized red0.35–1, green0.05–0.75, blue0.45–1 and blue>green although the short instruction omits that tint restriction. The repaired prompt must disclose it. The source star image offset and gemstone image offset are different and must not be normalized away.
+宝石源验证器要求有效归一化红色 .35–1、绿色 .05–.75、蓝色 .45–1，且蓝色大于绿色；简短指令未写明这一限制，修订提示词必须公开。星星与宝石的图片偏移不同，不能统一消除。
 
-QA evidence for all33 variants: three-repeat reference checks, targeted geometry/opacity/tint/image-position mutations, four visual faults and starter rejection. Browser JPEG resampling can change a few pixels between show/hide/reset; the reset screenshot uses a small mean error tolerance, while asset bytes, transform data and geometric IoU are checked independently. The navigation guard now briefly retries blank pixels while asynchronous scene/image loading completes; delayed rendering and permanently blank rejection have separate passing regression tests. Final evidence is bound to current task/shared-harness hashes in validation/task-audit.json.
+全部 33 个变体的证据包括参考实现三次重复检查、针对几何／不透明度／色调／图片位置的变异、四类视觉故障及起始项目拒绝。浏览器 JPEG 重采样可能使显示／隐藏／重置之间有少量像素差异，因此重置截图允许较小平均误差；素材字节、变换数据和几何 IoU 独立检查。导航保护在异步场景／图片加载时短暂重试空白像素；延迟渲染及永久空白拒绝分别有通过的回归测试。最终证据绑定当前任务与共享检查框架哈希，记录于 validation/task-audit.json。

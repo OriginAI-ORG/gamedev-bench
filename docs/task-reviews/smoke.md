@@ -1,9 +1,9 @@
-# Campfire smoke: individual source review
+# 营火烟雾：逐项来源审查
 
-All twenty instructions and numeric validator clauses were read. Main scenes are byte-identical (SHA256 prefix9dbac728b6a8); validators have the same control flow after numeric/string normalization (prefixeef76efcdb6a). Each starter contains Campfire at(600,500), a256×256 base sprite and an existing flame emitter at local(0,-28). Smoke is absent. This is an add/configure resource task, not a request to implement a particle simulator.
+已阅读 20 项指令及数值验证条款。主场景逐字节相同，SHA-256 前缀 `9dbac728b6a8`；数字／字符串归一化后验证器控制流相同，前缀 `eef76efcdb6a`。每个起始项目包含位于 (600,500) 的 Campfire、256×256 底部精灵及局部 (0,-28) 的火焰发射器，缺少烟雾。这是添加／配置资源任务，不要求实现粒子模拟器。
 
-| Task | Amount / lifetime / preprocess | Direction X | Speed | Sway ± | Max scale | Trail seconds | Sections / subdivisions |
-|---|---|---|---|---|---|---|---|
+| 任务 | 数量／寿命／预处理 | 方向 X | 速度 | 摆动 ± | 最大缩放 | 拖尾秒数 | 段数／细分数 |
+| --- | --- | --- | --- | --- | --- | --- | --- |
 |315|8 /12 /18|.15|20–35|20|2|4|24 /24|
 |316|20 /18 /25|.25|40–65|40|4|6|48 /48|
 |317|15 /10 /15|.1|50–80|25|3|4.5|32 /32|
@@ -25,14 +25,14 @@ All twenty instructions and numeric validator clauses were read. Main scenes are
 |333|6 /24 /32|.2|10–18|10|1.8|8|44 /44|
 |334|24 /9 /12|.15|55–80|35|4.2|3.5|40 /40|
 
-The previous Web version replaced the three source textures with synthetic shapes, moved the effect to(900,820), prescribed one alpha/width formula and required a full SVG simulation. This discarded resource assembly, texture binding and configurable curve/gradient composition, while adding unrelated algorithm implementation. All twenty repairs restore the resource-assembly boundary and task-specific configuration.
+旧 Web 版本用合成形状替代三张源纹理，把效果移至 (900,820)，指定唯一透明度／宽度公式，并要求完整 SVG 模拟。这丢失资源组装、纹理绑定及可配置曲线／渐变组合，增加无关算法工作。20 项修订均恢复资源组装边界及任务专属配置。
 
-Removed: native serialization/types, source-engine disclaimer, SVG-only output and full-simulator implementation. Replaced: native curve/gradient resources with supplied independent Curve,CurveXYZ and Gradient objects; native GPU trails with a supplied WebGL textured triangle-strip renderer. Source textures are copied byte-for-byte (full hashes in assets.json). Campfire position/base/Fire properties remain supplied; the browser's provided flame animation approximates its original particle distribution and is not a new solver requirement.
+移除原生序列化／类型、源引擎免责、仅 SVG 输出和完整模拟器实现。以提供的独立 Curve、CurveXYZ、Gradient 对象替代原生曲线／渐变资源，以提供的 WebGL 纹理三角带渲染器替代 GPU 拖尾。源纹理逐字节复制，完整哈希在 assets.json。营火位置／底部／Fire 属性仍已提供；浏览器提供的火焰动画近似原粒子分布，不新增求解工作。
 
-Restored: per-row quantity,life,preheat,direction,speed,sway,growth,trail duration/sections/subdivisions; zero gravity; an X sway curve with at least three points; a separate growth curve and orange→gray→transparent ramp; actual smokelet texture applied across continuous trails. Curve shapes/colors remain solver choices. Explicit normalized domains, both positive/negative sway, monotonic growth, gray middle and fully transparent endpoint clarify the intended appearance. The source validator was weaker: it accepted any three X points, endpoint-only growth, merely warm first color and last alpha≤.15. Exact parameters and these semantic checks are recorded tightenings, not identical old pass criteria.
+恢复逐项数量、寿命、预热、方向、速度、摆动、增长、拖尾时长／段数／细分；零重力；至少三点的 X 摆动曲线；独立增长曲线和橙→灰→透明渐变；连续拖尾实际使用烟粒纹理。曲线形状与颜色可自行选择。明确归一化定义域、正负摆动、单调增长、灰色中段和全透明终点，以澄清目标外观。源验证器较弱，仅接受任意三个 X 点、端点增长、暖色起点及末尾 alpha≤.15。精确参数与语义检查是记录在案的收紧，不是旧通过条件完全相同。
 
-The provided runtime integrates the X curve over normalized particle age for lateral velocity, uses normalized initial direction, and maps sections×subdivisions+1 history points into textured ribbon geometry. This defines a browser-native curve/sampling model; native GPU interpolation/randomization/rasterization equivalence is not claimed. It avoids moving that simulator burden onto the solver. The source project does not specify a viewport size; the supplied browser inspection viewport is1200×700.
+提供的运行时在归一化粒子年龄上积分 X 曲线以得到横向速度，使用归一化初始方向，并把“段数×细分数+1”历史点映射为纹理带几何。这定义了浏览器曲线／采样模型，不宣称原生 GPU 插值／随机化／栅格化等价，也不把模拟负担交给求解者。源项目未指定视口，提供的浏览器检查视口为 1200×700。
 
-Acceptance verifies source image hashes, immutable provided files, hierarchy and independent material resources, all per-row settings, curve/ramp constraints, numerical motion integration, growth/fade endpoints, trail duration/tessellation, parent translation, particle expiry, actual texture/trail/growth effects on pixels, preheat and repeatable controls. Negative mutations remove trails, sway, growth or select the flame texture instead of smoke. These checks demonstrate resource settings affect the rendered effect; they do not certify equal human/model completion times or unmeasured artistic quality.
+验收检查源图哈希、不可变文件、层级与独立材质、逐项配置、曲线／渐变限制、数值运动积分、增长／淡出端点、拖尾时长／细分、父节点平移、粒子过期、纹理／拖尾／增长对像素的真实影响、预热和可重复控件。反例移除拖尾、摆动、增长或误选火焰纹理。这证明配置影响渲染，不证明人类／模型用时相同或未测量的美术质量。
 
-Runtime verification notes: an emission boundary can temporarily leave one pool slot empty, so preheated live count is checked against capacity minus one through capacity; configured amount is checked exactly. High tessellation preserves every requested sample while using triangle strips to avoid duplicate triangle vertices. Display refresh leaves100ms between draws. A standalone315-family high-density316 measurement recorded34.5ms JavaScript draw submission and1697ms Playwright pause-click completion on the local browser; three concurrent GPU tests exceeded the generic2200ms action timeout. Visual-control actions therefore use an8000ms timeout, without changing particle or mesh requirements. This is harness timing tolerance, not a measured frame-rate claim.
+运行时说明：发射边界可能暂时空出一个池槽，因此预热存活数允许容量减一至容量，配置数量仍精确检查。高细分保留全部请求样本，并用三角带避免重复三角顶点。显示刷新两次绘制之间留 100 ms。独立运行 315 任务族的高密度 316 时，本地测得 JavaScript 绘制提交 34.5 ms、Playwright 暂停点击完成 1697 ms；三个并发 GPU 测试超过通用 2200 ms 动作超时。因此视觉控件采用 8000 ms 超时，不改变粒子／网格要求。这是检查框架时间容差，不是实测帧率声明。

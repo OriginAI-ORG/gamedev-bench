@@ -1,41 +1,41 @@
-# Sprite and animation review
+# 精灵与动画审查
 
-The source instruction, validator and starter scene were read for all 16 sprite-family tasks. Completion is recorded per task below; reviewing a source does not imply its browser implementation is repaired. The old shared Web family replaced source images with rotating SVG limbs, used manual frame counters, and added generic idle/run modes even to tasks that only configure direction clips. That substitution removed image interpretation, frame selection, clip target binding and many task-specific component obligations.
+已阅读全部 16 个精灵任务的源指令、验证器及起始场景。下文逐项记录完成情况；检查来源不意味着浏览器实现已经修复。旧共用 Web 任务族用旋转 SVG 肢体替代源图片、采用手动帧计数，甚至为只配置方向动画的任务增加通用 idle／run 模式，丢失图像解读、选帧、轨道目标绑定及许多专属组件要求。
 
-## Completed four-direction tasks
+## 已完成的四方向任务
 
-| Task | Removed/incorrect in old Web task | Replacement/restoration | New explicit requirements and acceptance |
+| 任务 | 旧任务缺失／错误 | 恢复或替换 | 新增明确要求与验收 |
 | --- | --- | --- | --- |
-| og-web-0034 | Actual 6×4 sheet, frame 6 initial state, single sprite-frame track, area ray; generic idle/run replaced four named clips | Retain bitmap, configure supplied Sprite/Collider/Ray/Clip types; real up/down/left/right frame sets and 32×32 collider | Six keys at 0.1-second spacing and .6-second loop are explicit browser timings; actual pixels, track identity, ray and collider behavior are tested. |
-| og-web-0053 | Uniform-grid inference and original direction grouping | Preserve the task's image-based grid inference; no answer grid dimensions in the prompt; restore actual clip binding and ray | Supplied animator and probes make configuration observable. Initial frame 0 makes the runtime default explicit. |
-| og-web-0054 | Deriving collision size from the game grid; old prompt gave the answer as a generic drawing parameter | Supply gridCellSize independently of image size and require it to drive collision dimensions | Inject a different gridCellSize to verify the binding, alongside default boundary checks. This avoids relying on an unspecified grid in the original starter. |
-| og-web-0055 | The shuffled source image and its distinct direction map disappeared entirely | Retain this task's distinct bitmap; up uses [0,1,2,6,7,8], down [3,4,5,9,10,11], left [12,13,14,18,19,20], right [15,16,17,21,22,23] | Independently verify every selected frame and rendered crop. The solver derives the mapping visually; the answer map appears only in trusted acceptance/reference. |
-| og-web-0057 | Explicit 6×4 slicing and strict visual frame selection replaced by generic SVG rotation | Original bitmap with up [3,4,5,9,10,11], down [0,1,2,6,7,8], left [15,16,17,21,22,23], right [12,13,14,18,19,20] | Check all six distinct ordered cells instead of accepting repeated keys from a valid set. |
+| og-web-0034 | 实际 6×4 图集、初始帧 6、单精灵帧轨道、区域射线；通用 idle／run 替代四个命名动画 | 保留位图，配置提供的 Sprite／Collider／Ray／Clip；真实上下左右帧组及 32×32 碰撞体 | 明确六个键相隔 .1 秒、循环 .6 秒；检查实际像素、轨道身份、射线与碰撞行为 |
+| og-web-0053 | 均匀网格推断和原方向分组 | 保留根据图片推断网格，提示词不给网格答案；恢复真实动画绑定及射线 | 提供动画器和探针观察配置，初始帧 0 明确运行时默认 |
+| og-web-0054 | 从游戏网格推导碰撞尺寸；旧提示词把答案当通用绘图参数给出 | 独立提供 gridCellSize，要求其驱动碰撞尺寸 | 注入不同 gridCellSize 并检查默认边界，避免依赖源起始项目未指定的网格 |
+| og-web-0055 | 打乱源图片及独立方向映射完全丢失 | 保留专用位图；上 [0,1,2,6,7,8]，下 [3,4,5,9,10,11]，左 [12,13,14,18,19,20]，右 [15,16,17,21,22,23] | 独立检查每个选帧和渲染裁剪；求解者视觉推断映射，答案仅在可信验收／参考实现中 |
+| og-web-0057 | 明确 6×4 切分与严格视觉选帧变成通用 SVG 旋转 | 原位图；上 [3,4,5,9,10,11]，下 [0,1,2,6,7,8]，左 [15,16,17,21,22,23]，右 [12,13,14,18,19,20] | 检查六个互异且有序单元，不接受合法集合中的重复键 |
 
-All five remove unrelated idle/run/death modes. They preserve image inspection and configuration work while supplying the animation engine and collision algorithms. Source tests for some variants only required at least four keys, although prose asks for six; the repair follows the six-frame requirement. Ordering is made explicit as image order within each directional group. These timings and stronger completeness checks are documented changes, not claims of identical difficulty.
+五项均移除无关 idle／run／death 模式，保留图像检查与配置，提供动画引擎和碰撞算法。部分源测试只要求至少四键，但原文要求六帧，修订遵循六帧；顺序明确为方向组内图片顺序。这些时间与完整性增强是有记录的变化，不代表难度完全相同。
 
-Original 384×256 bitmaps are retained: normal sheet SHA-256 `c8467320182a8c302c201a16f5b9ea5e08271cbc740b9d20bf3b2b4d1c08cbe8`, shuffled og-web-0055 sheet SHA-256 `951a99a34634b6d0b0fea0a2ea94d2b5483bc5cb89d7ed8219a442e02f5dce2f`. No raster reconstruction was used. All five passed three-repeat staged QA, four targeted mutations, rendering faults and starter rejection; final shared-hash results are recorded in validation/task-audit.json.
+保留原 384×256 位图：普通图 SHA-256 `c8467320182a8c302c201a16f5b9ea5e08271cbc740b9d20bf3b2b4d1c08cbe8`，打乱的 og-web-0055 图 SHA-256 `951a99a34634b6d0b0fea0a2ea94d2b5483bc5cb89d7ed8219a442e02f5dce2f`。未重建栅格。五项通过分阶段三次重复、四个定向变异、渲染故障及起始项目拒绝；最终共享哈希结果在 `validation/task-audit.json`。
 
-## Completed eight-direction tasks
+## 已完成的八方向任务
 
-- og-web-0038/og-web-0047: original separate image sequences contain idle 16 and run 17 frames per direction. Restore floating movement mode, scale 2, feet collider center [7,44] and size [66,24]. og-web-0047 explicitly requires clockwise right-first direction mapping; actual file directions map [2,1,0,7,6,5,4,3]. Old Web og-web-0038 incorrectly used 16 run frames.
-- og-web-0048: run-named clips must use the 15-frame walk set; retaining the run set with a smaller procedural stride is not equivalent.
-- og-web-0049: atlas cells are 299×240 with 8 directional rows, idle 16 columns/run 17. Restore exact untrimmed source rectangles and direction mapping.
-- og-web-0050: use the walk atlas, actually 4485×1920 = 15 columns × 8 rows. Source test incorrectly demands 17 run frames; follow the instruction's full walk set, documenting that correction.
-- og-web-0051: only a visual feet collider is missing. The original supplied idle/run clips are complete (idle16/walk15, base FPS5, speed scale2). Do not force the solver to reconstruct all animations or supply exact collider coordinates in the visual-alignment prompt. Source loose tolerances: size distance <=35 from [66,24], center distance <=20 from [7,44].
-- og-web-0052: only death clips are missing. Keep supplied idle16/run17 at base FPS5 and speed scale2. Add eight death clips, nine frames each, base FPS10 and non-looping. Account for the existing scale2 when testing elapsed time.
+- `og-web-0038/og-web-0047`：原独立图序列每方向 idle 16 帧、run 17 帧。恢复浮动移动模式、缩放 2、脚部碰撞体中心 [7,44] 和尺寸 [66,24]。og-web-0047 明确要求从右开始顺时针映射，文件方向为 [2,1,0,7,6,5,4,3]。旧 og-web-0038 错用 16 帧 run。
+- `og-web-0048`：名为 run 的动画必须使用 15 帧 walk 集；保留 run 素材并减小程序步幅不等价。
+- `og-web-0049`：图集单元 299×240、八方向行，idle 16 列／run 17 列。恢复精确未裁边源矩形及方向映射。
+- `og-web-0050`：使用实际为 4485×1920，即 15 列×8 行的 walk 图集。源测试误要求 17 帧 run；遵循指令的完整 walk 集，并记录修正。
+- `og-web-0051`：只缺视觉脚部碰撞体。已有 idle／run 完整（idle16／walk15、基础 FPS5、速度倍率 2）。不要求重建动画，也不在视觉对齐提示词给出精确碰撞坐标。源宽松容差：尺寸距 [66,24] ≤35，中心距 [7,44] ≤20。
+- `og-web-0052`：只缺死亡动画。保留基础 FPS5、速度倍率 2 的 idle16／run17；添加八个死亡动画，各九帧、基础 FPS10、不循环。时间测试考虑已有倍率 2。
 
-These seven packages passed three-repeat staged QA, asset hash and pixel checks, targeted mutations, rendering faults and starter rejection. Removed procedural limb graphics, generic direction changes and manual completion counters. Replaced them with the unchanged bitmap sequences/atlases and a supplied real-time animation component. Added explicit base FPS5 for the assembly tasks, observable playback controls and reset, and one completion event at the end of a non-looping clip. og-web-0038 accepts any consistent bijection between the eight source directions and indices because its instruction does not specify the right-first order used by the other assembly tasks. og-web-0051 preserves its supplied animations and accepts the original collider tolerances, supplemented by explicit feet coverage and torso exclusion. Its fixture does not expose the missing collider answer. og-web-0052 tests completion at .45 seconds (9 frames / (10 FPS × scale2)), final-frame hold and exactly one completion notification.
+七项均通过三次重复、素材哈希与像素、定向变异、渲染故障及起始项目拒绝。移除程序肢体图形、通用方向切换和手动完成计数，以不变的位图序列／图集及提供的实时动画组件替代。组装任务明确基础 FPS5，提供可观察播放／重置及非循环结束时一次完成事件。og-web-0038 接受源八方向与索引的一致双射，因为其指令未规定其他组装任务的右优先顺序。og-web-0051 保留已有动画和原容差，补充脚部覆盖及躯干排除，示例不暴露缺失碰撞体答案。og-web-0052 检查 .45 秒完成（9 帧／(10 FPS×倍率 2)）、保持末帧及恰好一次通知。
 
-The sequence packages contain 385 unchanged asset files; the atlas packages contain 5. The digest of sorted relative UTF-8 names, each followed by a NUL byte and the raw SHA-256 of its file, is `7e63e8c697e098e94f2e3db8cbabc7383a3aaa736dccd0911c78c04281446866` for sequences and `c6c5fa9f4ac60848ffd2665fae1c63aab663c04628e4234411b9e4b84c99e656` for atlases. Original `License.txt` bytes are retained. The independent asset license requires attribution to **Bleed - http://remusprites.carbonmade.com/**, which is displayed by the fixture. This art is not newly generated and is not covered by the repository code license.
+序列包含 385 个不变素材文件，图集包含 5 个。将排序的相对 UTF-8 文件名、NUL 字节、对应文件原始 SHA-256 依次拼接计算的摘要，序列为 `7e63e8c697e098e94f2e3db8cbabc7383a3aaa736dccd0911c78c04281446866`，图集为 `c6c5fa9f4ac60848ffd2665fae1c63aab663c04628e4234411b9e4b84c99e656`。原 `License.txt` 字节保留。独立素材许可要求署名 **Bleed - http://remusprites.carbonmade.com/**，示例已显示。此美术不是新生成，也不适用仓库代码许可证。
 
-## Completed independent animation tasks
+## 已完成的独立动画任务
 
-- og-web-0058: restore actual lower animation-change and upper animation-finished subscriptions, protect attack, then play and seek to the lower current position within .05 seconds. Source supplied run uses frames0/1 over .2 seconds, stand frame6 over .1, upper attack7/8/9 over .3. The old one-step attack completion omitted time synchronization.
-- og-web-0061: lower sprite uses 15 horizontal frames from a 960×40 image, local offset [-2,-13] plus sprite offset [16,0]. Add only run0–5 with .1-second keys and .6-second loop, and stand6 with .1-second non-loop. Old generic animation task added unrelated directions/modes.
-- og-web-0064: 576×24 atlas is 24 cells; default0–3, six run frames, actual movement switches clips and flip. The source supplied movement skeleton has speed100 and jump/gravity context; restore the requested horizontal behavior without generic eight-direction modes. Source run test does not specify exact indices; inspect the sheet to select the run group and document any clarification.
-- og-web-0066: supplied character/knife atlases are 480×480, 10×10 cells, offsets[-24,-48]. Add hurt dual tracks70/71/72 at0/.1/.2 with callback at.3; fall80 and grounded82 both loop .1. Keep the supplied RESET clip. The original validator incorrectly exits with code1 even on success; browser acceptance should use actual successful assertions.
+- `og-web-0058`：恢复实际下层动画变化／上层动画完成订阅，保护攻击，再播放并在 .05 秒内定位到下层当前位置。提供的 run 为帧 0/1、时长 .2 秒，stand 为帧 6、.1 秒，上层 attack 为 7/8/9、.3 秒。旧单步攻击完成省略时间同步。
+- `og-web-0061`：下层精灵使用 960×40 图的 15 个水平帧，局部偏移 [-2,-13] 加精灵偏移 [16,0]。只添加 run0–5、键间隔 .1 秒、循环 .6 秒，以及 stand6、非循环 .1 秒。旧通用任务增加无关方向／模式。
+- `og-web-0064`：576×24 图集共 24 格；默认 0–3、六帧 run，真实移动切换动画和翻转。原移动框架有速度 100 及跳跃／重力背景；恢复要求的水平行为，不加通用八方向模式。源 run 测试未指定帧索引，应检查图片并记录澄清。
+- `og-web-0066`：提供角色／刀图集均为 480×480、10×10 单元、偏移 [-24,-48]。添加 hurt 双轨道 70/71/72，时间 0/.1/.2，.3 时回调；fall80 和 grounded82 均循环 .1 秒，保留 RESET。原验证器成功也退出 1，浏览器按真实成功断言判断。
 
-All four passed three-repeat staged QA and targeted mutations. Their distinct scopes replace the old generic eight-direction limb renderer. og-web-0058 supplies every clip and asks only for event subscriptions, attack protection and completion-time phase recovery; arbitrary player probes test event order and identity independently of the displayed fixture. Added explicit idempotent subscription cleanup for page resets. og-web-0061 supplies the sprite/renderer and asks only for the two missing clips; no generic collision or direction task remains. og-web-0066 supplies RESET, the player callback and both sprites; its method event is executed by the actual timeline, not a completion label. Added explicit single-call/replay semantics and endpoint-crossing checks.
+四项通过三次重复和定向变异，独立范围替代旧通用八方向肢体渲染器。og-web-0058 提供全部动画，只要求订阅、攻击保护和完成时相位恢复；任意播放器探针独立检查事件顺序／身份，新增页面重置时幂等清理。og-web-0061 提供精灵／渲染器，只缺两段动画，不要求通用碰撞或方向。og-web-0066 提供 RESET、玩家回调及双精灵，方法事件由实际时间线执行，不是完成标签；明确单次调用／重播及跨端点检查。
 
-og-web-0064 retains the original 576×24 image. Visual inspection identifies running cells 4–9, now explicitly required; the original prose and validator only required six unspecified cells. The browser contract makes the default 5 FPS explicit, hence .8/1.2-second loop durations. The supplied physics scaffold retains speed100, jump -300, gravity980, collider15×17.25 at[-.5,-2.625] and sprite offset[0,-2]. The solver configures slicing and horizontal state/flip control. Actual keyboard movement, phase continuity and every image crop are checked. These clarified indices and integration checks are recorded additions, not evidence of equal measured difficulty.
+og-web-0064 保留原 576×24 图。视觉检查识别 run 为 4–9，现明确要求；源原文和验证器仅要求未指定的六格。明确默认 5 FPS，因此循环为 .8／1.2 秒。提供物理框架保留速度 100、跳跃 -300、重力 980、碰撞体 15×17.25 位于 [-.5,-2.625]、精灵偏移 [0,-2]。求解者配置切分及水平状态／翻转；检查实际键盘移动、相位连续和每个裁剪。索引澄清与集成检查是记录的新增项，不是实测难度相同的证据。

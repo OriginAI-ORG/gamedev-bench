@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "Please cite the exact release version and source archive SHA-256 used in your evaluation."
+message: "请引用评测实际使用的确切发布版本及源代码压缩包 SHA-256。"
 title: "OriginGameDevBench"
 type: software
 version: "1.0.0"
@@ -8,5 +8,5 @@ url: "https://github.com/OriginAI-ORG/gamedev-bench"
 date-released: "2026-10-19"
 license: Apache-2.0
 authors:
-  - name: "OriginGameDevBench contributors"
-abstract: "A local benchmark of 218 browser component tasks and 10 complete games, with directly authored bilingual contracts, public feedback and independent acceptance."
+  - name: "OriginGameDevBench 贡献者"
+abstract: "本机运行的游戏开发基准，包含 218 项浏览器组件任务和 10 个完整游戏，提供直接编写的双语任务契约、公开反馈及独立验收。"

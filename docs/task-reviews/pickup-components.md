@@ -1,14 +1,14 @@
-# Pickup component review
+# 拾取组件审查
 
-Both source instructions, tests, component implementations and supplied scene/resource definitions were read. The former shared Web family conflated two different exercises into a one-dimensional F-key picker.
+已阅读两个源任务的指令、测试、组件实现和提供的场景／资源定义。旧共用 Web 任务族把两种不同练习混成一维 F 键拾取器。
 
-| Task | Removed or weakened | Replaced | Added by old Web task | Repair and acceptance |
-| --- | --- | --- | --- | --- |
-| og-web-0017 | Pickup class, 8×8 rectangular collider, original bitmap/sound, SFX routing, automatic body contact, Tank-only filter, exact collect argument, collect-before-play and audio-completion removal, instance transform [64,0] and scale [4,4] | Typed automatic collectible assembly became a generic nearest-item list | F button, arbitrary two-item inventory and one-dimensional range | Restore createPickup factory, exact provided-class instance, sprite/collider/audio assignments, body-entered wiring and world mounting. Keep the source's already-complete collection handler supplied. Check service identities, real collision, sample output through SFX, muted output, deferred removal and duplicate contacts. |
-| og-web-0027 | Three-coordinate distance, actual overlap subscriptions and filtering, InteractableItem type, ItemData array identity, prefab-path matching and external typed event | Three-dimensional interaction area became x-distance and text-only names | Radius 110, fixed x60/160/260 and manual Collect button | Restore PlayerInteractionHandler, category mask 2/layer 0, source positions, radius 2.5, real cube/sphere view, focus methods, enter/exit arrays, F input and prefabId resource matching. Probe arbitrary X/Y/Z distances, tied ordering, unmatched resources, exact event payloads, ordering, cleanup and independent handlers. Check WebGL pixels and navigated focus/collection. |
+| 任务 | 移除或弱化的要求 | 旧替换与新增项 | 修订与验收 |
+| --- | --- | --- | --- |
+| og-web-0017 | Pickup 类、8×8 矩形碰撞体、原位图／音效、SFX 路由、自动物体接触、仅 Tank 过滤、精确 collect 参数、先收集后播放及音频完成后移除、实例位置 [64,0] 和缩放 [4,4] | 类型化自动收集组件变成最近物品列表；新增 F 按钮、任意双物品背包及一维范围 | 恢复 createPickup 工厂、精确的提供类实例、精灵／碰撞／音频赋值、body-entered 接线和世界挂接。源完整收集处理器继续提供。检查服务身份、真实碰撞、SFX 采样输出、静音、延迟移除和重复接触。 |
+| og-web-0027 | 三维距离、真实重叠订阅／过滤、InteractableItem 类型、ItemData 数组身份、预制路径匹配及外部类型事件 | 三维区域变成 x 距离和文字名称；新增半径 110、固定 x 为 60/160/260 及 Collect 按钮 | 恢复 PlayerInteractionHandler、类别掩码 2／层 0、原位置、半径 2.5、真实立方体／球视图、焦点方法、进入／离开数组、F 输入和 prefabId 匹配。检查任意 X/Y/Z 距离、等距顺序、不匹配资源、精确事件载荷、顺序、清理、独立处理器、WebGL 像素及移动中的焦点／收集。 |
 
-New explicit browser details: supplied Tank movement uses 16-unit inputs and a 24×24 footprint for contact inspection; the pickup handler guards repeated contacts. The nearest-item handler ignores repeated keydown events, defines ties by array order, removes unmatched items without emitting a resource, and exposes disposal. These remove lifecycle ambiguity; they are recorded additions rather than silent claims of exact parity. The radius detector uses item centers, an explicit fixture convention replacing runtime shape-overlap details; nearest selection itself uses full three-dimensional distance.
+明确的浏览器新增细节：提供的 Tank 使用 16 单位输入和 24×24 占地检查接触；拾取处理器防止重复接触。最近物品处理器忽略重复 keydown，按数组顺序打破平局，移除无匹配资源的物品但不发出资源事件，并提供销毁方法。这些消除生命周期歧义，属于记录在案的新增要求。半径检测采用物品中心，作为明确示例约定替代运行时形状重叠细节；最近选择仍使用完整三维距离。
 
-Assets for og-web-0017: original `pickups.png` (8×8, SHA-256 `d9991637062ce03a881162697f0bea5ab129cba927299f1275825cf9ea3c9aba`) and `pickup.wav` (0.2613605442 seconds, SHA-256 `d55d670fb8ae02efa0206c59cb6c5f32214c1baba1fd336db2a7043cb9369d47`) are retained. og-web-0027 uses directly authored supplied WebGL geometry preserving cube side .75/highlight .9 and sphere radius .4/highlight .5. The renderer and detector are supplied so the solver's work remains component integration.
+`og-web-0017` 保留原 `pickups.png`（8×8，SHA-256 `d9991637062ce03a881162697f0bea5ab129cba927299f1275825cf9ea3c9aba`）和 `pickup.wav`（0.2613605442 秒，SHA-256 `d55d670fb8ae02efa0206c59cb6c5f32214c1baba1fd336db2a7043cb9369d47`）。`og-web-0027` 使用直接编写并提供的 WebGL 几何，保留立方体边长 .75／高亮 .9、球半径 .4／高亮 .5。渲染器和检测器由起始项目提供，求解工作仍是组件集成。
 
-Both passed three-repeat staged QA, targeted mutations, rendering faults and starter rejection. The first audio run exposed a fixture server policy that blocked local asset fetch; static verification now permits same-origin reads while routing still blocks other origins and sockets. Audio MIME types were added. A continuously replaced SVG element was also fixed before the passing run. Final evidence is recorded against the current shared files in validation/task-audit.json.
+两项均通过分阶段三次重复、定向变异、渲染故障和起始项目拒绝。首次音频检查发现示例服务器策略阻止本地素材请求；静态验证现在允许同源读取，同时仍阻止其他来源及套接字，并增加音频 MIME 类型。持续替换的 SVG 元素也在通过运行前修复。最终证据按当前共享文件记录于 `validation/task-audit.json`。

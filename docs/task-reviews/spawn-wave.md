@@ -1,11 +1,11 @@
-# Spawn wave integration review
+# 波次生成集成审查
 
-og-web-0029's instruction, acceptance, full scene transforms and all supplied scripts were inspected. The source supplies a minimal EnemyAIController whose placement hook records invocation and whose target setter retains a reference; it does not contain a pathfinding algorithm. The repaired browser task preserves this integration boundary.
+已检查 `og-web-0029` 的指令、验收、完整场景变换及全部提供脚本。源项目提供最小 EnemyAIController，其放置钩子记录调用，目标 setter 保存引用，没有寻路算法。修订后的浏览器任务保留这一集成边界。
 
-| Removed or weakened by old Web task | Replaced | Added by old Web task | Repair |
+| 旧 Web 任务移除或弱化的要求 | 替换 | 旧版新增项 | 修订 |
 | --- | --- | --- | --- |
-| Configurable factory, exact controller type, sibling parenting, full local/world transforms, placement-before-target order, optional target assignment, target identity, three event connections and trigger teardown | Scene components and callbacks became three circles at fixed screen coordinates | Manual Step chase, independent axis movement and arbitrary x50/150–240 trigger | Restore EnemySpawnPoint, TriggerVolume and connectWave with supplied scene/factory helpers. Copy position and basis without aliases, call placement hook after parenting/copy, set exact configured target only when enabled, connect all markers, remove trigger only after the complete wave and unsubscribe. Restore source parent translations, marker coordinates, player position and box dimensions. |
+| 可配置工厂、精确控制器类型、同级父子关系、完整局部／世界变换、先放置后目标的顺序、可选目标赋值、目标身份、三个事件连接和触发器清理 | 场景组件与回调变成固定屏幕坐标的三个圆 | 手动 Step 追逐、独立轴移动及任意 x50/150–240 触发区 | 恢复 EnemySpawnPoint、TriggerVolume 和 connectWave，提供场景／工厂助手。复制位置和基向量且不共享可变引用；设父节点和复制后调用放置钩子；仅启用时赋予精确配置目标；连接全部标记，完整波次后才移除触发器并取消订阅。恢复原父平移、标记坐标、玩家位置及盒体尺寸。 |
 
-New browser details are supplied Forward/Back inspection controls moving Z by 2, a parent-axis rotation control, projected target lines, explicit disposable subscriptions and return values. The source exercises instantiation/setup rather than chase behavior, so the unrelated chase algorithm is removed. The supplied projection renders spatial placement; it does not claim navigation mesh rendering or pathfinding coverage.
+新增浏览器细节均由起始项目提供：Forward／Back 让 Z 每次移动 2，父轴旋转控件、投影目标连线、可销毁订阅及返回值。源任务考查实例化／设置，因此移除无关追逐算法。投影显示空间放置，不宣称覆盖导航网格渲染或寻路。
 
-Independent checks inject a custom factory, translated/rotated/scaled parents and markers, a target distinct from the contacting body, and optional targeting disabled. They verify new instance identity, deep transform independence, parenting and call order; trigger tests observe enemy count at removal, all three bindings and pre-contact disposal. Browser checks verify visible placement/target lines, inherited rotation, repeated crossing and reset. The task passed three-repeat staged QA, five targeted mutations, four rendering faults and starter rejection. Final shared-hash results are recorded in validation/task-audit.json.
+独立检查注入自定义工厂、平移／旋转／缩放的父节点和标记、不同于接触物体的目标，以及禁用可选目标。验证新实例身份、变换深度独立、父关系和调用顺序；触发器检查移除时的敌人数、三个绑定及接触前销毁。浏览器检查可见放置／连线、继承旋转、重复穿越和重置。任务通过分阶段三次重复、五个定向变异、四类渲染故障及起始项目拒绝。最终共享哈希结果在 `validation/task-audit.json`。

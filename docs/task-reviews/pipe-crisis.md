@@ -1,15 +1,23 @@
-# Pipe Crisis: individual source comparison and repair
+# 《Pipe Crisis》逐项对照与修订记录
 
-The source instruction and14 weighted rubric criteria were read individually. Core difficulty combines spatial layout,finite pieces,time pressure,actual fluid routing,multi-source isolation and distinct fluid behaviors; full campaign and presentation are also required.
+## 原始要求与旧任务的问题
 
-| Change | Previous non-equivalence | Repair and acceptance |
-|---|---|---|
-| Removed | Fixed3×3 rotated pipes replaced placement from inventory and live planning. | Restore7×5 construction,finite stock,rotation before/after placement,returning unused pieces,real countdown and early start. Check invalid placement,stock,locked/wet edits and live UI timing. |
-| Removed | Single fluid and one route omitted simultaneous sources,mixing,T branches and genuine crossings. | Restore all branches,independent cross channels,matching drains and contamination. Independently construct all15 routes; test wrong entry,gaps,leaks,mixing and partial completion. |
-| Removed | Acid,steam,reservoirs and resistant pipes were absent. | Restore corrosion after exposure,faster steam,buffer delay and acid lining with independent timed checks; test unused special components cannot satisfy a traversal objective. |
-| Removed | No campaign,escalating facilities or multiple obstacle types. | Fifteen authored layouts with single/multiple/crossing sources,blocks and fixed pipes; completion marks,next level,final return and retry. |
-| Weakened | Static geometric array and one result replaced the source's complete visuals and full rubric. | Illustrated industrial terrain/parts,mechanical terminals,distinct fluid symbols,animated flow,pressure HUD,failure position and efficiency/time results. Keep all14 criteria with15/35/15/35 weighting; manual art remains unscored until reviewed. |
-| Replaced | Native launch and input traces. | Self-contained browser package and deterministic real browser input traces showing normal construction,isolated crossing and failure/retry. |
-| Added | Exact maps,stocks,countdowns,fluid times and simulation/DOM interfaces. | Both prompts state these additions. They support independent verification but reduce the original open-ended balancing and level-design freedom. Original engine/editor work is not identical to Web implementation. |
+原始任务的 14 项标准要求空间布局、有限库存、时间压力、真实流体传播、隔离的多源流体、不同流体行为及完整关卡流程。旧版本只有固定 3×3 管道旋转和单流体路径，不能覆盖这些要求。
 
-The prior adaptation did lower scope substantially. Restoring all systems and the full rubric addresses those losses; it cannot establish identical difficulty by assertion. Optional generated industrial art replaces unavailable mounted asset libraries. No task generation script was used. The blank starter provides no working routing solution. Version2.0.0 includes English and Chinese prompts,reference,public example,eight private scenarios and four behavior mutants. Final release requires matching final-file QA receipts; no automatic full artistic score is claimed.
+## 修订内容与独立检查
+
+| 对照项 | 修订内容 | 验证重点 |
+| --- | --- | --- |
+| 固定 3×3 旋转题 | 7×5 网格、有限库存、放置前后旋转、退回未使用管件、倒计时和提前启动 | 库存不足、锁定或已湿润管道的编辑限制，以及真实时间推进 |
+| 单一流体路线 | 分支、互不连通的交叉通道、匹配出口和污染 | 独立验证 15 条通关路线，以及错误入口、缺口、泄漏、混合和部分完成 |
+| 缺少特殊流体和管件 | 酸液腐蚀、更快的蒸汽、储液延迟与抗腐蚀内衬 | 只有实际经过特殊管件才计入对应行为 |
+| 缺少完整关卡流程 | 15 个布局、不同流体组合、障碍和固定管件、完成后进入下一关、最终结算及重试 | 逐关验证限制和结果 |
+| 静态数组与布尔结果替代展示 | 工业地形、管件、端口、流体符号、动态流动、压力面板、故障位置、效率和用时 | 恢复全部 14 项及 15/35/15/35 权重；美术评分为 `null` |
+| 原生程序运行方式 | 浏览器中的真实输入操作记录 | 建造、交叉通道失败和重试流程 |
+| 新增的固定约束 | 地图、库存、倒计时、流体时间、模拟接口、DOM 控件及双语说明 | 这些约束限制了设计自由，也不等同于原生编辑器工作流程 |
+
+## 证据与限制
+
+修订恢复了机制范围，但不证明与原任务难度完全一致。未提供的素材库由可选生成素材补充；任务内容直接编写，未采用任务生成器；起始项目为空白。
+
+2.0.0 包含英文／中文提示词、参考实现、公开示例、8 个私有场景及 4 个行为变异测试。最终发布要求匹配最终文件的质量检查回执。功能、操作与渲染检查不能替代完整的人工美术评估。

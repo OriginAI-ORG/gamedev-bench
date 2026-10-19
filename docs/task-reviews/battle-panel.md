@@ -1,29 +1,29 @@
-# Battle panel review
+# 战斗结果面板审查
 
-Individually compared each source instruction and `scripts/test.gd` against its 1.0.0 prompt, runtime and verifier. All 15 were non-equivalent: the old package retained appearance and button toggles but replaced a reusable, externally requested pause screen with manual turn and outcome controls. The 2.0.0 repair includes directly authored bilingual prompts, a browser component, a supplied running game and independent checks.
+逐一比较源指令和 `scripts/test.gd` 与 1.0.0 提示词、运行时及验证器。15 项均不等价：旧包保留外观与按钮切换，却把可复用、由外部请求的暂停界面换成手动回合及结果控件。2.0.0 修订包括直接编写的双语提示词、浏览器组件、提供的运行中游戏和独立检查。
 
-The shared omissions were an arbitrary-message method, the outcome enum, an external result event, correct service wiring, and UI operation while gameplay is paused. Original numeric center offsets are now explicit minimum centered extents; text may grow the container. The end-session operation completes the in-page session because a game component cannot reliably close its user's tab. This browser substitution is explicit in both languages. Disposal, duplicate-action prevention, a custom-message control and repeatable reset are additions that make component integration observable; the fixture supplies gameplay movement and time.
+共同缺失项包括任意消息方法、结果枚举、外部结果事件、正确服务接线，以及游戏暂停时仍可操作的界面。原数字中心偏移现明确为居中的最小范围，文字可以撑大容器。游戏组件不能可靠关闭用户标签页，因此结束会话操作改为结束页内会话，双语说明均明确此替换。销毁、防重复动作、自定义消息控件及可重复重置是为观察集成而新增；游戏移动和时间由示例提供。
 
-| Task | Removed or weakened in 1.0.0 | Replaced | Added in the repair | Restored parameters and acceptance |
+| 任务 | 1.0.0 中移除或弱化的要求 | 替换 | 修订新增项 | 恢复参数与验收 |
 | --- | --- | --- | --- | --- |
-| og-web-0060 | External request, arbitrary text, pause/service wiring, centered base extent | Manual turns and fixed outcome text; application exit becomes in-page finish | Supplied live clock/actor, disposal and reset checks | Black .34902; 40×40 centered minimum; Victorious! / 24 px; Awesome! / Restart, 50×16, fill. Test direct and event calls, pause, fresh restart, finish, geometry. |
-| og-web-0096 | Same component/integration losses as og-web-0060 | Same manual-result screen | Same observable lifecycle fixture | .34902; 40×40; Victorious! / 24; Awesome! / Restart, 50×16, fill. Retain its separate ID but record source dependence on og-web-0060. |
-| og-web-0097 | Request handling, arbitrary message, pause, 48×48 extent | Generic result screen and manual turn freeze | Lifecycle and resize probes | .4; 48×48; Stage Clear! / 26; Continue / Retry, 56×20, fill. Independently assert each value and running/paused/complete states. |
-| og-web-0098 | Request handling, message method, pause, 36×36 extent | Generic result screen | Live game and component probes | .32; 36×36; Victory! / 22; Done / Again, 60×18, fill. Verify both buttons and arbitrary loss/win text. |
-| og-web-0099 | Event, method, pause, centered 28×28 base | Manual outcomes | Lifecycle fixture | .29; 28×28; Victory Screen / 21; Continue / Replay, 54×18, fill. Test restored extent even when text is larger. |
-| og-web-0100 | Event, method, pause, centered 68×68 base | Manual outcomes | Live motion, event and disposal tests | .33; 68×68; Triumph! / 27; Advance / Restart Battle, 78×26, fill. Check service actions and explicit button minimums. |
-| og-web-0101 | Event, arbitrary message, real pause, 52×52 base | Generic panel | Lifecycle fixture | .44; 52×52; Mission Clear / 30; Keep Going / Try Again, 70×22, centered natural width. Test horizontal centering and all component behavior. |
-| og-web-0102 | Event, arbitrary message, real pause, 32×32 base | Generic panel | Lifecycle fixture | .31; 32×32; Winner! / 23; Accept / Retry, 58×18, natural width at left. Test left alignment separately from centered/fill variants. |
-| og-web-0103 | Event, message API, pause, 56×56 base | Manual result screen | Live clock and disposal probes | .27; 56×56; Round Won / 27; Advance / Reset, 66×24, left. Verify the Reset-labeled result action invokes a fresh game restart. |
-| og-web-0104 | Event, message API, pause, 24×24 base | Manual result screen | Live clock and reset probes | .41; 24×24; Cleared / 20; Proceed / Retry, 52×16, centered. Check minimum dimensions independently of natural text dimensions. |
-| og-web-0105 | Event, message API, pause, 72×72 base | Generic result panel | Observable live game | .47; 72×72; Encounter Won / 31; Next Round / Reset Fight, 80×28, centered. Verify long labels and both viewport sizes. |
-| og-web-0106 | Event, arbitrary message, pause, 20×20 base | Generic result panel | Lifecycle fixture | .37; 20×20; Mission Complete / 19; Okay / Restart, 48×16, fill. Test full-width buttons and actual clock freeze. |
-| og-web-0107 | Event, arbitrary message, pause, 76×76 base | Generic result panel | Lifecycle fixture | .43; 76×76; You Won This One / 32; Keep Going / Try Again, 82×30, fill. Test responsive layout and actual fresh-state restart. |
-| og-web-0108 | Event, arbitrary message, pause, 22×22 base | Generic result panel | Lifecycle fixture | .26; 22×22; Success / 18; Done / Retry, 46×15, left. Verify direct/event paths, disposal and service calls. |
-| og-web-0109 | Event, arbitrary message, pause, 80×80 base | Generic result panel | Lifecycle fixture | .45; 80×80; Battle Resolved / 33; Onward / Restart Match, 84×30, left. Check exact label/font/alpha and all lifecycle actions. |
+| og-web-0060 | 外部请求、任意消息、结果枚举、暂停／服务接线及居中基础尺寸 | 手动回合／固定结果面板；应用退出改为页内结束 | 提供实时游戏、时钟／角色、重置与销毁探针 | 黑色 .34902；居中最小 40×40；Victorious! / 24 px；Awesome! / Restart，50×16，填满宽度。检查直接调用、事件调用、暂停、全新重启、结束和几何。 |
+| og-web-0096 | 外部请求、任意消息、结果枚举、暂停／服务接线及居中基础尺寸 | 手动回合／固定结果面板；应用退出改为页内结束 | 提供实时游戏、时钟／角色、重置与销毁探针 | .34902；40×40；Victorious! / 24；Awesome! / Restart，50×16，填满。保留独立 ID，并记录对 og-web-0060 的来源依赖。 |
+| og-web-0097 | 外部请求、任意消息、结果枚举、暂停／服务接线及居中基础尺寸 | 手动回合／固定结果面板；应用退出改为页内结束 | 提供实时游戏、时钟／角色、重置与销毁探针 | .4；48×48；Stage Clear! / 26；Continue / Retry，56×20，填满。逐值检查及运行／暂停／完成状态。 |
+| og-web-0098 | 外部请求、任意消息、结果枚举、暂停／服务接线及居中基础尺寸 | 手动回合／固定结果面板；应用退出改为页内结束 | 提供实时游戏、时钟／角色、重置与销毁探针 | .32；36×36；Victory! / 22；Done / Again，60×18，填满。检查两个按钮及任意胜负文字。 |
+| og-web-0099 | 外部请求、任意消息、结果枚举、暂停／服务接线及居中基础尺寸 | 手动回合／固定结果面板；应用退出改为页内结束 | 提供实时游戏、时钟／角色、重置与销毁探针 | .29；28×28；Victory Screen / 21；Continue / Replay，54×18，填满。文字更大时仍检查恢复的基础尺寸。 |
+| og-web-0100 | 外部请求、任意消息、结果枚举、暂停／服务接线及居中基础尺寸 | 手动回合／固定结果面板；应用退出改为页内结束 | 提供实时游戏、时钟／角色、重置与销毁探针 | .33；68×68；Triumph! / 27；Advance / Restart Battle，78×26，填满。检查服务动作和按钮最小尺寸。 |
+| og-web-0101 | 外部请求、任意消息、结果枚举、暂停／服务接线及居中基础尺寸 | 手动回合／固定结果面板；应用退出改为页内结束 | 提供实时游戏、时钟／角色、重置与销毁探针 | .44；52×52；Mission Clear / 30；Keep Going / Try Again，70×22，居中自然宽度。检查水平居中及全部组件行为。 |
+| og-web-0102 | 外部请求、任意消息、结果枚举、暂停／服务接线及居中基础尺寸 | 手动回合／固定结果面板；应用退出改为页内结束 | 提供实时游戏、时钟／角色、重置与销毁探针 | .31；32×32；Winner! / 23；Accept / Retry，58×18，靠左自然宽度。单独检查左对齐。 |
+| og-web-0103 | 外部请求、任意消息、结果枚举、暂停／服务接线及居中基础尺寸 | 手动回合／固定结果面板；应用退出改为页内结束 | 提供实时游戏、时钟／角色、重置与销毁探针 | .27；56×56；Round Won / 27；Advance / Reset，66×24，靠左。确认 Reset 结果动作会启动全新游戏。 |
+| og-web-0104 | 外部请求、任意消息、结果枚举、暂停／服务接线及居中基础尺寸 | 手动回合／固定结果面板；应用退出改为页内结束 | 提供实时游戏、时钟／角色、重置与销毁探针 | .41；24×24；Cleared / 20；Proceed / Retry，52×16，居中。独立检查最小尺寸与文字自然尺寸。 |
+| og-web-0105 | 外部请求、任意消息、结果枚举、暂停／服务接线及居中基础尺寸 | 手动回合／固定结果面板；应用退出改为页内结束 | 提供实时游戏、时钟／角色、重置与销毁探针 | .47；72×72；Encounter Won / 31；Next Round / Reset Fight，80×28，居中。检查长标签及两个视口。 |
+| og-web-0106 | 外部请求、任意消息、结果枚举、暂停／服务接线及居中基础尺寸 | 手动回合／固定结果面板；应用退出改为页内结束 | 提供实时游戏、时钟／角色、重置与销毁探针 | .37；20×20；Mission Complete / 19；Okay / Restart，48×16，填满。检查全宽按钮及真实时钟冻结。 |
+| og-web-0107 | 外部请求、任意消息、结果枚举、暂停／服务接线及居中基础尺寸 | 手动回合／固定结果面板；应用退出改为页内结束 | 提供实时游戏、时钟／角色、重置与销毁探针 | .43；76×76；You Won This One / 32；Keep Going / Try Again，82×30，填满。检查响应布局及真正恢复初始状态。 |
+| og-web-0108 | 外部请求、任意消息、结果枚举、暂停／服务接线及居中基础尺寸 | 手动回合／固定结果面板；应用退出改为页内结束 | 提供实时游戏、时钟／角色、重置与销毁探针 | .26；22×22；Success / 18；Done / Retry，46×15，靠左。检查直接／事件路径、销毁和服务调用。 |
+| og-web-0109 | 外部请求、任意消息、结果枚举、暂停／服务接线及居中基础尺寸 | 手动回合／固定结果面板；应用退出改为页内结束 | 提供实时游戏、时钟／角色、重置与销毁探针 | .45；80×80；Battle Resolved / 33；Onward / Restart Match，84×30，靠左。精确检查标签／字体／透明度及全部生命周期。 |
 
-Source inconsistency: og-web-0060 and og-web-0096 describe expanding/filling buttons but their test compares a numeric flag inconsistent with that description; later fill variants use the expected different flag. The browser requirement follows the stated stretch behavior and tests rendered width directly rather than preserving the contradictory number.
+源材料存在矛盾：og-web-0060 与 og-web-0096 描述按钮扩展／填充，但测试比较的数字标志与描述不符；后续填充变体使用另一个预期标志。浏览器要求遵循文字描述，直接检查渲染宽度，不保留矛盾数字。
 
-Private scenarios: initial state; arbitrary external messages and outcome switching; real clock/actor pause, restart and finish; geometry at 1100×760 and 520×800; isolated component calls and disposal; repeated reset. Seven targeted mutations remove pause/event wiring, hardcode messages, call the wrong action, break centering/minimum size, or leave a disposed instance active. Every reference runs three repetitions; missing starter implementation and rendering faults must be rejected. All fifteen passed staged QA. Final cohort receipts bind current hashes after shared changes.
+私有场景覆盖初始状态、任意外部消息与结果切换、真实时钟／角色暂停、重启、结束、1100×760 和 520×800 的几何、隔离组件调用、销毁及重复重置。七个定向变异移除暂停／事件接线、硬编码消息、调用错误动作、破坏居中／最小尺寸，或让已销毁实例继续活动。每个参考实现运行三次；缺少实现的起始项目及渲染故障必须被拒绝。15 项均通过分阶段检查，最终批次凭据在共享变动后绑定当前哈希。
 
-The repeated layout variants remain correlated. Restoring their requirements does not demonstrate equal empirical difficulty without fresh solver runs; no old score is transferred to 2.0.0.
+重复布局变体仍然相关。没有新的求解者运行，恢复要求不能证明实测难度相同；不把旧分数转移到 2.0.0。
